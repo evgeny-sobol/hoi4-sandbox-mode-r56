@@ -1,0 +1,68 @@
+focus_tree[id = nauru_focus]:
+
+  focus[id = NRU_continue_phosphate_mining]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = NRU_further_phosphate_extraction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_futher_phosphate_extracion_two]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_start_exporting_phosphate]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_researchers_abroad]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_free_market]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_reap_the_benefits]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_britian_phosphate]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_japanese_phosphate]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_soviet_phosphate]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_establish_nauru_pacific_line]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_autonomy_for_the_tribes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = NRU_core_kiribati]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()

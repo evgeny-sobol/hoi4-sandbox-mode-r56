@@ -1,0 +1,828 @@
+focus_tree[id = r56_india]:
+
+  focus[id = RAJ_Linlithgows_Reign]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = r56_RAJ_revolt_against_the_oppressors_showcase]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Provincial_Elections]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = RAJ_assert_control_over_lhoyu]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Independent_Labour_Party]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  focus[id = RAJ_Indian_National_Congress]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  focus[id = RAJ_Unionist_Party]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(3)
+
+  focus[id = RAJ_Gather_Industrial_Funds]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Prepare_the_Lucknow_Session]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Secure_Rural_Hindus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = RAJ_Broaden_our_Coalition]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = RAJ_Nehrus_Campaign]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_An_Offer_for_Rajagopalachari]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Azads_Support]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Nehrus_Candidacy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_New_Leadership]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Appeal_to_the_Lower_Castes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Subvert_Stalinist_Influence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Pillais_Influence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Danges_Influence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Local_Organization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = RAJ_Centralize_the_Party]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = RAJ_Organize_a_Conference]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Ally_with_the_Muslim_League]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = RAJ_Fight_the_Muslim_League]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = RAJ_Siphon_Congress_Ministers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Appeal_to_Anglo_Indians]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Content_for_British_Rule]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Establish_a_Precense_in_Sindh]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_National_Unity]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Appeal_to_the_Peasentry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Democracy_and_Socialism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_India_United_under_Britain]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_A_Society_of_All_Classes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Seize_Influence_from_Upper_Castes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Implement_Equal_Education]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Dismantle_the_Judicial_System]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Abolish_the_Reservation_System]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Expand_Healthcare_Facilities]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Establish_The_Revolutionary_Guard]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Seize_the_Means]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_of_Production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_of_Distribution]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Connect_the_Rural_Areas]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_of_Exchange]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Invite_Soviet_Planners]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Invite_International_Theorists]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Agricultural_Collectivisation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Expand_Soviet_Aid]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Rethink_Resource_Policy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Combat_Institutional_Corruption]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Establish_a_Central_Committee]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Incentivize_Workplace_Democracy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_Liberation_of_South_Asia]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_Ceylon_Emergency]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Overthrow_the_Rana_dynasty]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = RAJ_The_Bhutanese_Revolt]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_Remaining_Ports]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Jinnahs_Kingdom]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($PAK) + $opinion_factor($BAN)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($PAK, $BAN)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAK->is_friend_of_PREV()
+          $BAN->is_friend_of_PREV()
+    available:
+      $PAK->can_PREV_get_wargoal_on_THIS()
+      $BAN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = RAJ_A_New_Movement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_Third_International]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Asian_Anti_Colonialism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Bind_South_Asia_Closer]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Socialist_Science]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Military_Cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Technological_Cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Establish_a_National_Government]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Assemble_the_Constitutional_Assembly]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Expand_Delhi_University]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Constitutional_Minority_Protections]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Crackdown_on_Radicalism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Caste_Reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Strengthen_Liberal_Elements]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Cut_down_on_Tariffs]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Relieve_the_Administrative_Burden]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Thorough_Corruption_Audits]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Reconect_broken_up_Industries]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Loosen_Rupee_Exchange]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Reproachment_with_the_West]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Nehrus_Vision_for_India]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Extensive_Agricultural_Subsidies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Want_Peace_Prepare_for_War]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Indo_Soviet_Friendship_Treaty]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Unity_in_India]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Concessions_to_Princes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_No_Compromises]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Integrate_the_Princely_States]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Central_Bureau_of_Investigation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Reform_our_Police_Force]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Revise_Taxation_Policies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Reestablish_our_Armed_Forces]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_No_Resentments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Equal_Partners]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Protect_the_Arabian_Sea]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_A_New_Way_Forward]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Mutual_Investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Bring_Democracy_to_South_Asia]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Armed_Neutrality]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Emphasise_Anti_Colonialist_Sentiment]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_Non_Aligned_Movement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Take_back_the_Ports]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Launch_The_Quit_India_Movement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Intervention_in_Pakistan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PAK)
+      +modifier:
+        $ai_rivalry_modifier($PAK)
+      +modifier:
+        $ai_betrayal_modifier_vs($PAK)
+    available:
+      $PAK->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = RAJ_Offer_the_British_Concessions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Outwards_to_the_World]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_Womens_Status]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Federalize_Education]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Foster_Mining_Jobs]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_The_Ones_Who_Got_Away]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Sit_Down_with_the_Farmers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Token_Social_Reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Expand_our_Ordance_Industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Placate_the_Nobles]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Answer_The_Call]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Institute_The_Draft]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Aquire_War_Material]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Fighting_Tyranny_whereever_it_may_be]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Federalisation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Internal_Security_Act]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Placate_the_British]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_A_Truly_Indian_Navy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Assemble_our_Cabinet]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Meet_with_the_Legislative]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Meet_with_the_Judiciary]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Our_First_Order_of_Business]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Railway_Expansion_Act]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Agricultural_Stabilisation_Act]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Educational_Reform_Act]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Insurance_Act]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_War_Powers_Act]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_New_Excavation_Companies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_New_Industrial_Centers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Expand_Urban_Centers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_His_Majesties_University]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Department_of_War_Studies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Open_for_Business]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Healthcare_Investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Civil_Aviation_Expansion]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Wheat_Exports]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Primary_Education]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Drought_Prevention_Measures]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_Bolster_our_Security_Forces]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_Arms_Industry_Expansion]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = RAJ_encourage_mass_recruitment_r56]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = RAJ_The_August_Offer]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()

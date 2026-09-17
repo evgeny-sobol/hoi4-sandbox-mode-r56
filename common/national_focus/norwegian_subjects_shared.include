@@ -1,0 +1,7 @@
+
+shared_focus[id = NSS_invite_norwegian_statesmen]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()

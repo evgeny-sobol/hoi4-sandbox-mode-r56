@@ -1,0 +1,701 @@
+focus_tree[id = Vietnam_focus]:
+
+  focus[id = VIN_ho_chi_minh_victorious]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = VIN_three_together_system]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_cement_rule_in_the_villages]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_land_reforms_program]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_begin_the_five_years_plan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_permanent_siege]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_political_reorganisation_of_the_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_asian_proletarian_solidarity]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_create_the_hanoi_group]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_finish_what_we_started]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($LAO) + $opinion_factor($CAM)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($LAO, $CAM)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LAO->is_friend_of_PREV()
+          $CAM->is_friend_of_PREV()
+    +available:
+      $LAO->can_PREV_get_wargoal_on_THIS()
+      $CAM->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = VIN_woo_the_stalinists]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_prepare_for_the_worst]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_anti_japanese_aim]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_intervene_in_chineses_affairs]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_invite_soviet_industrial_experts]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_la_lutte_victorious]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = VIN_immediate_land_reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_minimal_socialist_bureaucracy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_encourage_inter_party_democracy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_personnal_armament_program]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_expand_the_workers_class]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_internal_fight_continues]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_our_own_internationale]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_invite_poum_officers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_align_with_trotsky_regime]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_permanent_revolution_theory]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_strike_indochina]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($LAO) + $opinion_factor($CAM)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($LAO, $CAM)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LAO->is_friend_of_PREV()
+          $CAM->is_friend_of_PREV()
+    +available:
+      $LAO->can_PREV_get_wargoal_on_THIS()
+      $CAM->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = VIN_arm_malaysians_communists]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_fullfil_our_duty]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_mimic_the_red_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_vnqdd_in_power]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = VIN_vietnams_tridemism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_dan_toc]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_establish_the_ve_binh_cong_hoa]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_dan_chu]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_establish_the_regional_parliaments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_hanh_phuc]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_gradual_agrarian_reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_shining_dragon]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_help_the_kuomintang]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_anti_japanese_guerrila_tactics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_influence_our_brothers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_incochinese_neutrality]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_build_the_quang_bich_line]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_mutual_defensive_treaty]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_new_emperor]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = VIN_reform_the_royal_administration]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_cooperation_with_landlords]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_centralise_the_regions]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_hoi_quy_toc]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_royal_corporatism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_crush_the_republicans]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_deploy_the_dan_quan_hoang_gia]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_cooperation_with_japan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_trade_with_the_reorganised_government]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_cross_the_cangshan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($YUN)
+      modifier:
+        $ai_rivalry_modifier($YUN)
+      modifier:
+        $ai_betrayal_modifier_vs($YUN)
+    +available:
+      $YUN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = VIN_the_lone_dragon]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_greater_vietnam_concept]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        antagonism = 1 - ($opinion_factor($LAO) + $opinion_factor($CAM)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      modifier:
+        $ai_rivalry_modifier_max($LAO, $CAM)
+      modifier:
+        $ai_betrayal_modifier()
+        or:
+          $LAO->is_friend_of_PREV()
+          $CAM->is_friend_of_PREV()
+    available:
+      $LAO->can_PREV_get_wargoal_on_THIS()
+      $CAM->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = VIN_rule_the_thais]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($SIA)
+      modifier:
+        $ai_rivalry_modifier($SIA)
+      modifier:
+        $ai_betrayal_modifier_vs($SIA)
+    available:
+      $SIA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = VIN_total_economic_mobilization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_create_the_national_railway_administration]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_nationalize_french_businesses]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_cqtbcnqg]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_roaring_dragon_theory]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_expand_the_coal_mines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_new_agriculture_program]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_building_the_future]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_flying_dragon_theory]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_vietnam_national_university]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_educate_the_peasants]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_bidv]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_expand_urban_schools]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_petrolimex]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_habeco_investments]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_expand_automobile_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_reinvest_profits_in_military_production]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_create_the_hanoi_arsenal]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_expand_the_mekong_dams]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_begin_the_second_phase_of_the_industrial_plan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_commercial_pearl_of_asia]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_establish_the_national_army_of_vietnam]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+
+  focus[id = VIN_invite_foreign_instructors]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_new_rifles_for_a_new_army]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_group_559]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_new_entrenchment_tactics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_improve_inter_armies_communication]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_forest_expertise]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_forts_and_guerrilla]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_make_the_mountains_tremble]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_fast_and_powerful]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_national_defense_academy_of_vietnam]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_national_defense_institute_of_sciences]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_tanks_experimentation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_the_rock_paper_scissors_strategy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_build_the_nha_trang_dockyards]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_the_tiger_of_the_seas]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = VIN_protecting_the_pearl]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = VIN_establish_the_naval_staff]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_light_cruisers_and_heavy_damages]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_defeating_the_underwater_warfare]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_chien_binh_bien]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_form_the_national_air_force_of_vietnam]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $root_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = VIN_convert_civilian_planes]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_establish_the_air_force_research_committee]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_develop_new_fighters]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = VIN_troops_destruction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = VIN_buildings_destruction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = VIN_ships_destruction]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()

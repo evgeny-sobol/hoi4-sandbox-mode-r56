@@ -1,0 +1,231 @@
+focus_tree[id = west_africa_focus]:
+
+  focus[id = WAF_institutional_establishment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = WAF_seize_colonial_industries]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = WAF_establish_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_collectivist_thinking]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_everything_for_the_nation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_military_coup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = WAF_mobilization_of_the_masses]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_armament_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = WAF_organise_the_youth]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_join_the_axis]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_propagate_marxist_ideas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_seize_the_means_of_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = WAF_political_batallions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_join_the_comintern]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_red_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_prepare_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_continue_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = WAF_lead_the_african_communist_movements]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_find_close_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_common_armament_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = WAF_down_with_the_imperialists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = WAF_to_the_bitter_end]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_empower_the_educated_elite]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_gather_close_advisors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_religious_political_justifications]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_build_democratic_institutions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_control_extremists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_secret_police]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    available:
+      is_liberal_leader(no)
+
+  focus[id = WAF_police_the_north]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_state_intervention]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = WAF_fund_the_defense_industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = WAF_emphasize_religious_tolerance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_consider_foreign_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_push_for_a_west_african_federation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_proclaim_neutrality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_west_african_defense_treaty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_reinforce_the_treaty_members]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WAF_propose_a_west_african_federation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

@@ -1,0 +1,456 @@
+focus_tree[id = saudi_focus]:
+
+  focus[id = SAU_the_unifier]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SAU_solve_the_jafurah_dispute]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_reject_the_riyadh_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_deal_with_bp]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_invite_brabag]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_2_Invite_the_Soviet_oil_barons]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_concessions_to_standard_oil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(4)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_liberalize_the_market]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_placate_the_tribes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_improve_our_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_invite_foreign_investors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_diplomacy_in_the_sand]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_continue_hakimovs_legacy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_seek_german_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_introduce_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_democraticize_the_administration]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_invite_western_advisors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_enforce_the_zakat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_force_tribes_to_settle]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_reform_the_tax_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_enocurage_the_hajj]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_expand_the_riyadh_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_influence_the_king]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_provide_shelter_for_fritz_gobba]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_move_toward_german_alignment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_maintain_international_neutrality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_join_the_comintern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_western_alignment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_request_german_guns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_enact_censorship]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_increase_oil_exportations_to_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_form_a_volunteer_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_USS_quincy_meeting]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($NIC)
+      +modifier:
+        factor(0)
+        $NIC in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($NIC)
+
+  focus[id = SAU_army_focus_1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SAU_army_infantry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_army_infantry_desert]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_artillery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_land_doctrine1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_develop_anti_tank_capabilities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_yemen_lessons]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_encourage_general_creativity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_incorporate_nomad_tactics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SAU_camelry_expertise]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_special_forces_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_motorization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SAU_support_companies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_tank_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_romanticize_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_general_army_buff]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_political_correctness]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_five_year_plan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_awoken_generation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_spread_islam_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_old_traditions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_deterrence]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_ask_british_colonies]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SAU_destabilize_the_east]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SAU_war_with_yemen_and_oman]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($YEM) + $opinion_factor($OMA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($YEM, $OMA)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $YEM->is_friend_of_PREV()
+          $OMA->is_friend_of_PREV()
+    +available:
+      $YEM->can_PREV_get_wargoal_on_THIS()
+      $OMA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SAU_crush_the_golden_square]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_rivalry_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
+    +available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SAU_establish_labor_camps]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_autonomy_for_south_arabia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SAU_attack_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_rivalry_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
+    +available:
+      $PER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SAU_attack_turkey]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_rivalry_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
+    +available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SAU_claim_the_sinai]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SAU_our_rightful_domain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($IRQ) + $opinion_factor($ENG) + $opinion_factor($FRA) + $opinion_factor($ITA)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($IRQ)
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($ITA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $IRQ->is_friend_of_PREV()
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()

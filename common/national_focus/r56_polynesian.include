@@ -1,0 +1,378 @@
+
+shared_focus[id = PLY_UNIFIED_polynesian_unifacation]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_UNIFIED_connect_the_villages]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_first_steps_towards_modernisation]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_connect_the_islands]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_develop_taiwan]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_defend_our_union]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_UNIFIED_united_armed_forces]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_UNIFIED_exploit_resources]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_exploit_the_fijian_goldmines]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_exploit_the_nauruan_phosphate_mines]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_UNIFIED_seize_japanese_assets]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_UNIFIED_educational_reform]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_tourism_based_industry]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = PLY_invite_foreign_workers]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_workshops]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_infrastructure_works]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_a_paradise]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_new_building_projects]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_burn_the_forest]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_eradicate_the_threat_of_droughts]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_agriculture_based_economy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = PLY_expand_the_banana_platnations]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_expand_the_fishing_sector]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_anti_drought_measures]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_develop_the_villages]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_exploit_our_resources]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_reform_taxes]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_coastal_protection]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_japanese_investment]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_british_investment]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_open_up_the_university_of_the_south_pacific]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_japanese_heavy_industry]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_british_heavy_industry]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_purchase_foreign_licenses]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_free_trade]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_develop_port]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_industrial_boom]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_nation_wide_industrial_expansion]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_modernize_railway_system]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_modern_electronic_devices]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_new_research_complex]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_wrath_of_the_water_gods]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_develop_our_dockyards]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_naval_academy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_develop_indigenous_models]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_big_guns]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_build_airport]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_the_air_fleet]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_torpedo_bombers]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_recruit_marines]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_militarize_the_police_force]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+
+shared_focus[id = PLY_weaponry_modernization]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_special_forces]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_the_polynesian_industrial_fund]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_military_institute]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_open_university]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_economic_mobilization]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_encourage_local_arms_production]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_resource_commission]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PLY_the_roars_of_thunder]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_introduce_motorization_technologies]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PLY_the_steel_lions]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()

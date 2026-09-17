@@ -1,0 +1,1332 @@
+focus_tree[id = soviet_focus_old]:
+
+  focus[id = SOV_finish_the_five_year_plan_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_siberian_railnetworks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_improve_western_railnetworks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Improve_TransSiberian_Railway]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Siberian_Industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Develop_Vladivstok]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Develop_The_Ural_Moutain_Region]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_tranformation_of_nature]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_Develop_Oil_Concern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_industrial_cities]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_third_five_year_plan_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_steel_industry_improvements]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_workers_culture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Social_Welfare_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Education_Initiative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_Invest_in_Engineering_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_urbanization_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_Mass_Immunizations_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_progress_cult_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_socialist_science]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_copy_yaroslav_rubber_factory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_rocket_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_nuke_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_further_the_progress_cult]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_motherland_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SOV_move_industry_to_urals]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_defense_of_moscow]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_defense_of_stalingrad_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_defense_of_leningrad_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_move_capital_to_sverdlovsk_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_purchase_allied_weaponry_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_lease_british_planes_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_transpolar_flights_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SOV_ocean_going_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SOV_peoples_commissariat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_aviation_cult]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_women_pilots]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_militarized_schools_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_expand_the_agitprop_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_positive_heroism_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_collectivist_propaganda_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_tank_programs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_mass_tank_production_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_establish_tankograd]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_tank_improvements]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_cat_killers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_expand_red_fleet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_improve_our_naval_doctrine_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_strengthen_the_mobilization_plan_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SOV_rehabilitated_military_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_military_reorganization_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_desperate_measures_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_an_adaptable_army_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_lessons_of_war_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_penal_battalions_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_organization_of_the_partisans_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_experts_in_camouflage_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_swap_to_political_advisors_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_the_glory_of_the_red_army_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_the_glory_of_the_red_army_alt_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_great_purge]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+    available:
+      is_liberal_leader(no)
+
+  focus[id = SOV_stalin_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_stalins_cult_of_personality_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_nkvd_primacy_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    +available:
+      is_liberal_leader(no)
+
+  focus[id = SOV_nkvd_divisions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    +available:
+      is_liberal_leader(no)
+
+  focus[id = SOV_form_a_fifth_column_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SOV_counter_coup_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = SOV_power_struggle_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_in_the_name_of_the_czar_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_purge_splinter_factions_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    available:
+      is_liberal_leader(no)
+
+  focus[id = SOV_white_exiles_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_adopt_soviet_policies_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_orthadox_resurgance_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_reinstate_royal_exiles_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_accept_constituion_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_new_vozhd_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_form_the_white_emigres_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_promote_the_asno_detachment_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_follow_corportism_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_impose_national_unions_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_reject_cosmopolitanism_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_russian_women_fascist_movement_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_commit_to_the_orthodox_church_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_union_of_fascist_little_ones_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_all_russian_alligences_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_peoples_virtue_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_form_solider_committees_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_amnesty_for_political_opponents_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_cultural_autonomy_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_abolish_death_penalty_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_agrarian_socialism_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_create_a_national_directory_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_purge_religous_beurocracy_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    available:
+      is_liberal_leader(no)
+
+  focus[id = SOV_the_free_russian_people_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_increased_autonomy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_baltic_freedom_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_polish_autonomy_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_strike_the_eagle_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($PRE)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($GER, $PRE)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $PRE->is_friend_of_PREV()
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+      $PRE->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_imperial_legacy_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_restore_the_triple_entente_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_rule_over_the_mongols_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($MON) + $opinion_factor($TAN)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($MON, $TAN)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MON->is_friend_of_PREV()
+          $TAN->is_friend_of_PREV()
+    available:
+      $MON->can_PREV_get_wargoal_on_THIS()
+      $TAN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_crush_our_eastern_rival_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($MAN) + $opinion_factor($JAP)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($MAN, $JAP)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $MAN->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
+    available:
+      $MAN->can_PREV_get_wargoal_on_THIS()
+      $JAP->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_our_american_holding_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_return_to_the_baltics_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($EST) + $opinion_factor($LAT) + $opinion_factor($LIT)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($EST)
+        $rivalry_vs_into($LAT)
+        $rivalry_vs_into($LIT)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $EST->is_friend_of_PREV()
+          $LAT->is_friend_of_PREV()
+          $LIT->is_friend_of_PREV()
+
+  focus[id = SOV_reclaim_polish_overlordship_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_reclaim_bessarabia_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ROM) + $opinion_factor($MOL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($ROM, $MOL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ROM->is_friend_of_PREV()
+          $MOL->is_friend_of_PREV()
+    available:
+      $ROM->can_PREV_get_wargoal_on_THIS()
+      $MOL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_slavic_brotherhood]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_solve_the_karelian_question_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_rivalry_modifier($FIN)
+      +modifier:
+        $ai_betrayal_modifier_vs($FIN)
+    available:
+      $FIN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_trotskyite_victory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(SOV_trotskyite_victory)
+
+  focus[id = SOV_solidify_internal_control]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_initial_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_industrial_strategy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_begin_destalinization_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_trotskyite_narrative_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_conduct_nationwide_inspections_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_recalibration_of_quotas_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_localized_quality_control_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_status_of_labour_unions_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_socialism_in_one_country_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_permanent_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_policy_of_collective_security_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_far_east_fortification_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_two_red_flags_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SOV_operation_zet]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SOV_annex_tannu_tuva_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_war_with_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_intervention_in_china_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_fortify_mongolian_border_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_send_military_advisors_to_spain_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_anti_fascist_policies_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_seek_a_defense_pact_with_the_allies_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_policy_of_individual_security_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_approach_germany_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_improve_stalin_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SOV_claims_in_baltic_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_respect_baltic_self_determination_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_secure_leningrad_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_control_scandinavia_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_claims_on_poland_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_demand_eastern_poland_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_offer_poland_protection_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_claim_bessarabia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_invite_romania_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_demand_balkan_submission_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_seek_balkan_cooperation_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_war_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ENG) + $opinion_factor($FRA) + $opinion_factor($GER) + $opinion_factor($ITA)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($ENG)
+        $rivalry_vs_into($FRA)
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ITA)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ENG->is_friend_of_PREV()
+          $FRA->is_friend_of_PREV()
+          $GER->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+
+  focus[id = SOV_middle_east_diplomacy_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_southern_thrust]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PER) + $opinion_factor($IRQ) + $opinion_factor($AFG)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($PER)
+        $rivalry_vs_into($IRQ)
+        $rivalry_vs_into($AFG)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PER->is_friend_of_PREV()
+          $IRQ->is_friend_of_PREV()
+          $AFG->is_friend_of_PREV()
+
+  focus[id = SOV_support_afghan_ideology_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_preemptive_invasion_of_iran_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_the_khakimov_proposal_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_claim_on_the_straits_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($TUR) + $opinion_factor($PREV)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($TUR, $PREV)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $TUR->is_friend_of_PREV()
+          $PREV->is_friend_of_PREV()
+    available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_reconcile_japan_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SOV_claim_on_sinkiang]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_into_the_plateau_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_iron_curtain_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_comecon]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_expand_western_spy_rings_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_exploit_capitalist_instability]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_incite_a_greek_revolution_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GRE)
+      +modifier:
+        $ai_rivalry_modifier($GRE)
+      +modifier:
+        $ai_betrayal_modifier_vs($GRE)
+    available:
+      $GRE->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_overthrow_weak_king_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_high_tyranny_tilt()
+    +completion_reward:
+      $sandbox_log_cw_ignition(SOV_overthrow_weak_king_old)
+
+  focus[id = SOV_take_out_tito_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($YUG)
+      +modifier:
+        $ai_rivalry_modifier($YUG)
+      +modifier:
+        $ai_betrayal_modifier_vs($YUG)
+    available:
+      $YUG->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_facilitate_a_balkan_federation_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SOV_return_dalian_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($PRC)
+      +modifier:
+        factor(0)
+        $PRC in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($PRC)
+
+  focus[id = SOV_sino_soviet_treaty_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_support_vietnamese_revolutionaries_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_interest_in_cuba_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_a_cold_war_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_extend_the_curtain_outwards_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = SOV_world_revolution_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_ideological_propaganda_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_anti_colonialist_rebels]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_the_onslaught_on_colonialism_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_carry_revolution_east_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_the_end_of_the_imperialist_era_old]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_state_of_perpetual_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_workers_of_the_world_unite_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SOV_mass_firearms_production_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_shocktroops_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_sing_katyusha_sing_focus_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_smersh_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_partisan_suppression_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_grieve_stalin_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = SOV_consolidate_malenkovs_position_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_khruschev_takes_the_lead_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SOV_berias_goons_strike_old]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

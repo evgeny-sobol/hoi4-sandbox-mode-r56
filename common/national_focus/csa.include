@@ -1,0 +1,173 @@
+focus_tree[id = confederate_focus]:
+
+  focus[id = CSA_restablish_the_confederate_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = CSA_war_powers_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CSA_secure_the_neutral_states]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USB)
+      +modifier:
+        $ai_rivalry_modifier($USB)
+      +modifier:
+        $ai_betrayal_modifier_vs($USB)
+    available:
+      $USB->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = CSA_eliminate_the_southern_threat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = CSA_invite_synarchist_mexico]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = CSA_secure_mexico]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = CSA_claim_the_caribbean]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = CSA_rebuild_the_confederate_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_rural_education_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CSA_focus_on_civilian_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_rebuild_richmond_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_expand_louisiana_texas_railway]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_electrification_of_the_countryside]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_hydraulic_plants]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_expand_new_orleans_shipping]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_develop_the_midwest]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_focus_on_military_department]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CSA_invest_tennessee_mining]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CSA_invest_virginia_tungsten]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = CSA_lake_city_ammunition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_rubber_reserve_company]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = CSA_national_defense_funds]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()

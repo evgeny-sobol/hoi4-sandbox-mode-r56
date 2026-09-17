@@ -1,0 +1,296 @@
+
+shared_focus[id = LAT_VEF_radio_production]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = LAT_VEF_electronics_primacy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_fighter_development]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_VEF_airplanes_primacy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_VEF_electronics_sideprojects]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_VEF_industrial_development]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_modernized_signal_corps]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_VEF_modern_cameras]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_VEF_radar_experiments]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_VEF_technological_breakthrough]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_VEF_larger_planes]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_VEF_light_bombers]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_VEF_design_bombing_sights]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_modernized_air_doctrine]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_trained_air_mechanics]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_export_technical_experience]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_revitalize_civilian_economy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_contact_foreign_industrial_partners]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_mobilize_the_banks]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_kegums_power_plant]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_devaluate_the_lats]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_increase_research_budget]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_save_ford_vairogs]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_military_motorization_program]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_G_erenpreis_bicycle_factory]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_bicycle_infantry]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_national_tank_program]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_rely_on_foreign_attaches]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = LAT_new_generation_of_generals]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_study_foreign_firearm_prototypes]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_general_modernization_plan]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_draw_new_mobilization_plans]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_special_forces]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_fortify_the_border]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_sellier_and_bellot_ammunitions]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_modern_infantry]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_artillery_modernization]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_anti_tank_artillery]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_anti_air_artillery]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_foreign_submarine_contract]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_foreign_destroyer_contract]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_riga_shipyard]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_liepaja_naval_base]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = LAT_rethink_naval_doctrine]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_reinforce_the_navy_air_branch]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LAT_submarine_strategy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_modernized_small_ships]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = LAT_new_flagship]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

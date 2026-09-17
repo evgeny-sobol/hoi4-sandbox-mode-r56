@@ -1,0 +1,129 @@
+
+shared_focus[id = ARCTIC_sharpshooting_tradition]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = ARCTIC_komi_can_communicate]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_start_them_young]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_encourage_fishing]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = ARCTIC_recruit_penguins]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_dissent_in_the_party]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_the_day_before_the_storm_hit]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_establish_a_general_staff]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_winter_training]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_winter_readiness]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_sami_pathfinders]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_organize_army_structure]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_equipment_effort]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_infantry_camouflage]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_equipment_effort_2]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_army_modernization]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_equipment_effort_3]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_special_forces]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_establish_a_armor_corp]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_establish_a_military_academy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_signal_companies]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_motorization_effort]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_mechanization_effort]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_field_hospitals]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ARCTIC_modern_logistics]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

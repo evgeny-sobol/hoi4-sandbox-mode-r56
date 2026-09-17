@@ -1,0 +1,39 @@
+
+shared_focus[id = SYR_UNIFIED_arab_unification]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SYR_UNIFIED_improve_local_infrastructure]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SYR_UNIFIED_naval_buildup]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SYR_UNIFIED_pan_arab_cooperation]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SYR_UNIFIED_develop_mining]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SYR_UNIFIED_defend_the_new_union]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SYR_UNIFIED_united_armed_forces]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

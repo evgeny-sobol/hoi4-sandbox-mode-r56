@@ -1,0 +1,34 @@
+
+shared_focus[id = MAE_EMPIRE_persian_imperial_ambitions]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MAE_EMPIRE_military_camelry]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MAE_EMPIRE_connect_the_cities]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MAE_EMPIRE_appease_muslims]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MAE_EMPIRE_trans_persian_railway]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MAE_EMPIRE_develop_mining]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

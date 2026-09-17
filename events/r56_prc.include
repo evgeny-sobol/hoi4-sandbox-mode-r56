@@ -1,0 +1,6 @@
+# Immediate hidden start_civil_war. Not fire_only_once. Queued from a PRC focus.
+country_event[id = prc.105]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  immediate:
+    $sandbox_log_cw_event(prc.105)

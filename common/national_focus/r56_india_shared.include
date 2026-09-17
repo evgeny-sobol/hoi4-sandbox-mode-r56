@@ -1,0 +1,667 @@
+
+shared_focus[id = RAJ_Establish_the_Planning_Commission]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Foster_Private_Investment]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = RAJ_Reform_the_Colonial_Economy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = RAJ_Common_Economic_Policy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Initiate_Land_Reform]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Centralise_the_Courts]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Open_our_Markets]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Rural_Education]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Cross_Country_Railways]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Electrify_the_Network]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_Cooperation_with_the_Princes]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Expand_Tata_Steel]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Rewrite_Business_Law]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Sideline_the_Unions]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Commercial_Port_Expansion]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Irrigation_Infrastructure]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Foundations_for_the_First_Five_Year_Plan]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Seek_Trading_Partners]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Invite_Mining_Companies]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Development_funds_for_the_States]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Bastions_of_Stablity]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_South_Asian_Economic_Integration]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Industrial_Expertise]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Mechanized_Agriculture]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Minimum_Wage_Legislation]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Reinvigorate_Imperial_Shipping]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_The_Indian_Merchant_Navy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Protectionist_Tariffs]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Integrate_Princely_Economies]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Solidify_Control_over_the_Banks]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Broad_Union_Support]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Ease_Agricultural_Regulations]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Rural_Development]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Excavation_Investments]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Large_Scale_Privitizations]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Electrification_of_India]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Manufacturing_Plants]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Arms_Foundries]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Import_Industrial_Machinery]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Solidify_Business_Ties]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_International_Division_of_Labour]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Soviet_Economic_Assistance]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Further_British_Investments]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Machinery_for_Textiles]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Raw_Material_Imports]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Exchange_of_Luxury_Goods]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Resources_for_the_Home_Isles]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Agricultural_Subsidies]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Continued_Expansion_of_the_Ordnance_Foundries]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Contributions_to_the_War_Effort]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Connect_the_Remote_Provinces]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_prepare_an_autonomous_defense_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+
+shared_focus[id = RAJ_build_up_the_north_western_frontier_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_plan_operations_in_the_east_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_safeguard_the_interior_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_the_burma_railroad_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_the_ledo_railroad_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_commit_to_an_indian_china_airlift_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_send_troops_to_the_front_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_accelerate_military_indianization_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+
+shared_focus[id = RAJ_school_of_military_engineering_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_experiment_with_airborne_divisions_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_legacy_of_the_regional_armies_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_push_for_standardized_training_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_expand_the_indian_military_academy_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_begin_equipment_standardization_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_towards_an_offensive_footing_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_mobile_asymmetrical_battalions_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_prioritize_support_on_the_ground_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_cheap_counters_for_expensive_vehicles_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_develop_a_mass_mechanization_plan_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_indian_vehicles_for_indian_terrain_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_improve_the_engineer_and_logistical_units_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_modernize_our_artillery_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_achieve_military_industrial_independence_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_elevate_the_school_of_military_engineering_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_department_of_atomic_energy_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_focus_on_infantry_production_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_limited_roles_for_armored_vehicles_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_innovations_on_the_battlefield_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_expand_the_national_air_force_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+
+shared_focus[id = RAJ_Reform_the_Royal_Indian_Navy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_uplift_the_indian_marine_corps_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_form_a_bombay_naval_academy_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_Coastal_Defence_Fleet]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_towards_an_economical_merchant_fleet_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(3)
+
+shared_focus[id = RAJ_Floating_Fortresses]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_asias_regional_naval_power_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(3)
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_prepare_dedicated_repair_yards_56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_prioritize_new_shipyard_centers_56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_anti_submarine_weaponry_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_begin_procuring_the_hurricane_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_hindustan_aircraft_limited_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_study_imported_hawker_bombers_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_expand_bomber_repair_facilities_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_cultivate_indian_air_officers_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_form_an_aeronautical_facility_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_bomb_our_enemies_into_submission_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_focus_on_troop_support_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_protect_indias_skies_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_develop_the_eastern_bases_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_incorporate_allied_torpedoes_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_kickstart_a_submarine_program_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(3)
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_bring_terror_to_the_vital_trade_routes_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_diversify_the_fleet_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = RAJ_the_heart_of_the_commonwealth_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_utilize_the_british_dependency_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_organize_a_defense_of_the_pacific_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_take_the_fight_overseas_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = RAJ_connect_to_central_asia_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_indo_soviet_technology_exchange_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_Broaden_our_Logistic_Network]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_cooperation_with_foreign_advisors_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_continue_the_professionalization_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = RAJ_study_air_sea_cooperation_r56]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()

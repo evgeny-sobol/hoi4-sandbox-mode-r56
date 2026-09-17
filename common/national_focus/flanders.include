@@ -1,0 +1,37 @@
+focus_tree[id = flanders_focus]:
+
+  focus[id = FLA_Antwerp_Oil_Industry]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FLA_coal_mines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = FLA_reinforce_antwerp_brussels]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = FLA_conservatism_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FLA_welfare_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FLA_rearmament_agreement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

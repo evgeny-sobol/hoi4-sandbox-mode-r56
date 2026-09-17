@@ -1,0 +1,5 @@
+# Timeout calls EGY_fire_civil_war. Weekly delay logs cw_defer while capped.
+EGY_organise_nationalist_factions:
+  EGY_impending_nationalist_uprising:
+    timeout_effect:
+      $sandbox_log_cw_event(EGY_impending_nationalist_uprising)

@@ -1,0 +1,32 @@
+
+shared_focus[id = CAU_caucasus_unification]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = CAU_connect_the_cities]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CAU_ethnic_collaboration]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CAU_state-funded_projects]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CAU_claim_a_fitting_title]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CAU_develop_mining]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

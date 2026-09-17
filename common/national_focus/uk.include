@@ -1,0 +1,2522 @@
+focus_tree[id = british_focus]:
+
+  focus[id = crypto_bomb_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = tizard_mission_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = maud_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = limited_rearmament_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_the_wartime_cabinet_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_motorized_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_tank_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_tank_variant_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_expand_the_secret_intelligence_service_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = air_defense_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = radar_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_tube_alloys]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = shadow_scheme_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_industrial_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_extra_tech_slot]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = general_rearmament_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_special_air_service]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_parachute_regiments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = royal_ordinance_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_vickers_experimental_facility_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_small_arms_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = UK_secret_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = air_rearmament_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_chiefs_of_staff_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = fighter_command_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = bomber_command_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = coastal_command_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = aircraft_production_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_jet_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = naval_rearmament_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_anti_non_contact_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_secure_the_imperial_shipping_routes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_destroyer_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_a_s_warfare]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_convoy_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_anti_submarine_training_school]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_waves_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_admiralty_naval_staff]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_naval_gunnery]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_carrier_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_battleship_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_amphibious_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_expand_the_repair_yards]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_vanguard]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_reinforce_the_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = uk_service_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_mediterranean_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_egypt_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_rock_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_spain_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = uk_protect_suez]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_balkan_strategy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_sanction_italy_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
+
+  focus[id = ENG_war_with_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = uk_turkey_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = uk_greece_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = uk_malta_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_revisit_colonial_policy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = 1 + mtth:communism_factor - mtth:monarchy_factor - mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        factor(0)
+        has_completed_focus(ENG_organize_the_blackshirts)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_guide_the_colonies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_towards_dominion_independence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_foundations_for_an_indian_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_three_nation_solution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_towards_indian_independence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_withdraw_from_contested_territories]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_self_government_for_the_mediterranean]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_self_government_for_africa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_self_government_for_the_middle_east]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_self_government_for_the_americas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_self_government_for_asia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_decolonization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_evacuate_colonial_assets]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_colonial_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_asia_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_burma_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = singapore_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = sp_landward_forts_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = peninsular_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = hongkong_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = hk_landward_forts_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = hk_air_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_commonwealth_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_british_commonwealth_air_training_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_india_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_free_india_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        f = (mtth:democracy_factor + mtth:communism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = uk_australia_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_new_zealand_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_canada_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_south_africa_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_indian_autonomy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = (mtth:monarchy_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_imperial_conference]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_imperial_federation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_steady_as_she_goes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = mtth:democracy_factor * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_global_defense]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_every_man_will_do_his_duty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_secure_the_oil_imports]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($IRQ) + $opinion_factor($PER) +
+          $opinion_factor($HOL) +
+          $opinion_factor($VEN) +
+          $opinion_factor($CRC)) / 5
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($IRQ)
+        $rivalry_vs_into($PER)
+        $rivalry_vs_into($HOL)
+        $rivalry_vs_into($VEN)
+        $rivalry_vs_into($CRC)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $IRQ->is_friend_of_PREV()
+          $PER->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+          $VEN->is_friend_of_PREV()
+          $CRC->is_friend_of_PREV()
+    available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+      $PER->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+      $VEN->can_PREV_get_wargoal_on_THIS()
+      $CRC->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_maintaining_imperial_integrity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        factor(0)
+        has_completed_focus(ENG_revisit_colonial_policy)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_motion_of_no_confidence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_no_further_appeasement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_enforce_the_naval_treaties]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_maintaining_the_balance_of_power]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        factor(2)
+        has_completed_focus(ENG_revisit_colonial_policy)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_continental_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_special_operations_executive]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_home_defence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_iraq_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($IRQ)
+      +modifier:
+        $ai_rivalry_modifier($IRQ)
+      +modifier:
+        $ai_betrayal_modifier_vs($IRQ)
+    available:
+      $IRQ->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = uk_iran_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PER)
+      +modifier:
+        $ai_rivalry_modifier($PER)
+      +modifier:
+        $ai_betrayal_modifier_vs($PER)
+    available:
+      $PER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_embargo_ussr]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+
+  focus[id = ENG_war_with_ussr]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+      +modifier:
+        $crossroad_modifier(2)
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_issue_gasmasks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_prepare_for_the_inevitable]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_military_training_act]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_kickstart_the_war_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_arms_purchases_in_the_us]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_home_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_embargo_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+
+  focus[id = ENG_war_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_reconciliation_with_ussr]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($SOV)
+
+  focus[id = ENG_embargo_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_china_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_war_with_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_embargo_china]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_influence_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_conquer_guanxi]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PREV)
+      +modifier:
+        $ai_rivalry_modifier($PREV)
+      +modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_war_with_china]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_permit_plane_leasement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_with_italy_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = uk_scandinavian_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - 1 / 3 *
+          ($opinion_factor($SWE) + $opinion_factor($NOR) + $opinion_factor($DEN))
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SWE)
+        $rivalry_vs_into($NOR)
+        $rivalry_vs_into($DEN)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SWE->is_friend_of_PREV()
+          $NOR->is_friend_of_PREV()
+          $DEN->is_friend_of_PREV()
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
+      $NOR->can_PREV_get_wargoal_on_THIS()
+      $DEN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_swedish_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_norwegian_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_rivalry_modifier($NOR)
+      +modifier:
+        $ai_betrayal_modifier_vs($NOR)
+    available:
+      $NOR->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_danish_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_rivalry_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
+    available:
+      $DEN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_benelux_intervention]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($BEL) + $opinion_factor($HOL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($BEL, $HOL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $BEL->is_friend_of_PREV()
+          $HOL->is_friend_of_PREV()
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
+      $HOL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_belgium_security]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_rivalry_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_dutch_security]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($HOL)
+      +modifier:
+        $ai_rivalry_modifier($HOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($HOL)
+    available:
+      $HOL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_french_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_northern_ireland_for_assistance]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_secure_ireland]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($IRE)
+      modifier:
+        $ai_rivalry_modifier($IRE)
+      modifier:
+        $ai_betrayal_modifier_vs($IRE)
+    available:
+      $IRE->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_a_change_in_course]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        f = (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 2
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_visit_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(ENG_visit_germany)
+
+  focus[id = ENG_unify_the_isles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($NIR) + $opinion_factor($SCO) + $opinion_factor($WLS)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($NIR)
+        $rivalry_vs_into($SCO)
+        $rivalry_vs_into($WLS)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $NIR->is_friend_of_PREV()
+          $SCO->is_friend_of_PREV()
+          $WLS->is_friend_of_PREV()
+
+  focus[id = ENG_cable_street]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_right_wing_rhetoric]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_visit_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_blackshirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_join_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_new_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_militarism_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_subjugate_colonials]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_road_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_euro_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_propaganda_two]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_western]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_belgium_friend]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_antagonize_holland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_holland_friend]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_antagonize_belgium]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_belgium_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($BEL)
+      +modifier:
+        $ai_rivalry_modifier($BEL)
+      +modifier:
+        $ai_betrayal_modifier_vs($BEL)
+    available:
+      $BEL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_dutch_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($HOL)
+      +modifier:
+        $ai_rivalry_modifier($HOL)
+      +modifier:
+        $ai_betrayal_modifier_vs($HOL)
+    available:
+      $HOL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_ireland_friend]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_demand_ireland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_burn_french]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_france]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_rivalry_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
+    available:
+      $FRA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_med]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_rock_focus_two]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = uk_spain_focus_two]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_war_spain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($SPR) + $opinion_factor($D01) + $opinion_factor($D02) + $opinion_factor($D03)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SPR)
+        $rivalry_vs_into($D01)
+        $rivalry_vs_into($D02)
+        $rivalry_vs_into($D03)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SPR->is_friend_of_PREV()
+          $D01->is_friend_of_PREV()
+          $D02->is_friend_of_PREV()
+          $D03->is_friend_of_PREV()
+
+  focus[id = ENG_ally_portugal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_woo_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_war_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = uk_malta_focus_two]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_turkey_friend]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_greece]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($GRE)
+      modifier:
+        $ai_rivalry_modifier($GRE)
+      modifier:
+        $ai_betrayal_modifier_vs($GRE)
+    available:
+      $GRE->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_greece_friend]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_turkey]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($TUR)
+      +modifier:
+        $ai_rivalry_modifier($TUR)
+      +modifier:
+        $ai_betrayal_modifier_vs($TUR)
+    available:
+      $TUR->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_eastern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_draw_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_draw_poland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_axis_help]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_woo_poland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_poland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_war_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_northern]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_north_fascism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_denmark_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    +completion_reward:
+      $sandbox_log_cw_ignition(ENG_denmark_revolution)
+
+  focus[id = ENG_norway_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    +completion_reward:
+      $sandbox_log_cw_ignition(ENG_norway_revolution)
+
+  focus[id = ENG_sweden_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    +completion_reward:
+      $sandbox_log_cw_ignition(ENG_sweden_revolution)
+
+  focus[id = ENG_north_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_denmark]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($DEN)
+      +modifier:
+        $ai_rivalry_modifier($DEN)
+      +modifier:
+        $ai_betrayal_modifier_vs($DEN)
+    available:
+      $DEN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_war_norway]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NOR)
+      +modifier:
+        $ai_rivalry_modifier($NOR)
+      +modifier:
+        $ai_betrayal_modifier_vs($NOR)
+    available:
+      $NOR->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_war_sweden]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SWE)
+      +modifier:
+        $ai_rivalry_modifier($SWE)
+      +modifier:
+        $ai_betrayal_modifier_vs($SWE)
+    available:
+      $SWE->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_war_finland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FIN)
+      +modifier:
+        $ai_rivalry_modifier($FIN)
+      +modifier:
+        $ai_betrayal_modifier_vs($FIN)
+    available:
+      $FIN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_war_soviets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_imperial_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = uk_protect_suez_two]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_pressure_iraq]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_pressure_iran]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = singapore_focus_two]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = hongkong_focus_two]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_war_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_woo_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_mexico_fascism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_mexico_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    +completion_reward:
+      $sandbox_log_cw_ignition(ENG_mexico_revolution)
+
+  focus[id = ENG_war_USA]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_ally_venezuela]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_kings_party]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:monarchy_factor /
+          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_reassess_continental_commitments]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_isolate_the_mediterranean_threat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_alliance_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($GER)
+      +modifier:
+        factor(0)
+        $GER in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($GER)
+
+  focus[id = ENG_noninterference_treaty_with_germany]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+
+  focus[id = ENG_take_out_the_regia_marina]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ITA)
+      +modifier:
+        $ai_rivalry_modifier($ITA)
+      +modifier:
+        $ai_betrayal_modifier_vs($ITA)
+    available:
+      $ITA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_organize_the_blackshirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:fascism_factor /
+          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_the_british_path_to_fascism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_secure_the_italian_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ITA)
+      +modifier:
+        factor(0)
+        $ITA in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($ITA)
+
+  focus[id = ENG_gibraltar_for_spanish_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SPR)
+      +modifier:
+        factor(0)
+        $SPR in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($SPR)
+
+  focus[id = ENG_pre_empt_spanish_alignment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_rivalry_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_prevent_a_continental_hegemony]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_burn_french_liberty_works]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_with_france]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_rivalry_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
+    available:
+      $FRA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_london_pact]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_german_military_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_war_with_poland]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($POL)
+      +modifier:
+        $ai_rivalry_modifier($POL)
+      +modifier:
+        $ai_betrayal_modifier_vs($POL)
+    available:
+      $POL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_alliance_with_japan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_enact_the_mosley_manifesto]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_militarism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_god_save_the_king]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_ceylon_forward_operating_base]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_reclaim_the_jewel_in_the_crown]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($RAJ)
+      +modifier:
+        $ai_rivalry_modifier($RAJ)
+      +modifier:
+        $ai_betrayal_modifier_vs($RAJ)
+    available:
+      $RAJ->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_pre_empt_the_ideological_threat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_expose_the_belly_of_the_bear]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - 1 / 3 *
+          ($opinion_factor($SOV) + $opinion_factor($AFG) + $opinion_factor($PER))
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($SOV)
+        $rivalry_vs_into($AFG)
+        $rivalry_vs_into($PER)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $SOV->is_friend_of_PREV()
+          $AFG->is_friend_of_PREV()
+          $PER->is_friend_of_PREV()
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+      $AFG->can_PREV_get_wargoal_on_THIS()
+      $PER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_imperial_conscription]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_consolidate_the_british_isles]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        factor(ENG_consolidate_the_british_isles_antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        any_other_country:
+          THIS in ROOT.ENG_consolidate_the_british_isles_targets[]
+          is_friend_of_ROOT()
+    available:
+      var:ENG_consolidate_the_british_isles_targets[0]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[1]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[2]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[3]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[4]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[5]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[6]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[7]->can_PREV_get_wargoal_on_THIS()
+      var:ENG_consolidate_the_british_isles_targets[8]->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_unite_the_anglosphere]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_appeal_to_imperial_loyalists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_bring_the_dominions_back_into_the_fold]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CAN) + $opinion_factor($SAF) +
+          $opinion_factor($AST) +
+          $opinion_factor($NZL)) / 4
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CAN)
+        $rivalry_vs_into($SAF)
+        $rivalry_vs_into($AST)
+        $rivalry_vs_into($NZL)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CAN->is_friend_of_PREV()
+          $SAF->is_friend_of_PREV()
+          $AST->is_friend_of_PREV()
+          $NZL->is_friend_of_PREV()
+    available:
+      $CAN->can_PREV_get_wargoal_on_THIS()
+      $SAF->can_PREV_get_wargoal_on_THIS()
+      $AST->can_PREV_get_wargoal_on_THIS()
+      $NZL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_the_sun_never_sets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_pre_empt_the_strategic_threat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_retake_the_african_jewel]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($EGY)
+      +modifier:
+        $ai_rivalry_modifier($EGY)
+      +modifier:
+        $ai_betrayal_modifier_vs($EGY)
+    available:
+      $EGY->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_concessions_to_the_trade_unions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = mtth:communism_factor /
+          (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_spanish_civil_war_involvement2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_move_to_secure_the_dominions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_fate_of_the_royal_family]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_eliminate_the_upper_class]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_promote_new_officers2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_for_the_good_of_the_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_workers_brigades]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_enforced_economic_reorganization2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_heavy_industry_investment2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_agents_of_the_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_ideological_propaganda]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_british_communist_alternative]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_enforce_decolonization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_reach_out_across_the_channel]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = ENG_soviet_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+    available:
+      $not_rival_of_PREV($SOV)
+      $GER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_the_one_true_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SOV)
+      +modifier:
+        $ai_rivalry_modifier($SOV)
+      +modifier:
+        $ai_betrayal_modifier_vs($SOV)
+    available:
+      $SOV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_follow_moscow]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_cooperation_modifier($SOV)
+      +modifier:
+        factor(0)
+        $SOV in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($SOV)
+
+  focus[id = ENG_tackle_fascism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:democracy_factor - mtth:fascism_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_preparing_the_second_front]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_tackle_capitalism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        f = 1 + mtth:fascism_factor - mtth:democracy_factor
+        factor(f)
+        is_sandbox_mode_on()
+
+  focus[id = ENG_bermuda_invasion_launch_point]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_crush_the_dream]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_socialist_science_pool]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_liberate_the_home_of_marx]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GER)
+      +modifier:
+        $ai_rivalry_modifier($GER)
+      +modifier:
+        $ai_betrayal_modifier_vs($GER)
+    available:
+      $GER->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_spirit_of_the_industrial_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_opposition_to_the_national_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = ENG_united_front_strategy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_expel_the_old_oppressors]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_spanish_civil_war_involvement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_necessity_of_ideological_struggle]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_awakening_from_pacifism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_promote_new_officers]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_the_peoples_duty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_take_the_reactionaries_out_of_their_nest]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CAN)
+      +modifier:
+        $ai_rivalry_modifier($CAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($CAN)
+    available:
+      $CAN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_alliance_with_the_canadian_workers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_anti_american_rhetoric]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_liberate_the_american_workers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_join_the_global_fight_against_fascism]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($PREV)
+      modifier:
+        $ai_rivalry_modifier($PREV)
+      modifier:
+        $ai_betrayal_modifier_vs($PREV)
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = ENG_the_anti_fascist_crusade]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_ally_with_the_spanish_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_enforced_economic_reorganization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_redistribution_of_wealth]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_heavy_industry_investment]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_challenge_stalinism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_dont_challenge_party_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_revolutionary_scientific_congress]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_agents_of_the_revolution2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_ideological_propaganda2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_aftermath_of_defeat]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = ENG_renounce_global_ambitions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_organise_local_collaborators]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = ENG_new_coronation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = ENG_enforce_the_new_regime]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

@@ -1,0 +1,8 @@
+focus_tree[id = tender_loving_empire_focus]:
+
+  focus[id = r56w_focus_WHY_totally_op]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()

@@ -1,0 +1,15 @@
+# Forced Puyi split. Not fire_only_once.
+country_event[id = MAN_56_event.3]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(MAN_56_event.3)
+
+# Pattern B: .13.b stays.
+country_event[id = MAN_56_event.13]:
+  option[name = MAN_56_event.13.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(MAN_56_event.13.a)

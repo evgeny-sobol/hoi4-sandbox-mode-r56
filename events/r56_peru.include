@@ -1,0 +1,21 @@
+# Pattern B: peru.3.b stays.
+country_event[id = peru.3]:
+  option[name = peru.3.c]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(peru.3.c)
+
+# Both options start a war. Not fire_only_once.
+country_event[id = peru.8]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  immediate:
+    $sandbox_log_cw_event(peru.8)
+
+country_event[id = peru.55]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(peru.55)

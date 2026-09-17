@@ -1,0 +1,8 @@
+focus_tree[id = venezuela_focus_VCW]:
+
+  focus[id = VCW_solidify_national_government]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()

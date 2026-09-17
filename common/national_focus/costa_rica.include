@@ -1,0 +1,305 @@
+focus_tree[id = r56_costa_rica_focus]:
+
+  focus[id = COS_1936_elections]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = COS_another_prn_term]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_liberal_victory]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_strengthen_democratic_institutions]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_ally_the_pvp]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_approach_the_nazistas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_tighten_immigration_laws]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_strengthen_the_presidency]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_cooperate_with_the_UFCo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_glorify_the_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_ban_the_PVP]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_join_the_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_suspend_the_constitution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_our_own_brownshirts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_militarize_the_fuerza_publica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_revenge_for_the_coto_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PAN)
+      +modifier:
+        $ai_rivalry_modifier($PAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($PAN)
+    available:
+      $PAN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = COS_celebrate_our_triumph]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_costa_rican_autarky]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = COS_banking_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = COS_encourage_free_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_create_a_social_security_fund]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_legislate_workers_rights]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_garantias_sociales]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_carry_the_torch]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_nationalize_ufc_assets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = COS_maintain_our_neutrality]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_central_american_cooperation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_scientific_exchange]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_trabajo_y_paz]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_kick_out_the_UFC]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = COS_establish_the_credito_rural]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_arrest_nazi_sympathizers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_revolution_in_san_jose]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_comunismo_a_la_tica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_follow_moscow]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_crack_down_on_monopolies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = COS_neutralidad_y_pacifismo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_start_the_purges]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    +available:
+      is_liberal_leader(no)
+
+  focus[id = COS_collectivization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_dreams_of_a_union]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = COS_conquer_guatemala]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GUA)
+      +modifier:
+        $ai_rivalry_modifier($GUA)
+      +modifier:
+        $ai_betrayal_modifier_vs($GUA)
+    available:
+      $GUA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = COS_march_on_managua]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NIC)
+      +modifier:
+        $ai_rivalry_modifier($NIC)
+      +modifier:
+        $ai_betrayal_modifier_vs($NIC)
+    available:
+      $NIC->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = COS_take_tegucigalpa]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($HON)
+      +modifier:
+        $ai_rivalry_modifier($HON)
+      +modifier:
+        $ai_betrayal_modifier_vs($HON)
+    available:
+      $HON->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = COS_eliminate_el_salvador]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ELS)
+      +modifier:
+        $ai_rivalry_modifier($ELS)
+      +modifier:
+        $ai_betrayal_modifier_vs($ELS)
+    available:
+      $ELS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = COS_take_down_goliath]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()

@@ -1,0 +1,136 @@
+
+shared_focus[id = SPR_republican_victory]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = SPR_continue_azana_work]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_continue_the_secularization_policies]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_appease_the_workers]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_uphold_the_1931_constitution]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_repair_relations_with_the_west]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_learn_from_the_royal_navy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_psoe_leadership]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_the_left_front]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_socialize_the_means_of_production]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_establish_soviet_democracy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_align_with_the_new_france]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = SPR_confront_the_hearth_of_fascism]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($ITA)
+    +modifier:
+      $ai_rivalry_modifier($ITA)
+    +modifier:
+      $ai_betrayal_modifier_vs($ITA)
+  available:
+    $ITA->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPR_PCE_leadership]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_purge_the_liberals]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+  +available:
+    is_liberal_leader(no)
+
+shared_focus[id = SPR_begin_collectivization]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_establish_the_oraa]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_join_the_comintern]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = SPR_intervention_in_portugal]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($POR)
+    +modifier:
+      $ai_rivalry_modifier($POR)
+    +modifier:
+      $ai_betrayal_modifier_vs($POR)
+  available:
+    $POR->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPR_demand_gibraltar]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

@@ -1,0 +1,1275 @@
+focus_tree[id = hon_focus]:
+
+  focus[id = HON_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = HON_conscription]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = HON_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_arms_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_army_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_faster_small_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_tank_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_mech_effort]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_special_forces]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_special_forces_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_jungle_training]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_jungle_infant]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_jungle_moto]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_land_doc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_land_doc_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_land_doc_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_navy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_invest_in_subs]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invest_in_destroyers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invest_in_cruisers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invest_in_subs_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invest_in_subs_3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invest_in_carriers]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invest_in_battleships]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_naval_doctrines]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_navy_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_airforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = HON_army_aviation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_naval_aviation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_aviation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_army_aviation_2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_air_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_air_bases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_politics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = HON_suggest_fascism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invite_zemurray]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_american_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_internships]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_united_fruit_coup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = HON_spanish_civil_war_involvement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_peoples_war]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_american_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_fruit_security]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_improved_production]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_corporate_consolidation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_take_elsalvador]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($ELS)
+      +modifier:
+        factor(0)
+        $ELS in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($ELS)
+
+  focus[id = HON_take_nicaragua]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_take_guatemala]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_take_costa_rica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_purchase_belize]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_take_panama]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($PAN)
+      +modifier:
+        factor(0)
+        $PAN in rivals[]
+        is_sandbox_mode_on()
+    available:
+      $not_rival_of_PREV($PAN)
+
+  focus[id = HON_buy_canal]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_irca]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_invite_ford]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_great_white]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_banana_boats]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_agricola]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_corporate_alliance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = HON_fruitful_partnership]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = HON_empower_domestic_competition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_protect_our_private_businesses]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_free_our_markets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_free_other_latin_markets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+
+  focus[id = HON_empower_the_consumer_council]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_banana_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_corporate_expansion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ECU) + $opinion_factor($COL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($ECU, $COL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ECU->is_friend_of_PREV()
+          $COL->is_friend_of_PREV()
+    available:
+      $ECU->can_PREV_get_wargoal_on_THIS()
+      $COL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_eliminate_competition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_mirco]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_go_communist]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_herrera_jailbreak]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_soviet_support]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_peasant_revolution]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_seize_plantations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_establish_a_secret_police_communist]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    +available:
+      is_liberal_leader(no)
+
+  focus[id = HON_peoples_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_liberate_central]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_liberate_guatemala]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GUA)
+      +modifier:
+        $ai_rivalry_modifier($GUA)
+      +modifier:
+        $ai_betrayal_modifier_vs($GUA)
+    available:
+      $GUA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_liberate_nicaragua]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NIC)
+      +modifier:
+        $ai_rivalry_modifier($NIC)
+      +modifier:
+        $ai_betrayal_modifier_vs($NIC)
+    available:
+      $NIC->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_liberate_salvador]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ELS)
+      +modifier:
+        $ai_rivalry_modifier($ELS)
+      +modifier:
+        $ai_betrayal_modifier_vs($ELS)
+    available:
+      $ELS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_liberate_costarica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($COS)
+      +modifier:
+        $ai_rivalry_modifier($COS)
+      +modifier:
+        $ai_betrayal_modifier_vs($COS)
+    available:
+      $COS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_liberate_panama]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($PAN)
+      +modifier:
+        $ai_rivalry_modifier($PAN)
+      +modifier:
+        $ai_betrayal_modifier_vs($PAN)
+    available:
+      $PAN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_collectivization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_collective_agriculture]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_five_year_plan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_land_reform]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_peoples_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_socialist_block]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = HON_join_soviets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = HON_campesino_republic]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_prepare_the_liberation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_liberate_mexico]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PREV) + $opinion_factor($MEX)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($PREV, $MEX)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PREV->is_friend_of_PREV()
+          $MEX->is_friend_of_PREV()
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+      $MEX->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_caribfed]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($CUB) + $opinion_factor($DOM) + $opinion_factor($HAI)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($CUB)
+        $rivalry_vs_into($DOM)
+        $rivalry_vs_into($HAI)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $CUB->is_friend_of_PREV()
+          $DOM->is_friend_of_PREV()
+          $HAI->is_friend_of_PREV()
+
+  focus[id = HON_gran_colombia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($COL) + $opinion_factor($VEN) + $opinion_factor($ECU)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($COL)
+        $rivalry_vs_into($VEN)
+        $rivalry_vs_into($ECU)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $COL->is_friend_of_PREV()
+          $VEN->is_friend_of_PREV()
+          $ECU->is_friend_of_PREV()
+
+  focus[id = HON_libperbol]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PRU) + $opinion_factor($BOL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($PRU, $BOL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PRU->is_friend_of_PREV()
+          $BOL->is_friend_of_PREV()
+    available:
+      $PRU->can_PREV_get_wargoal_on_THIS()
+      $BOL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_libargent]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($ARG) + $opinion_factor($CHL)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($ARG, $CHL)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $ARG->is_friend_of_PREV()
+          $CHL->is_friend_of_PREV()
+    available:
+      $ARG->can_PREV_get_wargoal_on_THIS()
+      $CHL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_liblaplata]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PAR) + $opinion_factor($URG)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($PAR, $URG)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PAR->is_friend_of_PREV()
+          $URG->is_friend_of_PREV()
+    available:
+      $PAR->can_PREV_get_wargoal_on_THIS()
+      $URG->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_liberate_brazil]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($PREV) + $opinion_factor($BRA)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($PREV, $BRA)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $PREV->is_friend_of_PREV()
+          $BRA->is_friend_of_PREV()
+    available:
+      $PREV->can_PREV_get_wargoal_on_THIS()
+      $BRA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_soviet_guns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_soviet_intel]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_soviet_milmission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_study_soviet_tactics]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_soviet_military_buildup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_honduran_red_army]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_a_call_to_arms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_support_the_prc]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_liberate_mexico_again]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_support_the_indochinese_communists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_support_the_south_american_communists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_against_imperialism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_destroy_fascism_communist]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ITA) + $opinion_factor($JAP)) / 3
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        rivalry_vs = 0
+        $rivalry_vs_into($GER)
+        $rivalry_vs_into($ITA)
+        $rivalry_vs_into($JAP)
+        f = 1 + rivalry_vs / 50
+        factor(f)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $GER->is_friend_of_PREV()
+          $ITA->is_friend_of_PREV()
+          $JAP->is_friend_of_PREV()
+
+  focus[id = HON_status_quo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_appoint_brooks]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_stabilize_economy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_liberal_amnesty]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_fortifications]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_better_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_against_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_join_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_usa_naval_bases]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_usa_naval_doctrine]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_carias_legacy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_examine_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_build_infra1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_build_milfact1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_build_civfact1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_build_milfact2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_build_infra2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_build_docks1]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_new_university]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_build_civfact2]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_tech_industry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_build_milfact3]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_better_research]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_power_research]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_suggest_monarchy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invite_juan]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_monarchist_coup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = HON_spanish_guns]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_kings_finest]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_support_the_spanish_monarchy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_form_honduran_requetes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_join_the_fight]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_continue_the_fight]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_reform_the_spanish_empire]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_spanish_millitary_mission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_renounce_throne_rights]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_restore_colonial_suzrenity]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_invite_carlists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_integrate_requetes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_carlist_coup]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_high_tyranny_tilt()
+
+  focus[id = HON_haciendas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_restoration_wars]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($HON)
+      +modifier:
+        factor(0)
+        $HON in rivals[]
+        is_sandbox_mode_on()
+    +available:
+      $not_rival_of_PREV($HON)
+
+  focus[id = HON_reclaim_salvador]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($ELS)
+      +modifier:
+        $ai_rivalry_modifier($ELS)
+      +modifier:
+        $ai_betrayal_modifier_vs($ELS)
+    available:
+      $ELS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_nicaragua]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($NIC)
+      +modifier:
+        $ai_rivalry_modifier($NIC)
+      +modifier:
+        $ai_betrayal_modifier_vs($NIC)
+    available:
+      $NIC->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_guatemala]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($GUA)
+      +modifier:
+        $ai_rivalry_modifier($GUA)
+      +modifier:
+        $ai_betrayal_modifier_vs($GUA)
+    available:
+      $GUA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_costarica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($COS)
+      +modifier:
+        $ai_rivalry_modifier($COS)
+      +modifier:
+        $ai_betrayal_modifier_vs($COS)
+    available:
+      $COS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_cuba]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($CUB)
+      +modifier:
+        $ai_rivalry_modifier($CUB)
+      +modifier:
+        $ai_betrayal_modifier_vs($CUB)
+    available:
+      $CUB->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_hispanola]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        antagonism = 1 - ($opinion_factor($HAI) + $opinion_factor($DOM)) / 2
+        factor(antagonism)
+        is_sandbox_mode_on()
+      +modifier:
+        $ai_rivalry_modifier_max($HAI, $DOM)
+      +modifier:
+        $ai_betrayal_modifier()
+        or:
+          $HAI->is_friend_of_PREV()
+          $DOM->is_friend_of_PREV()
+    available:
+      $HAI->can_PREV_get_wargoal_on_THIS()
+      $DOM->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_mexico]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_intendancies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_coastal_forts]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_refined_goods]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_economica]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_reconquista]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_inquisition]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = HON_proclaim_new_spain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = HON_reclaim_america]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = HON_reclaim_spain]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($SPR)
+      +modifier:
+        $ai_rivalry_modifier($SPR)
+      +modifier:
+        $ai_betrayal_modifier_vs($SPR)
+    available:
+      $SPR->can_PREV_get_wargoal_on_THIS()

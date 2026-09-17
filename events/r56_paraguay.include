@@ -1,0 +1,8 @@
+# Pattern B: r56_paraguay.1.a stays; the war option is named .2.a on this event.
+country_event[id = r56_paraguay.1]:
+  option[name = r56_paraguay.2.a]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(r56_paraguay.2.a)

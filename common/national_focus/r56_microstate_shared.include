@@ -1,0 +1,125 @@
+
+shared_focus[id = MICRO_militarize_the_police_force]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+
+shared_focus[id = MICRO_build_capital_airport]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MICRO_develop_our_dockyards]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $root_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MICRO_weaponry_modernization]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_the_root_air_fleet]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_root_naval_academy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_torpedo_bombers]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_the_root_industrial_fund]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MICRO_develop_special_forces]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_recruit_marines]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_root_military_institute]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_economic_mobilization]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MICRO_encourage_local_arms_production]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MICRO_the_grand_university_of_capital]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_the_roars_of_thunder]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_resource_commission]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = MICRO_introduce_motorization_technologies]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_the_steel_lions]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_develop_indigenous_models]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MICRO_the_big_guns]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = LUX_nationalise_railway_companies]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_mic_modifier()

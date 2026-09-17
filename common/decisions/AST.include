@@ -1,0 +1,13 @@
+# Veterans timeout starts the war inline. Weekly delay logs cw_defer;
+# this is the fire when a slot is free (on_daily_AST also logs).
+AST_union_control_1_cat:
+  AST_veterans_revolt:
+    timeout_effect:
+      $sandbox_log_cw_event(AST_veterans_revolt)
+
+# TAOG: AST lights a communist war in FROM (gdd/Civil Wars.md Pattern D).
+AST_union_control_2_cat:
+  AST_civil_war_in_nation:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

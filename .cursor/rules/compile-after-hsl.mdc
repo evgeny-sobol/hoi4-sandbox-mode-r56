@@ -1,5 +1,5 @@
 ---
-description: Recompile the sandbox mod after changing .include, .hsl, or .hml files
+description: Recompile the Rt56 sandbox fork after changing .include, .hsl, or .hml files
 globs: "**/*.{include,hsl,hml}"
 alwaysApply: true
 ---
@@ -8,14 +8,15 @@ alwaysApply: true
 
 After any create, edit, or delete of files with extensions `.include`, `.hsl`, or `.hml` in this repository, run the compiler before finishing the task.
 
-Use a single PowerShell session (activation does not persist across separate shells):
+Use a single PowerShell session (activation does not persist across separate shells). Compile **this** folder against the subscribed Road to 56 workshop copy (read-only include base), not vanilla and not `_sandbox`:
 
 ```powershell
 cd C:\Users\evgeny\Repos\HoI4\hsl
 .\venv\Scripts\activate
-python .\compiler.py C:\Games\Steam\steamapps\workshop\content\394360\_sandbox "C:\Games\Steam\steamapps\common\Hearts of Iron IV"
+python .\compiler.py "C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56" "C:\Games\Steam\steamapps\workshop\content\394360\820260968"
 ```
 
 - Do not skip this step after a batch of related source edits; one compile at the end of the batch is enough.
 - If the compiler fails, fix the source and run the same commands again.
 - Do not treat generated/output files as a substitute for compiling from `.include` / `.hsl` / `.hml`.
+- The second path is read-only: never write, patch, or copy-into the workshop tree.

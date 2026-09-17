@@ -1,0 +1,6 @@
+PER_civil_unrest_category:
+  PER_civil_war_imminent:
+    activation:
+      sandbox_civil_war_ai_allowed()
+    timeout_effect:
+      $sandbox_log_cw_event(PER_revolution_events.1)

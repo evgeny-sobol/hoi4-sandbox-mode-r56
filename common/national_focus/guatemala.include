@@ -1,0 +1,407 @@
+focus_tree[id = Guatemala_Focus]:
+
+  focus[id = GUA_centralize_the_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $root_modifier()
+
+  focus[id = GUA_a_broken_promise]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_cooperation_modifier($USA)
+      +modifier:
+        factor(0)
+        $USA in rivals[]
+        is_sandbox_mode_on()
+    +available:
+      $not_rival_of_PREV($USA)
+
+  focus[id = GUA_reassure_the_americans]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = GUA_the_central_american_detente]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_settle_the_belize_dispute]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_leave_the_league_of_nations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_support_the_caudillo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_pass_the_vagrancy_law]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_ubiquistas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_hegemonize_civil_service]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_improve_national_infrastructure]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_extend_the_school_system]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_bolster_the_secret_police]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+    available:
+      is_liberal_leader(no)
+
+  focus[id = GUA_surveillance_state]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_placate_the_landowners]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_undermine_UFCo_influence]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_concessions_to_the_UFCo]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_exploit_the_workforce]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_censor_the_press]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_professionalize_the_military]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_purge_the_old_guard]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+    +available:
+      is_liberal_leader(no)
+
+  focus[id = GUA_dreams_of_glory]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_strike_elsalvador]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($ELS)
+      modifier:
+        $ai_rivalry_modifier($ELS)
+      modifier:
+        $ai_betrayal_modifier_vs($ELS)
+    available:
+      $ELS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_stike_honduras]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($HON)
+      modifier:
+        $ai_rivalry_modifier($HON)
+      modifier:
+        $ai_betrayal_modifier_vs($HON)
+    available:
+      $HON->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_strike_nicaragua]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($NIC)
+      modifier:
+        $ai_rivalry_modifier($NIC)
+      modifier:
+        $ai_betrayal_modifier_vs($NIC)
+    available:
+      $NIC->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_strike_costarica]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($COS)
+      modifier:
+        $ai_rivalry_modifier($COS)
+      modifier:
+        $ai_betrayal_modifier_vs($COS)
+    available:
+      $COS->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_exploit_nicaragua_gold]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = GUA_take_panama]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($PAN)
+      modifier:
+        $ai_rivalry_modifier($PAN)
+      modifier:
+        $ai_betrayal_modifier_vs($PAN)
+    available:
+      $PAN->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_our_russia]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($MEX)
+      +modifier:
+        $ai_rivalry_modifier($MEX)
+      +modifier:
+        $ai_betrayal_modifier_vs($MEX)
+    available:
+      $MEX->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_operation_eagles_fall]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($USA)
+      +modifier:
+        $ai_rivalry_modifier($USA)
+      +modifier:
+        $ai_betrayal_modifier_vs($USA)
+    available:
+      $USA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_storm_the_tropics]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($COL)
+      modifier:
+        $ai_rivalry_modifier($COL)
+      modifier:
+        $ai_betrayal_modifier_vs($COL)
+    available:
+      $COL->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_establish_the_armada_de_guatemala]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_crack_down_on_extremism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = GUA_appease_the_german_colony]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = GUA_implement_social_reforms]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_purchase_italian_weaponry]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_militarize_the_schools]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_the_ubiquista_youth]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_join_the_allies]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_join_the_axis]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_appropriate_german_assets]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_american_military_assistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_divert_our_trade]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_the_base_of_north_american_operations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_fortress_of_the_isthmus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_napoleons_true_successor]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_claim_the_french_throne]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_establish_the_garde_imperiale]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_the_papal_compromise]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = GUA_ties_with_the_anti_bonapartists]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = GUA_concession_to_the_church]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_ally_the_franquistas]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_invite_french_nobility]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_the_throne_belongs_to_one]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($FRA)
+      +modifier:
+        $ai_rivalry_modifier($FRA)
+      +modifier:
+        $ai_betrayal_modifier_vs($FRA)
+    available:
+      $FRA->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = GUA_the_legacy_of_1805]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_crush_the_resistance]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_the_second_code_napoleon]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = GUA_the_emperors_coronation]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

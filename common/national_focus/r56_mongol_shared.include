@@ -1,0 +1,10 @@
+
+shared_focus[id = MONGOL_UNIFIED_claim_greater_mongolia]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = MONGOL_UNIFIED_stimulate_mongol_traditions]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

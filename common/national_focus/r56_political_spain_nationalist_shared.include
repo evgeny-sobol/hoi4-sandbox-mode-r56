@@ -1,0 +1,278 @@
+
+shared_focus[id = SPR_nationalist_victory]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = SPR_cement_franco_rule]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_crush_regional_governments_r56]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      antagonism = 1 - ($opinion_factor($ADU) + $opinion_factor($CAT) + $opinion_factor($GLC) + $opinion_factor($NAV)) / 4
+      factor(antagonism)
+      is_sandbox_mode_on()
+    +modifier:
+      rivalry_vs = 0
+      $rivalry_vs_into($ADU)
+      $rivalry_vs_into($CAT)
+      $rivalry_vs_into($GLC)
+      $rivalry_vs_into($NAV)
+      f = 1 + rivalry_vs / 50
+      factor(f)
+      is_sandbox_mode_on()
+    +modifier:
+      $ai_betrayal_modifier()
+      or:
+        $ADU->is_friend_of_PREV()
+        $CAT->is_friend_of_PREV()
+        $GLC->is_friend_of_PREV()
+        $NAV->is_friend_of_PREV()
+
+shared_focus[id = SPR_pursue_autarky_policies]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_policia_armada]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_sindicato_vertical]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_una_grande_y_libre]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_common_front_against_nazism]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_claim_sardinia_and_sicily]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_join_italy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_learn_from_the_regia_marina]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_join_the_axis]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_unify_iberia]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($POR)
+    +modifier:
+      $ai_rivalry_modifier($POR)
+    +modifier:
+      $ai_betrayal_modifier_vs($POR)
+  available:
+    $POR->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPR_befriend_portugal]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = SPR_a_permanent_legion_condor]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_francoist_neutrality]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_restore_the_monarchy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_king_juan_iii]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_issue_political_amnesties]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_support_the_free_market]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_further_the_iberian_pact]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_retake_gibraltar]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($ENG)
+    +modifier:
+      $ai_rivalry_modifier($ENG)
+    +modifier:
+      $ai_betrayal_modifier_vs($ENG)
+  available:
+    $ENG->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPR_claims_on_france]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($FRA)
+    +modifier:
+      $ai_rivalry_modifier($FRA)
+    +modifier:
+      $ai_betrayal_modifier_vs($FRA)
+  available:
+    $FRA->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPR_help_the_royal_navy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = SPR_the_transition]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_king_javier_I]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_british_alignment]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_claims_against_italy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+    modifier:
+      $ai_war_support_modifier()
+    modifier:
+      $ai_antagonism_modifier($ITA)
+    modifier:
+      $ai_rivalry_modifier($ITA)
+    modifier:
+      $ai_betrayal_modifier_vs($ITA)
+  available:
+    $ITA->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPR_stay_out_of_conflicts]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_expand_pyrenees_fortifications]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = ITA_align_with_italy]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_reclaim_gibraltar]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($ENG)
+    +modifier:
+      $ai_rivalry_modifier($ENG)
+    +modifier:
+      $ai_betrayal_modifier_vs($ENG)
+  available:
+    $ENG->can_PREV_get_wargoal_on_THIS()
+
+shared_focus[id = SPA_r56_alliance_with_the_kaiserreich]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPA_r56_carlist_diplomacy]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPA_r56_spanish_austrian_diplomatic_unity]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_ministry_of_religous_affairs]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_establish_traditional_cortes]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = SPR_decentralize_the_kingdom]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

@@ -1,0 +1,13 @@
+---
+description: Overlay Rt56 with unique 99_sandbox_* files or compiled includes; never write the workshop copy
+alwaysApply: true
+---
+
+# Road to 56 overlay constraints
+
+This repository is a companion to The Road to 56, not a vanilla overlay.
+
+- Compile with this folder as `target_dir` and `C:\Games\Steam\steamapps\workshop\content\394360\820260968` as `vanilla_root`. Never write under that workshop tree or the vanilla game install.
+- Unique `99_sandbox_*` names add files. Same-path output is allowed only when it is a compiled `.include` against the workshop copy (the emitted `.txt` is the full Rt56 file plus splices).
+- Do not copy `.include` files from `_sandbox` until each one is remapped to an Rt56 filename and token set. Vanilla IDs that are missing in Rt56 fail the compile.
+- Do not enable this mod together with vanilla Sandbox Mode Overhaul.

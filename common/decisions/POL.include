@@ -1,0 +1,6 @@
+POL_peasant_strike_category:
+  POL_peasants_strike:
+    activation:
+      sandbox_civil_war_ai_allowed()
+    timeout_effect:
+      $sandbox_log_cw_event(POL_peasants_strike)

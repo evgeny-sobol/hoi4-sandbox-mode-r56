@@ -245,11 +245,11 @@ Historical: after `sandbox_start historical=1` the rest of the log must not cont
 Log-first. Observer sandbox unless the item says human or aiview. Tick only when the grep holds (compound items split so a partial pass is visible).
 
 - [x] First `#sandbox` line is the current version; next is `sandbox_start historical=0`.
-- [x] Spain 1936 with `cw<3`: `cw_event spain.1` / `spain.10` / `lar_spain.2` then `cw_count` whose arrow is `N->N+1` (not +2 for SPA/SPB).
+- [ ] Spain 1936 with `cw<3`: `cw_event spain.1` / `spain.10` / `lar_spain.2` then `cw_count` whose arrow is `N->N+1` (not +2 for SPA/SPB).
 - [ ] AI Spain while `cap=1` and no SCW yet: weekly `cw_defer spain` (and `cw_defer SPA_military_plot_nationalists` / `SPR_military_plot_republicans` if LaR missions are already ticking). No `cw_event spain.1` until a `cw_end` drops `cap` to 0.
 - [ ] Human SPR at `cap=1`: no `cw_defer spain`; `cw_event spain.1` with `ai=0`; `cw_declare` `ai=0`.
 - [x] After Spain, a second and a third AI war may start (`cw=` 2 then 3) from focus (`cw_ignition`), event (`cw_event`), or mission (`cw_defer` then `cw_declare`).
-- [x] No AI `cw_declare` with arrow `3->4` or `cw=` 4 on a pulse. v0.1.1 hit 8 via event/mission after `cap=1`; that must not recur through 1938.
+- [ ] No AI `cw_declare` with arrow `3->4` or `cw=` 4 on a pulse. v0.1.1 hit 8 via event/mission after `cap=1`; that must not recur through 1938.
 - [ ] Capped ITA BoP: `cw_defer BBA_italy_civil_war.1` weekly while the range is active; after `cw_end`, `cw_event BBA_italy_civil_war.1` (same week or next).
 - [x] Capped Cedillo / peasants / veterans with the mission already ticking: `cw_defer MEX_mission_cedillos_rebellion` (or `POL_peasants_strike` / `AST_veterans_revolt` / `on_daily_AST`); after `cw_end`, the timeout may fire within a week (no more defer, then `cw_declare`).
 - [ ] `cw_root USA_america_first` may appear while `cap=1`. `cw_ignition USA_ally_with_the_silver_shirts` / `USA_union_representation_act` must not appear for an AI (`ai=1`) while `cap=1`.

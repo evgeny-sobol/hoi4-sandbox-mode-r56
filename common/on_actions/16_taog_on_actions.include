@@ -1,0 +1,7 @@
+on_actions:
+  on_daily_AST:
+    effect:
+      if:
+        limit:
+          sandbox_civil_war_ai_allowed()
+        $sandbox_log_cw_event(on_daily_AST)

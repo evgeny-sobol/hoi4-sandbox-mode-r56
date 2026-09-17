@@ -1,0 +1,7 @@
+# Pattern A: MTTH Sunfall. Trigger re-evaluates; weekly cw_defer sfl.1 while
+# a capped AI still matches the rest of the vanilla trigger.
+country_event[id = sfl.1]:
+  trigger:
+    sandbox_civil_war_ai_allowed()
+  immediate:
+    $sandbox_log_cw_event(sfl.1)

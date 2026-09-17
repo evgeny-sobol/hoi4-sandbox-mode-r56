@@ -1,0 +1,15 @@
+support_polish_falange_decisions:
+  LIT_ignite_civil_war_in_POL:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+
+LIT_iron_wolf_coup:
+  LIT_iron_wolf_partisans:
+    activation:
+      sandbox_civil_war_ai_allowed()
+
+LIT_communist_uprising:
+  LIT_communist_revolution_uprising_mission:
+    timeout_effect:
+      $sandbox_log_cw_event(lithuania.16)

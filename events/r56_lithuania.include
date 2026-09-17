@@ -1,0 +1,13 @@
+# Forced fuses. Not fire_only_once. LIT_communist_revolution_uprising_mission
+# is delayed weekly; lithuania.109 is queued from a focus.
+country_event[id = lithuania.16]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(lithuania.16)
+
+country_event[id = lithuania.109]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(lithuania.109)

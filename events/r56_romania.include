@@ -1,0 +1,12 @@
+# Forced fuses. Not fire_only_once. .3 lights FROM (gate the ROM actor).
+country_event[id = rt56.rom_general_election.5]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(rt56.rom_general_election.5)
+
+country_event[id = rt56.rom_communist_takeover.3]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(rt56.rom_communist_takeover.3)

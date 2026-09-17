@@ -1,0 +1,15 @@
+# Focus-queued. fire_only_once; discard only if the event is still pending
+# after the AI completed the focus just as the cap filled. Ignition on
+# POR_center_stage_against_communism / POR_ally_anti_colonial_resistance
+# is the main AI gate. Player completing those focuses still gets the event.
+country_event[id = portugal.44]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(portugal.44)
+
+country_event[id = portugal.45]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  immediate:
+    $sandbox_log_cw_event(portugal.45)

@@ -1,0 +1,260 @@
+
+shared_focus[id = KMT_the_national_catastrophe]:
+  +ai_will_do:
+    modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_deal_with_unrest]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_crush_the_radical_nationalists]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_crush_the_nra]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_find_chiang_kai_shek]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_ideological_education]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_strengthen_resource_extraction]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_improve_the_negotiating_position]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_china_at_the_mercy_of_our_overlord]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_seek_industrial_investments]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_for_better_or_worse_the_fate_of_china]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_wjw_rule_secured]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_winning_the_hearts_and_minds_of_the_people]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_chinese_industry_in_the_shadow_of_the_overlord]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_a_beacon_of_ideology_in_the_middle_kingdom]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_align_the_blueshirts_puppet]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_align_the_kmt_puppet]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_align_pla_remnants]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_victory_over_the_partisans]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_rise_of_the_blueshirts]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_declare_the_peoples_republic]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_the_armed_forces_of_the_chinese_state]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_strengthen_the_high_command]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_an_auxuliary_army]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = KMT_the_new_communist_woman]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_crackdown_on_the_confucianists]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_secularization_of_the_state]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_chinese_five_year_plan]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_nanjing_academy_of_the_sciences]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_consolidate_control_over_industry]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_support_trade_unions]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_enforce_trade_union_compliance]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_land_value_tax]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_seize_landholder_assets]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_build_up_the_red_army]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_a_vast_army]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $crossroad_modifier(2)
+
+shared_focus[id = KMT_a_great_purge]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+  available:
+    is_liberal_leader(no)
+
+shared_focus[id = KMT_deal_with_the_beurgeois]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = KMT_purge_of_the_generals]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+  available:
+    is_liberal_leader(no)
+
+shared_focus[id = KMT_deal_with_bluehirt_remnants]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_the_great_purge_successful]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+  available:
+    is_liberal_leader(no)
+
+shared_focus[id = KMT_purge_of_the_academies]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+  available:
+    is_liberal_leader(no)
+
+shared_focus[id = KMT_ensure_party_purity]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = KMT_bind_the_army_into_the_state]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

@@ -1,0 +1,37 @@
+
+shared_focus[id = ENG_welcome_british_exiles]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = ENG_recruit_volunteers]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ENG_british_agents]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ENG_landing_exercices]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = ENG_reclaim_the_british_isles_exile]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_war_support_modifier()
+    +modifier:
+      $ai_antagonism_modifier($ENG)
+    +modifier:
+      $ai_rivalry_modifier($ENG)
+    +modifier:
+      $ai_betrayal_modifier_vs($ENG)
+  available:
+    $ENG->can_PREV_get_wargoal_on_THIS()

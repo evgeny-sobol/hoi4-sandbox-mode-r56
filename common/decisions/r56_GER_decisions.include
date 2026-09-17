@@ -1,0 +1,27 @@
+# Pattern C: auto-activates; complete_effect starts the war. Cap blocks
+# activation and AI complete; weekly delay keeps a ticking mission from
+# timing out into an empty timeout_effect.
+GER_the_enemies_of_democracy:
+  GER_freikorps_riots:
+    activation:
+      sandbox_civil_war_ai_allowed()
+    complete_effect:
+      $sandbox_log_cw_event(GER_freikorps_riots)
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+
+# Pattern D: these three queue new_ger.1.
+GER_operation_valkyre_category:
+  GER_sideline_goerdeler_decision:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+  GER_unite_the_right_decision:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()
+  GER_the_center_reforged_decision:
+    ai_will_do:
+      +modifier:
+        $ai_civil_war_decision_cap()

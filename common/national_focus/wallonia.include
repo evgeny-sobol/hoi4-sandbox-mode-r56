@@ -1,0 +1,16 @@
+focus_tree[id = wallonia_focus]:
+
+  focus[id = WLL_conservatism_focus]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WLL_welfare_focus]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = WLL_rearmament_agreement]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()

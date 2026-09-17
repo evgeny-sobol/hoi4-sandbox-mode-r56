@@ -1,0 +1,16 @@
+# Timeout queues r56_afghanistan.70 on PER (fire_only_once). Gate the first
+# timeout if so the event is not consumed; weekly delay keeps the mission.
+# AFG_the_internal_crisis_mission timeout starts with start_civil_war; delay
+# only (cannot wrap the payload).
+AFG_persian_socialism_decision_category:
+  AFG_march_on_tehran:
+    timeout_effect:
+      if:
+        limit:
+          sandbox_civil_war_ai_allowed()
+        $sandbox_log_cw_event(AFG_march_on_tehran)
+
+AFG_internal_crisis:
+  AFG_the_internal_crisis_mission:
+    timeout_effect:
+      $sandbox_log_cw_event(AFG_the_internal_crisis_mission)

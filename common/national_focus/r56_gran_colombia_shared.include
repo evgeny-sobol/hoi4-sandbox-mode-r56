@@ -1,0 +1,44 @@
+
+shared_focus[id = GCO_UNIFIED_gran_colombian_unification]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = GCO_UNIFIED_connect_the_cities]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = GCO_UNIFIED_develop_mining]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = GCO_UNIFIED_administrative_reorganization]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = GCO_UNIFIED_naval_buildup]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = GCO_UNIFIED_exploit_colombian_amazonian_rubber]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = GCO_UNIFIED_defend_the_new_union]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = GCO_UNIFIED_united_armed_forces]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

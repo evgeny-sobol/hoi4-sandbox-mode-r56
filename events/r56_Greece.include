@@ -1,0 +1,8 @@
+# Pattern B: greece.81.a stays (AI already prefers it). Cap zeros the war option.
+country_event[id = greece.81]:
+  option[name = greece.81.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(greece.81.b)

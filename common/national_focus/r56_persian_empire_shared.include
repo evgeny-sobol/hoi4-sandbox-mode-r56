@@ -1,0 +1,37 @@
+
+shared_focus[id = PER_UNIFIED_persian_imperial_ambitions]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $ai_mic_modifier()
+
+shared_focus[id = PER_UNIFIED_military_camelry]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PER_UNIFIED_connect_the_cities]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PER_UNIFIED_ethnic_collaboration]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PER_UNIFIED_glory_of_cyrus]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PER_UNIFIED_trans_persian_railway]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = PER_UNIFIED_develop_mining]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()

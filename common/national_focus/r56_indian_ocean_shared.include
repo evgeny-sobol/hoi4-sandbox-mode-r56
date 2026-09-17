@@ -1,0 +1,8 @@
+focus_tree[id = r56_shared_indian_ocean_focus]:
+
+  focus[id = MLD_abandoning_the_ruppe]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()

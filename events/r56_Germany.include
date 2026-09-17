@@ -1,0 +1,31 @@
+# Pattern B: r56.ger.39.a stays; AI will not pick the war option at cap.
+country_event[id = r56.ger.39]:
+  option[name = r56.ger.39.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(r56.ger.39.b)
+
+# Valkyrie / KPD payloads. Not fire_only_once. Discard for a capped AI;
+# Pattern D on the decisions that queue .1 is the main gate.
+country_event[id = new_ger.1]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(new_ger.1)
+
+country_event[id = new_ger.29]:
+  +trigger:
+    sandbox_civil_war_ai_allowed()
+  +immediate:
+    $sandbox_log_cw_event(new_ger.29)
+
+# Pattern B: new_ger.90.a annexes; .b starts the Austrian war.
+country_event[id = new_ger.90]:
+  option[name = new_ger.90.b]:
+    ai_chance:
+      +modifier:
+        factor(0)
+        sandbox_civil_war_cap_reached()
+    $sandbox_log_cw_event(new_ger.90.b)
