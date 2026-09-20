@@ -18,6 +18,8 @@ is_sandbox_census_country:
 # faction → Treacherous. Non-friends are always allowed.
 can_PREV_get_wargoal_on_THIS:
   OR:
+    # Declared scenario enemies never need a band (gdd/Scenarios.md).
+    THIS in PREV.scenario_enemies[]
     is_friend_of_PREV(no)
     AND:
       is_ally_with(PREV)

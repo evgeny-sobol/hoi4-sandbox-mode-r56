@@ -1,0 +1,70 @@
+# gdd/Scenarios Catalog.md: arc events for ger_monarchist.
+# ids sandbox_ger_monarchist.1 (crisis) + N ultimatums covering variant A and B targets.
+add_namespace(sandbox_ger_monarchist)
+
+# Crisis: The Kaiser Returns.
+country_event:
+  id(sandbox_ger_monarchist.1)
+  title(sandbox_ger_monarchist_1_t)
+  desc(sandbox_ger_monarchist_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER)
+  option:
+    name(sandbox_ger_monarchist_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, ger_monarchist_crisis)
+    add_war_support(0.05)
+  option:
+    name(sandbox_ger_monarchist_1_b)
+    ai_chance:
+      factor(15)
+    add_war_support(0.02)
+# Ultimatum 2 (SOV | VEN).
+country_event:
+  id(sandbox_ger_monarchist.2)
+  title(sandbox_ger_monarchist_2_t)
+  desc(sandbox_ger_monarchist_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV | VEN)
+  option:
+    name(sandbox_ger_monarchist_2_a)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ger_monarchist_ult_2_submit)
+  option:
+    name(sandbox_ger_monarchist_2_b)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.05)
+    $sandbox_log_sc(sc_crisis, ger_monarchist_ult_2_defy)
+# Ultimatum 3 (DEN | FRA).
+country_event:
+  id(sandbox_ger_monarchist.3)
+  title(sandbox_ger_monarchist_3_t)
+  desc(sandbox_ger_monarchist_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(DEN | FRA)
+  option:
+    name(sandbox_ger_monarchist_3_a)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ger_monarchist_ult_3_submit)
+  option:
+    name(sandbox_ger_monarchist_3_b)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.05)
+    $sandbox_log_sc(sc_crisis, ger_monarchist_ult_3_defy)

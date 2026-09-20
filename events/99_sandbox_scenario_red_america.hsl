@@ -1,0 +1,193 @@
+# gdd/Scenarios.md "Arc 6: Red America": crisis events. Fired from
+# sandbox_scenario_tick phase transitions, same tick (triggered-only).
+# ids sandbox_red_america.1-4. Same anatomy as the other arcs' events with
+# American flavor; AI options carry the design, players choose freely. Every
+# event carries a scope lock (tag or outsider trigger): delayed or drifted
+# fires fizzle instead of executing in the wrong country.
+# Event ids are namespace-qualified: vanilla rejects dotted ids without it.
+add_namespace(sandbox_red_america)
+
+# Crises phase: the World Revolution incident lands on the desk in Washington.
+country_event:
+  id(sandbox_red_america.1)
+  title(sandbox_red_america_1_t)
+  desc(sandbox_red_america_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_red_america_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, world_revolution_incident)
+    $sandbox_add_rivalry_vs(CAN, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_red_america_1_b)
+    ai_chance:
+      factor(15)
+
+# Peak phase: ultimatum to Tokyo. Submit hurts; defy feeds Washington.
+country_event:
+  id(sandbox_red_america.3)
+  title(sandbox_red_america_3_t)
+  desc(sandbox_red_america_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP)
+  option:
+    name(sandbox_red_america_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, japanese_submit)
+  option:
+    name(sandbox_red_america_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(JAP, 15)
+    $sandbox_log_sc(sc_crisis, japanese_defy)
+
+# Peak phase: ultimatum to Ottawa. Submit hurts; defy feeds Washington.
+country_event:
+  id(sandbox_red_america.2)
+  title(sandbox_red_america_2_t)
+  desc(sandbox_red_america_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CAN)
+  option:
+    name(sandbox_red_america_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, canadian_submit)
+  option:
+    name(sandbox_red_america_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(CAN, 15)
+    $sandbox_log_sc(sc_crisis, canadian_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the
+# People's Internationale. Whoever accepts leaves its old faction first
+# (leave-then-join); the exit carries no Honor charge (one-shot skip flag,
+# same as a released nation). USA leads: if Washington has no faction yet,
+# the event creates it under the People's Internationale name. The trigger
+# locks AI-only outsiders (the scorer picks them, but a drifted fire must
+# fizzle instead of inviting the wrong country).
+country_event:
+  id(sandbox_red_america.4)
+  title(sandbox_red_america_4_t)
+  desc(sandbox_red_america_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(USA)
+  option:
+    name(sandbox_red_america_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    USA:
+      if is_in_faction(no):
+        create_faction(sandbox_red_america_faction)
+      add_to_faction(PREV)
+      $add_opinion_modifier(PREV, scenario_ally)
+    $add_opinion_modifier(USA, scenario_ally)
+    $sandbox_log_sc(sc_join, red_america_joined)
+  option:
+    name(sandbox_red_america_4_b)
+    ai_chance:
+      factor(10)
+# Variant B: crisis on the aggressor (USA).
+country_event:
+  id(sandbox_red_america.5)
+  title(sandbox_red_america_5_t)
+  desc(sandbox_red_america_5_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_red_america_5_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, variant_b_crisis)
+    $sandbox_add_rivalry_vs(ENG, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_red_america_5_b)
+    ai_chance:
+      factor(15)
+
+# Variant B: ultimatum to ENG.
+country_event:
+  id(sandbox_red_america.6)
+  title(sandbox_red_america_6_t)
+  desc(sandbox_red_america_6_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_red_america_6_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, british_submit)
+  option:
+    name(sandbox_red_america_6_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(ENG, 15)
+    $sandbox_log_sc(sc_crisis, british_defy)
+
+# Variant B: ultimatum to SOV.
+country_event:
+  id(sandbox_red_america.7)
+  title(sandbox_red_america_7_t)
+  desc(sandbox_red_america_7_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_red_america_7_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, soviet_submit)
+  option:
+    name(sandbox_red_america_7_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(SOV, 15)
+    $sandbox_log_sc(sc_crisis, soviet_defy)
+

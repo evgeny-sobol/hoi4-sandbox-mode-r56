@@ -1,0 +1,193 @@
+# gdd/Scenarios.md "Arc 5: Fascist Britain": crisis events. Fired from
+# sandbox_scenario_tick phase transitions, same tick (triggered-only).
+# ids sandbox_britain.1-4. Same anatomy as the other arcs' events with
+# British flavor; AI options carry the design, players choose freely. Every
+# event carries a scope lock (tag or outsider trigger): delayed or drifted
+# fires fizzle instead of executing in the wrong country.
+# Event ids are namespace-qualified: vanilla rejects dotted ids without it.
+add_namespace(sandbox_britain)
+
+# Crises phase: the New Order incident lands on the desk in London.
+country_event:
+  id(sandbox_britain.1)
+  title(sandbox_britain_1_t)
+  desc(sandbox_britain_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_britain_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, new_order_incident)
+    $sandbox_add_rivalry_vs(FRA, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_britain_1_b)
+    ai_chance:
+      factor(15)
+
+# Peak phase: ultimatum to Moscow. Submit hurts; defy feeds London.
+country_event:
+  id(sandbox_britain.3)
+  title(sandbox_britain_3_t)
+  desc(sandbox_britain_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_britain_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, soviet_submit)
+  option:
+    name(sandbox_britain_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(SOV, 15)
+    $sandbox_log_sc(sc_crisis, soviet_defy)
+
+# Peak phase: ultimatum to Paris. Submit hurts; defy feeds London.
+country_event:
+  id(sandbox_britain.2)
+  title(sandbox_britain_2_t)
+  desc(sandbox_britain_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(FRA)
+  option:
+    name(sandbox_britain_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, french_submit)
+  option:
+    name(sandbox_britain_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(FRA, 15)
+    $sandbox_log_sc(sc_crisis, french_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the New
+# Empire. Whoever accepts leaves its old faction first (leave-then-join);
+# the exit carries no Honor charge (one-shot skip flag, same as a released
+# nation). ENG leads: if London has no faction yet, the event creates it
+# under the New Empire name. The trigger locks AI-only outsiders (the scorer
+# picks them, but a drifted fire must fizzle instead of inviting the wrong
+# country).
+country_event:
+  id(sandbox_britain.4)
+  title(sandbox_britain_4_t)
+  desc(sandbox_britain_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(ENG)
+  option:
+    name(sandbox_britain_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    ENG:
+      if is_in_faction(no):
+        create_faction(sandbox_britain_faction)
+      add_to_faction(PREV)
+      $add_opinion_modifier(PREV, scenario_ally)
+    $add_opinion_modifier(ENG, scenario_ally)
+    $sandbox_log_sc(sc_join, british_joined)
+  option:
+    name(sandbox_britain_4_b)
+    ai_chance:
+      factor(10)
+# Variant B: crisis on the aggressor (ENG).
+country_event:
+  id(sandbox_britain.5)
+  title(sandbox_britain_5_t)
+  desc(sandbox_britain_5_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_britain_5_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, variant_b_crisis)
+    $sandbox_add_rivalry_vs(GER, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_britain_5_b)
+    ai_chance:
+      factor(15)
+
+# Variant B: ultimatum to GER.
+country_event:
+  id(sandbox_britain.6)
+  title(sandbox_britain_6_t)
+  desc(sandbox_britain_6_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER)
+  option:
+    name(sandbox_britain_6_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, german_submit)
+  option:
+    name(sandbox_britain_6_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(GER, 15)
+    $sandbox_log_sc(sc_crisis, german_defy)
+
+# Variant B: ultimatum to ITA.
+country_event:
+  id(sandbox_britain.7)
+  title(sandbox_britain_7_t)
+  desc(sandbox_britain_7_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA)
+  option:
+    name(sandbox_britain_7_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ENG:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, italian_submit)
+  option:
+    name(sandbox_britain_7_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ENG:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(ITA, 15)
+    $sandbox_log_sc(sc_crisis, italian_defy)
+

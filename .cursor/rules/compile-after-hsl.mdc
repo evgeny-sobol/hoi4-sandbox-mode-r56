@@ -11,9 +11,9 @@ After any create, edit, or delete of files with extensions `.include`, `.hsl`, o
 Use a single PowerShell session (activation does not persist across separate shells). Compile **this** folder against the subscribed Road to 56 workshop copy (read-only include base), not vanilla and not `_sandbox`:
 
 ```powershell
-cd C:\Users\evgeny\Repos\HoI4\hsl
+cd $env:USERPROFILE\Repos\HoI4\hsl
 .\venv\Scripts\activate
-python .\compiler.py "C:\Users\evgeny\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56" "C:\Games\Steam\steamapps\workshop\content\394360\820260968"
+python .\compiler.py "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56" "C:\Games\Steam\steamapps\workshop\content\394360\820260968"
 ```
 
 - Do not skip this step after a batch of related source edits; one compile at the end of the batch is enough.

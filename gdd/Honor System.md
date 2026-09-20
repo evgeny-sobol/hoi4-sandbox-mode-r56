@@ -39,6 +39,8 @@ A **betrayal focus** is any national focus that breaks a promise to a friend (re
 
 All values are applied once per event via `$add_honor(-X)` and are shown in the tooltip of the effect that causes them.
 
+Declared scenario enemies (`gdd/Scenarios.md`, "Levers") are exempt: wars between them skip every charge in this section, including the justification drip.
+
 ### Breaking a non-aggression pact by war: −50
 
 The pact partner is attacked (the focus removes the pact via `diplomatic_relation ... active = no`, then a wargoal is granted or war is declared).

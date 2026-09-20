@@ -1,0 +1,193 @@
+# gdd/Scenarios.md "Arc 4: Italian expansion": crisis events. Fired from
+# sandbox_scenario_tick phase transitions, same tick (triggered-only).
+# ids sandbox_italian.1-4. Same anatomy as the other arcs' events with
+# Italian flavor; AI options carry the design, players choose freely. Every
+# event carries a scope lock (tag or outsider trigger): delayed or drifted
+# fires fizzle instead of executing in the wrong country.
+# Event ids are namespace-qualified: vanilla rejects dotted ids without it.
+add_namespace(sandbox_italian)
+
+# Crises phase: the Balkans incident lands on the desk in Rome.
+country_event:
+  id(sandbox_italian.1)
+  title(sandbox_italian_1_t)
+  desc(sandbox_italian_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA)
+  option:
+    name(sandbox_italian_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, balkans_incident)
+    $sandbox_add_rivalry_vs(YUG, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_italian_1_b)
+    ai_chance:
+      factor(15)
+
+# Peak phase: ultimatum to Athens. Submit hurts; defy feeds Rome.
+country_event:
+  id(sandbox_italian.3)
+  title(sandbox_italian_3_t)
+  desc(sandbox_italian_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(GRE)
+  option:
+    name(sandbox_italian_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, greek_submit)
+  option:
+    name(sandbox_italian_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(GRE, 15)
+    $sandbox_log_sc(sc_crisis, greek_defy)
+
+# Peak phase: ultimatum to Belgrade. Submit hurts; defy feeds Rome.
+country_event:
+  id(sandbox_italian.2)
+  title(sandbox_italian_2_t)
+  desc(sandbox_italian_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(YUG)
+  option:
+    name(sandbox_italian_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, yugoslav_submit)
+  option:
+    name(sandbox_italian_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(YUG, 15)
+    $sandbox_log_sc(sc_crisis, yugoslav_defy)
+
+# Peak phase: a top-2 open-pool candidate is offered a place in the
+# Mare Nostrum. Whoever accepts leaves its old faction first
+# (leave-then-join); the exit carries no Honor charge (one-shot skip flag,
+# same as a released nation). ITA leads: if Rome has no faction yet, the
+# event creates it under the Mare Nostrum name. The trigger locks AI-only
+# outsiders (the scorer picks them, but a drifted fire must fizzle instead
+# of inviting the wrong country).
+country_event:
+  id(sandbox_italian.4)
+  title(sandbox_italian_4_t)
+  desc(sandbox_italian_4_d)
+  picture(GFX_news_event_004)
+  is_triggered_only(yes)
+  trigger:
+    is_ai(yes)
+    not is_in_faction_with(ITA)
+  option:
+    name(sandbox_italian_4_a)
+    ai_chance:
+      factor(90)
+    if is_in_faction(yes):
+      set_country_flag(sandbox_honor_skip_leave_faction)
+      leave_faction(yes)
+    ITA:
+      if is_in_faction(no):
+        create_faction(sandbox_italian_faction)
+      add_to_faction(PREV)
+      $add_opinion_modifier(PREV, scenario_ally)
+    $add_opinion_modifier(ITA, scenario_ally)
+    $sandbox_log_sc(sc_join, italian_joined)
+  option:
+    name(sandbox_italian_4_b)
+    ai_chance:
+      factor(10)
+# Variant B: crisis on the aggressor (ITA).
+country_event:
+  id(sandbox_italian.5)
+  title(sandbox_italian_5_t)
+  desc(sandbox_italian_5_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA)
+  option:
+    name(sandbox_italian_5_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, variant_b_crisis)
+    $sandbox_add_rivalry_vs(FRA, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_italian_5_b)
+    ai_chance:
+      factor(15)
+
+# Variant B: ultimatum to FRA.
+country_event:
+  id(sandbox_italian.6)
+  title(sandbox_italian_6_t)
+  desc(sandbox_italian_6_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(FRA)
+  option:
+    name(sandbox_italian_6_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, french_submit)
+  option:
+    name(sandbox_italian_6_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(FRA, 15)
+    $sandbox_log_sc(sc_crisis, french_defy)
+
+# Variant B: ultimatum to ENG.
+country_event:
+  id(sandbox_italian.7)
+  title(sandbox_italian_7_t)
+  desc(sandbox_italian_7_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_italian_7_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, british_submit)
+  option:
+    name(sandbox_italian_7_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(ENG, 15)
+    $sandbox_log_sc(sc_crisis, british_defy)
+

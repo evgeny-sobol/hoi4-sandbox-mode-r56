@@ -1,0 +1,78 @@
+# gdd/Scenarios Catalog.md: arc events for jap_old. 
+# ids sandbox_jap_old.1-3. Same anatomy as other arcs.
+add_namespace(sandbox_jap_old)
+
+# Crisis: The Old Oppressors.
+country_event:
+  id(sandbox_jap_old.1)
+  title(sandbox_jap_old_1_t)
+  desc(sandbox_jap_old_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP)
+  option:
+    name(sandbox_jap_old_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, western_crisis)
+    $sandbox_add_rivalry_vs(USA, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_jap_old_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum to USA.
+country_event:
+  id(sandbox_jap_old.2)
+  title(sandbox_jap_old_2_t)
+  desc(sandbox_jap_old_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_jap_old_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, USA_submit)
+  option:
+    name(sandbox_jap_old_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(USA, 15)
+    $sandbox_log_sc(sc_crisis, USA_defy)
+
+# Ultimatum to ENG.
+country_event:
+  id(sandbox_jap_old.3)
+  title(sandbox_jap_old_3_t)
+  desc(sandbox_jap_old_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_jap_old_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ENG_submit)
+  option:
+    name(sandbox_jap_old_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(ENG, 15)
+    $sandbox_log_sc(sc_crisis, ENG_defy)

@@ -1,0 +1,78 @@
+# gdd/Scenarios Catalog.md: arc events for ger_atl. 
+# ids sandbox_ger_atl.1-3. Same anatomy as other arcs.
+add_namespace(sandbox_ger_atl)
+
+# Crisis: The Atlantic Question.
+country_event:
+  id(sandbox_ger_atl.1)
+  title(sandbox_ger_atl_1_t)
+  desc(sandbox_ger_atl_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER)
+  option:
+    name(sandbox_ger_atl_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, western_crisis)
+    $sandbox_add_rivalry_vs(ENG, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_ger_atl_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum to ENG.
+country_event:
+  id(sandbox_ger_atl.2)
+  title(sandbox_ger_atl_2_t)
+  desc(sandbox_ger_atl_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_ger_atl_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ENG_submit)
+  option:
+    name(sandbox_ger_atl_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(ENG, 15)
+    $sandbox_log_sc(sc_crisis, ENG_defy)
+
+# Ultimatum to USA.
+country_event:
+  id(sandbox_ger_atl.3)
+  title(sandbox_ger_atl_3_t)
+  desc(sandbox_ger_atl_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_ger_atl_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, USA_submit)
+  option:
+    name(sandbox_ger_atl_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(USA, 15)
+    $sandbox_log_sc(sc_crisis, USA_defy)

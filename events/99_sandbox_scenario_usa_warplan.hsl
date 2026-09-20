@@ -1,0 +1,70 @@
+# gdd/Scenarios Catalog.md: arc events for usa_warplan.
+# ids sandbox_usa_warplan.1 (crisis) + N ultimatums covering variant A and B targets.
+add_namespace(sandbox_usa_warplan)
+
+# Crisis: War Plan Rehearsal.
+country_event:
+  id(sandbox_usa_warplan.1)
+  title(sandbox_usa_warplan_1_t)
+  desc(sandbox_usa_warplan_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_usa_warplan_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, usa_warplan_crisis)
+    add_war_support(0.05)
+  option:
+    name(sandbox_usa_warplan_1_b)
+    ai_chance:
+      factor(15)
+    add_war_support(0.02)
+# Ultimatum 2 (JAP | ENG).
+country_event:
+  id(sandbox_usa_warplan.2)
+  title(sandbox_usa_warplan_2_t)
+  desc(sandbox_usa_warplan_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP | ENG)
+  option:
+    name(sandbox_usa_warplan_2_a)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_2_submit)
+  option:
+    name(sandbox_usa_warplan_2_b)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.05)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_2_defy)
+# Ultimatum 3 (CAN).
+country_event:
+  id(sandbox_usa_warplan.3)
+  title(sandbox_usa_warplan_3_t)
+  desc(sandbox_usa_warplan_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(CAN)
+  option:
+    name(sandbox_usa_warplan_3_a)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_3_submit)
+  option:
+    name(sandbox_usa_warplan_3_b)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.05)
+    $sandbox_log_sc(sc_crisis, usa_warplan_ult_3_defy)

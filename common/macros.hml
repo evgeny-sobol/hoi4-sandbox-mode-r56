@@ -1,7 +1,9 @@
-# game.log line for GDD checklists. Grep `#sandbox`. Callers set
-# sandbox_log_old / _new / _delta, and optionally sandbox_log_other (tag)
-# and sandbox_log_slot (rivals 0–2, else −1). Monthly drift (|d| < 2) is
-# not logged from $add_honor / $add_tyranny.
+# game.log line for GDD checklists. Grep `#sandbox`. This base macro is a
+# generic writer; callers pick the gated wrapper for their system:
+#   $sandbox_log_honor / $sandbox_log_tyranny / $sandbox_log_rivals
+# Callers set sandbox_log_old / _new / _delta, and optionally
+# sandbox_log_other (tag) and sandbox_log_slot (rivals 0–2, else −1).
+# Monthly drift (|d| < 2) is not logged from $add_honor / $add_tyranny.
 macro sandbox_log(_event_):
   if is_sandbox_mode_on():
     if sandbox_log_other != 0:
@@ -11,13 +13,27 @@ macro sandbox_log(_event_):
   sandbox_log_other = 0
   sandbox_log_slot = -1
 
+macro sandbox_log_honor(_event_):
+  if has_global_flag(sandbox_log_honor):
+    $sandbox_log(_event_)
+
+macro sandbox_log_tyranny(_event_):
+  if has_global_flag(sandbox_log_tyranny):
+    $sandbox_log(_event_)
+
+macro sandbox_log_rivals(_event_):
+  if has_global_flag(sandbox_log_rivals):
+    $sandbox_log(_event_)
+
 # GER inner-circle: slot/old/new/delta = completed count among the 7 foci.
 macro sandbox_log_ger_inner_circle_state(_event_):
-  sandbox_log_old = GER_inner_circle_count
-  sandbox_log_new = GER_inner_circle_count
-  sandbox_log_delta = GER_inner_circle_count
-  sandbox_log_slot = GER_inner_circle_count
-  $sandbox_log(_event_)
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_national_focuses):
+    sandbox_log_old = GER_inner_circle_count
+    sandbox_log_new = GER_inner_circle_count
+    sandbox_log_delta = GER_inner_circle_count
+    sandbox_log_slot = GER_inner_circle_count
+    sandbox_log_other = 0
+    $sandbox_log(_event_)
 
 macro sandbox_log_ger_inner_circle(_event_):
   GER_sandbox_count_inner_circle_foci()
@@ -170,6 +186,12 @@ macro ai_sandbox_modifier():
   add(40)
   is_sandbox_mode_on()
 
+# gdd/Scenarios.md "Focus weights": scenario-specific x5 after Feud plus
+# Honor exemptions proved insufficient (s8/s9). Only the live aggressor.
+macro ai_scenario_focus_boost():
+  factor(5)
+  is_live_scenario_aggressor()
+
 # Civil-war AI (gdd/Civil Wars.md). The 0.25 and the cap's factor(0) MUST
 # be separate modifiers: if the cap trigger fails, that modifier is skipped
 # and a folded factor(0) would also drop the 0.25.
@@ -188,7 +210,7 @@ macro ai_civil_war_root_modifier():
 #   cw_defer — Pattern C skip this tick (mission +8, BoP, Spain wait, AST daily)
 #   cw_event — the fuse actually fired (Spain MTTH, election option, ITA retry)
 macro sandbox_log_cw_snapshot(_event_):
-  if is_sandbox_mode_on():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
     sandbox_cw_cap = 0
     sandbox_cw_base = 10
     if sandbox_civil_war_cap_reached():
@@ -198,7 +220,7 @@ macro sandbox_log_cw_snapshot(_event_):
 
 macro sandbox_log_cw_focus(_kind_, _focus_):
   hidden_effect:
-    if is_sandbox_mode_on():
+    if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
       sandbox_cw_ai = 0
       if is_ai(yes):
         sandbox_cw_ai = 1
@@ -233,7 +255,7 @@ macro sandbox_delay_mission_if_capped(_mission_):
 # ROOT vs FROM (declare / civil-war end). Caller sets sandbox_log_other and
 # sandbox_cw_old (the count before the rebuild that just ran).
 macro sandbox_log_cw_war(_event_):
-  if is_sandbox_mode_on():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_civil_wars):
     # ROOT is often a Dxx rebel. Player-started wars still count as ai=0
     # if FROM (the other civil-war tag) is human.
     sandbox_cw_ai = 1
@@ -246,6 +268,18 @@ macro sandbox_log_cw_war(_event_):
       sandbox_cw_base = 0
     log("#sandbox [GetDateText] [THIS.GetTag] _event_ [?sandbox_cw_old|.0]->[?global.sandbox_civil_war_count|.0] cw=[?global.sandbox_civil_war_count|.0] cap=[?sandbox_cw_cap|.0] ignition_base=[?sandbox_cw_base|.0] ai=[?sandbox_cw_ai|.0] other=[?sandbox_log_other.GetTag] t0=[?global.sandbox_civil_war_seen^0.GetTag] t1=[?global.sandbox_civil_war_seen^1.GetTag] t2=[?global.sandbox_civil_war_seen^2.GetTag] t3=[?global.sandbox_civil_war_seen^3.GetTag] t=[?months_elapsed] home=[?tyranny_home|.1]")
   sandbox_log_other = 0
+
+# gdd/Scenarios.md "Hooks and telemetry". Mirrors the cw_ line shape.
+# Arc ids: 0 none, 1 axis_expansion. Phases: 0 smolder, 1 crises, 2 peak.
+macro sandbox_log_sc(_event_, _id_):
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    log("#sandbox [GetDateText] [THIS.GetTag] _event_ _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed] home=[?tyranny_home|.1]")
+
+# s7 diagnostic (gdd/Scenarios.md "Hooks and telemetry"): strength census.
+# Reads sc_div / sc_fab temps set in-actor-scope before the call. Read-only.
+macro sandbox_log_sc_power():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    log("#sandbox [GetDateText] [THIS.GetTag] sc_power div=[?sc_div|.0] fab=[?sc_fab|.0] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
 
 # Same-block set. A lone `factor(0)` in another modifier zeroes the whole
 # ai_will_do, including later `add` — aiview stays at 0.
@@ -324,6 +358,7 @@ macro ai_betrayal_modifier_vs(_tag_):
   $ai_betrayal_modifier()
   country_exists(_tag_)
   _tag_->is_friend_of_PREV()
+  _tag_->is_scenario_enemy_of_PREV(no)
 
 # Alias-safe form of `_tag_->can_PREV_get_wargoal_on_THIS()`. A country that
 # does not exist (or an alias that does not resolve) cannot be a friend, so
@@ -435,3 +470,131 @@ macro not_rival_of_PREV(_tag_):
   OR:
     not country_exists(_tag_)
     _tag_->is_rival_of_PREV(no)
+
+# gdd/Scenarios.md "Levers" (kept at the end: macro libraries resolve nested
+# calls top-down, so these come after $add_rivalry).
+# Add _var_ rivalry to every slot holding _tag_ (no-op if absent).
+macro sandbox_add_rivalry_vs(_tag_, _var_):
+  if rivals[0] == _tag_:
+    $add_rivalry(0, _var_)
+  if rivals[1] == _tag_:
+    $add_rivalry(1, _var_)
+  if rivals[2] == _tag_:
+    $add_rivalry(2, _var_)
+
+# Seed _tag_ as our national rival at _intensity_. Already listed: raise to
+# _intensity_ if below. An empty national slot wins, else the lowest slot is
+# replaced (scenario priority; the replaced rival gets the usual 24-month
+# cooldown from clear_rival). Literal tags appear only as scope heads and
+# comparisons; rival_tag always takes a scope (PREV), never a literal, so no
+# tag value ever enters a variable.
+macro sandbox_seed_rival(_tag_, _intensity_):
+  if _tag_ in rivals[]:
+    rivalry_vs = 0
+    if rivals[0] == _tag_:
+      if rivalry[0] > rivalry_vs:
+        rivalry_vs = rivalry[0]
+    if rivals[1] == _tag_:
+      if rivalry[1] > rivalry_vs:
+        rivalry_vs = rivalry[1]
+    if rivals[2] == _tag_:
+      if rivalry[2] > rivalry_vs:
+        rivalry_vs = rivalry[2]
+    if rivalry_vs < _intensity_:
+      rivalry_delta = _intensity_ - rivalry_vs
+      $sandbox_add_rivalry_vs(_tag_, rivalry_delta)
+  else:
+    _tag_:
+      PREV:
+        rival_tag = PREV
+        if rivals[1] == 0:
+          rival_slot = 1
+        elif rivals[2] == 0:
+          rival_slot = 2
+        else:
+          lowest_slot = 1
+          lowest_val = rivalry[1]
+          if rivalry[2] < lowest_val:
+            lowest_slot = 2
+            lowest_val = rivalry[2]
+          rival_slot = lowest_slot
+          sandbox_clear_kind = 7
+          clear_rival()
+          rival_slot = lowest_slot
+        rival_intensity = _intensity_
+        set_rival()
+
+# gdd/Scenarios.md "Lifecycle": target derail for the active arc. THIS is the
+# aggressor; _t0_.._t2_ are literal target tags (pass 0 for unused slots).
+# Emits two arms: targets_gone (no target exists) and targets_neutralized
+# (every target is gone, a subject of THIS, or in THIS's faction).
+macro sandbox_check_targets_derail1(_t0_):
+  if not country_exists(_t0_):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_gone)
+    $sandbox_log_sc(sc_end, targets_gone)
+  elif not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_neutralized)
+    $sandbox_log_sc(sc_end, targets_neutralized)
+
+macro sandbox_check_targets_derail2(_t0_, _t1_):
+  if not country_exists(_t0_) and not country_exists(_t1_):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_gone)
+    $sandbox_log_sc(sc_end, targets_gone)
+  elif (not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS)) and (not country_exists(_t1_) or _t1_->is_subject_of(THIS) or _t1_->is_in_faction_with(THIS)):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_neutralized)
+    $sandbox_log_sc(sc_end, targets_neutralized)
+
+macro sandbox_check_targets_derail3(_t0_, _t1_, _t2_):
+  if not country_exists(_t0_) and not country_exists(_t1_) and not country_exists(_t2_):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_gone)
+    $sandbox_log_sc(sc_end, targets_gone)
+  elif (not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS)) and (not country_exists(_t1_) or _t1_->is_subject_of(THIS) or _t1_->is_in_faction_with(THIS)) and (not country_exists(_t2_) or _t2_->is_subject_of(THIS) or _t2_->is_in_faction_with(THIS)):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_neutralized)
+    $sandbox_log_sc(sc_end, targets_neutralized)
+
+# gdd/Scenarios.md "Lifecycle": four-target derail arm for wide-pool arcs
+# (e.g. USA hegemony variant A: ENG, GER, HUN, JAP). Derails when ALL four
+# targets are gone or when ALL four are neutralized (subject of THIS or in
+# its faction). Same semantics as the 3-target arm.
+macro sandbox_check_targets_derail4(_t0_, _t1_, _t2_, _t3_):
+  if not country_exists(_t0_) and not country_exists(_t1_) and not country_exists(_t2_) and not country_exists(_t3_):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_gone)
+    $sandbox_log_sc(sc_end, targets_gone)
+  elif (not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS)) and (not country_exists(_t1_) or _t1_->is_subject_of(THIS) or _t1_->is_in_faction_with(THIS)) and (not country_exists(_t2_) or _t2_->is_subject_of(THIS) or _t2_->is_in_faction_with(THIS)) and (not country_exists(_t3_) or _t3_->is_subject_of(THIS) or _t3_->is_in_faction_with(THIS)):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, targets_neutralized)
+    $sandbox_log_sc(sc_end, targets_neutralized)
+# gdd/Scenarios.md "Flips": generic flip/imperial gate. Derails on the
+# crises phase (phase == 1) if the aggressor is not yet on the required
+# ideology. Two ideologies (imperial: neutrality OR fascism) or one. The
+# log label (e.g. britain_not_fascist) is passed in. Mirrors the arcs 5/6
+# arm: wartime ideology flips are ignored, no civil-war exclusion.
+macro sandbox_check_flip_gate(_agg_, _ideo1_, _ideo2_, _log_):
+  if global.sandbox_scenario_phase == 1:
+    if _ideo2_ != 0:
+      if not _agg_->has_government(_ideo1_) and not _agg_->has_government(_ideo2_):
+        global.&sandbox_scenario_phase = 3
+        $sandbox_log_sc(sc_derail, _log_)
+        $sandbox_log_sc(sc_end, _log_)
+    else:
+      if not _agg_->has_government(_ideo1_):
+        global.&sandbox_scenario_phase = 3
+        $sandbox_log_sc(sc_derail, _log_)
+        $sandbox_log_sc(sc_end, _log_)
+
+# gdd/Scenarios.md "Flips": inverted flip gate for post-flip arcs that need
+# the aggressor OFF an ideology (e.g. White Russia: SOV must not be
+# communist by the crises phase). Same phase-1 timing as the normal gate.
+macro sandbox_check_flip_gate_inv(_agg_, _ideo1_, _log_):
+  if global.sandbox_scenario_phase == 1:
+    if _agg_->has_government(_ideo1_):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, _log_)
+      $sandbox_log_sc(sc_end, _log_)
