@@ -71,8 +71,28 @@ on_actions:
         update_rivalry_monthly()
         fill_rival_vacancies()
         sandbox_log_census()
-        # Scenario ladder tick (HAI holds the global scenario state).
+        # Scenario ladder tick (gdd/Scenarios.md "Lifecycle"). on_monthly runs
+        # per country, so the tick must fire in exactly one host per month. HAI
+        # is the primary host; the chain falls back through the majors so that
+        # losing any single country (s12: a removed HAI froze every arc silently)
+        # cannot stop the ladder.
         if tag(HAI):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and tag(GER):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and tag(SOV):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and tag(JAP):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and tag(ITA):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and tag(ENG):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and tag(USA):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and tag(FRA):
+          sandbox_scenario_tick()
+        elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and not country_exists(FRA) and tag(HUN):
           sandbox_scenario_tick()
 
   on_ruling_party_change:

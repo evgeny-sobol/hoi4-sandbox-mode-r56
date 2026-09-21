@@ -524,70 +524,75 @@ macro sandbox_seed_rival(_tag_, _intensity_):
         rival_intensity = _intensity_
         set_rival()
 
-# gdd/Scenarios.md "Lifecycle": target derail for the active arc. THIS is the
-# aggressor; _t0_.._t2_ are literal target tags (pass 0 for unused slots).
+# gdd/Scenarios.md "Lifecycle": target derail for the active arc. _agg_ is the
+# arc aggressor (explicit, so the arm is scope-independent: the check runs in
+# the director's scope, not the aggressor's); _t0_.. are literal target tags.
 # Emits two arms: targets_gone (no target exists) and targets_neutralized
-# (every target is gone, a subject of THIS, or in THIS's faction).
-macro sandbox_check_targets_derail1(_t0_):
+# (every target is gone, a subject of the aggressor, or in the aggressor's
+# faction). Split per arity: macro params are text-substituted, so an unused
+# `0` slot would leak into country_exists/is_subject_of.
+macro sandbox_check_targets_derail1(_agg_, _t0_):
   if not country_exists(_t0_):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_gone)
     $sandbox_log_sc(sc_end, targets_gone)
-  elif not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS):
+  elif not country_exists(_t0_) or _t0_->is_subject_of(_agg_) or _t0_->is_in_faction_with(_agg_):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_neutralized)
     $sandbox_log_sc(sc_end, targets_neutralized)
 
-macro sandbox_check_targets_derail2(_t0_, _t1_):
+macro sandbox_check_targets_derail2(_agg_, _t0_, _t1_):
   if not country_exists(_t0_) and not country_exists(_t1_):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_gone)
     $sandbox_log_sc(sc_end, targets_gone)
-  elif (not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS)) and (not country_exists(_t1_) or _t1_->is_subject_of(THIS) or _t1_->is_in_faction_with(THIS)):
+  elif (not country_exists(_t0_) or _t0_->is_subject_of(_agg_) or _t0_->is_in_faction_with(_agg_)) and (not country_exists(_t1_) or _t1_->is_subject_of(_agg_) or _t1_->is_in_faction_with(_agg_)):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_neutralized)
     $sandbox_log_sc(sc_end, targets_neutralized)
 
-macro sandbox_check_targets_derail3(_t0_, _t1_, _t2_):
+macro sandbox_check_targets_derail3(_agg_, _t0_, _t1_, _t2_):
   if not country_exists(_t0_) and not country_exists(_t1_) and not country_exists(_t2_):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_gone)
     $sandbox_log_sc(sc_end, targets_gone)
-  elif (not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS)) and (not country_exists(_t1_) or _t1_->is_subject_of(THIS) or _t1_->is_in_faction_with(THIS)) and (not country_exists(_t2_) or _t2_->is_subject_of(THIS) or _t2_->is_in_faction_with(THIS)):
+  elif (not country_exists(_t0_) or _t0_->is_subject_of(_agg_) or _t0_->is_in_faction_with(_agg_)) and (not country_exists(_t1_) or _t1_->is_subject_of(_agg_) or _t1_->is_in_faction_with(_agg_)) and (not country_exists(_t2_) or _t2_->is_subject_of(_agg_) or _t2_->is_in_faction_with(_agg_)):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_neutralized)
     $sandbox_log_sc(sc_end, targets_neutralized)
 
 # gdd/Scenarios.md "Lifecycle": four-target derail arm for wide-pool arcs
-# (e.g. USA hegemony variant A: ENG, GER, HUN, JAP). Derails when ALL four
-# targets are gone or when ALL four are neutralized (subject of THIS or in
-# its faction). Same semantics as the 3-target arm.
-macro sandbox_check_targets_derail4(_t0_, _t1_, _t2_, _t3_):
+# (e.g. USA hegemony variant A: ENG, GER, HUN, JAP). Same semantics as the
+# 3-target arm.
+macro sandbox_check_targets_derail4(_agg_, _t0_, _t1_, _t2_, _t3_):
   if not country_exists(_t0_) and not country_exists(_t1_) and not country_exists(_t2_) and not country_exists(_t3_):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_gone)
     $sandbox_log_sc(sc_end, targets_gone)
-  elif (not country_exists(_t0_) or _t0_->is_subject_of(THIS) or _t0_->is_in_faction_with(THIS)) and (not country_exists(_t1_) or _t1_->is_subject_of(THIS) or _t1_->is_in_faction_with(THIS)) and (not country_exists(_t2_) or _t2_->is_subject_of(THIS) or _t2_->is_in_faction_with(THIS)) and (not country_exists(_t3_) or _t3_->is_subject_of(THIS) or _t3_->is_in_faction_with(THIS)):
+  elif (not country_exists(_t0_) or _t0_->is_subject_of(_agg_) or _t0_->is_in_faction_with(_agg_)) and (not country_exists(_t1_) or _t1_->is_subject_of(_agg_) or _t1_->is_in_faction_with(_agg_)) and (not country_exists(_t2_) or _t2_->is_subject_of(_agg_) or _t2_->is_in_faction_with(_agg_)) and (not country_exists(_t3_) or _t3_->is_subject_of(_agg_) or _t3_->is_in_faction_with(_agg_)):
     global.&sandbox_scenario_phase = 3
     $sandbox_log_sc(sc_derail, targets_neutralized)
     $sandbox_log_sc(sc_end, targets_neutralized)
 # gdd/Scenarios.md "Flips": generic flip/imperial gate. Derails on the
 # crises phase (phase == 1) if the aggressor is not yet on the required
-# ideology. Two ideologies (imperial: neutrality OR fascism) or one. The
-# log label (e.g. britain_not_fascist) is passed in. Mirrors the arcs 5/6
-# arm: wartime ideology flips are ignored, no civil-war exclusion.
-macro sandbox_check_flip_gate(_agg_, _ideo1_, _ideo2_, _log_):
+# ideology. Split per arity (one ideology vs two: imperial = neutrality OR
+# fascism): macro params are text-substituted, so a single macro with an
+# unused `0` ideology would emit `has_government = 0`. The log label (e.g.
+# britain_not_fascist) is passed in. Mirrors the arcs 5/6 arm: wartime
+# ideology flips are ignored, no civil-war exclusion.
+macro sandbox_check_flip_gate1(_agg_, _ideo1_, _log_):
   if global.sandbox_scenario_phase == 1:
-    if _ideo2_ != 0:
-      if not _agg_->has_government(_ideo1_) and not _agg_->has_government(_ideo2_):
-        global.&sandbox_scenario_phase = 3
-        $sandbox_log_sc(sc_derail, _log_)
-        $sandbox_log_sc(sc_end, _log_)
-    else:
-      if not _agg_->has_government(_ideo1_):
-        global.&sandbox_scenario_phase = 3
-        $sandbox_log_sc(sc_derail, _log_)
-        $sandbox_log_sc(sc_end, _log_)
+    if not _agg_->has_government(_ideo1_):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, _log_)
+      $sandbox_log_sc(sc_end, _log_)
+
+macro sandbox_check_flip_gate2(_agg_, _ideo1_, _ideo2_, _log_):
+  if global.sandbox_scenario_phase == 1:
+    if not _agg_->has_government(_ideo1_) and not _agg_->has_government(_ideo2_):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, _log_)
+      $sandbox_log_sc(sc_end, _log_)
 
 # gdd/Scenarios.md "Flips": inverted flip gate for post-flip arcs that need
 # the aggressor OFF an ideology (e.g. White Russia: SOV must not be

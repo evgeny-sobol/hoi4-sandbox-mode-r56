@@ -2984,112 +2984,112 @@ sandbox_scenario_check_derail():
     sandbox_scenario_check_habsburg_derail()
   elif global.sandbox_scenario == 9:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(ENG)
+      $sandbox_check_targets_derail1(GER, ENG)
     else:
-      $sandbox_check_targets_derail1(USA)
+      $sandbox_check_targets_derail1(GER, USA)
   elif global.sandbox_scenario == 10:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(SOV)
+      $sandbox_check_targets_derail1(GER, SOV)
     else:
-      $sandbox_check_targets_derail2(IRQ, PER)
+      $sandbox_check_targets_derail2(GER, IRQ, PER)
   elif global.sandbox_scenario == 11:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(TUR, IRQ, PER)
+      $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
     else:
-      $sandbox_check_targets_derail3(PAK, RAJ, AFG)
+      $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
   elif global.sandbox_scenario == 12:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(JAP, MAN)
+      $sandbox_check_targets_derail2(SOV, JAP, MAN)
     else:
-      $sandbox_check_targets_derail2(USA, CAN)
+      $sandbox_check_targets_derail2(SOV, USA, CAN)
   elif global.sandbox_scenario == 13:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(SOV, MON)
+      $sandbox_check_targets_derail2(JAP, SOV, MON)
     else:
-      $sandbox_check_targets_derail2(SOV, CHI)
+      $sandbox_check_targets_derail2(JAP, SOV, CHI)
   elif global.sandbox_scenario == 14:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(USA)
+      $sandbox_check_targets_derail1(JAP, USA)
     else:
-      $sandbox_check_targets_derail1(ENG)
+      $sandbox_check_targets_derail1(JAP, ENG)
   elif global.sandbox_scenario == 15:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(FRA)
+      $sandbox_check_targets_derail1(ITA, FRA)
     else:
-      $sandbox_check_targets_derail1(ENG)
+      $sandbox_check_targets_derail1(ITA, ENG)
   elif global.sandbox_scenario == 16:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(TUR, ROM)
+      $sandbox_check_targets_derail2(ITA, TUR, ROM)
     else:
-      $sandbox_check_targets_derail2(FRA, ENG)
+      $sandbox_check_targets_derail2(ITA, FRA, ENG)
   elif global.sandbox_scenario == 17:
-    $sandbox_check_flip_gate(ENG, neutrality, fascism, britain_not_imperial)
+    $sandbox_check_flip_gate2(ENG, neutrality, fascism, britain_not_imperial)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(RAJ)
+      $sandbox_check_targets_derail1(ENG, RAJ)
     else:
-      $sandbox_check_targets_derail2(USA, JAP)
+      $sandbox_check_targets_derail2(ENG, USA, JAP)
   elif global.sandbox_scenario == 18:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(JAP)
+      $sandbox_check_targets_derail1(USA, JAP)
     else:
-      $sandbox_check_targets_derail2(ENG, CAN)
+      $sandbox_check_targets_derail2(USA, ENG, CAN)
   elif global.sandbox_scenario == 19:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail4(ENG, GER, HUN, JAP)
+      $sandbox_check_targets_derail4(USA, ENG, GER, HUN, JAP)
     else:
-      $sandbox_check_targets_derail2(ENG, FRA)
+      $sandbox_check_targets_derail2(USA, ENG, FRA)
   elif global.sandbox_scenario == 20:
-    $sandbox_check_flip_gate(FRA, neutrality, 0, france_not_neutral)
+    $sandbox_check_flip_gate1(FRA, neutrality, france_not_neutral)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(SPR, ADR, MEX)
+      $sandbox_check_targets_derail3(FRA, SPR, ADR, MEX)
     else:
-      $sandbox_check_targets_derail1(SOV)
+      $sandbox_check_targets_derail1(FRA, SOV)
   elif global.sandbox_scenario == 21:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(GER)
+      $sandbox_check_targets_derail1(FRA, GER)
     else:
-      $sandbox_check_targets_derail1(ENG)
+      $sandbox_check_targets_derail1(FRA, ENG)
   elif global.sandbox_scenario == 22:
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(SWI)
+      $sandbox_check_targets_derail1(FRA, SWI)
     else:
-      $sandbox_check_targets_derail1(ITA)
+      $sandbox_check_targets_derail1(FRA, ITA)
   elif global.sandbox_scenario == 23:
-    $sandbox_check_flip_gate(GER, communism, 0, germany_not_communist)
+    $sandbox_check_flip_gate1(GER, communism, germany_not_communist)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(ENG, FRA, ITA)
+      $sandbox_check_targets_derail3(GER, ENG, FRA, ITA)
     else:
-      $sandbox_check_targets_derail3(SOV, USA, JAP)
+      $sandbox_check_targets_derail3(GER, SOV, USA, JAP)
   elif global.sandbox_scenario == 24:
-    $sandbox_check_flip_gate(GER, neutrality, 0, germany_not_neutral)
+    $sandbox_check_flip_gate1(GER, neutrality, germany_not_neutral)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(SOV, DEN)
+      $sandbox_check_targets_derail2(GER, SOV, DEN)
     else:
-      $sandbox_check_targets_derail2(VEN, FRA)
+      $sandbox_check_targets_derail2(GER, VEN, FRA)
   elif global.sandbox_scenario == 25:
     $sandbox_check_flip_gate_inv(SOV, communism, soviet_not_communist)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(GER, POL, FIN)
+      $sandbox_check_targets_derail3(SOV, GER, POL, FIN)
     else:
-      $sandbox_check_targets_derail1(UKR)
+      $sandbox_check_targets_derail1(SOV, UKR)
   elif global.sandbox_scenario == 26:
-    $sandbox_check_flip_gate(JAP, communism, 0, japan_not_communist)
+    $sandbox_check_flip_gate1(JAP, communism, japan_not_communist)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(CHI, SOV)
+      $sandbox_check_targets_derail2(JAP, CHI, SOV)
     else:
-      $sandbox_check_targets_derail3(ENG, USA, SIA)
+      $sandbox_check_targets_derail3(JAP, ENG, USA, SIA)
   elif global.sandbox_scenario == 27:
-    $sandbox_check_flip_gate(ITA, communism, 0, italy_not_communist)
+    $sandbox_check_flip_gate1(ITA, communism, italy_not_communist)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(FRA, ENG)
+      $sandbox_check_targets_derail2(ITA, FRA, ENG)
     else:
-      $sandbox_check_targets_derail2(BUL, YUG)
+      $sandbox_check_targets_derail2(ITA, BUL, YUG)
   elif global.sandbox_scenario == 28:
-    $sandbox_check_flip_gate(ENG, communism, 0, britain_not_communist)
+    $sandbox_check_flip_gate1(ENG, communism, britain_not_communist)
     if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(GER, USA, CAN)
+      $sandbox_check_targets_derail3(ENG, GER, USA, CAN)
     else:
-      $sandbox_check_targets_derail1(SOV)
+      $sandbox_check_targets_derail1(ENG, SOV)
   if phase_before < 3 and global.sandbox_scenario_phase == 3:
     sandbox_scenario_maybe_repick()
 
@@ -3122,9 +3122,9 @@ sandbox_scenario_check_axis_derail():
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(CZE, POL)
+        $sandbox_check_targets_derail2(GER, CZE, POL)
       else:
-        $sandbox_check_targets_derail2(FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead Soviet arc at phase 3 (ended).
+        $sandbox_check_targets_derail2(GER, FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead Soviet arc at phase 3 (ended).
 # Mirror of the Axis arms: no standalone civil-war arm (a war the
 # communists win must not kill the arc), the ideology arm ignores wartime
 # flips, no player arm. Neutralized targets (subject of SOV or in its
@@ -3149,9 +3149,9 @@ sandbox_scenario_check_soviet_derail():
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(POL, FIN)
+        $sandbox_check_targets_derail2(SOV, POL, FIN)
       else:
-        $sandbox_check_targets_derail2(CZE, BUL)# gdd/Scenarios.md "Lifecycle": park a dead Japanese arc at phase 3 (ended).
+        $sandbox_check_targets_derail2(SOV, CZE, BUL)# gdd/Scenarios.md "Lifecycle": park a dead Japanese arc at phase 3 (ended).
 # Mirror of the other arms: JAP starts on the non-aligned (neutrality)
 # government, so the ideology arm fires when Japan turns democratic or
 # communist (its historical path is neutrality/fascism, both alive). No
@@ -3179,9 +3179,9 @@ sandbox_scenario_check_japanese_derail():
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(CHI, PHI)
+        $sandbox_check_targets_derail2(JAP, CHI, PHI)
       else:
-        $sandbox_check_targets_derail3(BRM, INS, MAL)# gdd/Scenarios.md "Lifecycle": park a dead Italian arc at phase 3 (ended).
+        $sandbox_check_targets_derail3(JAP, BRM, INS, MAL)# gdd/Scenarios.md "Lifecycle": park a dead Italian arc at phase 3 (ended).
 # Mirror of the other arms: ITA derails if no longer fascist (Italy starts
 # fascist; neutrality/democracy/communism are all off-arc). No standalone
 # civil-war arm (a war the fascists win must not kill the arc), the ideology
@@ -3207,9 +3207,9 @@ sandbox_scenario_check_italian_derail():
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(YUG, GRE)
+        $sandbox_check_targets_derail2(ITA, YUG, GRE)
       else:
-        $sandbox_check_targets_derail2(FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead British arc (flip arc 5) at
+        $sandbox_check_targets_derail2(ITA, FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead British arc (flip arc 5) at
 # phase 3 (ended). ENG must be fascist by the crises phase (GDD "Flips");
 # if it is not, the arc derails. Gone/capitulated arms are the same as the
 # other arcs. Neutralized targets (subject of ENG or in its faction) count
@@ -3225,16 +3225,16 @@ sandbox_scenario_check_britain_derail():
       $sandbox_log_sc(sc_derail, britain_capitulated)
       $sandbox_log_sc(sc_end, britain_capitulated)
     elif not ENG->has_government(fascism) and global.sandbox_scenario_phase == 1:
-      $sandbox_check_flip_gate(ENG, fascism, 0, britain_not_fascist)
+      $sandbox_check_flip_gate1(ENG, fascism, britain_not_fascist)
     elif not country_exists(FRA) and not country_exists(SOV):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, targets_gone)
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(FRA, SOV)
+        $sandbox_check_targets_derail2(ENG, FRA, SOV)
       else:
-        $sandbox_check_targets_derail2(GER, ITA)# gdd/Scenarios.md "Lifecycle": park a dead Red America arc (flip arc 6) at
+        $sandbox_check_targets_derail2(ENG, GER, ITA)# gdd/Scenarios.md "Lifecycle": park a dead Red America arc (flip arc 6) at
 # phase 3 (ended). USA must be communist by the crises phase (GDD "Flips");
 # if it is not, the arc derails. Gone/capitulated arms are the same as the
 # other arcs. Neutralized targets (subject of USA or in its faction) count
@@ -3250,16 +3250,16 @@ sandbox_scenario_check_red_america_derail():
       $sandbox_log_sc(sc_derail, america_capitulated)
       $sandbox_log_sc(sc_end, america_capitulated)
     elif not USA->has_government(communism) and global.sandbox_scenario_phase == 1:
-      $sandbox_check_flip_gate(USA, communism, 0, america_not_communist)
+      $sandbox_check_flip_gate1(USA, communism, america_not_communist)
     elif not country_exists(CAN) and not country_exists(JAP):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, targets_gone)
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(CAN, JAP)
+        $sandbox_check_targets_derail2(USA, CAN, JAP)
       else:
-        $sandbox_check_targets_derail2(ENG, SOV)# gdd/Scenarios.md "Lifecycle": park a dead Napoleonic France arc at phase 3
+        $sandbox_check_targets_derail2(USA, ENG, SOV)# gdd/Scenarios.md "Lifecycle": park a dead Napoleonic France arc at phase 3
 # (ended). Unlike the flip arcs there is no ideology arm: France reaches the
 # Bonapartist branch from a democratic or neutral government on its own, so
 # only the gone/capitulated arms and the neutralized-target arms apply.
@@ -3279,9 +3279,9 @@ sandbox_scenario_check_napoleonic_france_derail():
       $sandbox_log_sc(sc_end, targets_gone)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(GER, ITA)
+        $sandbox_check_targets_derail2(FRA, GER, ITA)
       else:
-        $sandbox_check_targets_derail1(ENG)# gdd/Scenarios.md "Lifecycle": park a dead Habsburg restoration arc at
+        $sandbox_check_targets_derail1(FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead Habsburg restoration arc at
 # phase 3 (ended). Hungary must be on the restoration path by the crises
 # phase (the GDD "Flips"-style gate: the aggressor must exist and be
 # pursuing the Dual Monarchy); otherwise the arc derails. Gone/capitulated
@@ -3298,9 +3298,9 @@ sandbox_scenario_check_habsburg_derail():
       $sandbox_log_sc(sc_end, hungary_capitulated)
     else:
       if global.sandbox_target_variant == a:
-        $sandbox_check_targets_derail2(CZE, ROM)
+        $sandbox_check_targets_derail2(HUN, CZE, ROM)
       else:
-        $sandbox_check_targets_derail2(YUG, SLO)
+        $sandbox_check_targets_derail2(HUN, YUG, SLO)
 sandbox_fire_ger_atl_crises():
   if global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 1:
     GER:
