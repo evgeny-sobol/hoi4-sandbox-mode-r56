@@ -699,6 +699,7 @@ sandbox_seed_from_targets():
     var:sandbox_targets[2]:
       PREV:
         &scenario_enemies[].add(PREV)
+  $sandbox_log_sc_seed()
 # Monthly ladder tick. Thresholds are HAI months_elapsed: < 12 smolder,
 # 12-23 crises, 24+ peak. Each rung fires once (anti-spam by construction)
 # and releases its crisis events the same tick (no day offsets: delayed
@@ -709,6 +710,7 @@ sandbox_scenario_tick():
   if global.sandbox_scenario == 0:
     pass
   else:
+    sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
   if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
     global.&sandbox_scenario_phase = 1
@@ -2870,97 +2872,246 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc(sc_goal, ENG_on_sov)
 
 # gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies
-# ignites the arc (symmetric, like the enemy list itself). Called unscoped
-# from on_declare_war (THIS is the attacker, FROM the defender). The enemy
-# list is per-session, so the gate is arc-agnostic; only the log value
-# names the arc.
+# ignites the arc (symmetric, like the enemy list itself). Two paths share
+# the per-arc log table: `sandbox_scenario_ignite()` is the on_declare_war
+# path (THIS is the attacker, FROM the defender) for a direct declaration,
+# and `sandbox_ignite_if_at_war()` is the monthly path (see the tick) that
+# also catches indirect wars (call-to-arms, guarantees, faction joins)
+# where no declare_war fires between the two tags. Each success logs
+# `sc_ignite` + `sc_success` + `sc_end`.
+sandbox_log_scenario_success():
+  if global.sandbox_scenario == 1:
+    $sandbox_log_sc(sc_ignite, axis_war)
+    $sandbox_log_sc(sc_success, axis_war)
+    $sandbox_log_sc(sc_end, axis_war)
+  elif global.sandbox_scenario == 2:
+    $sandbox_log_sc(sc_ignite, soviet_war)
+    $sandbox_log_sc(sc_success, soviet_war)
+    $sandbox_log_sc(sc_end, soviet_war)
+  elif global.sandbox_scenario == 3:
+    $sandbox_log_sc(sc_ignite, japanese_war)
+    $sandbox_log_sc(sc_success, japanese_war)
+    $sandbox_log_sc(sc_end, japanese_war)
+  elif global.sandbox_scenario == 4:
+    $sandbox_log_sc(sc_ignite, italian_war)
+    $sandbox_log_sc(sc_success, italian_war)
+    $sandbox_log_sc(sc_end, italian_war)
+  elif global.sandbox_scenario == 5:
+    $sandbox_log_sc(sc_ignite, british_war)
+    $sandbox_log_sc(sc_success, british_war)
+    $sandbox_log_sc(sc_end, british_war)
+  elif global.sandbox_scenario == 6:
+    $sandbox_log_sc(sc_ignite, red_america_war)
+    $sandbox_log_sc(sc_success, red_america_war)
+    $sandbox_log_sc(sc_end, red_america_war)
+  elif global.sandbox_scenario == 7:
+    $sandbox_log_sc(sc_ignite, french_war)
+    $sandbox_log_sc(sc_success, french_war)
+    $sandbox_log_sc(sc_end, french_war)
+  elif global.sandbox_scenario == 8:
+    $sandbox_log_sc(sc_ignite, habsburg_war)
+    $sandbox_log_sc(sc_success, habsburg_war)
+    $sandbox_log_sc(sc_end, habsburg_war)
+  elif global.sandbox_scenario == 9:
+    $sandbox_log_sc(sc_ignite, ger_atlantic_war)
+    $sandbox_log_sc(sc_success, ger_atlantic_war)
+    $sandbox_log_sc(sc_end, ger_atlantic_war)
+  elif global.sandbox_scenario == 10:
+    $sandbox_log_sc(sc_ignite, ger_middle_east_war)
+    $sandbox_log_sc(sc_success, ger_middle_east_war)
+    $sandbox_log_sc(sc_end, ger_middle_east_war)
+  elif global.sandbox_scenario == 11:
+    $sandbox_log_sc(sc_ignite, sov_south_war)
+    $sandbox_log_sc(sc_success, sov_south_war)
+    $sandbox_log_sc(sc_end, sov_south_war)
+  elif global.sandbox_scenario == 12:
+    $sandbox_log_sc(sc_ignite, sov_east_war)
+    $sandbox_log_sc(sc_success, sov_east_war)
+    $sandbox_log_sc(sc_end, sov_east_war)
+  elif global.sandbox_scenario == 13:
+    $sandbox_log_sc(sc_ignite, jap_north_war)
+    $sandbox_log_sc(sc_success, jap_north_war)
+    $sandbox_log_sc(sc_end, jap_north_war)
+  elif global.sandbox_scenario == 14:
+    $sandbox_log_sc(sc_ignite, jap_old_war)
+    $sandbox_log_sc(sc_success, jap_old_war)
+    $sandbox_log_sc(sc_end, jap_old_war)
+  elif global.sandbox_scenario == 15:
+    $sandbox_log_sc(sc_ignite, ita_west_war)
+    $sandbox_log_sc(sc_success, ita_west_war)
+    $sandbox_log_sc(sc_end, ita_west_war)
+  elif global.sandbox_scenario == 16:
+    $sandbox_log_sc(sc_ignite, ita_med_war)
+    $sandbox_log_sc(sc_success, ita_med_war)
+    $sandbox_log_sc(sc_end, ita_med_war)
+  elif global.sandbox_scenario == 17:
+    $sandbox_log_sc(sc_ignite, eng_imperial_war)
+    $sandbox_log_sc(sc_success, eng_imperial_war)
+    $sandbox_log_sc(sc_end, eng_imperial_war)
+  elif global.sandbox_scenario == 18:
+    $sandbox_log_sc(sc_ignite, usa_warplan_war)
+    $sandbox_log_sc(sc_success, usa_warplan_war)
+    $sandbox_log_sc(sc_end, usa_warplan_war)
+  elif global.sandbox_scenario == 19:
+    $sandbox_log_sc(sc_ignite, usa_hegemony_war)
+    $sandbox_log_sc(sc_success, usa_hegemony_war)
+    $sandbox_log_sc(sc_end, usa_hegemony_war)
+  elif global.sandbox_scenario == 20:
+    $sandbox_log_sc(sc_ignite, fra_monarchist_war)
+    $sandbox_log_sc(sc_success, fra_monarchist_war)
+    $sandbox_log_sc(sc_end, fra_monarchist_war)
+  elif global.sandbox_scenario == 21:
+    $sandbox_log_sc(sc_ignite, fra_dismantle_war)
+    $sandbox_log_sc(sc_success, fra_dismantle_war)
+    $sandbox_log_sc(sc_end, fra_dismantle_war)
+  elif global.sandbox_scenario == 22:
+    $sandbox_log_sc(sc_ignite, fra_plan_xiv_war)
+    $sandbox_log_sc(sc_success, fra_plan_xiv_war)
+    $sandbox_log_sc(sc_end, fra_plan_xiv_war)
+  elif global.sandbox_scenario == 23:
+    $sandbox_log_sc(sc_ignite, ger_communist_war)
+    $sandbox_log_sc(sc_success, ger_communist_war)
+    $sandbox_log_sc(sc_end, ger_communist_war)
+  elif global.sandbox_scenario == 24:
+    $sandbox_log_sc(sc_ignite, ger_monarchist_war)
+    $sandbox_log_sc(sc_success, ger_monarchist_war)
+    $sandbox_log_sc(sc_end, ger_monarchist_war)
+  elif global.sandbox_scenario == 25:
+    $sandbox_log_sc(sc_ignite, sov_white_war)
+    $sandbox_log_sc(sc_success, sov_white_war)
+    $sandbox_log_sc(sc_end, sov_white_war)
+  elif global.sandbox_scenario == 26:
+    $sandbox_log_sc(sc_ignite, jap_communist_war)
+    $sandbox_log_sc(sc_success, jap_communist_war)
+    $sandbox_log_sc(sc_end, jap_communist_war)
+  elif global.sandbox_scenario == 27:
+    $sandbox_log_sc(sc_ignite, ita_communist_war)
+    $sandbox_log_sc(sc_success, ita_communist_war)
+    $sandbox_log_sc(sc_end, ita_communist_war)
+  elif global.sandbox_scenario == 28:
+    $sandbox_log_sc(sc_ignite, eng_communist_war)
+    $sandbox_log_sc(sc_success, eng_communist_war)
+    $sandbox_log_sc(sc_end, eng_communist_war)
+
 sandbox_scenario_ignite():
   if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3 and FROM in &scenario_enemies[]:
     global.&sandbox_scenario_phase = 3
+    sandbox_log_scenario_success()
+
+# Runs in the aggressor's scope (THIS = aggressor): fires when THIS is at
+# war with any chosen target. Called by the monthly tick dispatcher.
+sandbox_ignite_if_at_war():
+  if global.sandbox_scenario_phase < 3 and sandbox_targets[0] != 0:
+    var:sandbox_targets[0]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+  if global.sandbox_scenario_phase < 3 and sandbox_targets[1] != 0:
+    var:sandbox_targets[1]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+  if global.sandbox_scenario_phase < 3 and sandbox_targets[2] != 0:
+    var:sandbox_targets[2]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+  if global.sandbox_scenario_phase < 3 and sandbox_targets[3] != 0:
+    var:sandbox_targets[3]:
+      PREV:
+        if has_war_with(PREV):
+          global.&sandbox_scenario_phase = 3
+          sandbox_log_scenario_success()
+
+sandbox_scenario_check_ignite_by_war():
+  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3:
     if global.sandbox_scenario == 1:
-      $sandbox_log_sc(sc_ignite, axis_war)
-      $sandbox_log_sc(sc_end, axis_war)
+      GER:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 2:
-      $sandbox_log_sc(sc_ignite, soviet_war)
-      $sandbox_log_sc(sc_end, soviet_war)
+      SOV:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 3:
-      $sandbox_log_sc(sc_ignite, japanese_war)
-      $sandbox_log_sc(sc_end, japanese_war)
+      JAP:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 4:
-      $sandbox_log_sc(sc_ignite, italian_war)
-      $sandbox_log_sc(sc_end, italian_war)
+      ITA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 5:
-      $sandbox_log_sc(sc_ignite, british_war)
-      $sandbox_log_sc(sc_end, british_war)
+      ENG:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 6:
-      $sandbox_log_sc(sc_ignite, red_america_war)
-      $sandbox_log_sc(sc_end, red_america_war)
+      USA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 7:
-      $sandbox_log_sc(sc_ignite, french_war)
-      $sandbox_log_sc(sc_end, french_war)
+      FRA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 8:
-      $sandbox_log_sc(sc_ignite, habsburg_war)
-      $sandbox_log_sc(sc_end, habsburg_war)
+      HUN:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 9:
-      $sandbox_log_sc(sc_ignite, ger_atlantic_war)
-      $sandbox_log_sc(sc_end, ger_atlantic_war)
+      GER:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 10:
-      $sandbox_log_sc(sc_ignite, ger_middle_east_war)
-      $sandbox_log_sc(sc_end, ger_middle_east_war)
+      GER:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 11:
-      $sandbox_log_sc(sc_ignite, sov_south_war)
-      $sandbox_log_sc(sc_end, sov_south_war)
+      SOV:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 12:
-      $sandbox_log_sc(sc_ignite, sov_east_war)
-      $sandbox_log_sc(sc_end, sov_east_war)
+      SOV:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 13:
-      $sandbox_log_sc(sc_ignite, jap_north_war)
-      $sandbox_log_sc(sc_end, jap_north_war)
+      JAP:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 14:
-      $sandbox_log_sc(sc_ignite, jap_old_war)
-      $sandbox_log_sc(sc_end, jap_old_war)
+      JAP:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 15:
-      $sandbox_log_sc(sc_ignite, ita_west_war)
-      $sandbox_log_sc(sc_end, ita_west_war)
+      ITA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 16:
-      $sandbox_log_sc(sc_ignite, ita_med_war)
-      $sandbox_log_sc(sc_end, ita_med_war)
+      ITA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 17:
-      $sandbox_log_sc(sc_ignite, eng_imperial_war)
-      $sandbox_log_sc(sc_end, eng_imperial_war)
+      ENG:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 18:
-      $sandbox_log_sc(sc_ignite, usa_warplan_war)
-      $sandbox_log_sc(sc_end, usa_warplan_war)
+      USA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 19:
-      $sandbox_log_sc(sc_ignite, usa_hegemony_war)
-      $sandbox_log_sc(sc_end, usa_hegemony_war)
+      USA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 20:
-      $sandbox_log_sc(sc_ignite, fra_monarchist_war)
-      $sandbox_log_sc(sc_end, fra_monarchist_war)
+      FRA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 21:
-      $sandbox_log_sc(sc_ignite, fra_dismantle_war)
-      $sandbox_log_sc(sc_end, fra_dismantle_war)
+      FRA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 22:
-      $sandbox_log_sc(sc_ignite, fra_plan_xiv_war)
-      $sandbox_log_sc(sc_end, fra_plan_xiv_war)
+      FRA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 23:
-      $sandbox_log_sc(sc_ignite, ger_communist_war)
-      $sandbox_log_sc(sc_end, ger_communist_war)
+      GER:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 24:
-      $sandbox_log_sc(sc_ignite, ger_monarchist_war)
-      $sandbox_log_sc(sc_end, ger_monarchist_war)
+      GER:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 25:
-      $sandbox_log_sc(sc_ignite, sov_white_war)
-      $sandbox_log_sc(sc_end, sov_white_war)
+      SOV:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 26:
-      $sandbox_log_sc(sc_ignite, jap_communist_war)
-      $sandbox_log_sc(sc_end, jap_communist_war)
+      JAP:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 27:
-      $sandbox_log_sc(sc_ignite, ita_communist_war)
-      $sandbox_log_sc(sc_end, ita_communist_war)
+      ITA:
+        sandbox_ignite_if_at_war()
     elif global.sandbox_scenario == 28:
-      $sandbox_log_sc(sc_ignite, eng_communist_war)
-      $sandbox_log_sc(sc_end, eng_communist_war)
+      ENG:
+        sandbox_ignite_if_at_war()
 # gdd/Scenarios.md "Lifecycle": derail dispatcher. Snapshots the phase: a
 # tick that parks a live arc parked it via derail (ignition only happens in
 # on_declare_war), so a pinned session goes quiet and a random one repicks.

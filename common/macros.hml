@@ -281,6 +281,12 @@ macro sandbox_log_sc_power():
   if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
     log("#sandbox [GetDateText] [THIS.GetTag] sc_power div=[?sc_div|.0] fab=[?sc_fab|.0] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
 
+# gdd/Scenarios.md "Hooks and telemetry": seed snapshot for the picked
+# arc. Runs in the aggressor's scope right after seeding; lists the chosen
+# targets and the A/B variant beside the arc id.
+macro sandbox_log_sc_seed():
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    log("#sandbox [GetDateText] [THIS.GetTag] sc_seed t0=[?global.sandbox_targets^0.GetTag] t1=[?global.sandbox_targets^1.GetTag] t2=[?global.sandbox_targets^2.GetTag] sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")
 # Same-block set. A lone `factor(0)` in another modifier zeroes the whole
 # ai_will_do, including later `add` — aiview stays at 0.
 macro ai_sandbox_set(_n_):
