@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for ger_communist.
+# docs/gdd/Scenarios Catalog.md: arc events for ger_communist.
 # ids sandbox_ger_communist.1 (crisis) + N ultimatums covering variant A and B targets.
 add_namespace(sandbox_ger_communist)
 

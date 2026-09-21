@@ -14,7 +14,7 @@ Do not copy `_sandbox` `.include` files until each one is remapped to an Rt56 fi
 
 ## National Focuses
 
-`gdd/National Focuses.md` is the target design. Rt56 trees are overlaid with `.include` files that mirror workshop filenames (`germany.include` → workshop `germany.txt`, `r56_spain.include`, game-rule trees such as `GER_focus_tree_selection` / `R56_TREE` vs `STANDARD_TREE`).
+`docs/gdd/National Focuses.md` is the target design. Rt56 trees are overlaid with `.include` files that mirror workshop filenames (`germany.include` → workshop `germany.txt`, `r56_spain.include`, game-rule trees such as `GER_focus_tree_selection` / `R56_TREE` vs `STANDARD_TREE`).
 
 `.scratch/scripts/generate_focus_includes.py` rebuilds every Rt56 focus include. It keeps the first-pass splices and then, for IDs that still exist in Rt56, copies the matching `_sandbox` extras (party shares, Honor/rival `available`, Tyranny completion, MIC, `$crossroad_modifier`, CW-root weights). Heuristics fill the rest:
 
@@ -34,11 +34,11 @@ Rt56 keeps the four vanilla parties. `japan_militarism_ideology` exists and stil
 
 ## Civil Wars
 
-The global counter `sandbox_civil_war_count` and the cap of 3 distinct `original_tag`s (`gdd/Civil Wars.md`) run in this fork. Event/mission/decision/BoP overlays delay fuses; they do not delete `start_civil_war` payloads. Player-started wars stay unrestricted.
+The global counter `sandbox_civil_war_count` and the cap of 3 distinct `original_tag`s (`docs/gdd/Civil Wars.md`) run in this fork. Event/mission/decision/BoP overlays delay fuses; they do not delete `start_civil_war` payloads. Player-started wars stay unrestricted.
 
 Vanilla fuse includes from `_sandbox` are copied when the matching workshop `.txt` exists (`.scratch/scripts/copy_cw_fuse_includes.py`). `Spain.include` drops `spain.10` (deleted in Rt56 `Spain.txt`). Workshop-missing files cannot be spliced (vanilla fall-through at runtime): `events/NSB_Estonia`, `events/NSB_Lithuania`, `common/decisions/EST`, `common/scripted_effects/BLT_scripted_effects`, `common/bop/ITA`. ITA still uses event `BBA_italy_civil_war.1` `+trigger` plus weekly retry. `EST_events.7` weekly retry is a no-op unless `EST_vapsid_takeover` is set (Rt56 `estonia.txt` does not set that flag).
 
-`gdd/Civil Wars.md` acceptance greps still apply. In this fork the first `#sandbox` line is `Mode Overhaul for The Road to 56 v0.1.0`. Spain 1936 is `cw_event spain.1` / `lar_spain.2` (no `spain.10`). First delivery of a gated event logs `cw_event` even when weekly retry is not the caller (ITA BoP `on_activate`, NSB hours=1, Cedillo `mexico.1`, `bftb_greece.105` / `.218`). Pattern B skips stay silent; the war option logs when taken. Mission timeouts that start a war inline (`POL_peasants_strike`, `AST_veterans_revolt`, `on_daily_AST`) log `cw_event` on fire so a free-slot war is not mistaken for an ungated fuse.
+`docs/gdd/Civil Wars.md` acceptance greps still apply. In this fork the first `#sandbox` line is `Mode Overhaul for The Road to 56 v0.1.0`. Spain 1936 is `cw_event spain.1` / `lar_spain.2` (no `spain.10`). First delivery of a gated event logs `cw_event` even when weekly retry is not the caller (ITA BoP `on_activate`, NSB hours=1, Cedillo `mexico.1`, `bftb_greece.105` / `.218`). Pattern B skips stay silent; the war option logs when taken. Mission timeouts that start a war inline (`POL_peasants_strike`, `AST_veterans_revolt`, `on_daily_AST`) log `cw_event` on fire so a free-slot war is not mistaken for an ungated fuse.
 
 Rt56-only fuses (Patterns A–D, same helpers as vanilla):
 

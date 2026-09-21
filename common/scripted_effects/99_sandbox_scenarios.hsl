@@ -1,4 +1,4 @@
-# gdd/Scenarios.md: director skeleton. Pick runs once at on_startup in HAI
+# docs/gdd/Scenarios.md: director skeleton. Pick runs once at on_startup in HAI
 # scope; the ladder tick runs monthly under `if tag(HAI)`.
 # State (globals, all 0 until picked):
 #   sandbox_scenario: 0 none, 1 axis_expansion, 2 soviet_expansion,
@@ -8,7 +8,7 @@
 #   sandbox_scenario_pin: 0 random, 1 pinned to the picked arc
 #   sandbox_derailed_arcs[]: ids that derailed this session (never repicked)
 
-# Target variants for the active arc (gdd/Scenarios Catalog.md). HSL cannot
+# Target variants for the active arc (docs/gdd/Scenarios Catalog.md). HSL cannot
 # hold tags in variables, so the chosen pair is written straight into the
 # persistent sandbox_targets[] array. Variant is a global string used for
 # logging and data. Variant A is the arc's historical default; variant B is
@@ -342,6 +342,7 @@ sandbox_pick_scenario():
       roll = randi(0, eligible_max)
       global.&sandbox_scenario = eligible[roll]
   global.&sandbox_scenario_phase = 0
+  global.&sandbox_scenario_civil_war_months = 0
   variant_roll = randi(0, 1)
   if variant_roll == 0:
     global.&sandbox_target_variant = a
@@ -411,7 +412,7 @@ sandbox_pick_scenario():
   else:
     $sandbox_log_sc(sc_variant, b)
 
-# gdd/Scenarios.md "Selection": repick after a derail on random sessions.
+# docs/gdd/Scenarios.md "Selection": repick after a derail on random sessions.
 # Picks the eligible arc that has not derailed this session (a derailed arc
 # never re-enters the pool); when pinned or when nothing is eligible the
 # session stays quiet. Stale scenario_enemies from the dead arc are cleared
@@ -478,6 +479,7 @@ sandbox_scenario_maybe_repick():
     else:
       global.&sandbox_scenario = eligible[0]
       global.&sandbox_scenario_phase = 0
+      global.&sandbox_scenario_civil_war_months = 0
       variant_roll = randi(0, 1)
       if variant_roll == 0:
         global.&sandbox_target_variant = a
@@ -575,7 +577,7 @@ sandbox_scenario_maybe_repick():
       else:
         $sandbox_log_sc(sc_variant, b)
 
-# Shared seed for the active arc (gdd/Scenarios.md "Levers"). Seeds the
+# Shared seed for the active arc (docs/gdd/Scenarios.md "Levers"). Seeds the
 # aggressor against its chosen sandbox_targets[] as national rivals at 65
 # (Feud within reach of crisis injections); all actors list each other in
 # scenario_enemies[] (declared scenario enemies, symmetric); the aggressor
@@ -1075,7 +1077,7 @@ sandbox_fire_habsburg_crises():
               id(sandbox_habsburg.5)
 
 
-# sc_target telemetry (gdd/Scenarios.md "Hooks and telemetry"): one status
+# sc_target telemetry (docs/gdd/Scenarios.md "Hooks and telemetry"): one status
 # line per arc target at peak, explaining why its ultimatum fired or not.
 # Runs in TARGET scope (THIS is CZE/POL); the aggressor is hardcoded GER
 # (v1 single arc). First match wins: at_war > civil_war > subject >
@@ -1492,7 +1494,7 @@ sandbox_snapshot_join_industry():
   for every_country():
     &scenario_join_industry = num_of_factories
 
-# Join 2.0 (gdd/Scenarios.md "Join levers"): open-pool top-2 by
+# Join 2.0 (docs/gdd/Scenarios.md "Join levers"): open-pool top-2 by
 # scenario_join_scorer. Runs in GER scope so the scorer's FROM is the
 # aggressor. Deterministic: candidates[0..1] with score > 0 get letters
 # (one sc_offer each); gated (0) or missing slots get none. Temp arrays
@@ -2871,7 +2873,7 @@ sandbox_scenario_s7_telemetry():
         if has_wargoal_against(SOV):
           $sandbox_log_sc(sc_goal, ENG_on_sov)
 
-# gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies
+# docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies
 # ignites the arc (symmetric, like the enemy list itself). Two paths share
 # the per-arc log table: `sandbox_scenario_ignite()` is the on_declare_war
 # path (THIS is the attacker, FROM the defender) for a direct declaration,
@@ -3112,11 +3114,102 @@ sandbox_scenario_check_ignite_by_war():
     elif global.sandbox_scenario == 28:
       ENG:
         sandbox_ignite_if_at_war()
-# gdd/Scenarios.md "Lifecycle": derail dispatcher. Snapshots the phase: a
+# docs/gdd/Scenarios.md "Lifecycle": derail dispatcher. Snapshots the phase: a
 # tick that parks a live arc parked it via derail (ignition only happens in
 # on_declare_war), so a pinned session goes quiet and a random one repicks.
+# docs/gdd/Scenarios.md "Lifecycle": monthly civil-war derail dispatcher.
+# Scopes into the arc's aggressor for the counter; a no-op when the arc
+# already parked.
+sandbox_scenario_check_civil_war_derail():
+  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3:
+    if global.sandbox_scenario == 1:
+      GER:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 2:
+      SOV:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 3:
+      JAP:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 4:
+      ITA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 5:
+      ENG:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 6:
+      USA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 7:
+      FRA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 8:
+      HUN:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 9:
+      GER:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 10:
+      GER:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 11:
+      SOV:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 12:
+      SOV:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 13:
+      JAP:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 14:
+      JAP:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 15:
+      ITA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 16:
+      ITA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 17:
+      ENG:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 18:
+      USA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 19:
+      USA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 20:
+      FRA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 21:
+      FRA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 22:
+      FRA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 23:
+      GER:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 24:
+      GER:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 25:
+      SOV:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 26:
+      JAP:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 27:
+      ITA:
+        $sandbox_check_aggressor_civil_war()
+    elif global.sandbox_scenario == 28:
+      ENG:
+        $sandbox_check_aggressor_civil_war()
+
 sandbox_scenario_check_derail():
   phase_before = global.sandbox_scenario_phase
+  sandbox_scenario_check_civil_war_derail()
   if global.sandbox_scenario == 1:
     sandbox_scenario_check_axis_derail()
   elif global.sandbox_scenario == 2:
@@ -3244,7 +3337,7 @@ sandbox_scenario_check_derail():
   if phase_before < 3 and global.sandbox_scenario_phase == 3:
     sandbox_scenario_maybe_repick()
 
-# gdd/Scenarios.md "Lifecycle": park a dead Axis arc at phase 3 (ended).
+# docs/gdd/Scenarios.md "Lifecycle": park a dead Axis arc at phase 3 (ended).
 # Called from the derail dispatcher. Arms are an elif chain, so exactly one
 # reason fires. No standalone civil-war arm by design: a war the fascists
 # win must not kill the arc. The ideology arm ignores wartime flips (they
@@ -3275,7 +3368,7 @@ sandbox_scenario_check_axis_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(GER, CZE, POL)
       else:
-        $sandbox_check_targets_derail2(GER, FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead Soviet arc at phase 3 (ended).
+        $sandbox_check_targets_derail2(GER, FRA, ENG)# docs/gdd/Scenarios.md "Lifecycle": park a dead Soviet arc at phase 3 (ended).
 # Mirror of the Axis arms: no standalone civil-war arm (a war the
 # communists win must not kill the arc), the ideology arm ignores wartime
 # flips, no player arm. Neutralized targets (subject of SOV or in its
@@ -3302,7 +3395,7 @@ sandbox_scenario_check_soviet_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(SOV, POL, FIN)
       else:
-        $sandbox_check_targets_derail2(SOV, CZE, BUL)# gdd/Scenarios.md "Lifecycle": park a dead Japanese arc at phase 3 (ended).
+        $sandbox_check_targets_derail2(SOV, CZE, BUL)# docs/gdd/Scenarios.md "Lifecycle": park a dead Japanese arc at phase 3 (ended).
 # Mirror of the other arms: JAP starts on the non-aligned (neutrality)
 # government, so the ideology arm fires when Japan turns democratic or
 # communist (its historical path is neutrality/fascism, both alive). No
@@ -3332,7 +3425,7 @@ sandbox_scenario_check_japanese_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(JAP, CHI, PHI)
       else:
-        $sandbox_check_targets_derail3(JAP, BRM, INS, MAL)# gdd/Scenarios.md "Lifecycle": park a dead Italian arc at phase 3 (ended).
+        $sandbox_check_targets_derail3(JAP, BRM, INS, MAL)# docs/gdd/Scenarios.md "Lifecycle": park a dead Italian arc at phase 3 (ended).
 # Mirror of the other arms: ITA derails if no longer fascist (Italy starts
 # fascist; neutrality/democracy/communism are all off-arc). No standalone
 # civil-war arm (a war the fascists win must not kill the arc), the ideology
@@ -3360,7 +3453,7 @@ sandbox_scenario_check_italian_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(ITA, YUG, GRE)
       else:
-        $sandbox_check_targets_derail2(ITA, FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead British arc (flip arc 5) at
+        $sandbox_check_targets_derail2(ITA, FRA, ENG)# docs/gdd/Scenarios.md "Lifecycle": park a dead British arc (flip arc 5) at
 # phase 3 (ended). ENG must be fascist by the crises phase (GDD "Flips");
 # if it is not, the arc derails. Gone/capitulated arms are the same as the
 # other arcs. Neutralized targets (subject of ENG or in its faction) count
@@ -3385,7 +3478,7 @@ sandbox_scenario_check_britain_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(ENG, FRA, SOV)
       else:
-        $sandbox_check_targets_derail2(ENG, GER, ITA)# gdd/Scenarios.md "Lifecycle": park a dead Red America arc (flip arc 6) at
+        $sandbox_check_targets_derail2(ENG, GER, ITA)# docs/gdd/Scenarios.md "Lifecycle": park a dead Red America arc (flip arc 6) at
 # phase 3 (ended). USA must be communist by the crises phase (GDD "Flips");
 # if it is not, the arc derails. Gone/capitulated arms are the same as the
 # other arcs. Neutralized targets (subject of USA or in its faction) count
@@ -3410,7 +3503,7 @@ sandbox_scenario_check_red_america_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(USA, CAN, JAP)
       else:
-        $sandbox_check_targets_derail2(USA, ENG, SOV)# gdd/Scenarios.md "Lifecycle": park a dead Napoleonic France arc at phase 3
+        $sandbox_check_targets_derail2(USA, ENG, SOV)# docs/gdd/Scenarios.md "Lifecycle": park a dead Napoleonic France arc at phase 3
 # (ended). Unlike the flip arcs there is no ideology arm: France reaches the
 # Bonapartist branch from a democratic or neutral government on its own, so
 # only the gone/capitulated arms and the neutralized-target arms apply.
@@ -3432,7 +3525,7 @@ sandbox_scenario_check_napoleonic_france_derail():
       if global.sandbox_target_variant == a:
         $sandbox_check_targets_derail2(FRA, GER, ITA)
       else:
-        $sandbox_check_targets_derail1(FRA, ENG)# gdd/Scenarios.md "Lifecycle": park a dead Habsburg restoration arc at
+        $sandbox_check_targets_derail1(FRA, ENG)# docs/gdd/Scenarios.md "Lifecycle": park a dead Habsburg restoration arc at
 # phase 3 (ended). Hungary must be on the restoration path by the crises
 # phase (the GDD "Flips"-style gate: the aggressor must exist and be
 # pursuing the Dual Monarchy); otherwise the arc derails. Gone/capitulated

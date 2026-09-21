@@ -1,4 +1,4 @@
-# gdd/Scenarios.md "Selection": pin-rule options for the scenario pick.
+# docs/gdd/Scenarios.md "Selection": pin-rule options for the scenario pick.
 # has_game_rule needs a verbatim two-key block, hence raw inline.
 sandbox_scenario_pin_is_axis:
   raw has_game_rule: { rule = sandbox_scenario option = sandbox_axis_expansion }
@@ -57,7 +57,7 @@ sandbox_scenario_pin_is_ita_communist:
 sandbox_scenario_pin_is_eng_communist:
   raw has_game_rule: { rule = sandbox_scenario option = sandbox_eng_communist }
 
-# gdd/Scenarios.md "Levers": betrayal-weight exemption for declared scenario
+# docs/gdd/Scenarios.md "Levers": betrayal-weight exemption for declared scenario
 # enemies (mirrors can_PREV_get_wargoal_on_THIS). THIS is the target, PREV is
 # the focus owner / attacker.
 is_scenario_enemy_of_PREV:

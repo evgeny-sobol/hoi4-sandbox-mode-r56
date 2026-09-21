@@ -3,7 +3,7 @@
 
 For the _sandbox-r56 overlay this reads both the overlay sources and the
 subscribed Road to 56 workshop tree, then writes diagram files under
-gdd/National Focuses/ of the overlay. Each Markdown file contains one
+docs/gdd/National Focuses/ of the overlay. Each Markdown file contains one
 diagram per root focus (a focus without prerequisites) and all of its
 descendants; focuses not reachable from any root are grouped into an
 "orphans" diagram.
@@ -327,7 +327,7 @@ def write_diagrams(
 def process_source(project_root: Path) -> None:
     overlay = project_root / "common" / "national_focus"
     if overlay.is_dir():
-        output = project_root / "gdd" / "National Focuses"
+        output = project_root / "docs" / "gdd" / "National Focuses"
         output.mkdir(parents=True, exist_ok=True)
         written: list[Path] = []
         for txt in overlay.glob("*.txt"):
@@ -345,7 +345,7 @@ def process_source(project_root: Path) -> None:
     workshop_focus_trees = read_workshop_focus_trees()
     if not workshop_focus_trees:
         return
-    r56_output = project_root / "gdd" / "National Focuses" / "r56"
+    r56_output = project_root / "docs" / "gdd" / "National Focuses" / "r56"
     r56_output.mkdir(parents=True, exist_ok=True)
     written = []
     for name, (prerequisites, mutexes) in sorted(workshop_focus_trees.items()):

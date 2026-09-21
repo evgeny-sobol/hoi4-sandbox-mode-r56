@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build Mermaid focus-path diagrams for every scenario arc.
 
-Reads the pre-generated Mermaid focus graphs under gdd/National Focuses/
+Reads the pre-generated Mermaid focus graphs under docs/gdd/National Focuses/
 (one .md per country: `# <branch_root>` sections, each a `flowchart TD`
 with `nN["ID"]` / `nN(("ID"))` / `nN{"ID"}` nodes and `nA --> nB`
 (prerequisite) / `nA x--x nB` (mutually exclusive) edges).
@@ -9,7 +9,7 @@ with `nN["ID"]` / `nN(("ID"))` / `nN{"ID"}` nodes and `nA --> nB`
 For each scenario arc it emits a compact Mermaid subgraph: the arc's key
 focuses (the ones the director boosts / logs) plus the prerequisite and
 mutual-exclusion edges among them. Output is grouped per aggressor country
-with one `subgraph` per arc, ready to paste into gdd/Scenarios.md.
+with one `subgraph` per arc, ready to paste into docs/gdd/Scenarios.md.
 
 Usage:
     python build_scenario_graphs.py
@@ -19,7 +19,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-GDD = Path(__file__).resolve().parents[2] / "gdd" / "National Focuses"
+GDD = Path(__file__).resolve().parents[2] / "docs" / "gdd" / "National Focuses"
 
 NODE_RE = re.compile(r'^\s*(n\d+)(?:\(\(|\[\{?|\{)(.*?)(?:\)\)|\]|\})\s*$')
 EDGE_RE = re.compile(r"^\s*(n\d+)\s*(-->|x--x)\s*(n\d+)")

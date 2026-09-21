@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for ita_med.
+# docs/gdd/Scenarios Catalog.md: arc events for ita_med.
 # ids sandbox_ita_med.1 (crisis) + N ultimatums covering variant A and B targets.
 add_namespace(sandbox_ita_med)
 

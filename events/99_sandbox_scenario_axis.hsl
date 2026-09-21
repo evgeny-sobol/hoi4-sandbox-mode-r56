@@ -1,4 +1,4 @@
-# gdd/Scenarios.md "Arc 1: Axis expansion": crisis events. Fired from
+# docs/gdd/Scenarios.md "Arc 1: Axis expansion": crisis events. Fired from
 # sandbox_scenario_tick phase transitions, same tick (triggered-only).
 # ids sandbox_axis.1-4. AI options carry the design; players choose freely.
 # Every event carries a scope lock (tag or outsider trigger): delayed or

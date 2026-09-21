@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Generate national_focus .include files for the Rt56 sandbox fork.
 
-gdd/National Focuses.md + gdd/Road to 56.md:
+docs/gdd/National Focuses.md + docs/gdd/Road to 56.md:
   * $ai_sandbox_modifier() on every id'd focus
   * $root_modifier() when there is no prerequisite
   * civil-war ignition + cap when the body contains start_civil_war
   * vanilla-include extras (party shares, Honor/rival gates, MIC, tyranny, CW roots)
     for IDs that still exist in Rt56
   * $sandbox_log_cw_ignition / $sandbox_log_cw_root on ignition and CW-root completion
-    so game.log can tick gdd/Civil Wars.md
+    so game.log can tick docs/gdd/Civil Wars.md
   * $crossroad_modifier(N) on optional exclusive groups
   * $ai_mic_modifier() on non-political industry focuses
   * $ai_civil_war_root_modifier() on exclusive ancestors of ignition focuses

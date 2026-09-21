@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for fra_plan_xiv.
+# docs/gdd/Scenarios Catalog.md: arc events for fra_plan_xiv.
 # ids sandbox_fra_plan_xiv.1 (crisis) + N ultimatums covering variant A and B targets.
 add_namespace(sandbox_fra_plan_xiv)
 

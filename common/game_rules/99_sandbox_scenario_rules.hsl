@@ -1,4 +1,4 @@
-# gdd/Scenarios.md "Selection": pin rule for the scenario pick. Random
+# docs/gdd/Scenarios.md "Selection": pin rule for the scenario pick. Random
 # (default) lets the director surprise; named options pin one arc.
 sandbox_scenario:
   name("RULE_SANDBOX_SCENARIO")

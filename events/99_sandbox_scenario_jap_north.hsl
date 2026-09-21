@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for jap_north. 
+# docs/gdd/Scenarios Catalog.md: arc events for jap_north. 
 # ids sandbox_jap_north.1-3. Same anatomy as other arcs.
 add_namespace(sandbox_jap_north)
 

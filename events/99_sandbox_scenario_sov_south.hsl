@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for sov_south. 
+# docs/gdd/Scenarios Catalog.md: arc events for sov_south. 
 # ids sandbox_sov_south.1-3. Same anatomy as other arcs.
 add_namespace(sandbox_sov_south)
 

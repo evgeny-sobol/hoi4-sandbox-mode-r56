@@ -18,7 +18,7 @@ is_sandbox_census_country:
 # faction → Treacherous. Non-friends are always allowed.
 can_PREV_get_wargoal_on_THIS:
   OR:
-    # Declared scenario enemies never need a band (gdd/Scenarios.md).
+    # Declared scenario enemies never need a band (docs/gdd/Scenarios.md).
     THIS in PREV.scenario_enemies[]
     is_friend_of_PREV(no)
     AND:
@@ -151,7 +151,7 @@ GER_sandbox_three_inner_circle_chosen:
 is_rival_of_ROOT:
   $is_rival_of(ROOT)
 
-# Distinct original_tags currently in a civil war. Cap is 3 (gdd/Civil Wars.md).
+# Distinct original_tags currently in a civil war. Cap is 3 (docs/gdd/Civil Wars.md).
 sandbox_civil_war_cap_reached:
   is_sandbox_mode_on()
   global.sandbox_civil_war_count >= 3

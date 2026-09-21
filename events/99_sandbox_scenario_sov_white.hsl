@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for sov_white.
+# docs/gdd/Scenarios Catalog.md: arc events for sov_white.
 # ids sandbox_sov_white.1 (crisis) + N ultimatums covering variant A and B targets.
 add_namespace(sandbox_sov_white)
 

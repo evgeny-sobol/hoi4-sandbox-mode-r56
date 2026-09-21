@@ -2,7 +2,7 @@
 
 Full inventory of focus-tree arcs for the seven majors (GER, SOV, JAP, ITA, ENG, USA, FRA) plus HUN, based on the Road to 56 focus trees. Every arc in this catalog is a candidate for the scenario pool; the pool is the full catalog plus the seed arcs already implemented. Arc ids are sequential over the pool; implemented arcs keep their existing ids (1-8).
 
-Cross-reference: `gdd/Scenarios.md` defines the arc schema (aggressor, targets, joiners, ladder, levers, derail, telemetry). This file only lists which focus branches become which arc, their flip gates, and their target variants.
+Cross-reference: `docs/gdd/Scenarios.md` defines the arc schema (aggressor, targets, joiners, ladder, levers, derail, telemetry). This file only lists which focus branches become which arc, their flip gates, and their target variants.
 
 ## Arc anatomy
 
@@ -82,7 +82,7 @@ Cross-reference: `gdd/Scenarios.md` defines the arc schema (aggressor, targets, 
 ## Focus paths per arc
 
 Which focus branch each scenario pushes, derived from the Rt56 trees (node
-and edge data generated from `gdd/National Focuses/*.md` by
+and edge data generated from `docs/gdd/National Focuses/*.md` by
 `.scratch/scripts/build_scenario_graphs.py`). Reading a diagram:
 
 - **`([id])` rounded** - a branch entry / path root (not itself boosted).

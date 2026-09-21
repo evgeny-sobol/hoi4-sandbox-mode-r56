@@ -1,4 +1,4 @@
-# gdd/Scenarios Catalog.md: arc events for fra_dismantle.
+# docs/gdd/Scenarios Catalog.md: arc events for fra_dismantle.
 # ids sandbox_fra_dismantle.1 (crisis) + N ultimatums covering variant A and B targets.
 add_namespace(sandbox_fra_dismantle)
 

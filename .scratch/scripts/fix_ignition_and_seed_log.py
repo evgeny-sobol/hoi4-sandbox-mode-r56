@@ -93,11 +93,11 @@ def main() -> None:
     text = SCEN.read_text(encoding="utf-8")
 
     # --- replace the ignite function (comment + body) ---
-    marker = '# gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies'
+    marker = '# docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies'
     start = text.index(marker)
-    end = text.index('# gdd/Scenarios.md "Lifecycle": derail dispatcher')
+    end = text.index('# docs/gdd/Scenarios.md "Lifecycle": derail dispatcher')
     new_block = "\n".join([
-        '# gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies',
+        '# docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies',
         "# ignites the arc (symmetric, like the enemy list itself). Two paths share",
         "# the per-arc log table: `sandbox_scenario_ignite()` is the on_declare_war",
         "# path (THIS is the attacker, FROM the defender) for a direct declaration,",
@@ -137,7 +137,7 @@ def main() -> None:
     anchor = "# Same-block set. A lone `factor(0)` in another modifier zeroes the whole"
     assert anchor in mtext, "macro anchor not found"
     macro = "\n".join([
-        "# gdd/Scenarios.md \"Hooks and telemetry\": seed snapshot for the picked",
+        "# docs/gdd/Scenarios.md \"Hooks and telemetry\": seed snapshot for the picked",
         "# arc. Runs in the aggressor's scope right after seeding; lists the chosen",
         "# targets and the A/B variant beside the arc id.",
         "macro sandbox_log_sc_seed():",

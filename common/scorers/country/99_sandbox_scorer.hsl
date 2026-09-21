@@ -118,7 +118,7 @@ minor_rivals_scorer:
         factor(0)
         THIS in FROM.former_rivals[]
 
-# gdd/Scenarios.md "Join levers": open-pool join offers (join 2.0, no fixed
+# docs/gdd/Scenarios.md "Join levers": open-pool join offers (join 2.0, no fixed
 # tag list). FROM is the aggressor (offer sender), THIS is the candidate.
 # Gates score zero (skipped): self, human, civil war, at war with FROM, in
 # FROM's own faction, subject ties with FROM, enemy ideology with FROM
