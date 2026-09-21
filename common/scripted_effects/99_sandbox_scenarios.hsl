@@ -3311,11 +3311,17 @@ sandbox_fire_ger_atl_crises():
 sandbox_fire_ger_atl_peak():
   if global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(GER)
       if country_exists(ENG) and not GER->has_war_with(ENG):
         ENG:
           country_event:
             id(sandbox_ger_atl.2)
     else:
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(GER)
       if country_exists(USA) and not GER->has_war_with(USA):
         USA:
           country_event:
@@ -3330,11 +3336,20 @@ sandbox_fire_ger_me_crises():
 sandbox_fire_ger_me_peak():
   if global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(GER)
       if country_exists(SOV) and not GER->has_war_with(SOV):
         SOV:
           country_event:
             id(sandbox_ger_me.2)
     else:
+      if country_exists(IRQ):
+        IRQ:
+          $sandbox_log_target_status(GER)
+      if country_exists(PER):
+        PER:
+          $sandbox_log_target_status(GER)
       if country_exists(IRQ) and not GER->has_war_with(IRQ):
         IRQ:
           country_event:
@@ -3353,6 +3368,15 @@ sandbox_fire_sov_south_crises():
 sandbox_fire_sov_south_peak():
   if global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(TUR):
+        TUR:
+          $sandbox_log_target_status(SOV)
+      if country_exists(IRQ):
+        IRQ:
+          $sandbox_log_target_status(SOV)
+      if country_exists(PER):
+        PER:
+          $sandbox_log_target_status(SOV)
       if country_exists(TUR) and not SOV->has_war_with(TUR):
         TUR:
           country_event:
@@ -3362,6 +3386,15 @@ sandbox_fire_sov_south_peak():
           country_event:
             id(sandbox_sov_south.3)
     else:
+      if country_exists(PAK):
+        PAK:
+          $sandbox_log_target_status(SOV)
+      if country_exists(RAJ):
+        RAJ:
+          $sandbox_log_target_status(SOV)
+      if country_exists(AFG):
+        AFG:
+          $sandbox_log_target_status(SOV)
       if country_exists(PAK) and not SOV->has_war_with(PAK):
         PAK:
           country_event:
@@ -3380,6 +3413,12 @@ sandbox_fire_sov_east_crises():
 sandbox_fire_sov_east_peak():
   if global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(JAP):
+        JAP:
+          $sandbox_log_target_status(SOV)
+      if country_exists(MAN):
+        MAN:
+          $sandbox_log_target_status(SOV)
       if country_exists(JAP) and not SOV->has_war_with(JAP):
         JAP:
           country_event:
@@ -3389,6 +3428,12 @@ sandbox_fire_sov_east_peak():
           country_event:
             id(sandbox_sov_east.3)
     else:
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(SOV)
+      if country_exists(CAN):
+        CAN:
+          $sandbox_log_target_status(SOV)
       if country_exists(USA) and not SOV->has_war_with(USA):
         USA:
           country_event:
@@ -3407,6 +3452,12 @@ sandbox_fire_jap_north_crises():
 sandbox_fire_jap_north_peak():
   if global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(JAP)
+      if country_exists(MON):
+        MON:
+          $sandbox_log_target_status(JAP)
       if country_exists(SOV) and not JAP->has_war_with(SOV):
         SOV:
           country_event:
@@ -3416,6 +3467,12 @@ sandbox_fire_jap_north_peak():
           country_event:
             id(sandbox_jap_north.3)
     else:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(JAP)
+      if country_exists(CHI):
+        CHI:
+          $sandbox_log_target_status(JAP)
       if country_exists(SOV) and not JAP->has_war_with(SOV):
         SOV:
           country_event:
@@ -3434,11 +3491,17 @@ sandbox_fire_jap_old_crises():
 sandbox_fire_jap_old_peak():
   if global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(JAP)
       if country_exists(USA) and not JAP->has_war_with(USA):
         USA:
           country_event:
             id(sandbox_jap_old.2)
     else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(JAP)
       if country_exists(ENG) and not JAP->has_war_with(ENG):
         ENG:
           country_event:
@@ -3453,11 +3516,17 @@ sandbox_fire_ita_west_crises():
 sandbox_fire_ita_west_peak():
   if global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(ITA)
       if country_exists(FRA) and not ITA->has_war_with(FRA):
         FRA:
           country_event:
             id(sandbox_ita_west.2)
     else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(ITA)
       if country_exists(ENG) and not ITA->has_war_with(ENG):
         ENG:
           country_event:
@@ -3474,6 +3543,12 @@ sandbox_fire_ita_med_crises():
 sandbox_fire_ita_med_peak():
   if global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(TUR):
+        TUR:
+          $sandbox_log_target_status(ITA)
+      if country_exists(ROM):
+        ROM:
+          $sandbox_log_target_status(ITA)
       if country_exists(TUR) and not ITA->has_war_with(TUR):
         TUR:
           country_event:
@@ -3483,6 +3558,12 @@ sandbox_fire_ita_med_peak():
           country_event:
             id(sandbox_ita_med.3)
     else:
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(ITA)
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(ITA)
       if country_exists(FRA) and not ITA->has_war_with(FRA):
         FRA:
           country_event:
@@ -3504,11 +3585,20 @@ sandbox_fire_eng_imperial_crises():
 sandbox_fire_eng_imperial_peak():
   if global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(RAJ):
+        RAJ:
+          $sandbox_log_target_status(ENG)
       if country_exists(RAJ) and not ENG->has_war_with(RAJ):
         RAJ:
           country_event:
             id(sandbox_eng_imperial.2)
     else:
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(ENG)
+      if country_exists(JAP):
+        JAP:
+          $sandbox_log_target_status(ENG)
       if country_exists(USA) and not ENG->has_war_with(USA):
         USA:
           country_event:
@@ -3530,11 +3620,20 @@ sandbox_fire_usa_warplan_crises():
 sandbox_fire_usa_warplan_peak():
   if global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(JAP):
+        JAP:
+          $sandbox_log_target_status(USA)
       if country_exists(JAP) and not USA->has_war_with(JAP):
         JAP:
           country_event:
             id(sandbox_usa_warplan.2)
     else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(USA)
+      if country_exists(CAN):
+        CAN:
+          $sandbox_log_target_status(USA)
       if country_exists(ENG) and not USA->has_war_with(ENG):
         ENG:
           country_event:
@@ -3556,6 +3655,18 @@ sandbox_fire_usa_hegemony_crises():
 sandbox_fire_usa_hegemony_peak():
   if global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(USA)
+      if country_exists(GER):
+        GER:
+          $sandbox_log_target_status(USA)
+      if country_exists(HUN):
+        HUN:
+          $sandbox_log_target_status(USA)
+      if country_exists(JAP):
+        JAP:
+          $sandbox_log_target_status(USA)
       if country_exists(ENG) and not USA->has_war_with(ENG):
         ENG:
           country_event:
@@ -3573,6 +3684,12 @@ sandbox_fire_usa_hegemony_peak():
           country_event:
             id(sandbox_usa_hegemony.5)
     else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(USA)
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(USA)
       if country_exists(ENG) and not USA->has_war_with(ENG):
         ENG:
           country_event:
@@ -3594,6 +3711,15 @@ sandbox_fire_fra_monarchist_crises():
 sandbox_fire_fra_monarchist_peak():
   if global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(SPR):
+        SPR:
+          $sandbox_log_target_status(FRA)
+      if country_exists(ADR):
+        ADR:
+          $sandbox_log_target_status(FRA)
+      if country_exists(MEX):
+        MEX:
+          $sandbox_log_target_status(FRA)
       if country_exists(SPR) and not FRA->has_war_with(SPR):
         SPR:
           country_event:
@@ -3607,6 +3733,9 @@ sandbox_fire_fra_monarchist_peak():
           country_event:
             id(sandbox_fra_monarchist.4)
     else:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(FRA)
       if country_exists(SOV) and not FRA->has_war_with(SOV):
         SOV:
           country_event:
@@ -3624,11 +3753,17 @@ sandbox_fire_fra_dismantle_crises():
 sandbox_fire_fra_dismantle_peak():
   if global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(GER):
+        GER:
+          $sandbox_log_target_status(FRA)
       if country_exists(GER) and not FRA->has_war_with(GER):
         GER:
           country_event:
             id(sandbox_fra_dismantle.2)
     else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(FRA)
       if country_exists(ENG) and not FRA->has_war_with(ENG):
         ENG:
           country_event:
@@ -3646,11 +3781,17 @@ sandbox_fire_fra_plan_xiv_crises():
 sandbox_fire_fra_plan_xiv_peak():
   if global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(SWI):
+        SWI:
+          $sandbox_log_target_status(FRA)
       if country_exists(SWI) and not FRA->has_war_with(SWI):
         SWI:
           country_event:
             id(sandbox_fra_plan_xiv.2)
     else:
+      if country_exists(ITA):
+        ITA:
+          $sandbox_log_target_status(FRA)
       if country_exists(ITA) and not FRA->has_war_with(ITA):
         ITA:
           country_event:
@@ -3668,6 +3809,15 @@ sandbox_fire_ger_communist_crises():
 sandbox_fire_ger_communist_peak():
   if global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(GER)
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(GER)
+      if country_exists(ITA):
+        ITA:
+          $sandbox_log_target_status(GER)
       if country_exists(ENG) and not GER->has_war_with(ENG):
         ENG:
           country_event:
@@ -3681,6 +3831,15 @@ sandbox_fire_ger_communist_peak():
           country_event:
             id(sandbox_ger_communist.4)
     else:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(GER)
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(GER)
+      if country_exists(JAP):
+        JAP:
+          $sandbox_log_target_status(GER)
       if country_exists(SOV) and not GER->has_war_with(SOV):
         SOV:
           country_event:
@@ -3706,6 +3865,12 @@ sandbox_fire_ger_monarchist_crises():
 sandbox_fire_ger_monarchist_peak():
   if global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(GER)
+      if country_exists(DEN):
+        DEN:
+          $sandbox_log_target_status(GER)
       if country_exists(SOV) and not GER->has_war_with(SOV):
         SOV:
           country_event:
@@ -3715,6 +3880,12 @@ sandbox_fire_ger_monarchist_peak():
           country_event:
             id(sandbox_ger_monarchist.3)
     else:
+      if country_exists(VEN):
+        VEN:
+          $sandbox_log_target_status(GER)
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(GER)
       if country_exists(VEN) and not GER->has_war_with(VEN):
         VEN:
           country_event:
@@ -3736,6 +3907,15 @@ sandbox_fire_sov_white_crises():
 sandbox_fire_sov_white_peak():
   if global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(GER):
+        GER:
+          $sandbox_log_target_status(SOV)
+      if country_exists(POL):
+        POL:
+          $sandbox_log_target_status(SOV)
+      if country_exists(FIN):
+        FIN:
+          $sandbox_log_target_status(SOV)
       if country_exists(GER) and not SOV->has_war_with(GER):
         GER:
           country_event:
@@ -3749,6 +3929,9 @@ sandbox_fire_sov_white_peak():
           country_event:
             id(sandbox_sov_white.4)
     else:
+      if country_exists(UKR):
+        UKR:
+          $sandbox_log_target_status(SOV)
       if country_exists(UKR) and not SOV->has_war_with(UKR):
         UKR:
           country_event:
@@ -3766,6 +3949,12 @@ sandbox_fire_jap_communist_crises():
 sandbox_fire_jap_communist_peak():
   if global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(CHI):
+        CHI:
+          $sandbox_log_target_status(JAP)
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(JAP)
       if country_exists(CHI) and not JAP->has_war_with(CHI):
         CHI:
           country_event:
@@ -3775,6 +3964,15 @@ sandbox_fire_jap_communist_peak():
           country_event:
             id(sandbox_jap_communist.3)
     else:
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(JAP)
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(JAP)
+      if country_exists(SIA):
+        SIA:
+          $sandbox_log_target_status(JAP)
       if country_exists(ENG) and not JAP->has_war_with(ENG):
         ENG:
           country_event:
@@ -3800,6 +3998,12 @@ sandbox_fire_ita_communist_crises():
 sandbox_fire_ita_communist_peak():
   if global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(FRA):
+        FRA:
+          $sandbox_log_target_status(ITA)
+      if country_exists(ENG):
+        ENG:
+          $sandbox_log_target_status(ITA)
       if country_exists(FRA) and not ITA->has_war_with(FRA):
         FRA:
           country_event:
@@ -3809,6 +4013,12 @@ sandbox_fire_ita_communist_peak():
           country_event:
             id(sandbox_ita_communist.3)
     else:
+      if country_exists(BUL):
+        BUL:
+          $sandbox_log_target_status(ITA)
+      if country_exists(YUG):
+        YUG:
+          $sandbox_log_target_status(ITA)
       if country_exists(BUL) and not ITA->has_war_with(BUL):
         BUL:
           country_event:
@@ -3830,6 +4040,15 @@ sandbox_fire_eng_communist_crises():
 sandbox_fire_eng_communist_peak():
   if global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 2:
     if global.sandbox_target_variant == a:
+      if country_exists(GER):
+        GER:
+          $sandbox_log_target_status(ENG)
+      if country_exists(USA):
+        USA:
+          $sandbox_log_target_status(ENG)
+      if country_exists(CAN):
+        CAN:
+          $sandbox_log_target_status(ENG)
       if country_exists(GER) and not ENG->has_war_with(GER):
         GER:
           country_event:
@@ -3843,6 +4062,9 @@ sandbox_fire_eng_communist_peak():
           country_event:
             id(sandbox_eng_communist.4)
     else:
+      if country_exists(SOV):
+        SOV:
+          $sandbox_log_target_status(ENG)
       if country_exists(SOV) and not ENG->has_war_with(SOV):
         SOV:
           country_event:

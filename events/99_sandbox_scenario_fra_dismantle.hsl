@@ -34,14 +34,17 @@ country_event:
   option:
     name(sandbox_fra_dismantle_2_a)
     ai_chance:
-      factor(70)
-    add_war_support(0.10)
+      factor(30)
+    add_war_support(-0.10)
     FRA:
       add_war_support(0.05)
     $sandbox_log_sc(sc_crisis, fra_dismantle_ult_2_submit)
   option:
     name(sandbox_fra_dismantle_2_b)
     ai_chance:
-      factor(30)
-    add_war_support(-0.05)
+      factor(70)
+    add_war_support(0.10)
+    FRA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
     $sandbox_log_sc(sc_crisis, fra_dismantle_ult_2_defy)

@@ -34,16 +34,19 @@ country_event:
   option:
     name(sandbox_ger_communist_2_a)
     ai_chance:
-      factor(70)
-    add_war_support(0.10)
+      factor(30)
+    add_war_support(-0.10)
     GER:
       add_war_support(0.05)
     $sandbox_log_sc(sc_crisis, ger_communist_ult_2_submit)
   option:
     name(sandbox_ger_communist_2_b)
     ai_chance:
-      factor(30)
-    add_war_support(-0.05)
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
     $sandbox_log_sc(sc_crisis, ger_communist_ult_2_defy)
 # Ultimatum 3 (FRA | USA).
 country_event:
@@ -57,16 +60,19 @@ country_event:
   option:
     name(sandbox_ger_communist_3_a)
     ai_chance:
-      factor(70)
-    add_war_support(0.10)
+      factor(30)
+    add_war_support(-0.10)
     GER:
       add_war_support(0.05)
     $sandbox_log_sc(sc_crisis, ger_communist_ult_3_submit)
   option:
     name(sandbox_ger_communist_3_b)
     ai_chance:
-      factor(30)
-    add_war_support(-0.05)
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
     $sandbox_log_sc(sc_crisis, ger_communist_ult_3_defy)
 # Ultimatum 4 (ITA | JAP).
 country_event:
@@ -80,14 +86,17 @@ country_event:
   option:
     name(sandbox_ger_communist_4_a)
     ai_chance:
-      factor(70)
-    add_war_support(0.10)
+      factor(30)
+    add_war_support(-0.10)
     GER:
       add_war_support(0.05)
     $sandbox_log_sc(sc_crisis, ger_communist_ult_4_submit)
   option:
     name(sandbox_ger_communist_4_b)
     ai_chance:
-      factor(30)
-    add_war_support(-0.05)
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
     $sandbox_log_sc(sc_crisis, ger_communist_ult_4_defy)

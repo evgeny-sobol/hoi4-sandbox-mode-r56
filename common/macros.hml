@@ -603,3 +603,20 @@ macro sandbox_check_flip_gate_inv(_agg_, _ideo1_, _log_):
       global.&sandbox_scenario_phase = 3
       $sandbox_log_sc(sc_derail, _log_)
       $sandbox_log_sc(sc_end, _log_)
+
+# gdd/Scenarios.md "Hooks and telemetry": one sc_target status line per target
+# at peak, so a silent ultimatum arm stays diagnosable. Runs in TARGET scope
+# (THIS is the target); the aggressor is passed explicitly (the director's
+# scope is not the aggressor). First match wins: at_war > civil_war > subject
+# > in_faction > open.
+macro sandbox_log_target_status(_agg_):
+  if has_war_with(_agg_):
+    $sandbox_log_sc(sc_target, at_war)
+  elif has_civil_war():
+    $sandbox_log_sc(sc_target, civil_war)
+  elif is_subject_of(_agg_):
+    $sandbox_log_sc(sc_target, subject)
+  elif is_in_faction_with(_agg_):
+    $sandbox_log_sc(sc_target, in_faction)
+  else:
+    $sandbox_log_sc(sc_target, open)
