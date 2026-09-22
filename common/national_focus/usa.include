@@ -11,6 +11,8 @@ focus_tree[id = usa_focus]:
           (2 * mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = USA_double_victory]:
     ai_will_do:
@@ -31,6 +33,10 @@ focus_tree[id = usa_focus]:
       +modifier:
         f = 1 + mtth:communism_factor
         factor(f)
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_suspend_the_presecution)
 
   focus[id = USA_desegregate_the_armed_forces]:
     ai_will_do:
@@ -159,8 +165,12 @@ focus_tree[id = usa_focus]:
         factor(0)
         $SOV in rivals[]
         is_sandbox_mode_on()
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $SOV->is_rival_of_PREV(no)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_us_ussr_economic_cooperation)
 
   focus[id = USA_unholy_alliance]:
     +ai_will_do:
@@ -229,6 +239,10 @@ focus_tree[id = usa_focus]:
           $HUN->is_friend_of_PREV()
           $JAP->is_friend_of_PREV()
           $MAN->is_friend_of_PREV()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_end_monarchism)
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
       $GER->can_PREV_get_wargoal_on_THIS()
@@ -248,8 +262,12 @@ focus_tree[id = usa_focus]:
         $ai_rivalry_modifier($PREV)
       +modifier:
         $ai_betrayal_modifier_vs($PREV)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_shatter_the_empires)
 
   focus[id = USA_wpa]:
     +ai_will_do:
@@ -967,6 +985,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($PREV)
@@ -976,6 +996,9 @@ focus_tree[id = usa_focus]:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, USA_global_hegemony)
 
   focus[id = USA_war_plans_division]:
     ai_will_do:
@@ -1073,7 +1096,12 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, USA_intervention_in_europe)
 
   focus[id = USA_war_plan_gold]:
     ai_will_do:
@@ -1094,7 +1122,12 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_mic_modifier()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, USA_war_plan_black)
 
   focus[id = USA_destroyers_for_bases]:
     +ai_will_do:
@@ -1157,8 +1190,13 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, USA_war_plan_orange)
 
   focus[id = USA_war_plan_yellow]:
     ai_will_do:
@@ -1171,6 +1209,8 @@ focus_tree[id = usa_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -1183,6 +1223,9 @@ focus_tree[id = usa_focus]:
         $ai_betrayal_modifier_vs($JAP)
     available:
       $JAP->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, USA_defense_of_the_pacific)
 
   focus[id = USA_war_department]:
     ai_will_do:

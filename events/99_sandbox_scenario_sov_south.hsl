@@ -1,0 +1,78 @@
+# docs/gdd/Scenarios Catalog.md: arc events for sov_south. 
+# ids sandbox_sov_south.1-3. Same anatomy as other arcs.
+add_namespace(sandbox_sov_south)
+
+# Crisis: The Southern Thrust.
+country_event:
+  id(sandbox_sov_south.1)
+  title(sandbox_sov_south_1_t)
+  desc(sandbox_sov_south_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_sov_south_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, southern_crisis)
+    $sandbox_add_rivalry_vs(TUR, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_sov_south_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum to TUR.
+country_event:
+  id(sandbox_sov_south.2)
+  title(sandbox_sov_south_2_t)
+  desc(sandbox_sov_south_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(TUR)
+  option:
+    name(sandbox_sov_south_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, TUR_submit)
+  option:
+    name(sandbox_sov_south_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(TUR, 15)
+    $sandbox_log_sc(sc_crisis, TUR_defy)
+
+# Ultimatum to IRQ.
+country_event:
+  id(sandbox_sov_south.3)
+  title(sandbox_sov_south_3_t)
+  desc(sandbox_sov_south_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(IRQ)
+  option:
+    name(sandbox_sov_south_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, IRQ_submit)
+  option:
+    name(sandbox_sov_south_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(IRQ, 15)
+    $sandbox_log_sc(sc_crisis, IRQ_defy)

@@ -792,6 +792,8 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($SOV)
       +modifier:
         $ai_betrayal_modifier_vs($SOV)
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ENG_war_with_ussr]:
     ai_will_do:
@@ -807,8 +809,12 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($SOV)
       +modifier:
         $crossroad_modifier(2)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ENG_war_with_ussr)
 
   focus[id = ENG_issue_gasmasks]:
     ai_will_do:
@@ -1131,6 +1137,8 @@ focus_tree[id = british_focus]:
         f = (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ENG_visit_germany]:
     ai_will_do:
@@ -1294,6 +1302,8 @@ focus_tree[id = british_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ENG_war_france]:
     ai_will_do:
@@ -1307,8 +1317,12 @@ focus_tree[id = british_focus]:
         $ai_rivalry_modifier($FRA)
       +modifier:
         $ai_betrayal_modifier_vs($FRA)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $FRA->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ENG_war_france)
 
   focus[id = ENG_med]:
     ai_will_do:
@@ -1786,6 +1800,10 @@ focus_tree[id = british_focus]:
           (mtth:monarchy_factor + mtth:communism_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ENG_organize_the_blackshirts)
 
   focus[id = ENG_the_british_path_to_fascism]:
     ai_will_do:
@@ -1935,6 +1953,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($RAJ)
@@ -1944,6 +1964,9 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($RAJ)
     available:
       $RAJ->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_reclaim_the_jewel_in_the_crown)
 
   focus[id = ENG_pre_empt_the_ideological_threat]:
     ai_will_do:
@@ -2025,6 +2048,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
@@ -2035,6 +2060,9 @@ focus_tree[id = british_focus]:
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
 
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_unite_the_anglosphere)
+
   focus[id = ENG_appeal_to_imperial_loyalists]:
     ai_will_do:
       +modifier:
@@ -2044,6 +2072,8 @@ focus_tree[id = british_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $ai_war_support_modifier()
       +modifier:
@@ -2073,6 +2103,9 @@ focus_tree[id = british_focus]:
       $SAF->can_PREV_get_wargoal_on_THIS()
       $AST->can_PREV_get_wargoal_on_THIS()
       $NZL->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_bring_the_dominions_back_into_the_fold)
 
   focus[id = ENG_the_sun_never_sets]:
     ai_will_do:
@@ -2216,6 +2249,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_cooperation_modifier($SOV)
@@ -2235,10 +2270,15 @@ focus_tree[id = british_focus]:
       $not_rival_of_PREV($SOV)
       $GER->can_PREV_get_wargoal_on_THIS()
 
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_soviet_cooperation)
+
   focus[id = ENG_the_one_true_revolution]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       +modifier:
         $crossroad_modifier(2)
       +modifier:
@@ -2251,6 +2291,9 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($SOV)
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_the_one_true_revolution)
 
   focus[id = ENG_follow_moscow]:
     ai_will_do:
@@ -2322,6 +2365,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($GER)
@@ -2331,6 +2376,9 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($GER)
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_liberate_the_home_of_marx)
 
   focus[id = ENG_spirit_of_the_industrial_revolution]:
     ai_will_do:
@@ -2413,6 +2461,8 @@ focus_tree[id = british_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($USA)
@@ -2422,6 +2472,9 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($USA)
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ENG_liberate_the_american_workers)
 
   focus[id = ENG_join_the_global_fight_against_fascism]:
     +ai_will_do:

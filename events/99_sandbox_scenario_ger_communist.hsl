@@ -1,0 +1,102 @@
+# docs/gdd/Scenarios Catalog.md: arc events for ger_communist.
+# ids sandbox_ger_communist.1 (crisis) + N ultimatums covering variant A and B targets.
+add_namespace(sandbox_ger_communist)
+
+# Crisis: World Revolution.
+country_event:
+  id(sandbox_ger_communist.1)
+  title(sandbox_ger_communist_1_t)
+  desc(sandbox_ger_communist_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER)
+  option:
+    name(sandbox_ger_communist_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, ger_communist_crisis)
+    add_war_support(0.05)
+  option:
+    name(sandbox_ger_communist_1_b)
+    ai_chance:
+      factor(15)
+    add_war_support(0.02)
+# Ultimatum 2 (ENG | SOV).
+country_event:
+  id(sandbox_ger_communist.2)
+  title(sandbox_ger_communist_2_t)
+  desc(sandbox_ger_communist_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG | SOV)
+  option:
+    name(sandbox_ger_communist_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ger_communist_ult_2_submit)
+  option:
+    name(sandbox_ger_communist_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, ger_communist_ult_2_defy)
+# Ultimatum 3 (FRA | USA).
+country_event:
+  id(sandbox_ger_communist.3)
+  title(sandbox_ger_communist_3_t)
+  desc(sandbox_ger_communist_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(FRA | USA)
+  option:
+    name(sandbox_ger_communist_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ger_communist_ult_3_submit)
+  option:
+    name(sandbox_ger_communist_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, ger_communist_ult_3_defy)
+# Ultimatum 4 (ITA | JAP).
+country_event:
+  id(sandbox_ger_communist.4)
+  title(sandbox_ger_communist_4_t)
+  desc(sandbox_ger_communist_4_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA | JAP)
+  option:
+    name(sandbox_ger_communist_4_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ger_communist_ult_4_submit)
+  option:
+    name(sandbox_ger_communist_4_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, ger_communist_ult_4_defy)

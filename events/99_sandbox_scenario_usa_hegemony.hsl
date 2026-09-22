@@ -1,0 +1,128 @@
+# docs/gdd/Scenarios Catalog.md: arc events for usa_hegemony.
+# ids sandbox_usa_hegemony.1 (crisis) + N ultimatums covering variant A and B targets.
+add_namespace(sandbox_usa_hegemony)
+
+# Crisis: The American Century.
+country_event:
+  id(sandbox_usa_hegemony.1)
+  title(sandbox_usa_hegemony_1_t)
+  desc(sandbox_usa_hegemony_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(USA)
+  option:
+    name(sandbox_usa_hegemony_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_crisis)
+    add_war_support(0.05)
+  option:
+    name(sandbox_usa_hegemony_1_b)
+    ai_chance:
+      factor(15)
+    add_war_support(0.02)
+# Ultimatum 2 (ENG).
+country_event:
+  id(sandbox_usa_hegemony.2)
+  title(sandbox_usa_hegemony_2_t)
+  desc(sandbox_usa_hegemony_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_usa_hegemony_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_2_submit)
+  option:
+    name(sandbox_usa_hegemony_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_2_defy)
+# Ultimatum 3 (GER | FRA).
+country_event:
+  id(sandbox_usa_hegemony.3)
+  title(sandbox_usa_hegemony_3_t)
+  desc(sandbox_usa_hegemony_3_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER | FRA)
+  option:
+    name(sandbox_usa_hegemony_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_3_submit)
+  option:
+    name(sandbox_usa_hegemony_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_3_defy)
+# Ultimatum 4 (HUN).
+country_event:
+  id(sandbox_usa_hegemony.4)
+  title(sandbox_usa_hegemony_4_t)
+  desc(sandbox_usa_hegemony_4_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(HUN)
+  option:
+    name(sandbox_usa_hegemony_4_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_4_submit)
+  option:
+    name(sandbox_usa_hegemony_4_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_4_defy)
+# Ultimatum 5 (JAP).
+country_event:
+  id(sandbox_usa_hegemony.5)
+  title(sandbox_usa_hegemony_5_t)
+  desc(sandbox_usa_hegemony_5_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP)
+  option:
+    name(sandbox_usa_hegemony_5_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    USA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_5_submit)
+  option:
+    name(sandbox_usa_hegemony_5_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    USA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, usa_hegemony_ult_5_defy)

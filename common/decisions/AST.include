@@ -5,7 +5,7 @@ AST_union_control_1_cat:
     timeout_effect:
       $sandbox_log_cw_event(AST_veterans_revolt)
 
-# TAOG: AST lights a communist war in FROM (gdd/Civil Wars.md Pattern D).
+# TAOG: AST lights a communist war in FROM (docs/gdd/Civil Wars.md Pattern D).
 AST_union_control_2_cat:
   AST_civil_war_in_nation:
     ai_will_do:

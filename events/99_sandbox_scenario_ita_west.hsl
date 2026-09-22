@@ -1,0 +1,78 @@
+# docs/gdd/Scenarios Catalog.md: arc events for ita_west. 
+# ids sandbox_ita_west.1-3. Same anatomy as other arcs.
+add_namespace(sandbox_ita_west)
+
+# Crisis: The Western Enemy.
+country_event:
+  id(sandbox_ita_west.1)
+  title(sandbox_ita_west_1_t)
+  desc(sandbox_ita_west_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(ITA)
+  option:
+    name(sandbox_ita_west_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, western_crisis)
+    $sandbox_add_rivalry_vs(FRA, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_ita_west_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum to FRA.
+country_event:
+  id(sandbox_ita_west.2)
+  title(sandbox_ita_west_2_t)
+  desc(sandbox_ita_west_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(FRA)
+  option:
+    name(sandbox_ita_west_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, FRA_submit)
+  option:
+    name(sandbox_ita_west_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(FRA, 15)
+    $sandbox_log_sc(sc_crisis, FRA_defy)
+
+# Ultimatum to ENG.
+country_event:
+  id(sandbox_ita_west.3)
+  title(sandbox_ita_west_3_t)
+  desc(sandbox_ita_west_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(ENG)
+  option:
+    name(sandbox_ita_west_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    ITA:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, ENG_submit)
+  option:
+    name(sandbox_ita_west_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    ITA:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(ENG, 15)
+    $sandbox_log_sc(sc_crisis, ENG_defy)

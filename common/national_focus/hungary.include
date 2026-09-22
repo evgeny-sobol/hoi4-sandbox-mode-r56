@@ -58,6 +58,10 @@ focus_tree[id = hungarian_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $crossroad_modifier(2)
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, HUN_proclaim_the_restoration_of_austria_hungary)
 
   focus[id = HUN_moderate_restoration]:
     ai_will_do:
@@ -93,8 +97,12 @@ focus_tree[id = hungarian_focus]:
         $ai_rivalry_modifier($PREV)
       +modifier:
         $ai_betrayal_modifier_vs($PREV)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, HUN_claim_transylvania)
 
   focus[id = HUN_march_to_the_shore]:
     ai_will_do:
@@ -108,8 +116,12 @@ focus_tree[id = hungarian_focus]:
         $ai_rivalry_modifier($PREV)
       +modifier:
         $ai_betrayal_modifier_vs($PREV)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, HUN_march_to_the_shore)
 
   focus[id = HUN_reclaim_venetia]:
     ai_will_do:
@@ -138,8 +150,12 @@ focus_tree[id = hungarian_focus]:
         $ai_rivalry_modifier($PREV)
       +modifier:
         $ai_betrayal_modifier_vs($PREV)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, HUN_claim_galicia)
 
   focus[id = HUN_claim_the_bucovina]:
     ai_will_do:
