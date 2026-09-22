@@ -622,6 +622,21 @@ macro sandbox_check_flip_gate_inv(_agg_, _ideo1_, _log_):
 # prosecute its arc, so the director derails after N consecutive months of
 # it. Runs in the aggressor's scope; the counter resets when the war ends
 # (and at pick/repick). THIS is the aggressor.
+# docs/gdd/Scenarios.md "Lifecycle": an arc that reaches peak and does not
+# ignite within 12 months is dead: the ladder holds at peak forever
+# otherwise (an observer session sat there for six years). Derails with reason
+# `peak_timeout`; the dispatcher then repicks on random or goes quiet when
+# pinned. Counter resets at pick/repick.
+macro sandbox_check_peak_timeout():
+  if global.sandbox_scenario_phase == 2:
+    global.&sandbox_scenario_peak_months += 1
+    if global.sandbox_scenario_peak_months >= 12:
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, peak_timeout)
+      $sandbox_log_sc(sc_end, peak_timeout)
+  else:
+    global.&sandbox_scenario_peak_months = 0
+
 macro sandbox_check_aggressor_civil_war():
   if has_civil_war():
     global.&sandbox_scenario_civil_war_months += 1
