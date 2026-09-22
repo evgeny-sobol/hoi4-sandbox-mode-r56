@@ -1,4 +1,4 @@
-# Pattern D: AST lights a war in INS / MAL (gdd/Civil Wars.md gate the actor).
+# Pattern D: AST lights a war in INS / MAL (docs/gdd/Civil Wars.md gate the actor).
 # Do not +trigger the events: a player AST at cap must still start them.
 operations:
   start_indonesian_uprising:

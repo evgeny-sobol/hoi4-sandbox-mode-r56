@@ -1638,6 +1638,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -1650,6 +1652,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_all_roads_lead_to_rome)
 
   focus[id = ITA_the_king_of_the_skies]:
     +ai_will_do:
@@ -1730,6 +1735,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -1742,6 +1749,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($PREV)
     +available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_a_time_for_war)
 
   focus[id = ITA_the_holy_lands]:
     +ai_will_do:
@@ -1769,6 +1779,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      modifier:
+        $ai_scenario_focus_boost()
 
   focus[id = ITA_balkan_ambition]:
     +ai_will_do:
@@ -1776,6 +1788,8 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $crossroad_modifier(2)
+      modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1888,6 +1902,8 @@ focus_tree[id = italian_focus]:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
         is_sandbox_mode_on()
+      modifier:
+        $ai_scenario_focus_boost()
     available:
       $not_rival_of_PREV($ENG)
       $not_rival_of_PREV($FRA)
@@ -1921,6 +1937,8 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_war_support_modifier()
+      modifier:
+        $ai_scenario_focus_boost()
       modifier:
         antagonism = 1 - ($opinion_factor($BUL) + $opinion_factor($GRE) +
           $opinion_factor($YUG) + $opinion_factor($ALB) + $opinion_factor($ROM) +
@@ -1966,6 +1984,8 @@ focus_tree[id = italian_focus]:
           $MNT->is_friend_of_PREV()
           $TRA->is_friend_of_PREV()
       modifier:
+        $ai_scenario_focus_boost()
+      modifier:
         $ai_mic_modifier()
     available:
       $BUL->can_PREV_get_wargoal_on_THIS()
@@ -1982,6 +2002,8 @@ focus_tree[id = italian_focus]:
       $KOS->can_PREV_get_wargoal_on_THIS()
       $MNT->can_PREV_get_wargoal_on_THIS()
       $TRA->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_italys_destiny)
 
   focus[id = ITA_preventive_intervention]:
     ai_will_do:
@@ -2133,6 +2155,8 @@ focus_tree[id = italian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
@@ -2145,10 +2169,15 @@ focus_tree[id = italian_focus]:
     available:
       $FRA->can_PREV_get_wargoal_on_THIS()
 
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_war_with_france)
+
   focus[id = ITA_demand_ticino]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -2159,6 +2188,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($SWI)
     available:
       $SWI->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_demand_ticino)
 
   focus[id = ITA_operazione_druso]:
     ai_will_do:
@@ -2201,6 +2233,8 @@ focus_tree[id = italian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
@@ -2210,6 +2244,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($ENG)
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_war_with_the_uk)
 
   focus[id = ITA_war_with_greece]:
     ai_will_do:
@@ -2225,8 +2262,12 @@ focus_tree[id = italian_focus]:
         $ai_rivalry_modifier($GRE)
       +modifier:
         $ai_betrayal_modifier_vs($GRE)
+      +modifier:
+        $ai_scenario_focus_boost()
     available:
       $GRE->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, ITA_war_with_greece)
 
   focus[id = ITA_befriend_greece]:
     ai_will_do:
@@ -2247,6 +2288,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -2259,6 +2302,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($TUR)
     available:
       $TUR->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_claims_on_turkey_bba)
 
   focus[id = ITA_befriend_turkey]:
     +ai_will_do:
@@ -2570,6 +2616,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -2580,6 +2628,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_pugno_alzato)
 
   focus[id = ITA_a_leader_steps_forward]:
     +ai_will_do:
@@ -2880,6 +2931,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -2890,6 +2943,9 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($SOV)
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_the_enemies_of_capitalism)
 
   focus[id = ITA_the_ethiopian_question]:
     +ai_will_do:
@@ -2968,6 +3024,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -3003,6 +3061,9 @@ focus_tree[id = italian_focus]:
       $BEL->can_PREV_get_wargoal_on_THIS()
       $POR->can_PREV_get_wargoal_on_THIS()
       $can_get_wargoal_on($SPA)
+
+  +completion_reward:
+    $sandbox_log_sc(sc_focus, ITA_liberate_the_workers_of_africa)
 
   focus[id = ITA_ascari]:
     +ai_will_do:

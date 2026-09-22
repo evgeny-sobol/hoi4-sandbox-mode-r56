@@ -1,5 +1,5 @@
 # Cedillo / Cristiada / second revolution. Missions delay while capped;
-# log when the fire-once events actually start the war (gdd/Civil Wars.md).
+# log when the fire-once events actually start the war (docs/gdd/Civil Wars.md).
 country_event[id = mexico.1]:
   immediate:
     $sandbox_log_cw_event(mexico.1)

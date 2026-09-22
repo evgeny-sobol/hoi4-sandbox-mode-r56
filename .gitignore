@@ -2,7 +2,10 @@
 *.txt
 
 ### Obsidian
-gdd/.obsidian/*
+docs/gdd/.obsidian/*
+
+### Python
+__pycache__/
 
 ### macOS
 # Finder metadata
@@ -51,3 +54,35 @@ $RECYCLE.BIN/
 
 # NFS temporary files
 .nfs*
+
+# AI strategy plans Rt56 does not override: vanilla loads these, so the
+# sandbox-disabled copies are hand-kept (no .include source can splice them
+# against the Rt56 workshop tree). The '!' rules stop prune_orphan_txt
+# from deleting them.
+!common/ai_strategy_plans/ARG_alternate_strategy_plan.txt
+!common/ai_strategy_plans/AUS_alternate_strategy_plan.txt
+!common/ai_strategy_plans/AUS_historical_strategy_plan.txt
+!common/ai_strategy_plans/BLT_alternate_strategy_plan.txt
+!common/ai_strategy_plans/CHI_sea_alternative_strategy_plan.txt
+!common/ai_strategy_plans/CZE_mun_alternate_strategy_plan.txt
+!common/ai_strategy_plans/CZE_mun_historical_strategy_plan.txt
+!common/ai_strategy_plans/HOL_TAOG_alternate_strategy_plan.txt
+!common/ai_strategy_plans/HOL_TAOG_historical_strategy_plan.txt
+!common/ai_strategy_plans/HUN_ww_alternate.txt
+!common/ai_strategy_plans/ICE_alternate_strategy_plan.txt
+!common/ai_strategy_plans/ICE_historical_strategy_plan.txt
+!common/ai_strategy_plans/INS_alternate_strategy_plan.txt
+!common/ai_strategy_plans/INS_historical_strategy_plan.txt
+!common/ai_strategy_plans/PAR_alternate_strategy_plan.txt
+!common/ai_strategy_plans/PAR_historical_strategy_plan.txt
+!common/ai_strategy_plans/PER_alternate_strategy_plan.txt
+!common/ai_strategy_plans/PER_historical_strategy_plan.txt
+!common/ai_strategy_plans/PHI_historical_strategy_plan.txt
+!common/ai_strategy_plans/POR_historical_strategy_plan.txt
+!common/ai_strategy_plans/PRC_TSR_alternate_strategy_plan.txt
+!common/ai_strategy_plans/PRC_TSR_historical_strategy_plan.txt
+!common/ai_strategy_plans/SPA_alternate_strategy_plan.txt
+!common/ai_strategy_plans/SPB_alternate_strategy_plan.txt
+!common/ai_strategy_plans/SPC_alternate_strategy_plan.txt
+!common/ai_strategy_plans/SPD_alternate_strategy_plan.txt
+!common/ai_strategy_plans/SPD_historical_strategy_plan.txt

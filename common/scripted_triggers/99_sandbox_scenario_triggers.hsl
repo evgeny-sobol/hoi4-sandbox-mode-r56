@@ -1,0 +1,73 @@
+# docs/gdd/Scenarios.md "Selection": pin-rule options for the scenario pick.
+# has_game_rule needs a verbatim two-key block, hence raw inline.
+sandbox_scenario_pin_is_axis:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_axis_expansion }
+sandbox_scenario_pin_is_soviet:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_soviet_expansion }
+sandbox_scenario_pin_is_japanese:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_japanese_expansion }
+sandbox_scenario_pin_is_italian:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_italian_expansion }
+sandbox_scenario_pin_is_fascist_britain:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_fascist_britain }
+sandbox_scenario_pin_is_red_america:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_red_america }
+sandbox_scenario_pin_is_napoleonic_france:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_napoleonic_france }
+sandbox_scenario_pin_is_habsburg_restoration:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_habsburg_restoration }
+sandbox_scenario_pin_is_ger_atlantic:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ger_atlantic }
+sandbox_scenario_pin_is_ger_middle_east:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ger_middle_east }
+sandbox_scenario_pin_is_sov_south:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_sov_south }
+sandbox_scenario_pin_is_sov_east:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_sov_east }
+sandbox_scenario_pin_is_jap_north:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_jap_north }
+sandbox_scenario_pin_is_jap_old_oppressors:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_jap_old_oppressors }
+sandbox_scenario_pin_is_ita_west:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ita_west }
+sandbox_scenario_pin_is_ita_med:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ita_med }
+sandbox_scenario_pin_is_eng_imperial:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_eng_imperial }
+sandbox_scenario_pin_is_usa_warplan:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_usa_warplan }
+sandbox_scenario_pin_is_usa_hegemony:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_usa_hegemony }
+sandbox_scenario_pin_is_fra_monarchist:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_fra_monarchist }
+sandbox_scenario_pin_is_fra_dismantle:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_fra_dismantle }
+sandbox_scenario_pin_is_fra_plan_xiv:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_fra_plan_xiv }
+sandbox_scenario_pin_is_ger_communist:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ger_communist }
+sandbox_scenario_pin_is_ger_monarchist:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ger_monarchist }
+sandbox_scenario_pin_is_sov_white:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_sov_white }
+sandbox_scenario_pin_is_jap_communist:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_jap_communist }
+sandbox_scenario_pin_is_ita_communist:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_ita_communist }
+sandbox_scenario_pin_is_eng_communist:
+  raw has_game_rule: { rule = sandbox_scenario option = sandbox_eng_communist }
+
+# docs/gdd/Scenarios.md "Levers": betrayal-weight exemption for declared scenario
+# enemies (mirrors can_PREV_get_wargoal_on_THIS). THIS is the target, PREV is
+# the focus owner / attacker.
+is_scenario_enemy_of_PREV:
+  THIS in PREV.scenario_enemies[]
+
+# ROOT owns at least one declared scenario enemy while the ladder is live.
+# Used to gate the shared war-focus weight boost (any arc, aggressor only).
+is_live_scenario_aggressor:
+  is_sandbox_mode_on()
+  global.sandbox_scenario > 0
+  global.sandbox_scenario_phase < 3
+  any_other_country:
+    THIS in ROOT.scenario_enemies[]

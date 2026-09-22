@@ -1,0 +1,78 @@
+# docs/gdd/Scenarios Catalog.md: arc events for ger_me. 
+# ids sandbox_ger_me.1-3. Same anatomy as other arcs.
+add_namespace(sandbox_ger_me)
+
+# Crisis: The Eastern Question.
+country_event:
+  id(sandbox_ger_me.1)
+  title(sandbox_ger_me_1_t)
+  desc(sandbox_ger_me_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(GER)
+  option:
+    name(sandbox_ger_me_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, eastern_crisis)
+    $sandbox_add_rivalry_vs(SOV, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_ger_me_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum to SOV.
+country_event:
+  id(sandbox_ger_me.2)
+  title(sandbox_ger_me_2_t)
+  desc(sandbox_ger_me_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_ger_me_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, SOV_submit)
+  option:
+    name(sandbox_ger_me_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(SOV, 15)
+    $sandbox_log_sc(sc_crisis, SOV_defy)
+
+# Ultimatum to IRQ.
+country_event:
+  id(sandbox_ger_me.3)
+  title(sandbox_ger_me_3_t)
+  desc(sandbox_ger_me_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(IRQ)
+  option:
+    name(sandbox_ger_me_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    GER:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, IRQ_submit)
+  option:
+    name(sandbox_ger_me_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    GER:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(IRQ, 15)
+    $sandbox_log_sc(sc_crisis, IRQ_defy)

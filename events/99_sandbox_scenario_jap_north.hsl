@@ -1,0 +1,78 @@
+# docs/gdd/Scenarios Catalog.md: arc events for jap_north. 
+# ids sandbox_jap_north.1-3. Same anatomy as other arcs.
+add_namespace(sandbox_jap_north)
+
+# Crisis: The Northern Path.
+country_event:
+  id(sandbox_jap_north.1)
+  title(sandbox_jap_north_1_t)
+  desc(sandbox_jap_north_1_d)
+  picture(GFX_news_event_002)
+  is_triggered_only(yes)
+  trigger:
+    tag(JAP)
+  option:
+    name(sandbox_jap_north_1_a)
+    ai_chance:
+      factor(85)
+    $sandbox_log_sc(sc_crisis, northern_crisis)
+    $sandbox_add_rivalry_vs(SOV, 10)
+    add_war_support(0.05)
+  option:
+    name(sandbox_jap_north_1_b)
+    ai_chance:
+      factor(15)
+
+# Ultimatum to SOV.
+country_event:
+  id(sandbox_jap_north.2)
+  title(sandbox_jap_north_2_t)
+  desc(sandbox_jap_north_2_d)
+  picture(GFX_news_event_005)
+  is_triggered_only(yes)
+  trigger:
+    tag(SOV)
+  option:
+    name(sandbox_jap_north_2_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, SOV_submit)
+  option:
+    name(sandbox_jap_north_2_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(SOV, 15)
+    $sandbox_log_sc(sc_crisis, SOV_defy)
+
+# Ultimatum to MON.
+country_event:
+  id(sandbox_jap_north.3)
+  title(sandbox_jap_north_3_t)
+  desc(sandbox_jap_north_3_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(MON)
+  option:
+    name(sandbox_jap_north_3_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, MON_submit)
+  option:
+    name(sandbox_jap_north_3_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(MON, 15)
+    $sandbox_log_sc(sc_crisis, MON_defy)
