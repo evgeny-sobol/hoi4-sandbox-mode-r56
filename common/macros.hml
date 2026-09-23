@@ -663,3 +663,10 @@ macro sandbox_log_target_status(_agg_):
     $sandbox_log_sc(sc_target, in_faction)
   else:
     $sandbox_log_sc(sc_target, open)
+
+# Scenario-actor focus telemetry. Only the aggressor and the declared targets
+# are logged; the factors for other countries are noise in a session log.
+macro sandbox_log_sc_focus(_id_):
+  if is_sandbox_mode_on() and has_global_flag(sandbox_log_scenarios):
+    if is_scenario_actor():
+      log("#sandbox [GetDateText] [THIS.GetTag] sc_focus _id_ sc=[?global.sandbox_scenario|.0] phase=[?global.sandbox_scenario_phase|.0] pin=[?global.sandbox_scenario_pin|.0] t=[?months_elapsed]")

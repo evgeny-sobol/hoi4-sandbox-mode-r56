@@ -672,44 +672,6 @@ sandbox_seed_actors():
       sandbox_seed_from_targets()
 # Runs in the aggressor's scope. Each live target slot gets seeded as a
 # rival and both sides record scenario_enemies[].
-sandbox_seed_from_targets():
-  add_war_support(0.10)
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-    # Symmetric side: each target lists the aggressor (scoped as PREV at the
-    # var: head; THIS is the target country, PREV is the aggressor tag).
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  $sandbox_log_sc_seed()
-# Monthly ladder tick. Thresholds are HAI months_elapsed: < 12 smolder,
-# 12-23 crises, 24+ peak. Each rung fires once (anti-spam by construction)
-# and releases its crisis events the same tick (no day offsets: delayed
-# fires can drift across tags in sandbox tag churn; each event also carries
-# a tag trigger as a second lock). A derail check runs first; a derailed
-# arc parks at phase 3 (ended) and the rung arms below go quiet.
 sandbox_scenario_tick():
   if global.sandbox_scenario == 0:
     pass
@@ -1492,15 +1454,6 @@ sandbox_fire_habsburg_peak():
 # num_of_factories is script math with no plain trigger, so export it into
 # a persistent country variable first; temp would not survive into the
 # scorer's scope.
-sandbox_snapshot_join_industry():
-  for every_country():
-    &scenario_join_industry = num_of_factories
-
-# Join 2.0 (docs/gdd/Scenarios.md "Join levers"): open-pool top-2 by
-# scenario_join_scorer. Runs in GER scope so the scorer's FROM is the
-# aggressor. Deterministic: candidates[0..1] with score > 0 get letters
-# (one sc_offer each); gated (0) or missing slots get none. Temp arrays
-# (one shot at peak, read in the same scope); tags never enter variables.
 sandbox_select_axis_joiners():
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
@@ -2996,39 +2949,6 @@ sandbox_log_scenario_success():
     $sandbox_log_sc(sc_ignite, eng_communist_war)
     $sandbox_log_sc(sc_success, eng_communist_war)
     $sandbox_log_sc(sc_end, eng_communist_war)
-
-sandbox_scenario_ignite():
-  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3 and FROM in &scenario_enemies[]:
-    global.&sandbox_scenario_phase = 3
-    sandbox_log_scenario_success()
-
-# Runs in the aggressor's scope (THIS = aggressor): fires when THIS is at
-# war with any chosen target. Called by the monthly tick dispatcher.
-sandbox_ignite_if_at_war():
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[3] != 0:
-    var:sandbox_targets[3]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
 
 sandbox_scenario_check_ignite_by_war():
   if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3:
