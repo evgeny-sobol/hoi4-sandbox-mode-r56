@@ -29,7 +29,9 @@ are core-side changes that must simply be picked up by the sync.
 
 - **`$add_honor` / `$add_tyranny` math.** The macros are core (`common/macros.hml`), so this
   mod gets the `add_to_variable` + `clamp_variable` rewrite for free. Do not edit the synced
-  copy.
+  copy. Done: core `929464f` synced outward, `common/macros.hml` here matches core, and this
+  mod's `99_sandbox_on_actions.txt` now has 20 `clamp_variable` blocks and zero `value = {`
+  accumulators.
 
 ## Acceptance
 
