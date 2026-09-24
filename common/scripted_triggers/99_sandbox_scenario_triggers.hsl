@@ -56,3 +56,13 @@ sandbox_scenario_pin_is_ita_communist:
   raw has_game_rule: { rule = sandbox_scenario option = sandbox_ita_communist }
 sandbox_scenario_pin_is_eng_communist:
   raw has_game_rule: { rule = sandbox_scenario option = sandbox_eng_communist }
+
+# AFG BoP total-control range that starts a fascist war inline. Rt56-only:
+# vanilla common/bop/ has no AFG. Consumed by sandbox_retry_afg_bop_civil_war_fuse
+# in common/scripted_effects/99_sandbox_scenarios.hsl.
+sandbox_afg_bop_cw_fuse_ready:
+  $is_power_balance_in_range(AFG_power_balance, AFG_total_government_influence)
+  not has_government(fascism)
+  not has_country_flag(AFG_had_civil_war_bop)
+  not has_civil_war()
+  not has_war()

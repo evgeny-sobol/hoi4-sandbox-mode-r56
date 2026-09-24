@@ -228,6 +228,34 @@ sandbox_arc_tick_hosts():
   elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and not country_exists(FRA) and tag(HUN):
     sandbox_scenario_tick()
 
+# Mod-specific mission ids for the shared weekly cap delay. The core loop
+# (sandbox_delay_capped_cw_missions) keeps only ids that exist in vanilla;
+# these five are Rt56-only, so they live here (docs/gdd/Civil Wars.md).
+sandbox_delay_capped_cw_missions_mod():
+  $sandbox_delay_mission_if_capped(AFG_march_on_tehran)
+  $sandbox_delay_mission_if_capped(AFG_the_internal_crisis_mission)
+  $sandbox_delay_mission_if_capped(GER_freikorps_riots)
+  $sandbox_delay_mission_if_capped(EGY_impending_nationalist_uprising)
+  $sandbox_delay_mission_if_capped(LIT_communist_revolution_uprising_mission)
+
+# BoP on_activate fires once. If the cap skipped it, retry the payload while
+# the range is still live (no event wrapper in Rt56). Called from
+# sandbox_arc_on_weekly above; the ready trigger is in
+# common/scripted_triggers/99_sandbox_scenario_triggers.hsl.
+sandbox_retry_afg_bop_civil_war_fuse():
+  if original_tag($AFG) and sandbox_afg_bop_cw_fuse_ready():
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(AFG_total_government_influence)
+    else:
+      $sandbox_log_cw_event(AFG_total_government_influence)
+      start_civil_war:
+        ideology(fascism)
+        size(0.8)
+        army_ratio(0.8)
+        air_ratio(0.8)
+        capital(267)
+      set_country_flag(AFG_had_civil_war_bop)
+
 sandbox_pick_scenario():
   if sandbox_scenario_pin_is_axis():
     global.&sandbox_scenario_pin = 1

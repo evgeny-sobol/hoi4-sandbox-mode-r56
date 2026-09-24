@@ -4,7 +4,8 @@
 (see `_sandbox/.scratch/scenario-engine-regressions/`). Two of them hit this mod directly; two
 are core-side changes that must simply be picked up by the sync.
 
-**Blocked by:** `_sandbox` issues 01-03 (arc hooks, honor/tyranny math, R56-only refs).
+**Blocked by:** `_sandbox` issues 01-03 (arc hooks, honor/tyranny math, R56-only refs). All
+three are resolved (core `b7d9cd1`, `929464f`, `7336310`), so this port is unblocked.
 
 **Status:** ready-for-agent
 
@@ -23,7 +24,12 @@ are core-side changes that must simply be picked up by the sync.
   `AFG_the_internal_crisis_mission`, `GER_freikorps_riots`, `EGY_impending_nationalist_uprising`,
   `LIT_communist_revolution_uprising_mission`), plus `sandbox_afg_bop_cw_fuse_ready` and
   `sandbox_retry_afg_bop_civil_war_fuse`. All of these validate here - Rt56 defines them
-  (`common/decisions/r56_AFG.txt:3189`, `:6805`) - and must keep working.
+  (`common/decisions/r56_AFG.txt:3189`, `:6805`) - and must keep working. Done in core
+  `7336310`: this mod's `99_sandbox_scenarios.hsl` now defines
+  `sandbox_delay_capped_cw_missions_mod()` with the five missions and carries
+  `sandbox_retry_afg_bop_civil_war_fuse`, and `99_sandbox_scenario_triggers.hsl` carries
+  `sandbox_afg_bop_cw_fuse_ready`. Both compile; `sandbox_arc_on_weekly` still reaches the
+  retry.
 
 ## Picked up from the sync
 
