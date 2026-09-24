@@ -205,6 +205,29 @@ sandbox_set_targets():
       global.&sandbox_targets[].add(CAN)
     else:
       global.&sandbox_targets[].add(SOV)
+  elif global.sandbox_scenario == 28:
+    if global.sandbox_target_variant == a:
+      global.&sandbox_targets[].add(GER)
+      global.&sandbox_targets[].add(USA)
+      global.&sandbox_targets[].add(CAN)
+    else:
+      global.&sandbox_targets[].add(SOV)
+
+# Hand-written arc hooks for the shared on_actions skeleton. The two
+# generated hooks (wargoal_expire / justify) live in
+# common/scripted_effects/99_sandbox_arc_hooks.hsl. The skeleton calls all
+# four unconditionally, so both must exist even when empty.
+# Weekly: retry the AFG BoP civil-war fuse once a cap slot frees (docs/gdd/Civil Wars.md).
+sandbox_arc_on_weekly():
+  sandbox_retry_afg_bop_civil_war_fuse()
+
+# Monthly tick hosts past USA: FRA, then HUN.
+sandbox_arc_tick_hosts():
+  if not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and tag(FRA):
+    sandbox_scenario_tick()
+  elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and not country_exists(FRA) and tag(HUN):
+    sandbox_scenario_tick()
+
 sandbox_pick_scenario():
   if sandbox_scenario_pin_is_axis():
     global.&sandbox_scenario_pin = 1
