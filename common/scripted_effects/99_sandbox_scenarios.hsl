@@ -395,6 +395,7 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_phase = 0
   global.&sandbox_scenario_civil_war_months = 0
   global.&sandbox_scenario_peak_months = 0
+  global.&sandbox_scenario_arc_months = 0
   variant_roll = randi(0, 1)
   if variant_roll == 0:
     global.&sandbox_target_variant = a
@@ -537,6 +538,7 @@ sandbox_scenario_maybe_repick():
       global.&sandbox_scenario_phase = 0
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
+      global.&sandbox_scenario_arc_months = 0
       variant_roll = randi(0, 1)
       if variant_roll == 0:
         global.&sandbox_target_variant = a
@@ -731,229 +733,231 @@ sandbox_scenario_tick():
   if global.sandbox_scenario == 0:
     pass
   else:
+    if global.sandbox_scenario_phase < 3:
+      global.&sandbox_scenario_arc_months += 1
     sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
-  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_axis_crises()
-  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_axis_peak()
-  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_soviet_crises()
-  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_soviet_peak()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_japanese_crises()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_japanese_peak()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_italian_crises()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_italian_peak()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_britain_crises()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_britain_peak()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_red_america_crises()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_red_america_peak()
-  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_napoleonic_france_crises()
-  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_napoleonic_france_peak()
-  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_habsburg_crises()
-  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_habsburg_peak()
-  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_atl_crises()
-  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_atl_peak()
-  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_me_crises()
-  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_me_peak()
-  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_south_crises()
-  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_south_peak()
-  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_east_crises()
-  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_east_peak()
-  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_jap_north_crises()
-  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_jap_north_peak()
-  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_jap_old_crises()
-  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_jap_old_peak()
-  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ita_west_crises()
-  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ita_west_peak()
-  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ita_med_crises()
-  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ita_med_peak()
-  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_eng_imperial_crises()
-  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_eng_imperial_peak()
-  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_usa_warplan_crises()
-  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_usa_warplan_peak()
-  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_usa_hegemony_crises()
-  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_usa_hegemony_peak()
-  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fra_monarchist_crises()
-  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_fra_monarchist_peak()
-  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fra_dismantle_crises()
-  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_fra_dismantle_peak()
-  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fra_plan_xiv_crises()
-  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_fra_plan_xiv_peak()
-  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_communist_crises()
-  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_communist_peak()
-  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_monarchist_crises()
-  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_monarchist_peak()
-  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_white_crises()
-  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_white_peak()
-  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_jap_communist_crises()
-  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_jap_communist_peak()
-  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ita_communist_crises()
-  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ita_communist_peak()
-  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_eng_communist_crises()
-  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_eng_communist_peak()
