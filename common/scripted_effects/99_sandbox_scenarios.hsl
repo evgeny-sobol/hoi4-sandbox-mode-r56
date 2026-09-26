@@ -3192,125 +3192,125 @@ sandbox_scenario_check_derail():
   phase_before = global.sandbox_scenario_phase
   sandbox_scenario_check_civil_war_derail()
   $sandbox_check_peak_timeout()
-  if global.sandbox_scenario == 1:
+  if global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 1:
     sandbox_scenario_check_axis_derail()
-  elif global.sandbox_scenario == 2:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 2:
     sandbox_scenario_check_soviet_derail()
-  elif global.sandbox_scenario == 3:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 3:
     sandbox_scenario_check_japanese_derail()
-  elif global.sandbox_scenario == 4:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 4:
     sandbox_scenario_check_italian_derail()
-  elif global.sandbox_scenario == 5:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 5:
     sandbox_scenario_check_britain_derail()
-  elif global.sandbox_scenario == 6:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
     sandbox_scenario_check_red_america_derail()
-  elif global.sandbox_scenario == 7:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 7:
     sandbox_scenario_check_napoleonic_france_derail()
-  elif global.sandbox_scenario == 8:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 8:
     sandbox_scenario_check_habsburg_derail()
-  elif global.sandbox_scenario == 9:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 9:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(GER, ENG)
     else:
       $sandbox_check_targets_derail1(GER, USA)
-  elif global.sandbox_scenario == 10:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 10:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(GER, SOV)
     else:
       $sandbox_check_targets_derail2(GER, IRQ, PER)
-  elif global.sandbox_scenario == 11:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 11:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
     else:
       $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
-  elif global.sandbox_scenario == 12:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 12:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(SOV, JAP, MAN)
     else:
       $sandbox_check_targets_derail2(SOV, USA, CAN)
-  elif global.sandbox_scenario == 13:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 13:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(JAP, SOV, MON)
     else:
       $sandbox_check_targets_derail2(JAP, SOV, CHI)
-  elif global.sandbox_scenario == 14:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 14:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(JAP, USA)
     else:
       $sandbox_check_targets_derail1(JAP, ENG)
-  elif global.sandbox_scenario == 15:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 15:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(ITA, FRA)
     else:
       $sandbox_check_targets_derail1(ITA, ENG)
-  elif global.sandbox_scenario == 16:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 16:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(ITA, TUR, ROM)
     else:
       $sandbox_check_targets_derail2(ITA, FRA, ENG)
-  elif global.sandbox_scenario == 17:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 17:
     $sandbox_check_flip_gate2(ENG, neutrality, fascism, britain_not_imperial)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(ENG, RAJ)
     else:
       $sandbox_check_targets_derail2(ENG, USA, JAP)
-  elif global.sandbox_scenario == 18:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 18:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(USA, JAP)
     else:
       $sandbox_check_targets_derail2(USA, ENG, CAN)
-  elif global.sandbox_scenario == 19:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 19:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail4(USA, ENG, GER, HUN, JAP)
     else:
       $sandbox_check_targets_derail2(USA, ENG, FRA)
-  elif global.sandbox_scenario == 20:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 20:
     $sandbox_check_flip_gate1(FRA, neutrality, france_not_neutral)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(FRA, SPR, ADR, MEX)
     else:
       $sandbox_check_targets_derail1(FRA, SOV)
-  elif global.sandbox_scenario == 21:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 21:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(FRA, GER)
     else:
       $sandbox_check_targets_derail1(FRA, ENG)
-  elif global.sandbox_scenario == 22:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 22:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(FRA, SWI)
     else:
       $sandbox_check_targets_derail1(FRA, ITA)
-  elif global.sandbox_scenario == 23:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 23:
     $sandbox_check_flip_gate1(GER, communism, germany_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(GER, ENG, FRA, ITA)
     else:
       $sandbox_check_targets_derail3(GER, SOV, USA, JAP)
-  elif global.sandbox_scenario == 24:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 24:
     $sandbox_check_flip_gate1(GER, neutrality, germany_not_neutral)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(GER, SOV, DEN)
     else:
       $sandbox_check_targets_derail2(GER, VEN, FRA)
-  elif global.sandbox_scenario == 25:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 25:
     $sandbox_check_flip_gate_inv(SOV, communism, soviet_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(SOV, GER, POL, FIN)
     else:
       $sandbox_check_targets_derail1(SOV, UKR)
-  elif global.sandbox_scenario == 26:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 26:
     $sandbox_check_flip_gate1(JAP, communism, japan_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(JAP, CHI, SOV)
     else:
       $sandbox_check_targets_derail3(JAP, ENG, USA, SIA)
-  elif global.sandbox_scenario == 27:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 27:
     $sandbox_check_flip_gate1(ITA, communism, italy_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(ITA, FRA, ENG)
     else:
       $sandbox_check_targets_derail2(ITA, BUL, YUG)
-  elif global.sandbox_scenario == 28:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 28:
     $sandbox_check_flip_gate1(ENG, communism, britain_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(ENG, GER, USA, CAN)
