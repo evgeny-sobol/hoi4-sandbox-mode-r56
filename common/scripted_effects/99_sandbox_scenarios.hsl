@@ -205,6 +205,57 @@ sandbox_set_targets():
       global.&sandbox_targets[].add(CAN)
     else:
       global.&sandbox_targets[].add(SOV)
+  elif global.sandbox_scenario == 28:
+    if global.sandbox_target_variant == a:
+      global.&sandbox_targets[].add(GER)
+      global.&sandbox_targets[].add(USA)
+      global.&sandbox_targets[].add(CAN)
+    else:
+      global.&sandbox_targets[].add(SOV)
+
+# Hand-written arc hooks for the shared on_actions skeleton. The two
+# generated hooks (wargoal_expire / justify) live in
+# common/scripted_effects/99_sandbox_arc_hooks.hsl. The skeleton calls all
+# four unconditionally, so both must exist even when empty.
+# Weekly: retry the AFG BoP civil-war fuse once a cap slot frees (docs/gdd/Civil Wars.md).
+sandbox_arc_on_weekly():
+  sandbox_retry_afg_bop_civil_war_fuse()
+
+# Monthly tick hosts past USA: FRA, then HUN.
+sandbox_arc_tick_hosts():
+  if not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and tag(FRA):
+    sandbox_scenario_tick()
+  elif not country_exists(HAI) and not country_exists(GER) and not country_exists(SOV) and not country_exists(JAP) and not country_exists(ITA) and not country_exists(ENG) and not country_exists(USA) and not country_exists(FRA) and tag(HUN):
+    sandbox_scenario_tick()
+
+# Mod-specific mission ids for the shared weekly cap delay. The core loop
+# (sandbox_delay_capped_cw_missions) keeps only ids that exist in vanilla;
+# these five are Rt56-only, so they live here (docs/gdd/Civil Wars.md).
+sandbox_delay_capped_cw_missions_mod():
+  $sandbox_delay_mission_if_capped(AFG_march_on_tehran)
+  $sandbox_delay_mission_if_capped(AFG_the_internal_crisis_mission)
+  $sandbox_delay_mission_if_capped(GER_freikorps_riots)
+  $sandbox_delay_mission_if_capped(EGY_impending_nationalist_uprising)
+  $sandbox_delay_mission_if_capped(LIT_communist_revolution_uprising_mission)
+
+# BoP on_activate fires once. If the cap skipped it, retry the payload while
+# the range is still live (no event wrapper in Rt56). Called from
+# sandbox_arc_on_weekly above; the ready trigger is in
+# common/scripted_triggers/99_sandbox_scenario_triggers.hsl.
+sandbox_retry_afg_bop_civil_war_fuse():
+  if original_tag($AFG) and sandbox_afg_bop_cw_fuse_ready():
+    if sandbox_civil_war_ai_blocked():
+      $sandbox_log_cw_defer(AFG_total_government_influence)
+    else:
+      $sandbox_log_cw_event(AFG_total_government_influence)
+      start_civil_war:
+        ideology(fascism)
+        size(0.8)
+        army_ratio(0.8)
+        air_ratio(0.8)
+        capital(267)
+      set_country_flag(AFG_had_civil_war_bop)
+
 sandbox_pick_scenario():
   if sandbox_scenario_pin_is_axis():
     global.&sandbox_scenario_pin = 1
@@ -344,6 +395,7 @@ sandbox_pick_scenario():
   global.&sandbox_scenario_phase = 0
   global.&sandbox_scenario_civil_war_months = 0
   global.&sandbox_scenario_peak_months = 0
+  global.&sandbox_scenario_arc_months = 0
   variant_roll = randi(0, 1)
   if variant_roll == 0:
     global.&sandbox_target_variant = a
@@ -478,10 +530,15 @@ sandbox_scenario_maybe_repick():
     if eligible[].size() == 0:
       $sandbox_log_sc(sc_repick, none_eligible)
     else:
-      global.&sandbox_scenario = eligible[0]
+      # Roll like the initial pick (docs/gdd/Scenarios.md "Selection": random
+      # repicks). Taking eligible[0] walked the arcs in ascending id order.
+      repick_max = eligible[].size() - 1
+      repick_roll = randi(0, repick_max)
+      global.&sandbox_scenario = eligible[repick_roll]
       global.&sandbox_scenario_phase = 0
       global.&sandbox_scenario_civil_war_months = 0
       global.&sandbox_scenario_peak_months = 0
+      global.&sandbox_scenario_arc_months = 0
       variant_roll = randi(0, 1)
       if variant_roll == 0:
         global.&sandbox_target_variant = a
@@ -672,271 +729,235 @@ sandbox_seed_actors():
       sandbox_seed_from_targets()
 # Runs in the aggressor's scope. Each live target slot gets seeded as a
 # rival and both sides record scenario_enemies[].
-sandbox_seed_from_targets():
-  add_war_support(0.10)
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        $sandbox_seed_rival(PREV, 65)
-        &scenario_enemies[].add(PREV)
-    # Symmetric side: each target lists the aggressor (scoped as PREV at the
-    # var: head; THIS is the target country, PREV is the aggressor tag).
-  if sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  if sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        &scenario_enemies[].add(PREV)
-  $sandbox_log_sc_seed()
-# Monthly ladder tick. Thresholds are HAI months_elapsed: < 12 smolder,
-# 12-23 crises, 24+ peak. Each rung fires once (anti-spam by construction)
-# and releases its crisis events the same tick (no day offsets: delayed
-# fires can drift across tags in sandbox tag churn; each event also carries
-# a tag trigger as a second lock). A derail check runs first; a derailed
-# arc parks at phase 3 (ended) and the rung arms below go quiet.
 sandbox_scenario_tick():
   if global.sandbox_scenario == 0:
     pass
   else:
+    if global.sandbox_scenario_phase < 3:
+      global.&sandbox_scenario_arc_months += 1
     sandbox_scenario_check_ignite_by_war()
     sandbox_scenario_check_derail()
-  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  if global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_axis_crises()
-  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 1 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_axis_peak()
-  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_soviet_crises()
-  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and months_elapsed >= 24:
+  elif global.sandbox_scenario == 2 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 24:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_soviet_peak()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_japanese_crises()
-  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 3 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_japanese_peak()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_italian_crises()
-  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 4 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_italian_peak()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_britain_crises()
-  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 5 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_britain_peak()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and months_elapsed >= 12:
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 12:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_red_america_crises()
-  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 6 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_red_america_peak()
-  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_napoleonic_france_crises()
-  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 7 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_napoleonic_france_peak()
-  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_habsburg_crises()
-  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 8 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_habsburg_peak()
-  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_atl_crises()
-  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 9 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_atl_peak()
-  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_me_crises()
-  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_me_peak()
-  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_south_crises()
-  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 11 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_south_peak()
-  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_east_crises()
-  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_east_peak()
-  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_jap_north_crises()
-  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 13 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_jap_north_peak()
-  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_jap_old_crises()
-  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 14 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_jap_old_peak()
-  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ita_west_crises()
-  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ita_west_peak()
-  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ita_med_crises()
-  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ita_med_peak()
-  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_eng_imperial_crises()
-  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 17 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_eng_imperial_peak()
-  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_usa_warplan_crises()
-  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 18 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_usa_warplan_peak()
-  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_usa_hegemony_crises()
-  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 19 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_usa_hegemony_peak()
-  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fra_monarchist_crises()
-  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 20 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_fra_monarchist_peak()
-  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fra_dismantle_crises()
-  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 21 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_fra_dismantle_peak()
-  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_fra_plan_xiv_crises()
-  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 22 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_fra_plan_xiv_peak()
-  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_communist_crises()
-  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 23 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_communist_peak()
-  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ger_monarchist_crises()
-  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 24 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ger_monarchist_peak()
-  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_sov_white_crises()
-  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 25 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_sov_white_peak()
-  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_jap_communist_crises()
-  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 26 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_jap_communist_peak()
-  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_ita_communist_crises()
-  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 27 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_ita_communist_peak()
-  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 0 and months_elapsed >= 18:
+  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 0 and global.sandbox_scenario_arc_months >= 18:
     global.&sandbox_scenario_phase = 1
     $sandbox_log_sc(sc_phase, crises)
     sandbox_fire_eng_communist_crises()
-  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 1 and months_elapsed >= 30:
+  elif global.sandbox_scenario == 28 and global.sandbox_scenario_phase == 1 and global.sandbox_scenario_arc_months >= 30:
     global.&sandbox_scenario_phase = 2
     $sandbox_log_sc(sc_phase, peak)
     sandbox_fire_eng_communist_peak()
@@ -1492,15 +1513,6 @@ sandbox_fire_habsburg_peak():
 # num_of_factories is script math with no plain trigger, so export it into
 # a persistent country variable first; temp would not survive into the
 # scorer's scope.
-sandbox_snapshot_join_industry():
-  for every_country():
-    &scenario_join_industry = num_of_factories
-
-# Join 2.0 (docs/gdd/Scenarios.md "Join levers"): open-pool top-2 by
-# scenario_join_scorer. Runs in GER scope so the scorer's FROM is the
-# aggressor. Deterministic: candidates[0..1] with score > 0 get letters
-# (one sc_offer each); gated (0) or missing slots get none. Temp arrays
-# (one shot at peak, read in the same scope); tags never enter variables.
 sandbox_select_axis_joiners():
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
@@ -2058,7 +2070,7 @@ sandbox_scenario_s7_telemetry():
         if has_wargoal_against(CZE):
           $sandbox_log_sc(sc_goal, hun_on_cze)
         if has_wargoal_against(ROM):
-          $sandbox_log_sc(sc_goal, hun_on_rou)
+          $sandbox_log_sc(sc_goal, hun_on_rom)
       if country_exists(CZE):
         CZE:
           if has_wargoal_against(HUN):
@@ -2066,7 +2078,7 @@ sandbox_scenario_s7_telemetry():
       if country_exists(ROM):
         ROM:
           if has_wargoal_against(HUN):
-            $sandbox_log_sc(sc_goal, rou_on_hun)
+            $sandbox_log_sc(sc_goal, rom_on_hun)
     else:
       HUN:
         sc_div = num_divisions
@@ -2366,9 +2378,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ITA:
         if has_wargoal_against(TUR):
-          $sandbox_log_sc(sc_goal, ITA_on_tur)
+          $sandbox_log_sc(sc_goal, ita_on_tur)
         if has_wargoal_against(ROM):
-          $sandbox_log_sc(sc_goal, ITA_on_rom)
+          $sandbox_log_sc(sc_goal, ita_on_rom)
     else:
       ITA:
         sc_div = num_divisions
@@ -2386,9 +2398,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ITA:
         if has_wargoal_against(FRA):
-          $sandbox_log_sc(sc_goal, ITA_on_fra)
+          $sandbox_log_sc(sc_goal, ita_on_fra)
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, ITA_on_eng)
+          $sandbox_log_sc(sc_goal, ita_on_eng)
   if global.sandbox_scenario == 17 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       ENG:
@@ -2402,7 +2414,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ENG:
         if has_wargoal_against(RAJ):
-          $sandbox_log_sc(sc_goal, ENG_on_raj)
+          $sandbox_log_sc(sc_goal, eng_on_raj)
     else:
       ENG:
         sc_div = num_divisions
@@ -2420,9 +2432,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ENG:
         if has_wargoal_against(USA):
-          $sandbox_log_sc(sc_goal, ENG_on_usa)
+          $sandbox_log_sc(sc_goal, eng_on_usa)
         if has_wargoal_against(JAP):
-          $sandbox_log_sc(sc_goal, ENG_on_jap)
+          $sandbox_log_sc(sc_goal, eng_on_jap)
   if global.sandbox_scenario == 18 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       USA:
@@ -2436,7 +2448,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       USA:
         if has_wargoal_against(JAP):
-          $sandbox_log_sc(sc_goal, USA_on_jap)
+          $sandbox_log_sc(sc_goal, usa_on_jap)
     else:
       USA:
         sc_div = num_divisions
@@ -2454,9 +2466,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       USA:
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, USA_on_eng)
+          $sandbox_log_sc(sc_goal, usa_on_eng)
         if has_wargoal_against(CAN):
-          $sandbox_log_sc(sc_goal, USA_on_can)
+          $sandbox_log_sc(sc_goal, usa_on_can)
   if global.sandbox_scenario == 19 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       USA:
@@ -2485,13 +2497,13 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       USA:
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, USA_on_eng)
+          $sandbox_log_sc(sc_goal, usa_on_eng)
         if has_wargoal_against(GER):
-          $sandbox_log_sc(sc_goal, USA_on_ger)
+          $sandbox_log_sc(sc_goal, usa_on_ger)
         if has_wargoal_against(HUN):
-          $sandbox_log_sc(sc_goal, USA_on_hun)
+          $sandbox_log_sc(sc_goal, usa_on_hun)
         if has_wargoal_against(JAP):
-          $sandbox_log_sc(sc_goal, USA_on_jap)
+          $sandbox_log_sc(sc_goal, usa_on_jap)
     else:
       USA:
         sc_div = num_divisions
@@ -2509,9 +2521,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       USA:
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, USA_on_eng)
+          $sandbox_log_sc(sc_goal, usa_on_eng)
         if has_wargoal_against(FRA):
-          $sandbox_log_sc(sc_goal, USA_on_fra)
+          $sandbox_log_sc(sc_goal, usa_on_fra)
   if global.sandbox_scenario == 20 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       FRA:
@@ -2535,11 +2547,11 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       FRA:
         if has_wargoal_against(SPR):
-          $sandbox_log_sc(sc_goal, FRA_on_spr)
+          $sandbox_log_sc(sc_goal, fra_on_spr)
         if has_wargoal_against(ADR):
-          $sandbox_log_sc(sc_goal, FRA_on_adr)
+          $sandbox_log_sc(sc_goal, fra_on_adr)
         if has_wargoal_against(MEX):
-          $sandbox_log_sc(sc_goal, FRA_on_mex)
+          $sandbox_log_sc(sc_goal, fra_on_mex)
     else:
       FRA:
         sc_div = num_divisions
@@ -2552,7 +2564,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       FRA:
         if has_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, FRA_on_sov)
+          $sandbox_log_sc(sc_goal, fra_on_sov)
   if global.sandbox_scenario == 21 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       FRA:
@@ -2566,7 +2578,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       FRA:
         if has_wargoal_against(GER):
-          $sandbox_log_sc(sc_goal, FRA_on_ger)
+          $sandbox_log_sc(sc_goal, fra_on_ger)
     else:
       FRA:
         sc_div = num_divisions
@@ -2579,7 +2591,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       FRA:
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, FRA_on_eng)
+          $sandbox_log_sc(sc_goal, fra_on_eng)
   if global.sandbox_scenario == 22 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       FRA:
@@ -2593,7 +2605,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       FRA:
         if has_wargoal_against(SWI):
-          $sandbox_log_sc(sc_goal, FRA_on_swi)
+          $sandbox_log_sc(sc_goal, fra_on_swi)
     else:
       FRA:
         sc_div = num_divisions
@@ -2606,7 +2618,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       FRA:
         if has_wargoal_against(ITA):
-          $sandbox_log_sc(sc_goal, FRA_on_ita)
+          $sandbox_log_sc(sc_goal, fra_on_ita)
   if global.sandbox_scenario == 23 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       GER:
@@ -2630,11 +2642,11 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       GER:
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, GER_on_eng)
+          $sandbox_log_sc(sc_goal, ger_on_eng)
         if has_wargoal_against(FRA):
-          $sandbox_log_sc(sc_goal, GER_on_fra)
+          $sandbox_log_sc(sc_goal, ger_on_fra)
         if has_wargoal_against(ITA):
-          $sandbox_log_sc(sc_goal, GER_on_ita)
+          $sandbox_log_sc(sc_goal, ger_on_ita)
     else:
       GER:
         sc_div = num_divisions
@@ -2657,11 +2669,11 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       GER:
         if has_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, GER_on_sov)
+          $sandbox_log_sc(sc_goal, ger_on_sov)
         if has_wargoal_against(USA):
-          $sandbox_log_sc(sc_goal, GER_on_usa)
+          $sandbox_log_sc(sc_goal, ger_on_usa)
         if has_wargoal_against(JAP):
-          $sandbox_log_sc(sc_goal, GER_on_jap)
+          $sandbox_log_sc(sc_goal, ger_on_jap)
   if global.sandbox_scenario == 24 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       GER:
@@ -2680,9 +2692,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       GER:
         if has_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, GER_on_sov)
+          $sandbox_log_sc(sc_goal, ger_on_sov)
         if has_wargoal_against(DEN):
-          $sandbox_log_sc(sc_goal, GER_on_den)
+          $sandbox_log_sc(sc_goal, ger_on_den)
     else:
       GER:
         sc_div = num_divisions
@@ -2700,9 +2712,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       GER:
         if has_wargoal_against(VEN):
-          $sandbox_log_sc(sc_goal, GER_on_ven)
+          $sandbox_log_sc(sc_goal, ger_on_ven)
         if has_wargoal_against(FRA):
-          $sandbox_log_sc(sc_goal, GER_on_fra)
+          $sandbox_log_sc(sc_goal, ger_on_fra)
   if global.sandbox_scenario == 25 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       SOV:
@@ -2726,11 +2738,11 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       SOV:
         if has_wargoal_against(GER):
-          $sandbox_log_sc(sc_goal, SOV_on_ger)
+          $sandbox_log_sc(sc_goal, sov_on_ger)
         if has_wargoal_against(POL):
-          $sandbox_log_sc(sc_goal, SOV_on_pol)
+          $sandbox_log_sc(sc_goal, sov_on_pol)
         if has_wargoal_against(FIN):
-          $sandbox_log_sc(sc_goal, SOV_on_fin)
+          $sandbox_log_sc(sc_goal, sov_on_fin)
     else:
       SOV:
         sc_div = num_divisions
@@ -2743,7 +2755,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       SOV:
         if has_wargoal_against(UKR):
-          $sandbox_log_sc(sc_goal, SOV_on_ukr)
+          $sandbox_log_sc(sc_goal, sov_on_ukr)
   if global.sandbox_scenario == 26 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       JAP:
@@ -2762,9 +2774,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       JAP:
         if has_wargoal_against(CHI):
-          $sandbox_log_sc(sc_goal, JAP_on_chi)
+          $sandbox_log_sc(sc_goal, jap_on_chi)
         if has_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, JAP_on_sov)
+          $sandbox_log_sc(sc_goal, jap_on_sov)
     else:
       JAP:
         sc_div = num_divisions
@@ -2787,11 +2799,11 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       JAP:
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, JAP_on_eng)
+          $sandbox_log_sc(sc_goal, jap_on_eng)
         if has_wargoal_against(USA):
-          $sandbox_log_sc(sc_goal, JAP_on_usa)
+          $sandbox_log_sc(sc_goal, jap_on_usa)
         if has_wargoal_against(SIA):
-          $sandbox_log_sc(sc_goal, JAP_on_sia)
+          $sandbox_log_sc(sc_goal, jap_on_sia)
   if global.sandbox_scenario == 27 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       ITA:
@@ -2810,9 +2822,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ITA:
         if has_wargoal_against(FRA):
-          $sandbox_log_sc(sc_goal, ITA_on_fra)
+          $sandbox_log_sc(sc_goal, ita_on_fra)
         if has_wargoal_against(ENG):
-          $sandbox_log_sc(sc_goal, ITA_on_eng)
+          $sandbox_log_sc(sc_goal, ita_on_eng)
     else:
       ITA:
         sc_div = num_divisions
@@ -2830,9 +2842,9 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ITA:
         if has_wargoal_against(BUL):
-          $sandbox_log_sc(sc_goal, ITA_on_bul)
+          $sandbox_log_sc(sc_goal, ita_on_bul)
         if has_wargoal_against(YUG):
-          $sandbox_log_sc(sc_goal, ITA_on_yug)
+          $sandbox_log_sc(sc_goal, ita_on_yug)
   if global.sandbox_scenario == 28 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       ENG:
@@ -2856,11 +2868,11 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ENG:
         if has_wargoal_against(GER):
-          $sandbox_log_sc(sc_goal, ENG_on_ger)
+          $sandbox_log_sc(sc_goal, eng_on_ger)
         if has_wargoal_against(USA):
-          $sandbox_log_sc(sc_goal, ENG_on_usa)
+          $sandbox_log_sc(sc_goal, eng_on_usa)
         if has_wargoal_against(CAN):
-          $sandbox_log_sc(sc_goal, ENG_on_can)
+          $sandbox_log_sc(sc_goal, eng_on_can)
     else:
       ENG:
         sc_div = num_divisions
@@ -2873,7 +2885,7 @@ sandbox_scenario_s7_telemetry():
           $sandbox_log_sc_power()
       ENG:
         if has_wargoal_against(SOV):
-          $sandbox_log_sc(sc_goal, ENG_on_sov)
+          $sandbox_log_sc(sc_goal, eng_on_sov)
 
 # docs/gdd/Scenarios.md "Lifecycle": any war between declared scenario enemies
 # ignites the arc (symmetric, like the enemy list itself). Two paths share
@@ -2996,39 +3008,6 @@ sandbox_log_scenario_success():
     $sandbox_log_sc(sc_ignite, eng_communist_war)
     $sandbox_log_sc(sc_success, eng_communist_war)
     $sandbox_log_sc(sc_end, eng_communist_war)
-
-sandbox_scenario_ignite():
-  if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3 and FROM in &scenario_enemies[]:
-    global.&sandbox_scenario_phase = 3
-    sandbox_log_scenario_success()
-
-# Runs in the aggressor's scope (THIS = aggressor): fires when THIS is at
-# war with any chosen target. Called by the monthly tick dispatcher.
-sandbox_ignite_if_at_war():
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[0] != 0:
-    var:sandbox_targets[0]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[1] != 0:
-    var:sandbox_targets[1]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[2] != 0:
-    var:sandbox_targets[2]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
-  if global.sandbox_scenario_phase < 3 and sandbox_targets[3] != 0:
-    var:sandbox_targets[3]:
-      PREV:
-        if has_war_with(PREV):
-          global.&sandbox_scenario_phase = 3
-          sandbox_log_scenario_success()
 
 sandbox_scenario_check_ignite_by_war():
   if global.sandbox_scenario > 0 and global.sandbox_scenario_phase < 3:
@@ -3213,125 +3192,125 @@ sandbox_scenario_check_derail():
   phase_before = global.sandbox_scenario_phase
   sandbox_scenario_check_civil_war_derail()
   $sandbox_check_peak_timeout()
-  if global.sandbox_scenario == 1:
+  if global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 1:
     sandbox_scenario_check_axis_derail()
-  elif global.sandbox_scenario == 2:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 2:
     sandbox_scenario_check_soviet_derail()
-  elif global.sandbox_scenario == 3:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 3:
     sandbox_scenario_check_japanese_derail()
-  elif global.sandbox_scenario == 4:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 4:
     sandbox_scenario_check_italian_derail()
-  elif global.sandbox_scenario == 5:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 5:
     sandbox_scenario_check_britain_derail()
-  elif global.sandbox_scenario == 6:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 6:
     sandbox_scenario_check_red_america_derail()
-  elif global.sandbox_scenario == 7:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 7:
     sandbox_scenario_check_napoleonic_france_derail()
-  elif global.sandbox_scenario == 8:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 8:
     sandbox_scenario_check_habsburg_derail()
-  elif global.sandbox_scenario == 9:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 9:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(GER, ENG)
     else:
       $sandbox_check_targets_derail1(GER, USA)
-  elif global.sandbox_scenario == 10:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 10:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(GER, SOV)
     else:
       $sandbox_check_targets_derail2(GER, IRQ, PER)
-  elif global.sandbox_scenario == 11:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 11:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
     else:
       $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
-  elif global.sandbox_scenario == 12:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 12:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(SOV, JAP, MAN)
     else:
       $sandbox_check_targets_derail2(SOV, USA, CAN)
-  elif global.sandbox_scenario == 13:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 13:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(JAP, SOV, MON)
     else:
       $sandbox_check_targets_derail2(JAP, SOV, CHI)
-  elif global.sandbox_scenario == 14:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 14:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(JAP, USA)
     else:
       $sandbox_check_targets_derail1(JAP, ENG)
-  elif global.sandbox_scenario == 15:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 15:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(ITA, FRA)
     else:
       $sandbox_check_targets_derail1(ITA, ENG)
-  elif global.sandbox_scenario == 16:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 16:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(ITA, TUR, ROM)
     else:
       $sandbox_check_targets_derail2(ITA, FRA, ENG)
-  elif global.sandbox_scenario == 17:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 17:
     $sandbox_check_flip_gate2(ENG, neutrality, fascism, britain_not_imperial)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(ENG, RAJ)
     else:
       $sandbox_check_targets_derail2(ENG, USA, JAP)
-  elif global.sandbox_scenario == 18:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 18:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(USA, JAP)
     else:
       $sandbox_check_targets_derail2(USA, ENG, CAN)
-  elif global.sandbox_scenario == 19:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 19:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail4(USA, ENG, GER, HUN, JAP)
     else:
       $sandbox_check_targets_derail2(USA, ENG, FRA)
-  elif global.sandbox_scenario == 20:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 20:
     $sandbox_check_flip_gate1(FRA, neutrality, france_not_neutral)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(FRA, SPR, ADR, MEX)
     else:
       $sandbox_check_targets_derail1(FRA, SOV)
-  elif global.sandbox_scenario == 21:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 21:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(FRA, GER)
     else:
       $sandbox_check_targets_derail1(FRA, ENG)
-  elif global.sandbox_scenario == 22:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 22:
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail1(FRA, SWI)
     else:
       $sandbox_check_targets_derail1(FRA, ITA)
-  elif global.sandbox_scenario == 23:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 23:
     $sandbox_check_flip_gate1(GER, communism, germany_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(GER, ENG, FRA, ITA)
     else:
       $sandbox_check_targets_derail3(GER, SOV, USA, JAP)
-  elif global.sandbox_scenario == 24:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 24:
     $sandbox_check_flip_gate1(GER, neutrality, germany_not_neutral)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(GER, SOV, DEN)
     else:
       $sandbox_check_targets_derail2(GER, VEN, FRA)
-  elif global.sandbox_scenario == 25:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 25:
     $sandbox_check_flip_gate_inv(SOV, communism, soviet_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(SOV, GER, POL, FIN)
     else:
       $sandbox_check_targets_derail1(SOV, UKR)
-  elif global.sandbox_scenario == 26:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 26:
     $sandbox_check_flip_gate1(JAP, communism, japan_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(JAP, CHI, SOV)
     else:
       $sandbox_check_targets_derail3(JAP, ENG, USA, SIA)
-  elif global.sandbox_scenario == 27:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 27:
     $sandbox_check_flip_gate1(ITA, communism, italy_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail2(ITA, FRA, ENG)
     else:
       $sandbox_check_targets_derail2(ITA, BUL, YUG)
-  elif global.sandbox_scenario == 28:
+  elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 28:
     $sandbox_check_flip_gate1(ENG, communism, britain_not_communist)
     if global.sandbox_target_variant == a:
       $sandbox_check_targets_derail3(ENG, GER, USA, CAN)
