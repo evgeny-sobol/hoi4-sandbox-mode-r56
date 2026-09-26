@@ -35,7 +35,10 @@ behaviour, and two are core-side changes this mod inherits through the sync.
 - Take the `add_to_variable` + `clamp_variable` rewrite of the two macros from the sync; do not
   edit `common/macros.hml` here.
 
-Ticket: `issues/01-port-sandbox-regression-fixes.md`.
+Ticket: `issues/01-port-sandbox-regression-fixes.md`. **Implemented and resolved** (Sep 2026):
+the arc hooks were moved to `common/scripted_effects/` and derived from the catalog (`64e526e`),
+the R56-only refs landed in this mod's per-mod catalogs (`4b58be9`), and the honor/tyranny clamp
+fix arrived through the sync (`041851f`). All three `_sandbox` blockers it named are resolved.
 
 ## Verification
 

@@ -1,13 +1,13 @@
 # 01: Port the scenario-engine regressions fixes into the Rt56 overlay
 
+Status: resolved
+Type: bug
+Blocked by: none
+
 **What to build:** the Rt56 side of the four regressions found in the `_sandbox` v0.2.0 session
 (see `_sandbox/.scratch/scenario-engine-regressions/`). Two of them hit this mod directly; two
-are core-side changes that must simply be picked up by the sync.
-
-**Blocked by:** `_sandbox` issues 01-03 (arc hooks, honor/tyranny math, R56-only refs). All
-three are resolved (core `b7d9cd1`, `929464f`, `7336310`), so this port is unblocked.
-
-**Status:** ready-for-agent
+are core-side changes this mod inherits through the sync. The `_sandbox` sides are resolved
+(core `b7d9cd1`, `929464f`, `7336310`), so this port is unblocked and done.
 
 ## Hits this mod directly
 
@@ -49,3 +49,12 @@ three are resolved (core `b7d9cd1`, `929464f`, `7336310`), so this port is unblo
 - [ ] `python core/tools/sync_core.py --check` reports `drifted=0` for both mods.
 - [ ] Compiled against the Rt56 workshop copy; no `error.log` lines attributable to scenario
       files.
+
+## Comments
+
+Status normalized to `resolved` (Sep 2026) against a code audit, not an observer run: the ticket
+was authored `ready-for-agent` and implemented in bulk in `ad10adf` ("Add scenario director with
+28 arcs, focus-path docs, and .scratch script layout"). The audit confirmed, per ticket, the arc
+in `sandbox_set_targets()` with the variants this ticket names, its event file and localisation
+keys, and (for flip/imperial tickets) the `$sandbox_check_flip_gate*` macros. The observer-session
+acceptance checks above remain unchecked: they need a game run, not code.
