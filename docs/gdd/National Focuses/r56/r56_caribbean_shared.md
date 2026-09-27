@@ -1,22 +1,30 @@
 # CARIB_caribbean_unification
 
 ```mermaid
-flowchart TD
-    n1["CARIB_antilles_gold_deposits"]
-    n2(("CARIB_caribbean_unification"))
-    n3["CARIB_defend_the_new_union"]
-    n4["CARIB_develop_mining"]
-    n5["CARIB_ethnic_collaboration"]
-    n6["CARIB_improve_local_infrastructure"]
-    n7["CARIB_legacy_of_piracy"]
-    n8["CARIB_naval_buildup"]
-    n9["CARIB_united_armed_forces"]
-    n4 --> n1
-    n2 --> n3
-    n2 --> n4
-    n6 --> n5
-    n2 --> n6
-    n8 --> n7
-    n6 --> n8
-    n3 --> n9
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("CARIB_caribbean_unification"))
+    end
+    subgraph tier_1["Tier 1"]
+        n2["CARIB_defend_the_new_union"]
+        n3["CARIB_develop_mining"]
+        n4["CARIB_improve_local_infrastructure"]
+    end
+    subgraph tier_2["Tier 2"]
+        n5["CARIB_antilles_gold_deposits"]
+        n6["CARIB_ethnic_collaboration"]
+        n7["CARIB_naval_buildup"]
+        n8["CARIB_united_armed_forces"]
+    end
+    subgraph tier_3["Tier 3"]
+        n9["CARIB_legacy_of_piracy"]
+    end
+    n3 --> n5
+    n1 --> n2
+    n1 --> n3
+    n4 --> n6
+    n1 --> n4
+    n7 --> n9
+    n4 --> n7
+    n2 --> n8
 ```

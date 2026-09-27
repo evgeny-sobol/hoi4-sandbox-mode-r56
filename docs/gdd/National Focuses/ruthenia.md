@@ -1,420 +1,504 @@
 # RUT_a_free_rusyn_state
 
 ```mermaid
-flowchart TD
-    n1{"RUT_a_free_rusyn_state"}
-    n2["RUT_a_train_to_odessa"]
-    n3["RUT_a_train_to_the_donbass"]
-    n4["RUT_agrarian_reforms"]
-    n5["RUT_anti_air_defenses"]
-    n6{"RUT_approach_poland"}
-    n7{"RUT_approach_romania"}
-    n8{"RUT_carpathian_sich"}
-    n9["RUT_central_planning"]
-    n10["RUT_claim_new_farmlands"]
-    n11["RUT_claim_no_territories"]
-    n12{"RUT_claim_ukraine"}
-    n13["RUT_communist_influence"]
-    n14["RUT_contact_galician_ukrainians"]
-    n15["RUT_coup_against_voloshyn"]
-    n16["RUT_defensive_preparation"]
-    n17["RUT_donbas_heavy_industries"]
-    n18["RUT_economic_developments"]
-    n19["RUT_economic_reorganization"]
-    n20["RUT_economic_ties"]
-    n21["RUT_force_russia_abandon_claims"]
-    n22["RUT_hungarian_officers"]
-    n23["RUT_industry_in_kiev"]
-    n24["RUT_industry_in_lviv"]
-    n25["RUT_industry_in_odessa"]
-    n26["RUT_join_cordon_sanitaire"]
-    n27["RUT_join_intermarium"]
-    n28["RUT_join_little_entente"]
-    n29["RUT_khust_lviv_railways"]
-    n30["RUT_mountain_fortress"]
-    n31["RUT_move_to_kiev"]
-    n32["RUT_new_army"]
-    n33["RUT_one_ukraine"]
-    n34{"RUT_oun_moderates"}
-    n35{"RUT_oun_radicals"}
-    n36["RUT_our_patriotic_war"]
-    n37["RUT_purge_the_army"]
-    n38["RUT_railways_around_kiev"]
-    n39["RUT_reinforce_military_government"]
-    n40["RUT_request_to_join_big_brother"]
-    n41["RUT_request_to_join_ukrainian_brother"]
-    n42["RUT_restore_civilian_government"]
-    n43["RUT_return_under_czech_protection"]
-    n44["RUT_submit_to_hungary"]
-    n45["RUT_technology_sharing_communism"]
-    n46["RUT_technology_sharing_hungary"]
-    n47["RUT_technology_sharing_no_claims"]
-    n48["RUT_technology_sharing_oun"]
-    n49["RUT_ukraine_has_not_yet_perished"]
-    n50["RUT_unification_with_russian_federation"]
-    n51["RUT_unification_with_ukraine"]
-    n52["RUT_ussr_war_goal"]
-    n53{"RUT_west_ukrainian_veterans"}
-    n25 --> n2
-    n17 --> n3
-    n1 --> n4
-    n16 --> n5
-    n1 --> n6
-    n1 --> n7
-    n19 --> n9
-    n11 --> n10
-    n1 --> n11
-    n14 --> n12
-    n1 --> n13
-    n15 --> n14
-    n1 --> n15
-    n8 --> n15
-    n10 --> n16
-    n18 --> n16
-    n12 --> n17
-    n11 --> n18
-    n13 --> n19
-    n22 --> n20
-    n33 --> n21
-    n44 --> n22
-    n12 --> n23
-    n14 --> n24
-    n12 --> n25
-    n6 --> n26
-    n7 --> n26
-    n6 --> n27
-    n7 --> n27
-    n1 --> n28
-    n24 --> n29
-    n16 --> n30
-    n33 --> n31
-    n37 --> n32
-    n34 --> n33
-    n35 --> n33
-    n53 --> n34
-    n12 --> n34
-    n53 --> n35
-    n12 --> n35
-    n34 --> n36
-    n35 --> n36
-    n13 --> n37
-    n23 --> n38
-    n34 --> n39
-    n35 --> n39
-    n13 --> n40
-    n13 --> n41
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"RUT_a_free_rusyn_state"}
+        n2{"RUT_carpathian_sich"}
+    end
+    subgraph tier_1["Tier 1"]
+        n3["RUT_agrarian_reforms"]
+        n4{"RUT_approach_poland"}
+        n5{"RUT_approach_romania"}
+        n6["RUT_claim_no_territories"]
+        n7["RUT_communist_influence"]
+        n8["RUT_coup_against_voloshyn"]
+        n9["RUT_join_little_entente"]
+        n10["RUT_submit_to_hungary"]
+    end
+    subgraph tier_2["Tier 2"]
+        n11["RUT_claim_new_farmlands"]
+        n12["RUT_contact_galician_ukrainians"]
+        n13["RUT_economic_developments"]
+        n14["RUT_economic_reorganization"]
+        n15["RUT_hungarian_officers"]
+        n16["RUT_join_cordon_sanitaire"]
+        n17["RUT_join_intermarium"]
+        n18["RUT_purge_the_army"]
+        n19["RUT_request_to_join_big_brother"]
+        n20["RUT_request_to_join_ukrainian_brother"]
+        n21["RUT_return_under_czech_protection"]
+        n22["RUT_unification_with_russian_federation"]
+    end
+    subgraph tier_3["Tier 3"]
+        n23["RUT_central_planning"]
+        n24{"RUT_claim_ukraine"}
+        n25["RUT_defensive_preparation"]
+        n26["RUT_economic_ties"]
+        n27["RUT_industry_in_lviv"]
+        n28["RUT_new_army"]
+        n29["RUT_unification_with_ukraine"]
+        n30{"RUT_west_ukrainian_veterans"}
+    end
+    subgraph tier_4["Tier 4"]
+        n31["RUT_anti_air_defenses"]
+        n32["RUT_donbas_heavy_industries"]
+        n33["RUT_industry_in_kiev"]
+        n34["RUT_industry_in_odessa"]
+        n35["RUT_khust_lviv_railways"]
+        n36["RUT_mountain_fortress"]
+        n37{"RUT_oun_moderates"}
+        n38{"RUT_oun_radicals"}
+        n39["RUT_technology_sharing_communism"]
+        n40["RUT_technology_sharing_hungary"]
+        n41["RUT_technology_sharing_oun"]
+    end
+    subgraph tier_5["Tier 5"]
+        n42["RUT_a_train_to_odessa"]
+        n43["RUT_a_train_to_the_donbass"]
+        n44["RUT_one_ukraine"]
+        n45["RUT_our_patriotic_war"]
+        n46["RUT_railways_around_kiev"]
+        n47["RUT_reinforce_military_government"]
+        n48["RUT_restore_civilian_government"]
+        n49["RUT_technology_sharing_no_claims"]
+        n50["RUT_ukraine_has_not_yet_perished"]
+        n51["RUT_ussr_war_goal"]
+    end
+    subgraph tier_6["Tier 6"]
+        n52["RUT_force_russia_abandon_claims"]
+        n53["RUT_move_to_kiev"]
+    end
     n34 --> n42
-    n11 --> n43
-    n1 --> n44
-    n32 --> n45
-    n9 --> n45
-    n20 --> n46
-    n30 --> n47
-    n5 --> n47
-    n53 --> n48
-    n12 --> n48
-    n30 --> n49
-    n5 --> n49
-    n12 --> n49
-    n11 --> n50
-    n14 --> n51
-    n11 --> n51
-    n34 --> n52
-    n35 --> n52
-    n14 --> n53
-    n11 x--x n15
-    n26 x--x n27
-    n26 x--x n28
-    n27 x--x n28
-    n34 x--x n35
-    n39 x--x n42
+    n32 --> n43
+    n1 --> n3
+    n25 --> n31
+    n1 --> n4
+    n1 --> n5
+    n14 --> n23
+    n6 --> n11
+    n1 --> n6
+    n12 --> n24
+    n1 --> n7
+    n8 --> n12
+    n1 --> n8
+    n2 --> n8
+    n11 --> n25
+    n13 --> n25
+    n24 --> n32
+    n6 --> n13
+    n7 --> n14
+    n15 --> n26
+    n44 --> n52
+    n10 --> n15
+    n24 --> n33
+    n12 --> n27
+    n24 --> n34
+    n4 --> n16
+    n5 --> n16
+    n4 --> n17
+    n5 --> n17
+    n1 --> n9
+    n27 --> n35
+    n25 --> n36
+    n44 --> n53
+    n18 --> n28
+    n37 --> n44
+    n38 --> n44
+    n30 --> n37
+    n24 --> n37
+    n30 --> n38
+    n24 --> n38
+    n37 --> n45
+    n38 --> n45
+    n7 --> n18
+    n33 --> n46
+    n37 --> n47
+    n38 --> n47
+    n7 --> n19
+    n7 --> n20
+    n37 --> n48
+    n6 --> n21
+    n1 --> n10
+    n28 --> n39
+    n23 --> n39
+    n26 --> n40
+    n36 --> n49
+    n31 --> n49
+    n30 --> n41
+    n24 --> n41
+    n36 --> n50
+    n31 --> n50
+    n24 --> n50
+    n6 --> n22
+    n12 --> n29
+    n6 --> n29
+    n37 --> n51
+    n38 --> n51
+    n12 --> n30
+    n6 x--x n8
+    n16 x--x n17
+    n16 x--x n9
+    n17 x--x n9
+    n37 x--x n38
+    n47 x--x n48
 ```
 
 # RUT_carpathian_sich
 
 ```mermaid
-flowchart TD
-    n1{"RUT_a_free_rusyn_state"}
-    n2["RUT_a_train_to_odessa"]
-    n3["RUT_a_train_to_the_donbass"]
-    n5["RUT_anti_air_defenses"]
-    n54["RUT_anti_tank_defenses"]
-    n55["RUT_armor_effort"]
-    n8{"RUT_carpathian_sich"}
-    n11["RUT_claim_no_territories"]
-    n12{"RUT_claim_ukraine"}
-    n56["RUT_conscript_management_focus"]
-    n14["RUT_contact_galician_ukrainians"]
-    n15["RUT_coup_against_voloshyn"]
-    n57["RUT_doctrine_effort"]
-    n17["RUT_donbas_heavy_industries"]
-    n58["RUT_engineer_effort"]
-    n59{"RUT_equipment_effort"}
-    n21["RUT_force_russia_abandon_claims"]
-    n23["RUT_industry_in_kiev"]
-    n24["RUT_industry_in_lviv"]
-    n25["RUT_industry_in_odessa"]
-    n29["RUT_khust_lviv_railways"]
-    n60["RUT_mechanization_effort"]
-    n61["RUT_military_modernization"]
-    n62["RUT_modern_artillery"]
-    n63["RUT_modern_tactics_effort"]
-    n64{"RUT_motorization_effort"}
-    n65{"RUT_mountain_brigades"}
-    n30["RUT_mountain_fortress"]
-    n31["RUT_move_to_kiev"]
-    n66["RUT_offensive_weapons_focus"]
-    n33["RUT_one_ukraine"]
-    n34{"RUT_oun_moderates"}
-    n35{"RUT_oun_radicals"}
-    n36["RUT_our_patriotic_war"]
-    n38["RUT_railways_around_kiev"]
-    n67["RUT_recon_companies"]
-    n39["RUT_reinforce_military_government"]
-    n42["RUT_restore_civilian_government"]
-    n68["RUT_special_forces"]
-    n69["RUT_support_bonus"]
-    n48["RUT_technology_sharing_oun"]
-    n49["RUT_ukraine_has_not_yet_perished"]
-    n51["RUT_unification_with_ukraine"]
-    n52["RUT_ussr_war_goal"]
-    n53{"RUT_west_ukrainian_veterans"}
-    n25 --> n2
-    n17 --> n3
-    n69 --> n54
-    n66 --> n54
-    n60 --> n55
-    n14 --> n12
-    n57 --> n56
-    n15 --> n14
-    n1 --> n15
-    n8 --> n15
-    n8 --> n57
-    n12 --> n17
-    n65 --> n58
-    n8 --> n59
-    n33 --> n21
-    n12 --> n23
-    n14 --> n24
-    n12 --> n25
-    n24 --> n29
-    n64 --> n60
-    n68 --> n61
-    n62 --> n61
-    n55 --> n61
-    n63 --> n61
-    n69 --> n62
-    n66 --> n62
-    n56 --> n63
-    n8 --> n64
-    n8 --> n65
-    n33 --> n31
-    n59 --> n66
-    n34 --> n33
-    n35 --> n33
-    n53 --> n34
-    n12 --> n34
-    n53 --> n35
-    n12 --> n35
-    n34 --> n36
-    n35 --> n36
-    n23 --> n38
-    n65 --> n67
-    n64 --> n67
-    n65 --> n67
-    n65 --> n67
-    n34 --> n39
-    n35 --> n39
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"RUT_a_free_rusyn_state"}
+        n31["RUT_anti_air_defenses"]
+        n2{"RUT_carpathian_sich"}
+        n6["RUT_claim_no_territories"]
+        n36["RUT_mountain_fortress"]
+    end
+    subgraph tier_1["Tier 1"]
+        n8["RUT_coup_against_voloshyn"]
+        n54["RUT_doctrine_effort"]
+        n55{"RUT_equipment_effort"}
+        n56{"RUT_motorization_effort"}
+        n57{"RUT_mountain_brigades"}
+    end
+    subgraph tier_2["Tier 2"]
+        n58["RUT_conscript_management_focus"]
+        n12["RUT_contact_galician_ukrainians"]
+        n59["RUT_engineer_effort"]
+        n60["RUT_mechanization_effort"]
+        n61["RUT_offensive_weapons_focus"]
+        n62["RUT_recon_companies"]
+        n63["RUT_support_bonus"]
+    end
+    subgraph tier_3["Tier 3"]
+        n64["RUT_anti_tank_defenses"]
+        n65["RUT_armor_effort"]
+        n24{"RUT_claim_ukraine"}
+        n27["RUT_industry_in_lviv"]
+        n66["RUT_modern_artillery"]
+        n67["RUT_modern_tactics_effort"]
+        n68["RUT_special_forces"]
+        n29["RUT_unification_with_ukraine"]
+        n30{"RUT_west_ukrainian_veterans"}
+    end
+    subgraph tier_4["Tier 4"]
+        n32["RUT_donbas_heavy_industries"]
+        n33["RUT_industry_in_kiev"]
+        n34["RUT_industry_in_odessa"]
+        n35["RUT_khust_lviv_railways"]
+        n69["RUT_military_modernization"]
+        n37{"RUT_oun_moderates"}
+        n38{"RUT_oun_radicals"}
+        n41["RUT_technology_sharing_oun"]
+        n50["RUT_ukraine_has_not_yet_perished"]
+    end
+    subgraph tier_5["Tier 5"]
+        n42["RUT_a_train_to_odessa"]
+        n43["RUT_a_train_to_the_donbass"]
+        n44["RUT_one_ukraine"]
+        n45["RUT_our_patriotic_war"]
+        n46["RUT_railways_around_kiev"]
+        n47["RUT_reinforce_military_government"]
+        n48["RUT_restore_civilian_government"]
+        n51["RUT_ussr_war_goal"]
+    end
+    subgraph tier_6["Tier 6"]
+        n52["RUT_force_russia_abandon_claims"]
+        n53["RUT_move_to_kiev"]
+    end
     n34 --> n42
-    n58 --> n68
-    n67 --> n68
-    n59 --> n69
+    n32 --> n43
+    n63 --> n64
+    n61 --> n64
+    n60 --> n65
+    n12 --> n24
+    n54 --> n58
+    n8 --> n12
+    n1 --> n8
+    n2 --> n8
+    n2 --> n54
+    n24 --> n32
+    n57 --> n59
+    n2 --> n55
+    n44 --> n52
+    n24 --> n33
+    n12 --> n27
+    n24 --> n34
+    n27 --> n35
+    n56 --> n60
+    n68 --> n69
+    n66 --> n69
     n65 --> n69
-    n53 --> n48
-    n12 --> n48
-    n30 --> n49
-    n5 --> n49
-    n12 --> n49
-    n14 --> n51
-    n11 --> n51
-    n34 --> n52
-    n35 --> n52
-    n14 --> n53
-    n11 x--x n15
-    n58 x--x n67
-    n66 x--x n69
-    n34 x--x n35
-    n39 x--x n42
+    n67 --> n69
+    n63 --> n66
+    n61 --> n66
+    n58 --> n67
+    n2 --> n56
+    n2 --> n57
+    n44 --> n53
+    n55 --> n61
+    n37 --> n44
+    n38 --> n44
+    n30 --> n37
+    n24 --> n37
+    n30 --> n38
+    n24 --> n38
+    n37 --> n45
+    n38 --> n45
+    n33 --> n46
+    n57 --> n62
+    n56 --> n62
+    n57 --> n62
+    n57 --> n62
+    n37 --> n47
+    n38 --> n47
+    n37 --> n48
+    n59 --> n68
+    n62 --> n68
+    n55 --> n63
+    n57 --> n63
+    n30 --> n41
+    n24 --> n41
+    n36 --> n50
+    n31 --> n50
+    n24 --> n50
+    n12 --> n29
+    n6 --> n29
+    n37 --> n51
+    n38 --> n51
+    n12 --> n30
+    n6 x--x n8
+    n59 x--x n62
+    n61 x--x n63
+    n37 x--x n38
+    n47 x--x n48
 ```
 
 # RUT_construction_focus
 
 ```mermaid
-flowchart TD
-    n70["RUT_build_industrial_area"]
-    n71(("RUT_construction_focus"))
-    n72["RUT_extraction_focus"]
-    n73["RUT_food_processing_plant"]
-    n74["RUT_industrial_technology"]
-    n75["RUT_military_production"]
-    n76["RUT_regional_industrialization"]
-    n77["RUT_research_grants"]
-    n78["RUT_small_arms_manufacturing"]
-    n79["RUT_transcarpathian_infrastructure"]
-    n79 --> n70
-    n73 --> n72
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n70(("RUT_construction_focus"))
+        n71["RUT_food_processing_plant"]
+    end
+    subgraph tier_1["Tier 1"]
+        n72["RUT_extraction_focus"]
+        n73["RUT_industrial_technology"]
+    end
+    subgraph tier_2["Tier 2"]
+        n74["RUT_transcarpathian_infrastructure"]
+    end
+    subgraph tier_3["Tier 3"]
+        n75["RUT_build_industrial_area"]
+        n76["RUT_small_arms_manufacturing"]
+    end
+    subgraph tier_4["Tier 4"]
+        n77["RUT_military_production"]
+        n78["RUT_regional_industrialization"]
+        n79["RUT_research_grants"]
+    end
+    n74 --> n75
     n71 --> n72
-    n71 --> n74
+    n70 --> n72
+    n70 --> n73
+    n71 --> n73
+    n76 --> n77
+    n75 --> n78
+    n75 --> n79
+    n76 --> n79
+    n74 --> n76
+    n72 --> n74
     n73 --> n74
-    n78 --> n75
-    n70 --> n76
-    n70 --> n77
-    n78 --> n77
-    n79 --> n78
-    n72 --> n79
-    n74 --> n79
 ```
 
 # RUT_food_processing_plant
 
 ```mermaid
-flowchart TD
-    n70["RUT_build_industrial_area"]
-    n71["RUT_construction_focus"]
-    n72["RUT_extraction_focus"]
-    n73(("RUT_food_processing_plant"))
-    n74["RUT_industrial_technology"]
-    n75["RUT_military_production"]
-    n76["RUT_regional_industrialization"]
-    n77["RUT_research_grants"]
-    n78["RUT_small_arms_manufacturing"]
-    n79["RUT_transcarpathian_infrastructure"]
-    n79 --> n70
-    n73 --> n72
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n70["RUT_construction_focus"]
+        n71(("RUT_food_processing_plant"))
+    end
+    subgraph tier_1["Tier 1"]
+        n72["RUT_extraction_focus"]
+        n73["RUT_industrial_technology"]
+    end
+    subgraph tier_2["Tier 2"]
+        n74["RUT_transcarpathian_infrastructure"]
+    end
+    subgraph tier_3["Tier 3"]
+        n75["RUT_build_industrial_area"]
+        n76["RUT_small_arms_manufacturing"]
+    end
+    subgraph tier_4["Tier 4"]
+        n77["RUT_military_production"]
+        n78["RUT_regional_industrialization"]
+        n79["RUT_research_grants"]
+    end
+    n74 --> n75
     n71 --> n72
-    n71 --> n74
+    n70 --> n72
+    n70 --> n73
+    n71 --> n73
+    n76 --> n77
+    n75 --> n78
+    n75 --> n79
+    n76 --> n79
+    n74 --> n76
+    n72 --> n74
     n73 --> n74
-    n78 --> n75
-    n70 --> n76
-    n70 --> n77
-    n78 --> n77
-    n79 --> n78
-    n72 --> n79
-    n74 --> n79
 ```
 
 # RUT_foreign_port
 
 ```mermaid
-flowchart TD
-    n80["RUT_capital_ships_effort"]
-    n81["RUT_cruiser_effort"]
-    n82["RUT_destroyer_effort"]
-    n83["RUT_flexible_navy"]
-    n84{"RUT_foreign_port"}
-    n85["RUT_large_navy"]
-    n86["RUT_submarine_effort"]
-    n87{"RUT_ukrainian_shipbuilding"}
-    n81 --> n80
-    n85 --> n81
-    n83 --> n81
-    n86 --> n82
-    n84 --> n83
-    n87 --> n83
-    n84 --> n85
-    n87 --> n85
-    n83 --> n86
-    n85 --> n86
-    n83 x--x n85
-    n84 x--x n87
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n80{"RUT_foreign_port"}
+        n81{"RUT_ukrainian_shipbuilding"}
+    end
+    subgraph tier_1["Tier 1"]
+        n82["RUT_flexible_navy"]
+        n83["RUT_large_navy"]
+    end
+    subgraph tier_2["Tier 2"]
+        n84["RUT_cruiser_effort"]
+        n85["RUT_submarine_effort"]
+    end
+    subgraph tier_3["Tier 3"]
+        n86["RUT_capital_ships_effort"]
+        n87["RUT_destroyer_effort"]
+    end
+    n84 --> n86
+    n83 --> n84
+    n82 --> n84
+    n85 --> n87
+    n80 --> n82
+    n81 --> n82
+    n80 --> n83
+    n81 --> n83
+    n82 --> n85
+    n83 --> n85
+    n82 x--x n83
+    n80 x--x n81
 ```
 
 # RUT_long_range_fighter_focus
 
 ```mermaid
-flowchart TD
-    n88["RUT_CAS_effort"]
-    n89{"RUT_aviation_effort_2"}
-    n90["RUT_bomber_focus"]
-    n91["RUT_compromised_approach"]
-    n92["RUT_form_mechanics"]
-    n93{"RUT_long_range_fighter_focus"}
-    n94["RUT_low_altitude_flights"]
-    n95["RUT_offensive_bombing_strategy"]
-    n96["RUT_rocket_effort"]
-    n97{"RUT_short_range_fighter_focus"}
-    n91 --> n88
-    n94 --> n88
-    n90 --> n89
-    n88 --> n89
-    n95 --> n90
-    n91 --> n90
-    n97 --> n91
-    n93 --> n91
-    n89 --> n92
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n88{"RUT_long_range_fighter_focus"}
+        n89["RUT_low_altitude_flights"]
+        n90{"RUT_short_range_fighter_focus"}
+    end
+    subgraph tier_1["Tier 1"]
+        n91["RUT_compromised_approach"]
+        n92["RUT_offensive_bombing_strategy"]
+    end
+    subgraph tier_2["Tier 2"]
+        n93["RUT_CAS_effort"]
+        n94["RUT_bomber_focus"]
+    end
+    subgraph tier_3["Tier 3"]
+        n95{"RUT_aviation_effort_2"}
+    end
+    subgraph tier_4["Tier 4"]
+        n96["RUT_form_mechanics"]
+        n97["RUT_rocket_effort"]
+    end
+    n91 --> n93
+    n89 --> n93
+    n94 --> n95
     n93 --> n95
-    n89 --> n96
-    n91 x--x n94
-    n91 x--x n95
-    n92 x--x n96
-    n93 x--x n97
-    n94 x--x n95
+    n92 --> n94
+    n91 --> n94
+    n90 --> n91
+    n88 --> n91
+    n95 --> n96
+    n88 --> n92
+    n95 --> n97
+    n91 x--x n89
+    n91 x--x n92
+    n96 x--x n97
+    n88 x--x n90
+    n89 x--x n92
 ```
 
 # RUT_short_range_fighter_focus
 
 ```mermaid
-flowchart TD
-    n88["RUT_CAS_effort"]
-    n89{"RUT_aviation_effort_2"}
-    n90["RUT_bomber_focus"]
-    n91["RUT_compromised_approach"]
-    n92["RUT_form_mechanics"]
-    n93{"RUT_long_range_fighter_focus"}
-    n94["RUT_low_altitude_flights"]
-    n95["RUT_offensive_bombing_strategy"]
-    n96["RUT_rocket_effort"]
-    n97{"RUT_short_range_fighter_focus"}
-    n91 --> n88
-    n94 --> n88
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n88{"RUT_long_range_fighter_focus"}
+        n92["RUT_offensive_bombing_strategy"]
+        n90{"RUT_short_range_fighter_focus"}
+    end
+    subgraph tier_1["Tier 1"]
+        n91["RUT_compromised_approach"]
+        n89["RUT_low_altitude_flights"]
+    end
+    subgraph tier_2["Tier 2"]
+        n93["RUT_CAS_effort"]
+        n94["RUT_bomber_focus"]
+    end
+    subgraph tier_3["Tier 3"]
+        n95{"RUT_aviation_effort_2"}
+    end
+    subgraph tier_4["Tier 4"]
+        n96["RUT_form_mechanics"]
+        n97["RUT_rocket_effort"]
+    end
+    n91 --> n93
+    n89 --> n93
+    n94 --> n95
+    n93 --> n95
+    n92 --> n94
+    n91 --> n94
+    n90 --> n91
+    n88 --> n91
+    n95 --> n96
     n90 --> n89
-    n88 --> n89
-    n95 --> n90
-    n91 --> n90
-    n97 --> n91
-    n93 --> n91
-    n89 --> n92
-    n97 --> n94
-    n89 --> n96
-    n91 x--x n94
-    n91 x--x n95
-    n92 x--x n96
-    n93 x--x n97
-    n94 x--x n95
+    n95 --> n97
+    n91 x--x n89
+    n91 x--x n92
+    n96 x--x n97
+    n88 x--x n90
+    n89 x--x n92
 ```
 
 # RUT_ukrainian_shipbuilding
 
 ```mermaid
-flowchart TD
-    n80["RUT_capital_ships_effort"]
-    n81["RUT_cruiser_effort"]
-    n82["RUT_destroyer_effort"]
-    n83["RUT_flexible_navy"]
-    n84{"RUT_foreign_port"}
-    n85["RUT_large_navy"]
-    n86["RUT_submarine_effort"]
-    n87{"RUT_ukrainian_shipbuilding"}
-    n81 --> n80
-    n85 --> n81
-    n83 --> n81
-    n86 --> n82
-    n84 --> n83
-    n87 --> n83
-    n84 --> n85
-    n87 --> n85
-    n83 --> n86
-    n85 --> n86
-    n83 x--x n85
-    n84 x--x n87
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n80{"RUT_foreign_port"}
+        n81{"RUT_ukrainian_shipbuilding"}
+    end
+    subgraph tier_1["Tier 1"]
+        n82["RUT_flexible_navy"]
+        n83["RUT_large_navy"]
+    end
+    subgraph tier_2["Tier 2"]
+        n84["RUT_cruiser_effort"]
+        n85["RUT_submarine_effort"]
+    end
+    subgraph tier_3["Tier 3"]
+        n86["RUT_capital_ships_effort"]
+        n87["RUT_destroyer_effort"]
+    end
+    n84 --> n86
+    n83 --> n84
+    n82 --> n84
+    n85 --> n87
+    n80 --> n82
+    n81 --> n82
+    n80 --> n83
+    n81 --> n83
+    n82 --> n85
+    n83 --> n85
+    n82 x--x n83
+    n80 x--x n81
 ```

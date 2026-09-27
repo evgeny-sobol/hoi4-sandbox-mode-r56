@@ -1,801 +1,947 @@
 # PER_democratic_promise_dlc
 
 ```mermaid
-flowchart TD
-    n1{"PER_alliance_with_the_ussr_dlc"}
-    n2{"PER_compromise_with_britain_dlc"}
-    n3(("PER_democratic_promise_dlc"))
-    n4["PER_economy_without_oil_dlc"]
-    n5["PER_empower_the_shah_dlc"]
-    n6["PER_entrench_mosaddegh_dlc"]
-    n7["PER_falsify_elections_dlc"]
-    n8["PER_found_SAVAK_dlc"]
-    n9["PER_land_reforms_cw_dlc"]
-    n10["PER_nationalize_iranian_oil_dlc"]
-    n11["PER_reform_the_administration_cw_dlc"]
-    n12{"PER_request_american_support_dlc"}
-    n13["PER_the_seven_year_plan_dlc"]
-    n14["PER_undermine_the_shah_dlc"]
-    n14 --> n1
-    n11 --> n1
-    n14 --> n2
-    n10 --> n4
-    n13 --> n4
-    n12 --> n6
-    n2 --> n6
-    n1 --> n6
-    n12 --> n8
-    n2 --> n8
-    n3 --> n9
-    n7 --> n9
-    n11 --> n10
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("PER_democratic_promise_dlc"))
+        n2["PER_empower_the_shah_dlc"]
+        n3["PER_falsify_elections_dlc"]
+    end
+    subgraph tier_1["Tier 1"]
+        n4["PER_land_reforms_cw_dlc"]
+        n5["PER_reform_the_administration_cw_dlc"]
+    end
+    subgraph tier_2["Tier 2"]
+        n6["PER_nationalize_iranian_oil_dlc"]
+        n7["PER_the_seven_year_plan_dlc"]
+    end
+    subgraph tier_3["Tier 3"]
+        n8["PER_economy_without_oil_dlc"]
+        n9["PER_undermine_the_shah_dlc"]
+    end
+    subgraph tier_4["Tier 4"]
+        n10{"PER_alliance_with_the_ussr_dlc"}
+        n11{"PER_compromise_with_britain_dlc"}
+        n12{"PER_request_american_support_dlc"}
+    end
+    subgraph tier_5["Tier 5"]
+        n13["PER_entrench_mosaddegh_dlc"]
+        n14["PER_found_SAVAK_dlc"]
+    end
+    n9 --> n10
     n5 --> n10
-    n3 --> n11
-    n14 --> n12
-    n5 --> n13
+    n9 --> n11
+    n6 --> n8
+    n7 --> n8
+    n12 --> n13
     n11 --> n13
-    n10 --> n14
-    n5 --> n14
-    n3 x--x n7
-    n6 x--x n8
+    n10 --> n13
+    n12 --> n14
+    n11 --> n14
+    n1 --> n4
+    n3 --> n4
+    n5 --> n6
+    n2 --> n6
+    n1 --> n5
+    n9 --> n12
+    n2 --> n7
+    n5 --> n7
+    n6 --> n9
+    n2 --> n9
+    n1 x--x n3
+    n13 x--x n14
 ```
 
 # PER_establish_airforce
 
 ```mermaid
-flowchart TD
-    n15["PER_air_superiority"]
-    n16{"PER_anti_air_development"}
-    n17["PER_anti_air_research"]
-    n18["PER_battlefield_support"]
-    n19["PER_construct_air_bases"]
-    n20{"PER_establish_air_academy"}
-    n21(("PER_establish_airforce"))
-    n22["PER_establish_nuclear_program"]
-    n23["PER_import_rocketry"]
-    n24["PER_legacy_of_gilani"]
-    n25["PER_luftwaffe_planes"]
-    n26["PER_negotiate_with_america"]
-    n27["PER_own_plane_designs"]
-    n28["PER_perfect_iranian_airforce"]
-    n29{"PER_pilot_training"}
-    n30["PER_raf_planes"]
-    n31["PER_strategic_bombing"]
-    n20 --> n15
-    n16 --> n15
-    n17 --> n16
-    n19 --> n17
-    n20 --> n18
-    n21 --> n19
-    n25 --> n20
-    n30 --> n20
-    n26 --> n22
-    n20 --> n24
-    n29 --> n25
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n15(("PER_establish_airforce"))
+        n16["PER_import_rocketry"]
+    end
+    subgraph tier_1["Tier 1"]
+        n17["PER_construct_air_bases"]
+        n18{"PER_pilot_training"}
+    end
+    subgraph tier_2["Tier 2"]
+        n19["PER_anti_air_research"]
+        n20["PER_luftwaffe_planes"]
+        n21["PER_raf_planes"]
+    end
+    subgraph tier_3["Tier 3"]
+        n22{"PER_anti_air_development"}
+        n23{"PER_establish_air_academy"}
+        n24["PER_own_plane_designs"]
+    end
+    subgraph tier_4["Tier 4"]
+        n25["PER_air_superiority"]
+        n26["PER_battlefield_support"]
+        n27["PER_legacy_of_gilani"]
+        n28["PER_strategic_bombing"]
+    end
+    subgraph tier_5["Tier 5"]
+        n29["PER_negotiate_with_america"]
+        n30["PER_perfect_iranian_airforce"]
+    end
+    subgraph tier_6["Tier 6"]
+        n31["PER_establish_nuclear_program"]
+    end
+    n23 --> n25
+    n22 --> n25
+    n19 --> n22
+    n17 --> n19
     n23 --> n26
-    n31 --> n26
-    n25 --> n27
-    n30 --> n27
-    n15 --> n28
-    n31 --> n28
-    n18 --> n28
-    n21 --> n29
-    n29 --> n30
-    n20 --> n31
-    n15 x--x n18
-    n15 x--x n31
-    n18 x--x n31
-    n25 x--x n30
+    n15 --> n17
+    n20 --> n23
+    n21 --> n23
+    n29 --> n31
+    n23 --> n27
+    n18 --> n20
+    n16 --> n29
+    n28 --> n29
+    n20 --> n24
+    n21 --> n24
+    n25 --> n30
+    n28 --> n30
+    n26 --> n30
+    n15 --> n18
+    n18 --> n21
+    n23 --> n28
+    n25 x--x n26
+    n25 x--x n28
+    n26 x--x n28
+    n20 x--x n21
 ```
 
 # PER_establish_the_navy
 
 ```mermaid
-flowchart TD
-    n32["PER_bolster_the_caspian"]
-    n33["PER_coastal_defense_initiative"]
-    n34{"PER_construct_naval_bases"}
-    n35(("PER_establish_the_navy"))
-    n36{"PER_expand_dockyards"}
-    n37["PER_expert_raiders"]
-    n38["PER_found_iranian_shipyards"]
-    n39["PER_merchant_navy"]
-    n40{"PER_officers_to_italy"}
-    n41["PER_persian_gulf_fleet"]
-    n42["PER_purchase_foreign_ships"]
-    n34 --> n32
-    n40 --> n32
-    n34 --> n33
-    n35 --> n34
-    n38 --> n36
-    n36 --> n37
-    n42 --> n38
-    n36 --> n39
-    n35 --> n40
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n32(("PER_establish_the_navy"))
+    end
+    subgraph tier_1["Tier 1"]
+        n33{"PER_construct_naval_bases"}
+        n34{"PER_officers_to_italy"}
+    end
+    subgraph tier_2["Tier 2"]
+        n35["PER_bolster_the_caspian"]
+        n36["PER_coastal_defense_initiative"]
+        n37["PER_persian_gulf_fleet"]
+    end
+    subgraph tier_3["Tier 3"]
+        n38["PER_purchase_foreign_ships"]
+    end
+    subgraph tier_4["Tier 4"]
+        n39["PER_found_iranian_shipyards"]
+    end
+    subgraph tier_5["Tier 5"]
+        n40{"PER_expand_dockyards"}
+    end
+    subgraph tier_6["Tier 6"]
+        n41["PER_expert_raiders"]
+        n42["PER_merchant_navy"]
+    end
+    n33 --> n35
+    n34 --> n35
+    n33 --> n36
+    n32 --> n33
+    n39 --> n40
     n40 --> n41
-    n34 --> n41
-    n32 --> n42
-    n41 --> n42
-    n32 x--x n41
-    n37 x--x n39
+    n38 --> n39
+    n40 --> n42
+    n32 --> n34
+    n34 --> n37
+    n33 --> n37
+    n35 --> n38
+    n37 --> n38
+    n35 x--x n37
+    n41 x--x n42
 ```
 
 # PER_falsify_elections_dlc
 
 ```mermaid
-flowchart TD
-    n1{"PER_alliance_with_the_ussr_dlc"}
-    n2{"PER_compromise_with_britain_dlc"}
-    n3["PER_democratic_promise_dlc"]
-    n4["PER_economy_without_oil_dlc"]
-    n5["PER_empower_the_shah_dlc"]
-    n6["PER_entrench_mosaddegh_dlc"]
-    n7(("PER_falsify_elections_dlc"))
-    n8["PER_found_SAVAK_dlc"]
-    n9["PER_land_reforms_cw_dlc"]
-    n10["PER_nationalize_iranian_oil_dlc"]
-    n11["PER_reform_the_administration_cw_dlc"]
-    n12{"PER_request_american_support_dlc"}
-    n13["PER_the_seven_year_plan_dlc"]
-    n14["PER_undermine_the_shah_dlc"]
-    n14 --> n1
-    n11 --> n1
-    n14 --> n2
-    n10 --> n4
-    n13 --> n4
-    n7 --> n5
-    n12 --> n6
-    n2 --> n6
-    n1 --> n6
-    n12 --> n8
-    n2 --> n8
-    n3 --> n9
-    n7 --> n9
-    n11 --> n10
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["PER_democratic_promise_dlc"]
+        n3(("PER_falsify_elections_dlc"))
+        n5["PER_reform_the_administration_cw_dlc"]
+    end
+    subgraph tier_1["Tier 1"]
+        n2["PER_empower_the_shah_dlc"]
+        n4["PER_land_reforms_cw_dlc"]
+    end
+    subgraph tier_2["Tier 2"]
+        n6["PER_nationalize_iranian_oil_dlc"]
+        n7["PER_the_seven_year_plan_dlc"]
+    end
+    subgraph tier_3["Tier 3"]
+        n8["PER_economy_without_oil_dlc"]
+        n9["PER_undermine_the_shah_dlc"]
+    end
+    subgraph tier_4["Tier 4"]
+        n10{"PER_alliance_with_the_ussr_dlc"}
+        n11{"PER_compromise_with_britain_dlc"}
+        n12{"PER_request_american_support_dlc"}
+    end
+    subgraph tier_5["Tier 5"]
+        n13["PER_entrench_mosaddegh_dlc"]
+        n14["PER_found_SAVAK_dlc"]
+    end
+    n9 --> n10
     n5 --> n10
-    n14 --> n12
-    n5 --> n13
+    n9 --> n11
+    n6 --> n8
+    n7 --> n8
+    n3 --> n2
+    n12 --> n13
     n11 --> n13
-    n10 --> n14
-    n5 --> n14
-    n3 x--x n7
-    n6 x--x n8
+    n10 --> n13
+    n12 --> n14
+    n11 --> n14
+    n1 --> n4
+    n3 --> n4
+    n5 --> n6
+    n2 --> n6
+    n9 --> n12
+    n2 --> n7
+    n5 --> n7
+    n6 --> n9
+    n2 --> n9
+    n1 x--x n3
+    n13 x--x n14
 ```
 
 # PER_fight_for_iran
 
 ```mermaid
-flowchart TD
-    n43["PER_azadi"]
-    n44{"PER_capital_protect"}
-    n45["PER_consolidate_british_territory"]
-    n46["PER_declare_loyalty_to_britain"]
-    n47["PER_demand_war_reparations"]
-    n48{"PER_dig_and_defend"}
-    n49{"PER_fight_for_iran"}
-    n50{"PER_force_them_back"}
-    n51["PER_force_white_peace"]
-    n52["PER_invite_british_investors"]
-    n53["PER_iran_for_iranians"]
-    n54["PER_our_place_in_empire"]
-    n55["PER_push_negotiations"]
-    n56{"PER_push_to_deserts"}
-    n57{"PER_push_to_mountains"}
-    n58["PER_rally_bakhtiari_and_qashqai"]
-    n59{"PER_rebuilding_iran"}
-    n60["PER_reinforce_iranian_identity"]
-    n61["PER_reinstate_qajars"]
-    n62["PER_request_british_equipment"]
-    n63["PER_retake_north_iran"]
-    n64{"PER_secure_coastline"}
-    n65["PER_swear_fealty"]
-    n59 --> n43
-    n48 --> n44
-    n53 --> n45
-    n59 --> n46
-    n56 --> n47
-    n57 --> n47
-    n49 --> n48
-    n49 --> n50
-    n56 --> n51
-    n57 --> n51
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n43{"PER_fight_for_iran"}
+    end
+    subgraph tier_1["Tier 1"]
+        n44{"PER_dig_and_defend"}
+        n45{"PER_force_them_back"}
+    end
+    subgraph tier_2["Tier 2"]
+        n46{"PER_capital_protect"}
+        n47{"PER_push_to_deserts"}
+        n48{"PER_push_to_mountains"}
+        n49{"PER_secure_coastline"}
+    end
+    subgraph tier_3["Tier 3"]
+        n50["PER_demand_war_reparations"]
+        n51["PER_force_white_peace"]
+        n52["PER_push_negotiations"]
+        n53["PER_swear_fealty"]
+    end
+    subgraph tier_4["Tier 4"]
+        n54{"PER_rebuilding_iran"}
+    end
+    subgraph tier_5["Tier 5"]
+        n55["PER_azadi"]
+        n56["PER_declare_loyalty_to_britain"]
+    end
+    subgraph tier_6["Tier 6"]
+        n57["PER_invite_british_investors"]
+        n58["PER_rally_bakhtiari_and_qashqai"]
+        n59["PER_reinforce_iranian_identity"]
+        n60["PER_reinstate_qajars"]
+        n61["PER_request_british_equipment"]
+    end
+    subgraph tier_7["Tier 7"]
+        n62["PER_iran_for_iranians"]
+        n63["PER_our_place_in_empire"]
+    end
+    subgraph tier_8["Tier 8"]
+        n64["PER_consolidate_british_territory"]
+        n65["PER_retake_north_iran"]
+    end
+    n54 --> n55
+    n44 --> n46
+    n62 --> n64
+    n54 --> n56
+    n47 --> n50
+    n48 --> n50
+    n43 --> n44
+    n43 --> n45
+    n47 --> n51
+    n48 --> n51
+    n56 --> n57
+    n58 --> n62
+    n59 --> n62
+    n61 --> n63
+    n57 --> n63
     n46 --> n52
-    n58 --> n53
-    n60 --> n53
-    n62 --> n54
-    n52 --> n54
-    n44 --> n55
-    n64 --> n55
-    n50 --> n56
-    n50 --> n57
-    n43 --> n58
-    n65 --> n59
-    n43 --> n60
-    n46 --> n61
-    n46 --> n62
-    n54 --> n63
-    n53 --> n63
-    n48 --> n64
-    n44 --> n65
-    n64 --> n65
-    n43 x--x n46
-    n44 x--x n64
-    n47 x--x n51
-    n48 x--x n50
-    n55 x--x n65
-    n56 x--x n57
+    n49 --> n52
+    n45 --> n47
+    n45 --> n48
+    n55 --> n58
+    n53 --> n54
+    n55 --> n59
+    n56 --> n60
+    n56 --> n61
+    n63 --> n65
+    n62 --> n65
+    n44 --> n49
+    n46 --> n53
+    n49 --> n53
+    n55 x--x n56
+    n46 x--x n49
+    n50 x--x n51
+    n44 x--x n45
+    n52 x--x n53
+    n47 x--x n48
 ```
 
 # PER_modernizing_iran
 
 ```mermaid
-flowchart TD
-    n66["PER_a_modern_iran"]
-    n67["PER_abolish_feudalism"]
-    n68["PER_adult_literacy"]
-    n69["PER_develop_cities"]
-    n70["PER_develop_oil_fields"]
-    n71["PER_educational_reforms"]
-    n72{"PER_expand_tabriz_masshad"}
-    n73{"PER_expand_tehran_abbas"}
-    n74{"PER_expand_tehran_emam"}
-    n75["PER_feat_of_engineering"]
-    n76["PER_food_for_all"]
-    n77{"PER_form_oil_company"}
-    n78["PER_metropolitan_iran"]
-    n79(("PER_modernizing_iran"))
-    n80["PER_national_bank"]
-    n81{"PER_national_museum"}
-    n82["PER_oil_baron"]
-    n83["PER_price_stabilization"]
-    n84["PER_profit_from_war"]
-    n85["PER_rapid_industrialization"]
-    n86["PER_shiraz_university"]
-    n87["PER_tehran_power_plant"]
-    n88["PER_trains_from_britain"]
-    n89["PER_trains_from_germany"]
-    n90["PER_trans_iranian_railway"]
-    n91["PER_university_of_isfahan"]
-    n92["PER_white_revolution"]
-    n93["PER_women_vote"]
-    n84 --> n66
-    n82 --> n66
-    n78 --> n66
-    n76 --> n66
-    n93 --> n66
-    n75 --> n66
-    n71 --> n66
-    n80 --> n67
-    n79 --> n68
-    n87 --> n69
-    n85 --> n70
-    n91 --> n71
-    n86 --> n71
-    n90 --> n72
-    n90 --> n73
-    n90 --> n74
-    n88 --> n75
-    n89 --> n75
-    n83 --> n76
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n66(("PER_modernizing_iran"))
+    end
+    subgraph tier_1["Tier 1"]
+        n67["PER_adult_literacy"]
+        n68["PER_rapid_industrialization"]
+        n69["PER_trans_iranian_railway"]
+        n70["PER_white_revolution"]
+    end
+    subgraph tier_2["Tier 2"]
+        n71["PER_develop_oil_fields"]
+        n72{"PER_expand_tabriz_masshad"}
+        n73{"PER_expand_tehran_abbas"}
+        n74{"PER_expand_tehran_emam"}
+        n75["PER_national_bank"]
+        n76{"PER_national_museum"}
+        n77["PER_tehran_power_plant"]
+    end
+    subgraph tier_3["Tier 3"]
+        n78["PER_abolish_feudalism"]
+        n79["PER_develop_cities"]
+        n80{"PER_form_oil_company"}
+        n81["PER_price_stabilization"]
+        n82["PER_shiraz_university"]
+        n83["PER_trains_from_britain"]
+        n84["PER_trains_from_germany"]
+        n85["PER_university_of_isfahan"]
+    end
+    subgraph tier_4["Tier 4"]
+        n86["PER_educational_reforms"]
+        n87["PER_feat_of_engineering"]
+        n88["PER_food_for_all"]
+        n89["PER_metropolitan_iran"]
+        n90["PER_oil_baron"]
+        n91["PER_profit_from_war"]
+        n92["PER_women_vote"]
+    end
+    subgraph tier_5["Tier 5"]
+        n93["PER_a_modern_iran"]
+    end
+    n91 --> n93
+    n90 --> n93
+    n89 --> n93
+    n88 --> n93
+    n92 --> n93
+    n87 --> n93
+    n86 --> n93
+    n75 --> n78
+    n66 --> n67
+    n77 --> n79
+    n68 --> n71
+    n85 --> n86
+    n82 --> n86
+    n69 --> n72
+    n69 --> n73
+    n69 --> n74
+    n83 --> n87
+    n84 --> n87
+    n81 --> n88
+    n78 --> n88
+    n71 --> n80
+    n79 --> n89
+    n70 --> n75
     n67 --> n76
-    n70 --> n77
-    n69 --> n78
-    n92 --> n80
-    n68 --> n81
-    n77 --> n82
-    n80 --> n83
-    n77 --> n84
-    n79 --> n85
-    n81 --> n86
-    n85 --> n87
-    n72 --> n88
-    n74 --> n88
-    n73 --> n88
-    n72 --> n89
-    n74 --> n89
-    n73 --> n89
-    n79 --> n90
-    n81 --> n91
-    n79 --> n92
-    n83 --> n93
-    n67 --> n93
-    n82 x--x n84
-    n86 x--x n91
-    n88 x--x n89
+    n80 --> n90
+    n75 --> n81
+    n80 --> n91
+    n66 --> n68
+    n76 --> n82
+    n68 --> n77
+    n72 --> n83
+    n74 --> n83
+    n73 --> n83
+    n72 --> n84
+    n74 --> n84
+    n73 --> n84
+    n66 --> n69
+    n76 --> n85
+    n66 --> n70
+    n81 --> n92
+    n78 --> n92
+    n90 x--x n91
+    n82 x--x n85
+    n83 x--x n84
 ```
 
 # PER_rally_the_reformers
 
 ```mermaid
-flowchart TD
-    n94["PER_ally_bazaari"]
-    n95["PER_ally_the_bazaari"]
-    n96["PER_appease_the_seperatists"]
-    n97["PER_brown_shirts"]
-    n98["PER_challenge_the_royal_navy"]
-    n99["PER_comintern_research_collaboration"]
-    n100["PER_communist_afghanistan_intervention"]
-    n101["PER_communist_air_defense"]
-    n102["PER_communist_basic_plane_design"]
-    n103["PER_communist_destabilize_iraq"]
-    n104["PER_communist_education_reform"]
-    n105["PER_communist_gulf_hegemony"]
-    n106["PER_communist_industrialization"]
-    n107["PER_communist_liberate_pashtuns"]
-    n108["PER_communist_naval_bomber_design"]
-    n109["PER_communist_naval_designs"]
-    n110["PER_communist_propaganda"]
-    n111["PER_communist_shore_defense"]
-    n112["PER_communist_submarine_design"]
-    n113["PER_constitutional_monarchy"]
-    n114["PER_continue_westernization"]
-    n115["PER_crush_saudi_arabia"]
-    n116["PER_curtail_pan_arabism"]
-    n117["PER_eastern_expansion"]
-    n118["PER_elevate_the_iran_party"]
-    n119["PER_embrace_national_front"]
-    n120["PER_entice_foreign_investment"]
-    n121{"PER_expand_oil_production"}
-    n122["PER_fascist_attack_afghanistan"]
-    n123["PER_fascist_attack_turkey"]
-    n124["PER_fascist_reach_out_to_germany"]
-    n125["PER_fascist_reach_out_to_japan"]
-    n126{"PER_fascist_secularism"}
-    n127["PER_finding_a_shah"]
-    n128["PER_force_abdication"]
-    n129{"PER_form_savama"}
-    n130["PER_form_sumka"]
-    n131{"PER_free_elections"}
-    n132["PER_hormuz_crisis"]
-    n133["PER_increase_faculty_staffing_budget"]
-    n134["PER_increase_oil_sales"]
-    n135["PER_industrial_aid"]
-    n136["PER_international_solidarity"]
-    n137["PER_intervene_in_central_asia"]
-    n138["PER_intervention_in_iraq"]
-    n139["PER_invest_in_univerity_facilities"]
-    n140["PER_iran_first"]
-    n141["PER_iranian_culture"]
-    n142["PER_iranian_industrialization"]
-    n143["PER_iranian_nuclear_program"]
-    n144["PER_iranian_revolutionary_vanguard"]
-    n145["PER_iranian_socialism"]
-    n146["PER_iranian_socialist_revolution"]
-    n147["PER_islamic_restoration"]
-    n148["PER_islamic_revolution"]
-    n149["PER_islamic_solidarity"]
-    n150["PER_land_reform"]
-    n151["PER_march_on_saadabad"]
-    n152["PER_nationalize_oil_fields"]
-    n153["PER_oil_and_rubber_industry"]
-    n154["PER_one_for_all_all_for_one"]
-    n155{"PER_pan_iranianism"}
-    n156["PER_post_war_spoils"]
-    n157["PER_proclaim_greater_iran"]
-    n158{"PER_promise_clergy_power"}
-    n159{"PER_propagate_political_literature"}
-    n160{"PER_rally_behind_mosaddegh"}
-    n161(("PER_rally_the_reformers"))
-    n162{"PER_reach_to_seperatists"}
-    n163["PER_reject_foreign_dominance"]
-    n164["PER_request_membership_allies"]
-    n165["PER_revolution_in_the_gulf"]
-    n166["PER_roll_back_reforms"]
-    n167["PER_royal_college_funding"]
-    n168["PER_secularize_the_state"]
-    n169["PER_secure_afghanistan"]
-    n170["PER_secure_iraq"]
-    n171["PER_soviet_alignment"]
-    n172["PER_soviet_iranian_oil_collaboration"]
-    n173{"PER_stage_mass_protests"}
-    n174["PER_strengthen_iranian_parliament"]
-    n175["PER_strengthen_the_tudeh"]
-    n176["PER_the_new_economy"]
-    n177["PER_the_pahlavi_imperium"]
-    n178["PER_the_peoples_airforce"]
-    n179["PER_the_peoples_navy"]
-    n180["PER_there_can_be_only_one"]
-    n181["PER_united_progressive_parties"]
-    n182["PER_workers_army"]
-    n147 --> n94
-    n130 --> n95
-    n146 --> n96
-    n130 --> n97
-    n102 --> n98
-    n109 --> n98
-    n172 --> n99
-    n150 --> n99
-    n136 --> n100
-    n178 --> n101
-    n178 --> n102
-    n136 --> n103
-    n145 --> n104
-    n171 --> n104
-    n132 --> n105
-    n145 --> n106
-    n171 --> n106
-    n100 --> n107
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n94(("PER_rally_the_reformers"))
+        n95["PER_the_pahlavi_imperium"]
+    end
+    subgraph tier_1["Tier 1"]
+        n96{"PER_propagate_political_literature"}
+        n97{"PER_stage_mass_protests"}
+    end
+    subgraph tier_2["Tier 2"]
+        n98["PER_iranian_culture"]
+        n99{"PER_rally_behind_mosaddegh"}
+        n100["PER_united_progressive_parties"]
+    end
+    subgraph tier_3["Tier 3"]
+        n101["PER_constitutional_monarchy"]
+        n102["PER_embrace_national_front"]
+        n103["PER_form_sumka"]
+        n104{"PER_reach_to_seperatists"}
+    end
+    subgraph tier_4["Tier 4"]
+        n105["PER_ally_the_bazaari"]
+        n106["PER_brown_shirts"]
+        n107["PER_elevate_the_iran_party"]
+        n108["PER_force_abdication"]
+        n109{"PER_promise_clergy_power"}
+        n110["PER_strengthen_iranian_parliament"]
+        n111["PER_strengthen_the_tudeh"]
+    end
+    subgraph tier_5["Tier 5"]
+        n112{"PER_free_elections"}
+        n113["PER_iranian_revolutionary_vanguard"]
+        n114["PER_iranian_socialist_revolution"]
+        n115["PER_march_on_saadabad"]
+    end
+    subgraph tier_6["Tier 6"]
+        n116["PER_appease_the_seperatists"]
+        n117["PER_continue_westernization"]
+        n118["PER_finding_a_shah"]
+        n119["PER_iranian_socialism"]
+        n120["PER_islamic_restoration"]
+        n121["PER_one_for_all_all_for_one"]
+        n122["PER_roll_back_reforms"]
+        n123["PER_soviet_alignment"]
+    end
+    subgraph tier_7["Tier 7"]
+        n124["PER_ally_bazaari"]
+        n125["PER_communist_education_reform"]
+        n126["PER_communist_industrialization"]
+        n127["PER_communist_propaganda"]
+        n128["PER_entice_foreign_investment"]
+        n129{"PER_fascist_secularism"}
+        n130{"PER_form_savama"}
+        n131["PER_industrial_aid"]
+        n132["PER_iranian_industrialization"]
+        n133{"PER_pan_iranianism"}
+        n134["PER_royal_college_funding"]
+        n135["PER_secularize_the_state"]
+    end
+    subgraph tier_8["Tier 8"]
+        n136{"PER_expand_oil_production"}
+        n137["PER_fascist_reach_out_to_germany"]
+        n138["PER_fascist_reach_out_to_japan"]
+        n139["PER_increase_faculty_staffing_budget"]
+        n140["PER_invest_in_univerity_facilities"]
+        n141["PER_iran_first"]
+        n142["PER_islamic_revolution"]
+        n143["PER_land_reform"]
+        n144["PER_reject_foreign_dominance"]
+        n145["PER_soviet_iranian_oil_collaboration"]
+        n146["PER_the_new_economy"]
+    end
+    subgraph tier_9["Tier 9"]
+        n147["PER_comintern_research_collaboration"]
+        n148["PER_fascist_attack_turkey"]
+        n149["PER_increase_oil_sales"]
+        n150["PER_intervene_in_central_asia"]
+        n151["PER_intervention_in_iraq"]
+        n152["PER_nationalize_oil_fields"]
+        n153["PER_oil_and_rubber_industry"]
+        n154["PER_workers_army"]
+    end
+    subgraph tier_10["Tier 10"]
+        n155["PER_crush_saudi_arabia"]
+        n156["PER_fascist_attack_afghanistan"]
+        n157["PER_international_solidarity"]
+        n158["PER_iranian_nuclear_program"]
+        n159["PER_islamic_solidarity"]
+        n160["PER_request_membership_allies"]
+        n161["PER_the_peoples_airforce"]
+        n162["PER_the_peoples_navy"]
+    end
+    subgraph tier_11["Tier 11"]
+        n163["PER_communist_afghanistan_intervention"]
+        n164["PER_communist_air_defense"]
+        n165["PER_communist_basic_plane_design"]
+        n166["PER_communist_destabilize_iraq"]
+        n167["PER_communist_naval_designs"]
+        n168["PER_communist_shore_defense"]
+        n169["PER_proclaim_greater_iran"]
+        n170["PER_secure_afghanistan"]
+        n171["PER_secure_iraq"]
+    end
+    subgraph tier_12["Tier 12"]
+        n172["PER_challenge_the_royal_navy"]
+        n173["PER_communist_liberate_pashtuns"]
+        n174["PER_communist_naval_bomber_design"]
+        n175["PER_communist_submarine_design"]
+        n176["PER_curtail_pan_arabism"]
+        n177["PER_eastern_expansion"]
+        n178["PER_post_war_spoils"]
+        n179["PER_revolution_in_the_gulf"]
+        n180["PER_there_can_be_only_one"]
+    end
+    subgraph tier_13["Tier 13"]
+        n181["PER_hormuz_crisis"]
+    end
+    subgraph tier_14["Tier 14"]
+        n182["PER_communist_gulf_hegemony"]
+    end
+    n120 --> n124
+    n103 --> n105
+    n114 --> n116
+    n103 --> n106
+    n165 --> n172
+    n167 --> n172
+    n145 --> n147
+    n143 --> n147
+    n157 --> n163
+    n161 --> n164
+    n161 --> n165
+    n157 --> n166
+    n119 --> n125
+    n123 --> n125
+    n181 --> n182
+    n119 --> n126
+    n123 --> n126
+    n163 --> n173
+    n165 --> n174
+    n162 --> n167
+    n119 --> n127
+    n123 --> n127
+    n162 --> n168
+    n167 --> n175
+    n99 --> n101
+    n112 --> n117
+    n148 --> n155
+    n169 --> n176
+    n169 --> n177
+    n104 --> n107
+    n99 --> n102
+    n117 --> n128
+    n124 --> n136
+    n128 --> n136
+    n151 --> n156
+    n137 --> n148
+    n138 --> n148
+    n141 --> n148
+    n130 --> n137
+    n133 --> n137
+    n129 --> n138
+    n133 --> n138
+    n122 --> n129
+    n118 --> n129
+    n115 --> n118
+    n105 --> n118
     n102 --> n108
-    n179 --> n109
-    n145 --> n110
-    n171 --> n110
-    n179 --> n111
-    n109 --> n112
-    n160 --> n113
-    n131 --> n114
-    n123 --> n115
-    n157 --> n116
-    n157 --> n117
-    n162 --> n118
-    n160 --> n119
-    n114 --> n120
-    n94 --> n121
-    n120 --> n121
-    n138 --> n122
-    n124 --> n123
-    n125 --> n123
-    n140 --> n123
-    n129 --> n124
-    n155 --> n124
-    n126 --> n125
-    n155 --> n125
-    n166 --> n126
-    n127 --> n126
-    n151 --> n127
-    n95 --> n127
-    n119 --> n128
-    n166 --> n129
-    n127 --> n129
-    n141 --> n130
-    n128 --> n131
-    n174 --> n131
-    n165 --> n132
-    n167 --> n133
-    n120 --> n133
-    n121 --> n134
-    n171 --> n135
-    n176 --> n136
-    n152 --> n136
-    n140 --> n137
-    n125 --> n137
-    n124 --> n137
-    n124 --> n138
-    n125 --> n138
-    n140 --> n138
-    n167 --> n139
-    n120 --> n139
-    n129 --> n140
-    n155 --> n140
-    n173 --> n141
-    n159 --> n141
-    n145 --> n142
-    n99 --> n143
-    n118 --> n144
-    n146 --> n145
-    n118 --> n145
-    n175 --> n146
-    n118 --> n146
-    n131 --> n147
-    n158 --> n147
-    n94 --> n148
-    n152 --> n149
-    n135 --> n150
-    n97 --> n151
-    n95 --> n151
-    n121 --> n152
-    n176 --> n153
-    n144 --> n154
-    n166 --> n155
-    n127 --> n155
-    n170 --> n156
-    n169 --> n156
-    n137 --> n157
-    n115 --> n157
-    n122 --> n157
-    n113 --> n158
-    n161 --> n159
-    n173 --> n160
-    n159 --> n160
-    n181 --> n162
-    n106 --> n163
-    n142 --> n163
-    n134 --> n164
-    n103 --> n165
-    n100 --> n165
-    n151 --> n166
-    n147 --> n167
-    n114 --> n167
-    n114 --> n168
-    n164 --> n169
-    n164 --> n170
-    n146 --> n171
-    n175 --> n171
-    n135 --> n172
-    n161 --> n173
-    n113 --> n174
-    n162 --> n175
-    n104 --> n176
-    n110 --> n176
-    n106 --> n176
-    n182 --> n178
-    n182 --> n179
-    n157 --> n180
-    n173 --> n181
-    n159 --> n181
-    n176 --> n182
-    n113 x--x n119
-    n114 x--x n147
-    n118 x--x n175
-    n124 x--x n125
-    n124 x--x n140
-    n125 x--x n140
-    n134 x--x n152
-    n141 x--x n160
-    n141 x--x n181
-    n160 x--x n181
-    n161 x--x n177
+    n122 --> n130
+    n118 --> n130
+    n98 --> n103
+    n108 --> n112
+    n110 --> n112
+    n179 --> n181
+    n134 --> n139
+    n128 --> n139
+    n136 --> n149
+    n123 --> n131
+    n146 --> n157
+    n152 --> n157
+    n141 --> n150
+    n138 --> n150
+    n137 --> n150
+    n137 --> n151
+    n138 --> n151
+    n141 --> n151
+    n134 --> n140
+    n128 --> n140
+    n130 --> n141
+    n133 --> n141
+    n97 --> n98
+    n96 --> n98
+    n119 --> n132
+    n147 --> n158
+    n107 --> n113
+    n114 --> n119
+    n107 --> n119
+    n111 --> n114
+    n107 --> n114
+    n112 --> n120
+    n109 --> n120
+    n124 --> n142
+    n152 --> n159
+    n131 --> n143
+    n106 --> n115
+    n105 --> n115
+    n136 --> n152
+    n146 --> n153
+    n113 --> n121
+    n122 --> n133
+    n118 --> n133
+    n171 --> n178
+    n170 --> n178
+    n150 --> n169
+    n155 --> n169
+    n156 --> n169
+    n101 --> n109
+    n94 --> n96
+    n97 --> n99
+    n96 --> n99
+    n100 --> n104
+    n126 --> n144
+    n132 --> n144
+    n149 --> n160
+    n166 --> n179
+    n163 --> n179
+    n115 --> n122
+    n120 --> n134
+    n117 --> n134
+    n117 --> n135
+    n160 --> n170
+    n160 --> n171
+    n114 --> n123
+    n111 --> n123
+    n131 --> n145
+    n94 --> n97
+    n101 --> n110
+    n104 --> n111
+    n125 --> n146
+    n127 --> n146
+    n126 --> n146
+    n154 --> n161
+    n154 --> n162
+    n169 --> n180
+    n97 --> n100
+    n96 --> n100
+    n146 --> n154
+    n101 x--x n102
+    n117 x--x n120
+    n107 x--x n111
+    n137 x--x n138
+    n137 x--x n141
+    n138 x--x n141
+    n149 x--x n152
+    n98 x--x n99
+    n98 x--x n100
+    n99 x--x n100
+    n94 x--x n95
 ```
 
 # PER_restructure_army
 
 ```mermaid
-flowchart TD
-    n183["PER_bolster_infantry"]
-    n184["PER_cyrus_initiative"]
-    n185["PER_czech_tanks"]
-    n186{"PER_desert_training"}
-    n187["PER_develop_qorkhaneh"]
-    n188["PER_establish_motor_arms"]
-    n22["PER_establish_nuclear_program"]
-    n189["PER_establish_tehran_armor"]
-    n190["PER_every_man_serves"]
-    n191["PER_expand_imperial_guard"]
-    n192{"PER_expand_military_facilities"}
-    n193["PER_expand_tehran_armor"]
-    n194["PER_expand_unique_unit"]
-    n195{"PER_foreign_retraining"}
-    n196["PER_form_savak"]
-    n197["PER_fund_state_intelligence"]
-    n198["PER_future_of_war"]
-    n199["PER_german_tanks"]
-    n23["PER_import_rocketry"]
-    n200["PER_increase_heavy_arms"]
-    n201["PER_military_excellency"]
-    n202["PER_motorize_infantry"]
-    n26["PER_negotiate_with_america"]
-    n203["PER_our_own_artillery"]
-    n204["PER_recruit_bakhtiari"]
-    n205(("PER_restructure_army"))
-    n206["PER_reverse_engineer_tanks"]
-    n207["PER_special_forces_program"]
-    n208["PER_special_units"]
-    n31["PER_strategic_bombing"]
-    n209["PER_swedish_artillery"]
-    n210{"PER_train_tank_commanders"}
-    n211["PER_transfer_officers_to_intelligence"]
-    n195 --> n183
-    n23 --> n184
-    n192 --> n185
-    n187 --> n186
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n183(("PER_restructure_army"))
+        n28["PER_strategic_bombing"]
+    end
+    subgraph tier_1["Tier 1"]
+        n184["PER_expand_imperial_guard"]
+        n185{"PER_expand_military_facilities"}
+        n186{"PER_foreign_retraining"}
+        n187["PER_special_units"]
+    end
+    subgraph tier_2["Tier 2"]
+        n188["PER_bolster_infantry"]
+        n189["PER_czech_tanks"]
+        n190["PER_form_savak"]
+        n191["PER_german_tanks"]
+        n16["PER_import_rocketry"]
+        n192["PER_special_forces_program"]
+        n193["PER_swedish_artillery"]
+    end
+    subgraph tier_3["Tier 3"]
+        n194["PER_cyrus_initiative"]
+        n195["PER_develop_qorkhaneh"]
+        n196["PER_establish_motor_arms"]
+        n197["PER_expand_unique_unit"]
+        n198["PER_fund_state_intelligence"]
+        n199["PER_future_of_war"]
+        n200["PER_increase_heavy_arms"]
+        n29["PER_negotiate_with_america"]
+        n201["PER_recruit_bakhtiari"]
+        n202["PER_reverse_engineer_tanks"]
+        n203["PER_transfer_officers_to_intelligence"]
+    end
+    subgraph tier_4["Tier 4"]
+        n204{"PER_desert_training"}
+        n31["PER_establish_nuclear_program"]
+        n205["PER_establish_tehran_armor"]
+        n206["PER_motorize_infantry"]
+        n207["PER_our_own_artillery"]
+        n208{"PER_train_tank_commanders"}
+    end
+    subgraph tier_5["Tier 5"]
+        n209["PER_every_man_serves"]
+        n210["PER_expand_tehran_armor"]
+        n211["PER_military_excellency"]
+    end
+    n186 --> n188
+    n16 --> n194
+    n185 --> n189
+    n195 --> n204
+    n188 --> n195
+    n193 --> n195
+    n188 --> n196
+    n29 --> n31
+    n202 --> n205
+    n204 --> n209
+    n208 --> n209
+    n183 --> n184
+    n183 --> n185
+    n205 --> n210
+    n192 --> n197
+    n183 --> n186
+    n187 --> n190
+    n190 --> n198
+    n191 --> n199
+    n189 --> n199
+    n185 --> n191
+    n187 --> n16
+    n193 --> n200
+    n204 --> n211
+    n208 --> n211
+    n196 --> n206
+    n16 --> n29
+    n28 --> n29
+    n200 --> n207
+    n192 --> n201
+    n191 --> n202
+    n189 --> n202
+    n187 --> n192
     n183 --> n187
-    n209 --> n187
-    n183 --> n188
-    n26 --> n22
-    n206 --> n189
-    n186 --> n190
-    n210 --> n190
-    n205 --> n191
-    n205 --> n192
-    n189 --> n193
-    n207 --> n194
-    n205 --> n195
-    n208 --> n196
-    n196 --> n197
-    n199 --> n198
-    n185 --> n198
-    n192 --> n199
-    n208 --> n23
-    n209 --> n200
-    n186 --> n201
-    n210 --> n201
-    n188 --> n202
-    n23 --> n26
-    n31 --> n26
-    n200 --> n203
-    n207 --> n204
-    n199 --> n206
-    n185 --> n206
-    n208 --> n207
-    n205 --> n208
-    n195 --> n209
-    n198 --> n210
-    n196 --> n211
-    n183 x--x n209
-    n185 x--x n199
-    n190 x--x n201
+    n186 --> n193
+    n199 --> n208
+    n190 --> n203
+    n188 x--x n193
+    n189 x--x n191
+    n209 x--x n211
 ```
 
 # PER_the_pahlavi_imperium
 
 ```mermaid
-flowchart TD
-    n212["PER_absolute_monarchy"]
-    n213["PER_absorb_byzantines"]
-    n214["PER_align_with_axis"]
-    n215["PER_assassinate_reza_shah"]
-    n216["PER_assessing_the_opposition"]
-    n217["PER_bolster_civilian_industry"]
-    n218{"PER_choose_a_shahbanu"}
-    n219{"PER_clamp_azerbaijani_dissidence"}
-    n220{"PER_clamp_kurdish_dissidence"}
-    n221["PER_clash_of_titans"]
-    n222["PER_demand_afghan_territory"]
-    n223["PER_demand_iraqi_territory"]
-    n224["PER_demand_west_asia"]
-    n225["PER_donate_oil_fields"]
-    n226["PER_embrace_industrial_powers"]
-    n227["PER_embrace_opulence"]
-    n228["PER_emperor_for_people"]
-    n229["PER_establish_northern_buffer_states"]
-    n230["PER_establish_special_unit"]
-    n231["PER_first_iranian_empire"]
-    n232["PER_foothold_in_indus"]
-    n233["PER_forced_secularization"]
-    n234["PER_fund_imperial_excellency"]
-    n235["PER_glory_of_cyrus"]
-    n236["PER_his_fathers_footsteps"]
-    n237["PER_imperial_expansionism"]
-    n238["PER_imperial_funded_universities"]
-    n239["PER_increase_education_funding"]
-    n240["PER_increase_military_funding"]
-    n241["PER_invasion_of_india"]
-    n242["PER_last_thousand_years"]
-    n243{"PER_legacy_of_greatness"}
-    n244["PER_limit_foreign_influence"]
-    n245["PER_march_to_nile"]
-    n246["PER_middle_east_protectorate"]
-    n247["PER_military_high_schools"]
-    n248["PER_modernize_iran_economy"]
-    n249["PER_open_abadan"]
-    n250["PER_path_through_iraq"]
-    n251["PER_persian_german_trade"]
-    n252["PER_plant_resistance_cells"]
-    n253["PER_preemptive_strike"]
-    n254["PER_preparatory_mobilization"]
-    n255["PER_prepare_for_worst"]
-    n256["PER_question_of_resources"]
-    n257["PER_rally_ancient_history"]
-    n161["PER_rally_the_reformers"]
-    n258["PER_rebuild_persepolis"]
-    n259["PER_reclaim_turkish_peninsula"]
-    n260["PER_reintegrate_anatolia"]
-    n261["PER_revive_old_ways"]
-    n262["PER_root_out_conspiracies"]
-    n263["PER_royal_visit_germany"]
-    n264["PER_shahanshah"]
-    n265["PER_spoils_of_war"]
-    n266["PER_stand_our_ground"]
-    n267["PER_stand_with_germany"]
-    n268["PER_stand_with_giants"]
-    n269["PER_state_atheism"]
-    n270["PER_subserviant_to_noone"]
-    n271{"PER_take_regional_tour"}
-    n272["PER_tehran_moscow_pact"]
-    n273["PER_the_memphis_initiative"]
-    n177{"PER_the_pahlavi_imperium"}
-    n274["PER_the_unification_initiative"]
-    n275["PER_third_persian_empire"]
-    n276["PER_trial_fifty_three"]
-    n277["PER_uphold_civil_rights"]
-    n278["PER_upscale_military_production"]
-    n279["PER_usurp_afghanistan"]
-    n280["PER_venerate_islam"]
-    n281["PER_war_plan_cambyses"]
-    n282["PER_war_plan_darius"]
-    n283["PER_war_plan_xerxes"]
-    n284["PER_we_survived"]
-    n285["PER_we_will_survive"]
-    n286{"PER_wether_the_storm"}
-    n262 --> n212
-    n221 --> n213
-    n267 --> n214
-    n243 --> n215
-    n243 --> n216
-    n266 --> n217
-    n275 --> n218
-    n274 --> n219
-    n274 --> n220
-    n259 --> n221
-    n272 --> n222
-    n272 --> n223
-    n281 --> n224
-    n214 --> n225
-    n271 --> n226
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n94["PER_rally_the_reformers"]
+        n95{"PER_the_pahlavi_imperium"}
+    end
+    subgraph tier_1["Tier 1"]
+        n212{"PER_legacy_of_greatness"}
+        n213["PER_stand_with_giants"]
+    end
+    subgraph tier_2["Tier 2"]
+        n214["PER_assassinate_reza_shah"]
+        n215["PER_assessing_the_opposition"]
+        n216["PER_forced_secularization"]
+        n217["PER_imperial_funded_universities"]
+        n218["PER_increase_education_funding"]
+        n219["PER_increase_military_funding"]
+        n220["PER_persian_german_trade"]
+        n221["PER_root_out_conspiracies"]
+        n222["PER_trial_fifty_three"]
+    end
+    subgraph tier_3["Tier 3"]
+        n223["PER_absolute_monarchy"]
+        n224["PER_his_fathers_footsteps"]
+        n225["PER_imperial_expansionism"]
+        n226["PER_military_high_schools"]
+        n227["PER_open_abadan"]
+        n228["PER_royal_visit_germany"]
+        n229["PER_the_unification_initiative"]
+    end
+    subgraph tier_4["Tier 4"]
+        n230{"PER_clamp_azerbaijani_dissidence"}
+        n231{"PER_clamp_kurdish_dissidence"}
+        n232["PER_establish_special_unit"]
+        n233["PER_first_iranian_empire"]
+        n234["PER_tehran_moscow_pact"]
+        n235["PER_third_persian_empire"]
+        n236{"PER_wether_the_storm"}
+    end
+    subgraph tier_5["Tier 5"]
+        n237{"PER_choose_a_shahbanu"}
+        n238["PER_demand_afghan_territory"]
+        n239["PER_demand_iraqi_territory"]
+        n240["PER_question_of_resources"]
+        n241["PER_revive_old_ways"]
+        n242["PER_shahanshah"]
+        n243["PER_stand_our_ground"]
+        n244["PER_state_atheism"]
+        n245{"PER_take_regional_tour"}
+        n246["PER_venerate_islam"]
+    end
+    subgraph tier_6["Tier 6"]
+        n247["PER_bolster_civilian_industry"]
+        n248["PER_embrace_industrial_powers"]
+        n249["PER_embrace_opulence"]
+        n250["PER_emperor_for_people"]
+        n251["PER_limit_foreign_influence"]
+        n252["PER_plant_resistance_cells"]
+        n253["PER_prepare_for_worst"]
+        n254["PER_rally_ancient_history"]
+        n255["PER_upscale_military_production"]
+        n256["PER_war_plan_cambyses"]
+        n257["PER_war_plan_darius"]
+        n258["PER_war_plan_xerxes"]
+    end
+    subgraph tier_7["Tier 7"]
+        n259["PER_demand_west_asia"]
+        n260["PER_foothold_in_indus"]
+        n261["PER_fund_imperial_excellency"]
+        n262["PER_modernize_iran_economy"]
+        n263["PER_path_through_iraq"]
+        n264["PER_preemptive_strike"]
+        n265["PER_preparatory_mobilization"]
+        n266["PER_rebuild_persepolis"]
+        n267["PER_reclaim_turkish_peninsula"]
+        n268["PER_stand_with_germany"]
+        n269["PER_subserviant_to_noone"]
+        n270["PER_uphold_civil_rights"]
+        n271["PER_usurp_afghanistan"]
+    end
+    subgraph tier_8["Tier 8"]
+        n272["PER_align_with_axis"]
+        n273["PER_clash_of_titans"]
+        n274["PER_establish_northern_buffer_states"]
+        n275["PER_invasion_of_india"]
+        n276["PER_last_thousand_years"]
+        n277["PER_march_to_nile"]
+        n278["PER_reintegrate_anatolia"]
+        n279["PER_we_will_survive"]
+    end
+    subgraph tier_9["Tier 9"]
+        n280["PER_absorb_byzantines"]
+        n281["PER_donate_oil_fields"]
+        n282["PER_glory_of_cyrus"]
+        n283["PER_spoils_of_war"]
+        n284["PER_the_memphis_initiative"]
+        n285["PER_we_survived"]
+    end
+    subgraph tier_10["Tier 10"]
+        n286["PER_middle_east_protectorate"]
+    end
+    n221 --> n223
+    n273 --> n280
+    n268 --> n272
+    n212 --> n214
+    n212 --> n215
+    n243 --> n247
+    n235 --> n237
+    n229 --> n230
+    n229 --> n231
+    n267 --> n273
+    n234 --> n238
+    n234 --> n239
+    n256 --> n259
+    n272 --> n281
+    n245 --> n248
+    n237 --> n249
+    n237 --> n250
+    n264 --> n274
+    n225 --> n232
+    n223 --> n233
+    n257 --> n260
+    n213 --> n216
+    n212 --> n216
+    n249 --> n261
+    n275 --> n282
+    n278 --> n282
+    n277 --> n282
+    n214 --> n224
+    n215 --> n225
+    n212 --> n217
+    n213 --> n218
+    n213 --> n219
+    n260 --> n275
+    n271 --> n275
+    n269 --> n276
+    n261 --> n276
+    n270 --> n276
+    n262 --> n276
+    n95 --> n212
+    n245 --> n251
+    n263 --> n277
+    n283 --> n286
+    n219 --> n226
+    n248 --> n262
     n218 --> n227
-    n218 --> n228
-    n253 --> n229
-    n237 --> n230
-    n212 --> n231
-    n282 --> n232
-    n268 --> n233
-    n243 --> n233
-    n227 --> n234
-    n241 --> n235
-    n260 --> n235
-    n245 --> n235
-    n215 --> n236
-    n216 --> n237
-    n243 --> n238
-    n268 --> n239
-    n268 --> n240
-    n232 --> n241
-    n279 --> n241
-    n270 --> n242
-    n234 --> n242
-    n277 --> n242
-    n248 --> n242
-    n177 --> n243
-    n271 --> n244
-    n250 --> n245
-    n265 --> n246
-    n240 --> n247
-    n226 --> n248
-    n239 --> n249
-    n281 --> n250
-    n268 --> n251
-    n256 --> n252
-    n252 --> n253
-    n255 --> n253
-    n278 --> n254
-    n217 --> n254
-    n256 --> n255
-    n286 --> n256
-    n264 --> n257
-    n257 --> n258
-    n283 --> n259
-    n259 --> n260
-    n219 --> n261
-    n220 --> n261
-    n243 --> n262
-    n251 --> n263
-    n275 --> n264
-    n231 --> n264
-    n214 --> n265
-    n286 --> n266
-    n226 --> n267
-    n177 --> n268
-    n219 --> n269
-    n220 --> n269
-    n244 --> n270
-    n231 --> n271
-    n237 --> n272
-    n245 --> n273
-    n216 --> n274
-    n236 --> n275
-    n268 --> n276
-    n228 --> n277
-    n266 --> n278
-    n282 --> n279
-    n219 --> n280
-    n220 --> n280
-    n223 --> n281
-    n222 --> n281
-    n223 --> n282
-    n222 --> n282
-    n223 --> n283
-    n222 --> n283
-    n285 --> n284
-    n229 --> n284
-    n254 --> n285
-    n263 --> n286
-    n247 --> n286
-    n215 x--x n262
-    n226 x--x n244
-    n227 x--x n228
-    n243 x--x n268
-    n256 x--x n266
-    n161 x--x n177
-    n261 x--x n269
-    n261 x--x n280
-    n269 x--x n280
+    n256 --> n263
+    n213 --> n220
+    n240 --> n252
+    n252 --> n264
+    n253 --> n264
+    n255 --> n265
+    n247 --> n265
+    n240 --> n253
+    n236 --> n240
+    n242 --> n254
+    n254 --> n266
+    n258 --> n267
+    n267 --> n278
+    n230 --> n241
+    n231 --> n241
+    n212 --> n221
+    n220 --> n228
+    n235 --> n242
+    n233 --> n242
+    n272 --> n283
+    n236 --> n243
+    n248 --> n268
+    n95 --> n213
+    n230 --> n244
+    n231 --> n244
+    n251 --> n269
+    n233 --> n245
+    n225 --> n234
+    n277 --> n284
+    n215 --> n229
+    n224 --> n235
+    n213 --> n222
+    n250 --> n270
+    n243 --> n255
+    n257 --> n271
+    n230 --> n246
+    n231 --> n246
+    n239 --> n256
+    n238 --> n256
+    n239 --> n257
+    n238 --> n257
+    n239 --> n258
+    n238 --> n258
+    n279 --> n285
+    n274 --> n285
+    n265 --> n279
+    n228 --> n236
+    n226 --> n236
+    n214 x--x n221
+    n248 x--x n251
+    n249 x--x n250
+    n212 x--x n213
+    n240 x--x n243
+    n94 x--x n95
+    n241 x--x n244
+    n241 x--x n246
+    n244 x--x n246
 ```

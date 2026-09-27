@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-"""Export HoI4 national focus trees into Mermaid flowchart Markdown files.
-
-For the _sandbox-r56 overlay this reads both the overlay sources and the
-subscribed Road to 56 workshop tree, then writes diagram files under
-docs/gdd/National Focuses/ of the overlay. Each Markdown file contains one
-diagram per root focus (a focus without prerequisites) and all of its
-descendants; focuses not reachable from any root are grouped into an
-"orphans" diagram.
+"""Export HoI4 national focus trees into Mermaid diagram Markdown files.
 
 Usage:
-    python export_focus_graphs.py
+    python export_focus_graphs.py [--mode swimlane|flowchart] [--src DIR] [--out DIR]
+
+Reads common/national_focus/*.txt (default: in the current project tree) and writes
+Markdown files into docs/gdd/National Focuses/, mirroring the source name.
+Each Markdown file contains one diagram per root focus (a focus without
+prerequisites) and all of its descendants; focuses not reachable from any
+root are grouped into an "orphans" diagram.
+
+Modes:
+    swimlane (default)  swimlane-beta TD, one lane per depth tier
+                        (distance from the root of the sub-diagram).
+    flowchart           flowchart TD, plain node list plus edges.
 """
+import argparse
 import re
 from pathlib import Path
 
@@ -96,21 +101,6 @@ def parse_focus_blocks(text: str) -> tuple[dict[str, list[str]], dict[str, list[
         prerequisites[focus_id] = prereqs
         mutexes[focus_id] = mutex_list
     return prerequisites, mutexes
-
-
-def read_workshop_focus_trees() -> dict[str, tuple[dict[str, list[str]], dict[str, list[str]]]]:
-    workshop = Path(r"C:\Games\Steam\steamapps\workshop\content\394360\820260968")
-    if not workshop.is_dir():
-        return {}
-    output: dict[str, tuple[dict[str, list[str]], dict[str, list[str]]]] = {}
-    for txt in (workshop / "common" / "national_focus").glob("*.txt"):
-        try:
-            text = txt.read_text(encoding="utf-8", errors="replace")
-            prerequisites, mutexes = parse_focus_blocks(text)
-            output[txt.stem] = (prerequisites, mutexes)
-        except OSError:
-            continue
-    return output
 
 
 def sanitize_focus_id(focus_id: str) -> str:
@@ -289,6 +279,37 @@ def _edge_lines(
     return lines
 
 
+def _depths(
+    nodes: set[str],
+    effective_prereqs: dict[str, list[str]],
+) -> dict[str, int]:
+    """Longest-path depth from the roots via topological order.
+
+    Nodes inside a prerequisite cycle are left out of the result.
+    """
+    children: dict[str, set[str]] = {}
+    indegree: dict[str, int] = {}
+    for node in nodes:
+        prereqs = [prereq for prereq in effective_prereqs.get(node, []) if prereq in nodes]
+        indegree[node] = len(prereqs)
+        for prereq in prereqs:
+            children.setdefault(prereq, set()).add(node)
+    depth: dict[str, int] = {}
+    queue = sorted(node for node, degree in indegree.items() if degree == 0)
+    for node in queue:
+        depth[node] = 0
+    cursor = 0
+    while cursor < len(queue):
+        current = queue[cursor]
+        cursor += 1
+        for child in sorted(children.get(current, ())):
+            depth[child] = max(depth.get(child, 0), depth[current] + 1)
+            indegree[child] -= 1
+            if indegree[child] == 0:
+                queue.append(child)
+    return depth
+
+
 def build_mermaid(
     title: str,
     prerequisites: dict[str, list[str]],
@@ -311,55 +332,102 @@ def build_mermaid(
     return "\n".join(lines)
 
 
-def write_diagrams(
-    out_path: Path,
+def build_swimlane(
+    title: str,
     prerequisites: dict[str, list[str]],
     mutexes: dict[str, list[str]],
-) -> None:
-    diagrams = split_into_diagrams(prerequisites, mutexes)
-    aliaser = Aliaser()
-    parts: list[str] = []
-    for diag_title, sub_prereqs, sub_mutexes in diagrams:
-        parts.append(build_mermaid(diag_title, sub_prereqs, sub_mutexes, aliaser))
-    out_path.write_text("\n".join(parts), encoding="utf-8")
+    aliaser: Aliaser,
+) -> str:
+    lines = [f"# {title}", "", "```mermaid", "swimlane-beta TD"]
+    if not prerequisites:
+        lines.append('    subgraph tier_0["(no focuses parsed)"]')
+        lines.append('        empty["(no focuses parsed)"]')
+        lines.append("    end")
+    else:
+        nodes, effective_prereqs, effective_mutexes, decision_nodes, root_nodes = _resolve_nodes(
+            prerequisites, mutexes
+        )
+        depth = _depths(nodes, effective_prereqs)
+        unplaced = sorted(node for node in nodes if node not in depth)
+        tiers: dict[int, list[str]] = {}
+        for node, tier in depth.items():
+            tiers.setdefault(tier, []).append(node)
+        for tier in sorted(tiers):
+            lines.append(f'    subgraph tier_{tier}["Tier {tier}"]')
+            for node in sorted(tiers[tier]):
+                lines.append(f"        {_node_declaration(node, decision_nodes, root_nodes, aliaser)}")
+            lines.append("    end")
+        if unplaced:
+            lines.append('    subgraph tier_unplaced["Unplaced (cycle)"]')
+            for node in unplaced:
+                lines.append(f"        {_node_declaration(node, decision_nodes, root_nodes, aliaser)}")
+            lines.append("    end")
+        for edge in _edge_lines(nodes, effective_prereqs, effective_mutexes, aliaser):
+            lines.append(f"    {edge}")
+    lines.append("```")
+    lines.append("")
+    return "\n".join(lines)
 
 
-def process_source(project_root: Path) -> None:
-    overlay = project_root / "common" / "national_focus"
-    if overlay.is_dir():
-        output = project_root / "docs" / "gdd" / "National Focuses"
-        output.mkdir(parents=True, exist_ok=True)
-        written: list[Path] = []
-        for txt in overlay.glob("*.txt"):
-            try:
-                text = txt.read_text(encoding="utf-8", errors="replace")
-            except OSError:
-                continue
-            prerequisites, mutexes = parse_focus_blocks(text)
-            out_path = output / f"{txt.stem}.md"
-            write_diagrams(out_path, prerequisites, mutexes)
-            written.append(out_path)
-        print(f"wrote {len(written)} overlay focus graph files under {output}")
-        for path in written:
-            print(f"  - {path.relative_to(project_root)}")
-    workshop_focus_trees = read_workshop_focus_trees()
-    if not workshop_focus_trees:
-        return
-    r56_output = project_root / "docs" / "gdd" / "National Focuses" / "r56"
-    r56_output.mkdir(parents=True, exist_ok=True)
-    written = []
-    for name, (prerequisites, mutexes) in sorted(workshop_focus_trees.items()):
-        out_path = r56_output / f"{name}.md"
-        write_diagrams(out_path, prerequisites, mutexes)
+def render_diagram(
+    mode: str,
+    title: str,
+    prerequisites: dict[str, list[str]],
+    mutexes: dict[str, list[str]],
+    aliaser: Aliaser,
+) -> str:
+    if mode == "flowchart":
+        return build_mermaid(title, prerequisites, mutexes, aliaser)
+    return build_swimlane(title, prerequisites, mutexes, aliaser)
+
+
+def process_source(src_dir: Path, out_dir: Path, mode: str) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    patterns = list(src_dir.glob("*.txt"))
+    if not patterns:
+        raise SystemExit(f"no .txt sources under {src_dir}")
+    written: list[Path] = []
+    for txt in patterns:
+        text = txt.read_text(encoding="utf-8", errors="replace")
+        prerequisites, mutexes = parse_focus_blocks(text)
+        diagrams = split_into_diagrams(prerequisites, mutexes)
+        aliaser = Aliaser()
+        parts: list[str] = []
+        for diag_title, sub_prereqs, sub_mutexes in diagrams:
+            parts.append(render_diagram(mode, diag_title, sub_prereqs, sub_mutexes, aliaser))
+        out_path = out_dir / f"{txt.stem}.md"
+        out_path.write_text("\n".join(parts), encoding="utf-8")
         written.append(out_path)
-    print(f"wrote {len(written)} workshop focus graph files under {r56_output}")
+    print(f"wrote {len(written)} focus graph files (mode={mode}) from {src_dir} under {out_dir}")
     for path in written:
-        print(f"  - {path.relative_to(project_root)}")
+        print(f"  - {path}")
 
 
 def main(argv: list[str]) -> int:
+    parser = argparse.ArgumentParser(description="Export HoI4 focus trees as Mermaid diagrams.")
+    parser.add_argument(
+        "--mode",
+        choices=("swimlane", "flowchart"),
+        default="swimlane",
+        help="diagram type to emit (default: swimlane)",
+    )
+    parser.add_argument(
+        "--src",
+        type=Path,
+        default=None,
+        help="directory with *.txt focus sources (default: <mod>/common/national_focus)",
+    )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="output directory for *.md diagrams (default: <mod>/docs/gdd/National Focuses)",
+    )
+    args = parser.parse_args(argv[1:])
     base = Path(__file__).resolve().parents[2]
-    process_source(base)
+    src_dir = args.src if args.src is not None else base / "common" / "national_focus"
+    out_dir = args.out if args.out is not None else base / "docs" / "gdd" / "National Focuses"
+    process_source(src_dir, out_dir, args.mode)
     return 0
 
 

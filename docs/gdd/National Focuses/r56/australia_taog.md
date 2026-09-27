@@ -1,691 +1,833 @@
 # AST_against_war_and_fascism
 
 ```mermaid
-flowchart TD
-    n1["AST_a_comrade_emancipated"]
-    n2["AST_a_controversial_recruitment"]
-    n3["AST_a_national_housing_commission"]
-    n4["AST_a_rational_request"]
-    n5["AST_abolition_of_private_property"]
-    n6["AST_administer_the_mandate"]
-    n7(("AST_against_war_and_fascism"))
-    n8["AST_all_for_one_one_for_all"]
-    n9["AST_an_equal_union"]
-    n10["AST_australia_first"]
-    n11["AST_battle_of_the_ocean"]
-    n12["AST_borderless_solidarity"]
-    n13["AST_centralized_production"]
-    n14["AST_chinese_relations"]
-    n15["AST_comintern"]
-    n16["AST_end_the_kingdom"]
-    n17["AST_equal_pay"]
-    n18["AST_expanding_influence"]
-    n19["AST_for_greater_good"]
-    n20["AST_free_healthcare_policy"]
-    n21["AST_free_school_policy"]
-    n22["AST_free_the_colonies"]
-    n23["AST_from_picket_line_to_front_line"]
-    n24["AST_graziers_to_industry"]
-    n25["AST_guaranteed_employment"]
-    n26["AST_make_common_cause"]
-    n27["AST_maritime_commission"]
-    n28["AST_no_foreign_battlefields"]
-    n29["AST_off_leash"]
-    n30["AST_out_of_the_den"]
-    n31["AST_part_with_colonizer"]
-    n32["AST_pig_iron_protests"]
-    n33["AST_planned_extraction"]
-    n34["AST_public_institutions"]
-    n35["AST_ratify_westminster_adoption_act"]
-    n36["AST_red_fred"]
-    n37["AST_red_solidarity"]
-    n38["AST_state_research_funding"]
-    n39["AST_stretch_the_fleet"]
-    n40["AST_strongholds"]
-    n41["AST_take_it_to_the_streets"]
-    n42["AST_the_australian_commonwealth"]
-    n43["AST_the_irish_anti-britain_pact"]
-    n44["AST_the_publics_australia"]
-    n45["AST_the_red_pacific"]
-    n46["AST_war_is_coming"]
-    n47["AST_westward_battles"]
-    n48["AST_workers_defence_corps_sparks_anew"]
-    n49["AST_workers_educational_association"]
-    n50["AST_world_peace"]
-    n36 --> n1
-    n7 --> n2
-    n41 --> n3
-    n35 --> n4
-    n8 --> n5
-    n35 --> n6
-    n29 --> n8
-    n3 --> n8
-    n25 --> n8
-    n42 --> n9
-    n1 --> n9
-    n39 --> n11
-    n26 --> n12
-    n5 --> n13
-    n43 --> n14
-    n18 --> n14
-    n19 --> n15
-    n43 --> n16
-    n41 --> n17
-    n9 --> n18
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("AST_against_war_and_fascism"))
+        n2["AST_australia_first"]
+        n3["AST_no_foreign_battlefields"]
+        n4["AST_war_is_coming"]
+    end
+    subgraph tier_1["Tier 1"]
+        n5["AST_a_controversial_recruitment"]
+        n6["AST_take_it_to_the_streets"]
+        n7["AST_workers_defence_corps_sparks_anew"]
+        n8["AST_world_peace"]
+    end
+    subgraph tier_2["Tier 2"]
+        n9["AST_a_national_housing_commission"]
+        n10["AST_equal_pay"]
+        n11["AST_from_picket_line_to_front_line"]
+        n12["AST_guaranteed_employment"]
+        n13["AST_off_leash"]
+        n14["AST_pig_iron_protests"]
+        n15["AST_ratify_westminster_adoption_act"]
+        n16["AST_workers_educational_association"]
+    end
+    subgraph tier_3["Tier 3"]
+        n17["AST_a_rational_request"]
+        n18["AST_administer_the_mandate"]
+        n19["AST_all_for_one_one_for_all"]
+        n20["AST_part_with_colonizer"]
+    end
+    subgraph tier_4["Tier 4"]
+        n21["AST_abolition_of_private_property"]
+        n22["AST_make_common_cause"]
+    end
+    subgraph tier_5["Tier 5"]
+        n23["AST_borderless_solidarity"]
+        n24["AST_centralized_production"]
+        n25["AST_graziers_to_industry"]
+        n26["AST_public_institutions"]
+        n27["AST_red_fred"]
+        n28["AST_state_research_funding"]
+        n29["AST_stretch_the_fleet"]
+    end
+    subgraph tier_6["Tier 6"]
+        n30["AST_a_comrade_emancipated"]
+        n31["AST_battle_of_the_ocean"]
+        n32["AST_for_greater_good"]
+        n33["AST_free_healthcare_policy"]
+        n34["AST_free_school_policy"]
+        n35["AST_maritime_commission"]
+        n36["AST_planned_extraction"]
+        n37["AST_the_australian_commonwealth"]
+    end
+    subgraph tier_7["Tier 7"]
+        n38["AST_an_equal_union"]
+        n39["AST_comintern"]
+        n40["AST_the_publics_australia"]
+        n41["AST_the_red_pacific"]
+    end
+    subgraph tier_8["Tier 8"]
+        n42["AST_expanding_influence"]
+        n43["AST_the_irish_anti-britain_pact"]
+    end
+    subgraph tier_9["Tier 9"]
+        n44["AST_chinese_relations"]
+        n45["AST_end_the_kingdom"]
+        n46["AST_out_of_the_den"]
+        n47["AST_strongholds"]
+        n48["AST_westward_battles"]
+    end
+    subgraph tier_10["Tier 10"]
+        n49["AST_free_the_colonies"]
+        n50["AST_red_solidarity"]
+    end
+    n27 --> n30
+    n1 --> n5
+    n6 --> n9
+    n15 --> n17
+    n19 --> n21
+    n15 --> n18
+    n13 --> n19
+    n9 --> n19
     n12 --> n19
-    n34 --> n20
-    n34 --> n21
-    n16 --> n22
-    n48 --> n23
-    n5 --> n24
-    n41 --> n25
-    n31 --> n26
-    n13 --> n27
-    n41 --> n29
-    n43 --> n30
-    n32 --> n31
-    n48 --> n32
-    n13 --> n33
-    n5 --> n34
-    n28 --> n35
-    n50 --> n35
-    n26 --> n36
-    n14 --> n37
-    n5 --> n38
-    n26 --> n39
-    n43 --> n40
-    n7 --> n41
-    n36 --> n42
-    n9 --> n43
-    n21 --> n44
-    n20 --> n44
-    n27 --> n44
-    n33 --> n44
-    n11 --> n45
-    n18 --> n47
-    n15 --> n47
-    n7 --> n48
-    n41 --> n49
-    n7 --> n50
-    n7 x--x n10
-    n7 x--x n46
+    n37 --> n38
+    n30 --> n38
+    n29 --> n31
+    n22 --> n23
+    n21 --> n24
+    n43 --> n44
+    n42 --> n44
+    n32 --> n39
+    n43 --> n45
+    n6 --> n10
+    n38 --> n42
+    n23 --> n32
+    n26 --> n33
+    n26 --> n34
+    n45 --> n49
+    n7 --> n11
+    n21 --> n25
+    n6 --> n12
+    n20 --> n22
+    n24 --> n35
+    n6 --> n13
+    n43 --> n46
+    n14 --> n20
+    n7 --> n14
+    n24 --> n36
+    n21 --> n26
+    n3 --> n15
+    n8 --> n15
+    n22 --> n27
+    n44 --> n50
+    n21 --> n28
+    n22 --> n29
+    n43 --> n47
+    n1 --> n6
+    n27 --> n37
+    n38 --> n43
+    n34 --> n40
+    n33 --> n40
+    n35 --> n40
+    n36 --> n40
+    n31 --> n41
+    n42 --> n48
+    n39 --> n48
+    n1 --> n7
+    n6 --> n16
+    n1 --> n8
+    n1 x--x n2
+    n1 x--x n4
 ```
 
 # AST_australia_first
 
 ```mermaid
-flowchart TD
-    n51["AST_a_domestic_supply_chain"]
-    n52["AST_a_growing_womens_guild"]
-    n53["AST_absorb_the_uap"]
-    n7["AST_against_war_and_fascism"]
-    n54["AST_at_the_gates"]
-    n10{"AST_australia_first"}
-    n55["AST_australia_first_party_focus"]
-    n56["AST_australian_culture_investments"]
-    n57["AST_autarky"]
-    n58["AST_big_business_pact"]
-    n59["AST_bring_home_the_farmers"]
-    n60["AST_britain_supplying_ships"]
-    n61["AST_british_pact"]
-    n62["AST_broken_hill_propietary_company"]
-    n63["AST_claim_french_indochina"]
-    n64["AST_council_for_scientific_and_industrial_research"]
-    n65["AST_crush_the_gates"]
-    n66["AST_defying_american_interference"]
-    n67["AST_devalued_currency"]
-    n68["AST_dividing_the_pacific"]
-    n69["AST_done_meddling"]
-    n70["AST_energy_independence"]
-    n71["AST_eureka_stockade_monument_rally"]
-    n72["AST_expand_the_fort"]
-    n73["AST_expanding_into_new_markets"]
-    n74["AST_exports_for_economic_recovery"]
-    n75["AST_for_the_southern_cross"]
-    n76["AST_foreign_competition"]
-    n77["AST_goods_standard"]
-    n78["AST_hand_in_glove"]
-    n79["AST_in_from_the_cold"]
-    n80["AST_income_tax_assessment_act"]
-    n81["AST_industrial_expansion"]
-    n82["AST_integrate_the_fort"]
-    n83["AST_lang_is_right"]
-    n84["AST_lang_plan"]
-    n85{"AST_nauru_pact"}
-    n86["AST_naurus_return_to_german_hands"]
-    n87["AST_northern_advancement"]
-    n88["AST_pankhurst_walsh"]
-    n89{"AST_public_works"}
-    n90["AST_radium_hill"]
-    n91["AST_realize_the_value_of_british_citizenship"]
-    n92["AST_recovery"]
-    n93["AST_refuse_british_wars"]
-    n94["AST_resist_western_intruders"]
-    n95["AST_reverse_industry_tariffs"]
-    n96["AST_reverse_wage_cuts"]
-    n97["AST_rile_up_veterans"]
-    n98["AST_soothing_australian_fears"]
-    n99["AST_standard_gauge_line_to_darwin"]
-    n100["AST_stephensen"]
-    n101["AST_the_bolsheviks_counterforce"]
-    n102["AST_the_guild_for_the_war_effort"]
-    n103["AST_the_manpower_directorate"]
-    n104["AST_the_pacific_garrison"]
-    n105["AST_the_phosphate_commision"]
-    n106["AST_the_winner_takes_it_all"]
-    n107["AST_through_the_gates"]
-    n108["AST_toe_the_line"]
-    n109["AST_undeniably_ours"]
-    n110["AST_vichy_out_of_africa"]
-    n111["AST_walls_like_uluru"]
-    n46["AST_war_is_coming"]
-    n112["AST_well-being_of_the_community"]
-    n113["AST_within_reach"]
-    n83 --> n51
-    n96 --> n51
-    n88 --> n52
-    n79 --> n53
-    n111 --> n54
-    n88 --> n55
-    n100 --> n55
-    n100 --> n56
-    n58 --> n57
-    n55 --> n58
-    n81 --> n59
-    n104 --> n60
-    n91 --> n61
-    n113 --> n62
-    n104 --> n63
-    n110 --> n63
-    n81 --> n64
-    n107 --> n65
-    n68 --> n66
-    n72 --> n66
-    n74 --> n67
-    n87 --> n68
-    n94 --> n68
-    n104 --> n69
-    n110 --> n69
-    n58 --> n70
-    n100 --> n71
-    n87 --> n72
-    n94 --> n72
-    n76 --> n73
-    n89 --> n74
-    n56 --> n75
-    n67 --> n76
-    n95 --> n76
-    n84 --> n77
-    n104 --> n78
-    n55 --> n79
-    n84 --> n80
-    n74 --> n80
-    n84 --> n81
-    n74 --> n81
-    n86 --> n82
-    n106 --> n82
-    n77 --> n83
-    n89 --> n84
-    n71 --> n85
-    n85 --> n86
-    n86 --> n87
-    n106 --> n87
-    n10 --> n88
-    n10 --> n89
-    n46 --> n89
-    n113 --> n90
-    n88 --> n91
-    n59 --> n92
-    n96 --> n92
-    n97 --> n93
-    n71 --> n93
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["AST_against_war_and_fascism"]
+        n2{"AST_australia_first"}
+        n4["AST_war_is_coming"]
+    end
+    subgraph tier_1["Tier 1"]
+        n51["AST_pankhurst_walsh"]
+        n52{"AST_public_works"}
+        n53["AST_stephensen"]
+    end
+    subgraph tier_2["Tier 2"]
+        n54["AST_a_growing_womens_guild"]
+        n55["AST_australia_first_party_focus"]
+        n56["AST_australian_culture_investments"]
+        n57["AST_eureka_stockade_monument_rally"]
+        n58["AST_exports_for_economic_recovery"]
+        n59["AST_lang_plan"]
+        n60["AST_realize_the_value_of_british_citizenship"]
+        n61["AST_rile_up_veterans"]
+        n62["AST_the_bolsheviks_counterforce"]
+    end
+    subgraph tier_3["Tier 3"]
+        n63["AST_big_business_pact"]
+        n64["AST_british_pact"]
+        n65["AST_devalued_currency"]
+        n66["AST_for_the_southern_cross"]
+        n67["AST_goods_standard"]
+        n68["AST_in_from_the_cold"]
+        n69["AST_income_tax_assessment_act"]
+        n70["AST_industrial_expansion"]
+        n71{"AST_nauru_pact"}
+        n72["AST_refuse_british_wars"]
+        n73["AST_reverse_industry_tariffs"]
+        n74["AST_standard_gauge_line_to_darwin"]
+        n75["AST_the_guild_for_the_war_effort"]
+        n76["AST_the_phosphate_commision"]
+        n77["AST_walls_like_uluru"]
+        n78["AST_well-being_of_the_community"]
+    end
+    subgraph tier_4["Tier 4"]
+        n79["AST_absorb_the_uap"]
+        n80["AST_at_the_gates"]
+        n81["AST_autarky"]
+        n82["AST_bring_home_the_farmers"]
+        n83["AST_council_for_scientific_and_industrial_research"]
+        n84["AST_energy_independence"]
+        n85["AST_foreign_competition"]
+        n86["AST_lang_is_right"]
+        n87["AST_naurus_return_to_german_hands"]
+        n88["AST_reverse_wage_cuts"]
+        n89["AST_the_pacific_garrison"]
+        n90["AST_the_winner_takes_it_all"]
+        n91["AST_toe_the_line"]
+        n92["AST_vichy_out_of_africa"]
+        n93["AST_within_reach"]
+    end
+    subgraph tier_5["Tier 5"]
+        n94["AST_a_domestic_supply_chain"]
+        n95["AST_britain_supplying_ships"]
+        n96["AST_broken_hill_propietary_company"]
+        n97["AST_claim_french_indochina"]
+        n98["AST_done_meddling"]
+        n99["AST_expanding_into_new_markets"]
+        n100["AST_hand_in_glove"]
+        n101["AST_integrate_the_fort"]
+        n102["AST_northern_advancement"]
+        n103["AST_radium_hill"]
+        n104["AST_recovery"]
+        n105["AST_resist_western_intruders"]
+        n106["AST_the_manpower_directorate"]
+        n107["AST_through_the_gates"]
+        n108["AST_undeniably_ours"]
+    end
+    subgraph tier_6["Tier 6"]
+        n109["AST_crush_the_gates"]
+        n110["AST_dividing_the_pacific"]
+        n111["AST_expand_the_fort"]
+        n112["AST_soothing_australian_fears"]
+    end
+    subgraph tier_7["Tier 7"]
+        n113["AST_defying_american_interference"]
+    end
     n86 --> n94
-    n106 --> n94
-    n74 --> n95
-    n80 --> n96
-    n88 --> n97
-    n100 --> n97
-    n63 --> n98
-    n84 --> n99
-    n74 --> n99
-    n10 --> n100
-    n88 --> n101
-    n100 --> n101
-    n91 --> n102
-    n101 --> n102
-    n59 --> n103
-    n61 --> n104
-    n84 --> n105
-    n85 --> n106
-    n54 --> n107
-    n111 --> n108
-    n110 --> n109
-    n61 --> n110
-    n55 --> n111
-    n52 --> n112
-    n99 --> n113
-    n7 x--x n10
-    n10 x--x n46
-    n74 x--x n84
-    n86 x--x n106
-    n88 x--x n100
+    n88 --> n94
+    n51 --> n54
+    n68 --> n79
+    n77 --> n80
+    n51 --> n55
+    n53 --> n55
+    n53 --> n56
+    n63 --> n81
+    n55 --> n63
+    n70 --> n82
+    n89 --> n95
+    n60 --> n64
+    n93 --> n96
+    n89 --> n97
+    n92 --> n97
+    n70 --> n83
+    n107 --> n109
+    n110 --> n113
+    n111 --> n113
+    n58 --> n65
+    n102 --> n110
+    n105 --> n110
+    n89 --> n98
+    n92 --> n98
+    n63 --> n84
+    n53 --> n57
+    n102 --> n111
+    n105 --> n111
+    n85 --> n99
+    n52 --> n58
+    n56 --> n66
+    n65 --> n85
+    n73 --> n85
+    n59 --> n67
+    n89 --> n100
+    n55 --> n68
+    n59 --> n69
+    n58 --> n69
+    n59 --> n70
+    n58 --> n70
+    n87 --> n101
+    n90 --> n101
+    n67 --> n86
+    n52 --> n59
+    n57 --> n71
+    n71 --> n87
+    n87 --> n102
+    n90 --> n102
+    n2 --> n51
+    n2 --> n52
+    n4 --> n52
+    n93 --> n103
+    n51 --> n60
+    n82 --> n104
+    n88 --> n104
+    n61 --> n72
+    n57 --> n72
+    n87 --> n105
+    n90 --> n105
+    n58 --> n73
+    n69 --> n88
+    n51 --> n61
+    n53 --> n61
+    n97 --> n112
+    n59 --> n74
+    n58 --> n74
+    n2 --> n53
+    n51 --> n62
+    n53 --> n62
+    n60 --> n75
+    n62 --> n75
+    n82 --> n106
+    n64 --> n89
+    n59 --> n76
+    n71 --> n90
+    n80 --> n107
+    n77 --> n91
+    n92 --> n108
+    n64 --> n92
+    n55 --> n77
+    n54 --> n78
+    n74 --> n93
+    n1 x--x n2
+    n2 x--x n4
+    n58 x--x n59
+    n87 x--x n90
+    n51 x--x n53
 ```
 
 # AST_australian_military_forces
 
 ```mermaid
-flowchart TD
-    n114["AST_alice_springs"]
-    n115["AST_anti_malaria_campaign"]
-    n116["AST_anzac_spirit"]
-    n117["AST_army_inventions_directorate_taog"]
-    n118(("AST_australian_military_forces"))
-    n119["AST_australian_regular_army"]
-    n120["AST_call_that_a_knife"]
-    n121["AST_defence_citizen_military_forces_act"]
-    n122["AST_department_of_supply_and_development_taog"]
-    n123["AST_diggers"]
-    n124["AST_dingo_scout_car"]
-    n125["AST_establish_training_camps"]
-    n126["AST_invoke_the_1903_defence_act"]
-    n127["AST_larrikinism"]
-    n128["AST_lee_enfield_no1_mark3"]
-    n129["AST_lithgow_small_arms_factory"]
-    n130["AST_new_south_wales_government_railways"]
-    n131["AST_owen_gun"]
-    n132["AST_permanant_military_forces"]
-    n133["AST_second_australian_imperial_force"]
-    n134["AST_sentinel_tank_development"]
-    n135["AST_volunteer_defence_corps_taog"]
-    n136["AST_war_carriers"]
-    n137["AST_yeramba"]
-    n121 --> n114
-    n133 --> n115
-    n126 --> n116
-    n122 --> n117
-    n134 --> n119
-    n121 --> n119
-    n127 --> n120
-    n123 --> n120
-    n133 --> n121
-    n135 --> n121
-    n129 --> n122
-    n116 --> n123
-    n132 --> n124
-    n133 --> n125
-    n118 --> n126
-    n116 --> n127
-    n129 --> n128
-    n132 --> n129
-    n129 --> n130
-    n128 --> n131
-    n118 --> n132
-    n132 --> n133
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n114(("AST_australian_military_forces"))
+    end
+    subgraph tier_1["Tier 1"]
+        n115["AST_invoke_the_1903_defence_act"]
+        n116["AST_permanant_military_forces"]
+    end
+    subgraph tier_2["Tier 2"]
+        n117["AST_anzac_spirit"]
+        n118["AST_dingo_scout_car"]
+        n119["AST_lithgow_small_arms_factory"]
+        n120["AST_second_australian_imperial_force"]
+        n121["AST_volunteer_defence_corps_taog"]
+        n122["AST_war_carriers"]
+    end
+    subgraph tier_3["Tier 3"]
+        n123["AST_anti_malaria_campaign"]
+        n124["AST_defence_citizen_military_forces_act"]
+        n125["AST_department_of_supply_and_development_taog"]
+        n126["AST_diggers"]
+        n127["AST_establish_training_camps"]
+        n128["AST_larrikinism"]
+        n129["AST_lee_enfield_no1_mark3"]
+        n130["AST_new_south_wales_government_railways"]
+    end
+    subgraph tier_4["Tier 4"]
+        n131["AST_alice_springs"]
+        n132["AST_army_inventions_directorate_taog"]
+        n133["AST_call_that_a_knife"]
+        n134["AST_owen_gun"]
+        n135["AST_sentinel_tank_development"]
+    end
+    subgraph tier_5["Tier 5"]
+        n136["AST_australian_regular_army"]
+        n137["AST_yeramba"]
+    end
+    n124 --> n131
+    n120 --> n123
+    n115 --> n117
+    n125 --> n132
+    n135 --> n136
+    n124 --> n136
+    n128 --> n133
     n126 --> n133
-    n130 --> n134
-    n124 --> n134
-    n133 --> n134
-    n126 --> n135
-    n126 --> n136
-    n134 --> n137
+    n120 --> n124
+    n121 --> n124
+    n119 --> n125
+    n117 --> n126
+    n116 --> n118
+    n120 --> n127
+    n114 --> n115
+    n117 --> n128
+    n119 --> n129
+    n116 --> n119
+    n119 --> n130
+    n129 --> n134
+    n114 --> n116
+    n116 --> n120
+    n115 --> n120
+    n130 --> n135
+    n118 --> n135
+    n120 --> n135
+    n115 --> n121
+    n115 --> n122
+    n135 --> n137
 ```
 
 # AST_bring_on_the_giant
 
 ```mermaid
-flowchart TD
-    n138["AST_a_northern_barrier"]
-    n139["AST_allied_after_all"]
-    n140{"AST_bring_on_the_giant"}
-    n141["AST_conscription_at_last"]
-    n142["AST_demand_resources"]
-    n143["AST_equal_training"]
-    n144{"AST_inevitably_independent"}
-    n145["AST_pleading_britain"]
-    n146["AST_reclaim_the_lost_territory"]
-    n147["AST_the_pacific_resistance"]
-    n148["AST_the_ultimate_overseas_duty"]
-    n143 --> n138
-    n144 --> n139
-    n140 --> n139
-    n140 --> n141
-    n143 --> n142
-    n139 --> n143
-    n147 --> n143
-    n143 --> n146
-    n144 --> n147
-    n140 --> n147
-    n139 x--x n147
-    n140 x--x n144
-    n140 x--x n145
-    n140 x--x n148
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n138{"AST_bring_on_the_giant"}
+        n139{"AST_inevitably_independent"}
+        n140["AST_pleading_britain"]
+        n141["AST_the_ultimate_overseas_duty"]
+    end
+    subgraph tier_1["Tier 1"]
+        n142["AST_allied_after_all"]
+        n143["AST_conscription_at_last"]
+        n144["AST_the_pacific_resistance"]
+    end
+    subgraph tier_2["Tier 2"]
+        n145["AST_equal_training"]
+    end
+    subgraph tier_3["Tier 3"]
+        n146["AST_a_northern_barrier"]
+        n147["AST_demand_resources"]
+        n148["AST_reclaim_the_lost_territory"]
+    end
+    n145 --> n146
+    n139 --> n142
+    n138 --> n142
+    n138 --> n143
+    n145 --> n147
+    n142 --> n145
+    n144 --> n145
+    n145 --> n148
+    n139 --> n144
+    n138 --> n144
+    n142 x--x n144
+    n138 x--x n139
+    n138 x--x n140
+    n138 x--x n141
 ```
 
 # AST_british_war_cabinet
 
 ```mermaid
-flowchart TD
-    n149["AST_all_dressed_up"]
-    n150["AST_british_pacific_fleet"]
-    n151(("AST_british_war_cabinet"))
-    n152["AST_overseas_loyalties"]
-    n151 --> n149
-    n151 --> n150
-    n151 --> n152
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n149(("AST_british_war_cabinet"))
+    end
+    subgraph tier_1["Tier 1"]
+        n150["AST_all_dressed_up"]
+        n151["AST_british_pacific_fleet"]
+        n152["AST_overseas_loyalties"]
+    end
+    n149 --> n150
+    n149 --> n151
+    n149 --> n152
 ```
 
 # AST_inevitably_independent
 
 ```mermaid
-flowchart TD
-    n138["AST_a_northern_barrier"]
-    n139["AST_allied_after_all"]
-    n140{"AST_bring_on_the_giant"}
-    n142["AST_demand_resources"]
-    n143["AST_equal_training"]
-    n144{"AST_inevitably_independent"}
-    n145["AST_pleading_britain"]
-    n146["AST_reclaim_the_lost_territory"]
-    n147["AST_the_pacific_resistance"]
-    n148["AST_the_ultimate_overseas_duty"]
-    n143 --> n138
-    n144 --> n139
-    n140 --> n139
-    n143 --> n142
-    n139 --> n143
-    n147 --> n143
-    n143 --> n146
-    n144 --> n147
-    n140 --> n147
-    n139 x--x n147
-    n140 x--x n144
-    n144 x--x n145
-    n144 x--x n148
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n138{"AST_bring_on_the_giant"}
+        n139{"AST_inevitably_independent"}
+        n140["AST_pleading_britain"]
+        n141["AST_the_ultimate_overseas_duty"]
+    end
+    subgraph tier_1["Tier 1"]
+        n142["AST_allied_after_all"]
+        n144["AST_the_pacific_resistance"]
+    end
+    subgraph tier_2["Tier 2"]
+        n145["AST_equal_training"]
+    end
+    subgraph tier_3["Tier 3"]
+        n146["AST_a_northern_barrier"]
+        n147["AST_demand_resources"]
+        n148["AST_reclaim_the_lost_territory"]
+    end
+    n145 --> n146
+    n139 --> n142
+    n138 --> n142
+    n145 --> n147
+    n142 --> n145
+    n144 --> n145
+    n145 --> n148
+    n139 --> n144
+    n138 --> n144
+    n142 x--x n144
+    n138 x--x n139
+    n139 x--x n140
+    n139 x--x n141
 ```
 
 # AST_no1_flying_training_school
 
 ```mermaid
-flowchart TD
-    n153["AST_advanced_pilot_training"]
-    n154["AST_aerodrome_of_democracy"]
-    n155["AST_commonwealth_aircraft_corporation_taog"]
-    n156["AST_death_from_down_under_taog"]
-    n157["AST_department_of_aircraft_production"]
-    n158["AST_empire_air_training_scheme_taog"]
-    n159["AST_government_aircraft_factories"]
-    n160["AST_hear_the_thunder"]
-    n161["AST_improved_ground_crews"]
-    n162(("AST_no1_flying_training_school"))
-    n163["AST_reestablish_central_flying_school"]
-    n164["AST_ride_the_lightning"]
-    n165["AST_the_gathering_storm"]
-    n166["AST_volunteer_air_corps"]
-    n158 --> n153
-    n166 --> n154
-    n163 --> n154
-    n158 --> n155
-    n160 --> n156
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n153(("AST_no1_flying_training_school"))
+    end
+    subgraph tier_1["Tier 1"]
+        n154["AST_empire_air_training_scheme_taog"]
+    end
+    subgraph tier_2["Tier 2"]
+        n155["AST_advanced_pilot_training"]
+        n156["AST_commonwealth_aircraft_corporation_taog"]
+        n157["AST_improved_ground_crews"]
+        n158["AST_ride_the_lightning"]
+    end
+    subgraph tier_3["Tier 3"]
+        n159["AST_government_aircraft_factories"]
+        n160["AST_reestablish_central_flying_school"]
+        n161["AST_the_gathering_storm"]
+        n162["AST_volunteer_air_corps"]
+    end
+    subgraph tier_4["Tier 4"]
+        n163["AST_aerodrome_of_democracy"]
+        n164["AST_department_of_aircraft_production"]
+        n165["AST_hear_the_thunder"]
+    end
+    subgraph tier_5["Tier 5"]
+        n166["AST_death_from_down_under_taog"]
+    end
+    n154 --> n155
+    n162 --> n163
+    n160 --> n163
     n154 --> n156
-    n157 --> n156
-    n159 --> n157
-    n162 --> n158
-    n155 --> n159
-    n165 --> n160
+    n165 --> n166
+    n163 --> n166
+    n164 --> n166
+    n159 --> n164
+    n153 --> n154
+    n156 --> n159
+    n161 --> n165
+    n154 --> n157
+    n155 --> n160
+    n154 --> n158
     n158 --> n161
-    n153 --> n163
-    n158 --> n164
-    n164 --> n165
-    n161 --> n166
+    n157 --> n162
 ```
 
 # AST_no_foreign_battlefields
 
 ```mermaid
-flowchart TD
-    n4["AST_a_rational_request"]
-    n6["AST_administer_the_mandate"]
-    n167["AST_aerial_defense"]
-    n28(("AST_no_foreign_battlefields"))
-    n35["AST_ratify_westminster_adoption_act"]
-    n168["AST_volunteers"]
-    n50["AST_world_peace"]
-    n35 --> n4
-    n35 --> n6
-    n28 --> n167
-    n28 --> n35
-    n50 --> n35
-    n28 --> n168
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n3(("AST_no_foreign_battlefields"))
+        n8["AST_world_peace"]
+    end
+    subgraph tier_1["Tier 1"]
+        n167["AST_aerial_defense"]
+        n15["AST_ratify_westminster_adoption_act"]
+        n168["AST_volunteers"]
+    end
+    subgraph tier_2["Tier 2"]
+        n17["AST_a_rational_request"]
+        n18["AST_administer_the_mandate"]
+    end
+    n15 --> n17
+    n15 --> n18
+    n3 --> n167
+    n3 --> n15
+    n8 --> n15
+    n3 --> n168
 ```
 
 # AST_pleading_britain
 
 ```mermaid
-flowchart TD
-    n169["AST_a_change_of_authority"]
-    n170{"AST_an_uncle_for_father_figure"}
-    n140["AST_bring_on_the_giant"]
-    n171{"AST_ending_overseas_conscription"}
-    n144["AST_inevitably_independent"]
-    n172["AST_its_fight_work_or_perish"]
-    n145{"AST_pleading_britain"}
-    n173{"AST_reinforcements"}
-    n174["AST_seven_million_britishers"]
-    n175["AST_taking_the_helm"]
-    n148["AST_the_ultimate_overseas_duty"]
-    n176["AST_under_the_rule_of_canberra"]
-    n177["AST_we_endured"]
-    n175 --> n169
-    n145 --> n170
-    n145 --> n171
-    n177 --> n172
-    n174 --> n172
-    n145 --> n173
-    n145 --> n174
-    n176 --> n175
-    n148 --> n176
-    n145 --> n176
-    n173 --> n177
-    n171 --> n177
-    n170 --> n177
-    n140 x--x n145
-    n144 x--x n145
-    n145 x--x n148
-    n174 x--x n177
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n138["AST_bring_on_the_giant"]
+        n139["AST_inevitably_independent"]
+        n140{"AST_pleading_britain"}
+        n141["AST_the_ultimate_overseas_duty"]
+    end
+    subgraph tier_1["Tier 1"]
+        n169{"AST_an_uncle_for_father_figure"}
+        n170{"AST_ending_overseas_conscription"}
+        n171{"AST_reinforcements"}
+        n172["AST_seven_million_britishers"]
+        n173["AST_under_the_rule_of_canberra"]
+    end
+    subgraph tier_2["Tier 2"]
+        n174["AST_taking_the_helm"]
+        n175["AST_we_endured"]
+    end
+    subgraph tier_3["Tier 3"]
+        n176["AST_a_change_of_authority"]
+        n177["AST_its_fight_work_or_perish"]
+    end
+    n174 --> n176
+    n140 --> n169
+    n140 --> n170
+    n175 --> n177
+    n172 --> n177
+    n140 --> n171
+    n140 --> n172
+    n173 --> n174
+    n141 --> n173
+    n140 --> n173
+    n171 --> n175
+    n170 --> n175
+    n169 --> n175
+    n138 x--x n140
+    n139 x--x n140
+    n140 x--x n141
+    n172 x--x n175
 ```
 
 # AST_populate_or_perish
 
 ```mermaid
-flowchart TD
-    n178["AST_department_of_aboriginal_affairs"]
-    n179["AST_diverse_army"]
-    n180["AST_immediate_rights"]
-    n181{"AST_new_deal"}
-    n182["AST_northern_territory_reconnaissance_unit"]
-    n183(("AST_populate_or_perish"))
-    n184["AST_recruitment_drive"]
-    n185["AST_repeal_immigration_restrictions"]
-    n186["AST_torres_strait_battalion"]
-    n187["AST_womens_armed_services"]
-    n181 --> n178
-    n187 --> n179
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n178(("AST_populate_or_perish"))
+    end
+    subgraph tier_1["Tier 1"]
+        n179{"AST_new_deal"}
+        n180["AST_recruitment_drive"]
+        n181["AST_repeal_immigration_restrictions"]
+    end
+    subgraph tier_2["Tier 2"]
+        n182["AST_department_of_aboriginal_affairs"]
+        n183["AST_immediate_rights"]
+        n184["AST_northern_territory_reconnaissance_unit"]
+        n185["AST_torres_strait_battalion"]
+        n186["AST_womens_armed_services"]
+    end
+    subgraph tier_3["Tier 3"]
+        n187["AST_diverse_army"]
+    end
+    n179 --> n182
+    n186 --> n187
+    n182 --> n187
+    n183 --> n187
+    n179 --> n183
     n178 --> n179
-    n180 --> n179
-    n181 --> n180
-    n183 --> n181
-    n184 --> n182
-    n183 --> n184
-    n183 --> n185
-    n184 --> n186
-    n184 --> n187
-    n178 x--x n180
+    n180 --> n184
+    n178 --> n180
+    n178 --> n181
+    n180 --> n185
+    n180 --> n186
+    n182 x--x n183
 ```
 
 # AST_royal_australian_navy
 
 ```mermaid
-flowchart TD
-    n188["AST_coast_watchers"]
-    n189["AST_cockatoo_island_shipyards_taog"]
-    n190["AST_cruising_for_a_bruising"]
-    n191["AST_hmas_sydney"]
-    n192["AST_kangaroo_point_dry_dock_taog"]
-    n193["AST_marines"]
-    n194["AST_naval_auxiliary_patrol_taog"]
-    n195(("AST_royal_australian_navy"))
-    n196["AST_scrap_iron_flotilla_taog"]
-    n197["AST_strike_from_down_under"]
-    n195 --> n188
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n188(("AST_royal_australian_navy"))
+    end
+    subgraph tier_1["Tier 1"]
+        n189["AST_coast_watchers"]
+        n190["AST_marines"]
+        n191["AST_naval_auxiliary_patrol_taog"]
+    end
+    subgraph tier_2["Tier 2"]
+        n192["AST_cockatoo_island_shipyards_taog"]
+        n193["AST_kangaroo_point_dry_dock_taog"]
+    end
+    subgraph tier_3["Tier 3"]
+        n194["AST_cruising_for_a_bruising"]
+        n195["AST_scrap_iron_flotilla_taog"]
+        n196["AST_strike_from_down_under"]
+    end
+    subgraph tier_4["Tier 4"]
+        n197["AST_hmas_sydney"]
+    end
     n188 --> n189
-    n193 --> n189
-    n194 --> n189
-    n189 --> n190
-    n192 --> n190
-    n196 --> n191
-    n190 --> n191
-    n197 --> n191
-    n188 --> n192
-    n193 --> n192
-    n194 --> n192
-    n195 --> n193
-    n195 --> n194
-    n189 --> n196
+    n189 --> n192
+    n190 --> n192
+    n191 --> n192
+    n192 --> n194
+    n193 --> n194
+    n195 --> n197
+    n194 --> n197
+    n196 --> n197
+    n189 --> n193
+    n190 --> n193
+    n191 --> n193
+    n188 --> n190
+    n188 --> n191
+    n192 --> n195
+    n193 --> n195
     n192 --> n196
-    n189 --> n197
-    n192 --> n197
+    n193 --> n196
 ```
 
 # AST_solidarity_by_the_empire
 
 ```mermaid
-flowchart TD
-    n198["AST_australian_war_cabinet"]
-    n199["AST_singapore_strategy"]
-    n200(("AST_solidarity_by_the_empire"))
-    n201["AST_wool_agreement"]
-    n200 --> n198
-    n200 --> n199
-    n200 --> n201
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n198(("AST_solidarity_by_the_empire"))
+    end
+    subgraph tier_1["Tier 1"]
+        n199["AST_australian_war_cabinet"]
+        n200["AST_singapore_strategy"]
+        n201["AST_wool_agreement"]
+    end
+    n198 --> n199
+    n198 --> n200
+    n198 --> n201
 ```
 
 # AST_the_ultimate_overseas_duty
 
 ```mermaid
-flowchart TD
-    n169["AST_a_change_of_authority"]
-    n202["AST_australian_command"]
-    n203["AST_bound_once_more"]
-    n140["AST_bring_on_the_giant"]
-    n204["AST_eastern_focus"]
-    n205["AST_holding_the_battlefield"]
-    n144["AST_inevitably_independent"]
-    n145["AST_pleading_britain"]
-    n175["AST_taking_the_helm"]
-    n148(("AST_the_ultimate_overseas_duty"))
-    n176["AST_under_the_rule_of_canberra"]
-    n175 --> n169
-    n148 --> n202
-    n148 --> n203
-    n148 --> n204
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n138["AST_bring_on_the_giant"]
+        n139["AST_inevitably_independent"]
+        n140["AST_pleading_britain"]
+        n141(("AST_the_ultimate_overseas_duty"))
+    end
+    subgraph tier_1["Tier 1"]
+        n202["AST_australian_command"]
+        n203["AST_bound_once_more"]
+        n204["AST_eastern_focus"]
+        n173["AST_under_the_rule_of_canberra"]
+    end
+    subgraph tier_2["Tier 2"]
+        n205["AST_holding_the_battlefield"]
+        n174["AST_taking_the_helm"]
+    end
+    subgraph tier_3["Tier 3"]
+        n176["AST_a_change_of_authority"]
+    end
+    n174 --> n176
+    n141 --> n202
+    n141 --> n203
+    n141 --> n204
     n204 --> n205
     n202 --> n205
-    n176 --> n175
-    n148 --> n176
-    n145 --> n176
-    n140 x--x n148
-    n144 x--x n148
-    n145 x--x n148
+    n173 --> n174
+    n141 --> n173
+    n140 --> n173
+    n138 x--x n141
+    n139 x--x n141
+    n140 x--x n141
 ```
 
 # AST_until_the_tide_of_battle_swings
 
 ```mermaid
-flowchart TD
-    n206["AST_liberty_loans"]
-    n207["AST_united_states_as_our_keystone"]
-    n208(("AST_until_the_tide_of_battle_swings"))
-    n209["AST_walls_and_whispers"]
-    n208 --> n206
-    n208 --> n207
-    n208 --> n209
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n206(("AST_until_the_tide_of_battle_swings"))
+    end
+    subgraph tier_1["Tier 1"]
+        n207["AST_liberty_loans"]
+        n208["AST_united_states_as_our_keystone"]
+        n209["AST_walls_and_whispers"]
+    end
+    n206 --> n207
+    n206 --> n208
+    n206 --> n209
 ```
 
 # AST_war_is_coming
 
 ```mermaid
-flowchart TD
-    n210["AST_a_collapsing_league_of_nations"]
-    n211["AST_a_democratic_bulwark"]
-    n51["AST_a_domestic_supply_chain"]
-    n212["AST_advance_pacific_initiatives"]
-    n7["AST_against_war_and_fascism"]
-    n10["AST_australia_first"]
-    n59["AST_bring_home_the_farmers"]
-    n62["AST_broken_hill_propietary_company"]
-    n213["AST_call_for_a_referendum"]
-    n64["AST_council_for_scientific_and_industrial_research"]
-    n214["AST_department_of_munitions"]
-    n67["AST_devalued_currency"]
-    n215["AST_domestic_industry"]
-    n73["AST_expanding_into_new_markets"]
-    n74["AST_exports_for_economic_recovery"]
-    n76["AST_foreign_competition"]
-    n77["AST_goods_standard"]
-    n80["AST_income_tax_assessment_act"]
-    n81["AST_industrial_expansion"]
-    n83["AST_lang_is_right"]
-    n84["AST_lang_plan"]
-    n89{"AST_public_works"}
-    n90["AST_radium_hill"]
-    n92["AST_recovery"]
-    n95["AST_reverse_industry_tariffs"]
-    n96["AST_reverse_wage_cuts"]
-    n216["AST_rural_concessions"]
-    n99["AST_standard_gauge_line_to_darwin"]
-    n103["AST_the_manpower_directorate"]
-    n217["AST_the_pacific_pact"]
-    n105["AST_the_phosphate_commision"]
-    n46(("AST_war_is_coming"))
-    n113["AST_within_reach"]
-    n215 --> n210
-    n46 --> n211
-    n83 --> n51
-    n96 --> n51
-    n217 --> n212
-    n81 --> n59
-    n113 --> n62
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["AST_against_war_and_fascism"]
+        n2["AST_australia_first"]
+        n4(("AST_war_is_coming"))
+    end
+    subgraph tier_1["Tier 1"]
+        n210["AST_a_democratic_bulwark"]
+        n211["AST_domestic_industry"]
+        n52{"AST_public_works"}
+        n212["AST_the_pacific_pact"]
+    end
+    subgraph tier_2["Tier 2"]
+        n213["AST_a_collapsing_league_of_nations"]
+        n214["AST_advance_pacific_initiatives"]
+        n215["AST_call_for_a_referendum"]
+        n216["AST_department_of_munitions"]
+        n58["AST_exports_for_economic_recovery"]
+        n59["AST_lang_plan"]
+        n217["AST_rural_concessions"]
+    end
+    subgraph tier_3["Tier 3"]
+        n65["AST_devalued_currency"]
+        n67["AST_goods_standard"]
+        n69["AST_income_tax_assessment_act"]
+        n70["AST_industrial_expansion"]
+        n73["AST_reverse_industry_tariffs"]
+        n74["AST_standard_gauge_line_to_darwin"]
+        n76["AST_the_phosphate_commision"]
+    end
+    subgraph tier_4["Tier 4"]
+        n82["AST_bring_home_the_farmers"]
+        n83["AST_council_for_scientific_and_industrial_research"]
+        n85["AST_foreign_competition"]
+        n86["AST_lang_is_right"]
+        n88["AST_reverse_wage_cuts"]
+        n93["AST_within_reach"]
+    end
+    subgraph tier_5["Tier 5"]
+        n94["AST_a_domestic_supply_chain"]
+        n96["AST_broken_hill_propietary_company"]
+        n99["AST_expanding_into_new_markets"]
+        n103["AST_radium_hill"]
+        n104["AST_recovery"]
+        n106["AST_the_manpower_directorate"]
+    end
     n211 --> n213
-    n81 --> n64
-    n215 --> n214
-    n74 --> n67
-    n46 --> n215
-    n76 --> n73
-    n89 --> n74
-    n67 --> n76
-    n95 --> n76
-    n84 --> n77
-    n84 --> n80
-    n74 --> n80
-    n84 --> n81
-    n74 --> n81
-    n77 --> n83
-    n89 --> n84
-    n10 --> n89
-    n46 --> n89
-    n113 --> n90
-    n59 --> n92
-    n96 --> n92
-    n74 --> n95
-    n80 --> n96
+    n4 --> n210
+    n86 --> n94
+    n88 --> n94
+    n212 --> n214
+    n70 --> n82
+    n93 --> n96
+    n210 --> n215
+    n70 --> n83
     n211 --> n216
-    n84 --> n99
-    n74 --> n99
-    n59 --> n103
-    n46 --> n217
-    n84 --> n105
-    n99 --> n113
-    n7 x--x n46
-    n10 x--x n46
-    n74 x--x n84
+    n58 --> n65
+    n4 --> n211
+    n85 --> n99
+    n52 --> n58
+    n65 --> n85
+    n73 --> n85
+    n59 --> n67
+    n59 --> n69
+    n58 --> n69
+    n59 --> n70
+    n58 --> n70
+    n67 --> n86
+    n52 --> n59
+    n2 --> n52
+    n4 --> n52
+    n93 --> n103
+    n82 --> n104
+    n88 --> n104
+    n58 --> n73
+    n69 --> n88
+    n210 --> n217
+    n59 --> n74
+    n58 --> n74
+    n82 --> n106
+    n4 --> n212
+    n59 --> n76
+    n74 --> n93
+    n1 x--x n4
+    n2 x--x n4
+    n58 x--x n59
 ```

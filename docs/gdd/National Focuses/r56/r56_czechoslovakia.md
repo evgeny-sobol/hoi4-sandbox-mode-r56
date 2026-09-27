@@ -1,494 +1,582 @@
 # CZE_R56_devalue_the_koruna
 
 ```mermaid
-flowchart TD
-    n1["CZE_R56_allocate_funds_to_rop"]
-    n2["CZE_R56_chemical_industry_development"]
-    n3["CZE_R56_complete_the_dubnica_nad_vahom_munition_factory"]
-    n4["CZE_R56_czech_technical_university"]
-    n5(("CZE_R56_devalue_the_koruna"))
-    n6["CZE_R56_direct_praha_bratislava_railway_connection"]
-    n7["CZE_R56_eastern_urbanization_project"]
-    n8["CZE_R56_establish_new_uranium_mines"]
-    n9["CZE_R56_expand_heavy_industry"]
-    n10["CZE_R56_expand_the_commercial_tyre_production"]
-    n11["CZE_R56_expand_the_praha_ruzyne_airport"]
-    n12["CZE_R56_firearms_deliveries"]
-    n13["CZE_R56_fund_praga_plants"]
-    n14["CZE_R56_improve_highway_connections"]
-    n15["CZE_R56_nuclear_physics_institute"]
-    n16["CZE_R56_order_military_trucks"]
-    n17["CZE_R56_produce_the_slovenska_strela_railcars"]
-    n18["CZE_R56_prospect_for_new_resources"]
-    n19["CZE_R56_ramp_up_cement_production"]
-    n20["CZE_R56_rocket_research"]
-    n21["CZE_R56_secure_armament_contracts"]
-    n22["CZE_R56_support_consumer_goods_industry"]
-    n23["CZE_R56_support_strategic_industries"]
-    n24["CZE_armament_program"]
-    n25["CZE_armoured_cars"]
-    n26["CZE_artillery_focus"]
-    n27["CZE_czechoslovak_firearms"]
-    n28["CZE_explosives_production"]
-    n29["CZE_holek_brothers"]
-    n30["CZE_mechanized_units"]
-    n31["CZE_new_tank_design"]
-    n32["CZE_new_tanks"]
-    n33["CZE_poldi_steelworks"]
-    n34["CZE_revitalising_the_danube_flotilla"]
-    n35["CZE_the_central_role_of_artillery_citadels"]
-    n19 --> n1
-    n18 --> n2
-    n23 --> n3
-    n24 --> n3
-    n2 --> n4
-    n14 --> n6
-    n22 --> n7
-    n4 --> n8
-    n22 --> n9
-    n2 --> n10
-    n17 --> n10
-    n14 --> n11
-    n27 --> n12
-    n3 --> n12
-    n23 --> n13
-    n19 --> n14
-    n8 --> n15
-    n32 --> n16
-    n6 --> n17
-    n7 --> n18
-    n9 --> n18
-    n5 --> n19
-    n4 --> n20
-    n12 --> n21
-    n5 --> n22
-    n5 --> n23
-    n32 --> n25
-    n29 --> n25
-    n12 --> n26
-    n27 --> n26
-    n26 --> n28
-    n35 --> n28
-    n3 --> n29
-    n12 --> n29
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("CZE_R56_devalue_the_koruna"))
+        n2["CZE_armament_program"]
+        n3["CZE_czechoslovak_firearms"]
+        n4["CZE_revitalising_the_danube_flotilla"]
+        n5["CZE_the_central_role_of_artillery_citadels"]
+    end
+    subgraph tier_1["Tier 1"]
+        n6["CZE_R56_ramp_up_cement_production"]
+        n7["CZE_R56_support_consumer_goods_industry"]
+        n8["CZE_R56_support_strategic_industries"]
+        n9["CZE_poldi_steelworks"]
+    end
+    subgraph tier_2["Tier 2"]
+        n10["CZE_R56_allocate_funds_to_rop"]
+        n11["CZE_R56_complete_the_dubnica_nad_vahom_munition_factory"]
+        n12["CZE_R56_eastern_urbanization_project"]
+        n13["CZE_R56_expand_heavy_industry"]
+        n14["CZE_R56_fund_praga_plants"]
+        n15["CZE_R56_improve_highway_connections"]
+    end
+    subgraph tier_3["Tier 3"]
+        n16["CZE_R56_direct_praha_bratislava_railway_connection"]
+        n17["CZE_R56_expand_the_praha_ruzyne_airport"]
+        n18["CZE_R56_firearms_deliveries"]
+        n19["CZE_R56_prospect_for_new_resources"]
+        n20["CZE_new_tanks"]
+    end
+    subgraph tier_4["Tier 4"]
+        n21["CZE_R56_chemical_industry_development"]
+        n22["CZE_R56_order_military_trucks"]
+        n23["CZE_R56_produce_the_slovenska_strela_railcars"]
+        n24["CZE_R56_secure_armament_contracts"]
+        n25["CZE_artillery_focus"]
+        n26["CZE_holek_brothers"]
+    end
+    subgraph tier_5["Tier 5"]
+        n27["CZE_R56_czech_technical_university"]
+        n28["CZE_R56_expand_the_commercial_tyre_production"]
+        n29["CZE_armoured_cars"]
+        n30["CZE_explosives_production"]
+    end
+    subgraph tier_6["Tier 6"]
+        n31["CZE_R56_establish_new_uranium_mines"]
+        n32["CZE_R56_rocket_research"]
+        n33["CZE_mechanized_units"]
+        n34["CZE_new_tank_design"]
+    end
+    subgraph tier_7["Tier 7"]
+        n35["CZE_R56_nuclear_physics_institute"]
+    end
+    n6 --> n10
+    n19 --> n21
+    n8 --> n11
+    n2 --> n11
+    n21 --> n27
+    n15 --> n16
+    n7 --> n12
+    n27 --> n31
+    n7 --> n13
+    n21 --> n28
+    n23 --> n28
+    n15 --> n17
+    n3 --> n18
+    n11 --> n18
+    n8 --> n14
+    n6 --> n15
+    n31 --> n35
+    n20 --> n22
+    n16 --> n23
+    n12 --> n19
+    n13 --> n19
+    n1 --> n6
+    n27 --> n32
+    n18 --> n24
+    n1 --> n7
+    n1 --> n8
+    n20 --> n29
+    n26 --> n29
+    n18 --> n25
+    n3 --> n25
     n25 --> n30
-    n16 --> n31
-    n4 --> n31
-    n13 --> n32
-    n34 --> n33
-    n5 --> n33
+    n5 --> n30
+    n11 --> n26
+    n18 --> n26
+    n29 --> n33
+    n22 --> n34
+    n27 --> n34
+    n14 --> n20
+    n4 --> n9
+    n1 --> n9
 ```
 
 # CZE_czechoslovak_government_reform
 
 ```mermaid
-flowchart TD
-    n36["CZE_2nd_departnment"]
-    n37["CZE_acquire_access_for_soviets"]
-    n38{"CZE_ban_communism"}
-    n39{"CZE_boycott_press_law"}
-    n40["CZE_claims_bohemian_crown"]
-    n41["CZE_collectivize_farms"]
-    n42["CZE_collectivize_key_industries"]
-    n43["CZE_currency_reform"]
-    n44{"CZE_czech_fascism_onrise"}
-    n45{"CZE_czechoslovak_government_reform"}
-    n46["CZE_democratic_reforms"]
-    n47{"CZE_empower_internationalism"}
-    n48["CZE_expand_soviet_ties"]
-    n49["CZE_extend_military_service"]
-    n50["CZE_faction_research_exchange"]
-    n51["CZE_five_year_plan"]
-    n52["CZE_france_alliance"]
-    n53["CZE_handle_the_communist_power_grab"]
-    n54["CZE_infiltrate_abwehr"]
-    n55{"CZE_intelligence_service_defense"}
-    n56["CZE_intelligence_service_offense"]
-    n57["CZE_join_allies"]
-    n58["CZE_join_axis"]
-    n59["CZE_join_commitern"]
-    n60["CZE_levy_liechtenstein_properties"]
-    n61{"CZE_military_coup"}
-    n62{"CZE_national_unity_government"}
-    n63["CZE_nazi_puppet"]
-    n64{"CZE_partial_mobilization"}
-    n65["CZE_peoples_revolution"]
-    n66{"CZE_petition_league_of_nations"}
-    n67{"CZE_sokol_movement"}
-    n68["CZE_soviet_intelligence"]
-    n69["CZE_split_poland"]
-    n70{"CZE_state_defense_guard"}
-    n71{"CZE_state_defense_law"}
-    n72["CZE_strengthen_communism"]
-    n73["CZE_sudetenland_autonomy"]
-    n74["CZE_support_oster"]
-    n75["CZE_suppress_the_church"]
-    n76["CZE_together_against_berlin"]
-    n77["CZE_union_with_warsaw"]
-    n78["CZE_uranium_for_soviets"]
-    n79["CZE_zaolzie_for_alliance"]
-    n52 --> n36
-    n49 --> n36
-    n44 --> n38
-    n47 --> n39
-    n72 --> n41
-    n39 --> n42
-    n51 --> n43
-    n71 --> n44
-    n47 --> n46
-    n67 --> n46
-    n45 --> n47
-    n59 --> n48
-    n45 --> n49
-    n57 --> n50
-    n58 --> n50
-    n59 --> n50
-    n63 --> n50
-    n40 --> n50
-    n72 --> n51
-    n39 --> n53
-    n56 --> n54
-    n36 --> n55
-    n55 --> n56
-    n66 --> n57
-    n38 --> n58
-    n61 --> n58
-    n65 --> n59
-    n78 --> n59
-    n62 --> n60
-    n73 --> n60
-    n64 --> n61
-    n44 --> n61
-    n71 --> n62
-    n46 --> n62
-    n62 --> n63
-    n38 --> n63
-    n66 --> n63
-    n70 --> n64
-    n55 --> n64
-    n72 --> n65
-    n73 --> n66
-    n45 --> n67
-    n55 --> n68
-    n48 --> n69
-    n71 --> n70
-    n49 --> n70
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n36["CZE_acquire_access_for_soviets"]
+        n37["CZE_claims_bohemian_crown"]
+        n38{"CZE_czechoslovak_government_reform"}
+        n39["CZE_france_alliance"]
+    end
+    subgraph tier_1["Tier 1"]
+        n40{"CZE_empower_internationalism"}
+        n41["CZE_extend_military_service"]
+        n42{"CZE_sokol_movement"}
+    end
+    subgraph tier_2["Tier 2"]
+        n43["CZE_2nd_departnment"]
+        n44{"CZE_boycott_press_law"}
+        n45["CZE_democratic_reforms"]
+        n46{"CZE_state_defense_law"}
+    end
+    subgraph tier_3["Tier 3"]
+        n47["CZE_collectivize_key_industries"]
+        n48{"CZE_czech_fascism_onrise"}
+        n49["CZE_handle_the_communist_power_grab"]
+        n50{"CZE_intelligence_service_defense"}
+        n51{"CZE_national_unity_government"}
+        n52{"CZE_state_defense_guard"}
+        n53["CZE_strengthen_communism"]
+        n54["CZE_sudetenland_autonomy"]
+    end
+    subgraph tier_4["Tier 4"]
+        n55{"CZE_ban_communism"}
+        n56["CZE_collectivize_farms"]
+        n57["CZE_five_year_plan"]
+        n58["CZE_intelligence_service_offense"]
+        n59["CZE_levy_liechtenstein_properties"]
+        n60{"CZE_partial_mobilization"}
+        n61["CZE_peoples_revolution"]
+        n62{"CZE_petition_league_of_nations"}
+        n63["CZE_soviet_intelligence"]
+    end
+    subgraph tier_5["Tier 5"]
+        n64["CZE_currency_reform"]
+        n65["CZE_infiltrate_abwehr"]
+        n66["CZE_join_allies"]
+        n67{"CZE_military_coup"}
+        n68["CZE_nazi_puppet"]
+        n69["CZE_suppress_the_church"]
+        n70["CZE_uranium_for_soviets"]
+    end
+    subgraph tier_6["Tier 6"]
+        n71["CZE_join_axis"]
+        n72["CZE_join_commitern"]
+        n73["CZE_support_oster"]
+        n74["CZE_zaolzie_for_alliance"]
+    end
+    subgraph tier_7["Tier 7"]
+        n75["CZE_expand_soviet_ties"]
+        n76["CZE_faction_research_exchange"]
+        n77["CZE_together_against_berlin"]
+    end
+    subgraph tier_8["Tier 8"]
+        n78["CZE_split_poland"]
+    end
+    subgraph tier_9["Tier 9"]
+        n79["CZE_union_with_warsaw"]
+    end
+    n39 --> n43
+    n41 --> n43
+    n48 --> n55
+    n40 --> n44
+    n53 --> n56
+    n44 --> n47
+    n57 --> n64
+    n46 --> n48
+    n40 --> n45
+    n42 --> n45
+    n38 --> n40
+    n72 --> n75
+    n38 --> n41
+    n66 --> n76
+    n71 --> n76
+    n72 --> n76
+    n68 --> n76
+    n37 --> n76
+    n53 --> n57
+    n44 --> n49
+    n58 --> n65
+    n43 --> n50
+    n50 --> n58
+    n62 --> n66
+    n55 --> n71
     n67 --> n71
-    n39 --> n72
-    n46 --> n73
-    n54 --> n74
-    n41 --> n75
-    n79 --> n76
-    n69 --> n77
-    n68 --> n78
-    n37 --> n78
-    n61 --> n79
-    n38 --> n79
-    n38 x--x n61
-    n39 x--x n46
-    n44 x--x n64
-    n46 x--x n71
-    n47 x--x n67
-    n53 x--x n72
-    n58 x--x n63
-    n58 x--x n79
-    n61 x--x n68
+    n61 --> n72
+    n70 --> n72
+    n51 --> n59
+    n54 --> n59
+    n60 --> n67
+    n48 --> n67
+    n46 --> n51
+    n45 --> n51
+    n51 --> n68
+    n55 --> n68
+    n62 --> n68
+    n52 --> n60
+    n50 --> n60
+    n53 --> n61
+    n54 --> n62
+    n38 --> n42
+    n50 --> n63
+    n75 --> n78
+    n46 --> n52
+    n41 --> n52
+    n42 --> n46
+    n44 --> n53
+    n45 --> n54
+    n65 --> n73
+    n56 --> n69
+    n74 --> n77
+    n78 --> n79
+    n63 --> n70
+    n36 --> n70
+    n67 --> n74
+    n55 --> n74
+    n55 x--x n67
+    n44 x--x n45
+    n48 x--x n60
+    n45 x--x n46
+    n40 x--x n42
+    n49 x--x n53
+    n71 x--x n68
+    n71 x--x n74
+    n67 x--x n63
 ```
 
 # CZE_france_alliance
 
 ```mermaid
-flowchart TD
-    n36["CZE_2nd_departnment"]
-    n37["CZE_acquire_access_for_soviets"]
-    n38{"CZE_ban_communism"}
-    n40["CZE_claims_bohemian_crown"]
-    n44{"CZE_czech_fascism_onrise"}
-    n48["CZE_expand_soviet_ties"]
-    n49["CZE_extend_military_service"]
-    n50["CZE_faction_research_exchange"]
-    n52(("CZE_france_alliance"))
-    n80{"CZE_french_military_mission"}
-    n81["CZE_hungarian_alliance"]
-    n82["CZE_hungary_intervention"]
-    n54["CZE_infiltrate_abwehr"]
-    n55{"CZE_intelligence_service_defense"}
-    n56["CZE_intelligence_service_offense"]
-    n83{"CZE_invite_romania"}
-    n84{"CZE_invite_yugoslavia"}
-    n57["CZE_join_allies"]
-    n58["CZE_join_axis"]
-    n59["CZE_join_commitern"]
-    n61{"CZE_military_coup"}
-    n63["CZE_nazi_puppet"]
-    n64{"CZE_partial_mobilization"}
-    n65["CZE_peoples_revolution"]
-    n85["CZE_revive_little_entente"]
-    n68["CZE_soviet_intelligence"]
-    n86["CZE_soviet_treaties"]
-    n69["CZE_split_poland"]
-    n70{"CZE_state_defense_guard"}
-    n74["CZE_support_oster"]
-    n76["CZE_together_against_berlin"]
-    n77["CZE_union_with_warsaw"]
-    n78["CZE_uranium_for_soviets"]
-    n79["CZE_zaolzie_for_alliance"]
-    n52 --> n36
-    n49 --> n36
-    n82 --> n40
-    n81 --> n40
-    n59 --> n48
-    n57 --> n50
-    n58 --> n50
-    n59 --> n50
-    n63 --> n50
-    n40 --> n50
-    n52 --> n80
-    n83 --> n81
-    n84 --> n81
-    n83 --> n82
-    n84 --> n82
-    n56 --> n54
-    n36 --> n55
-    n55 --> n56
-    n85 --> n83
-    n85 --> n84
-    n38 --> n58
-    n61 --> n58
-    n65 --> n59
-    n78 --> n59
-    n64 --> n61
-    n44 --> n61
-    n70 --> n64
-    n55 --> n64
-    n80 --> n85
-    n55 --> n68
-    n48 --> n69
-    n54 --> n74
-    n79 --> n76
-    n69 --> n77
-    n68 --> n78
-    n37 --> n78
-    n61 --> n79
-    n38 --> n79
-    n38 x--x n61
-    n44 x--x n64
-    n81 x--x n82
-    n58 x--x n63
-    n58 x--x n79
-    n61 x--x n68
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n36["CZE_acquire_access_for_soviets"]
+        n55{"CZE_ban_communism"}
+        n48{"CZE_czech_fascism_onrise"}
+        n41["CZE_extend_military_service"]
+        n39(("CZE_france_alliance"))
+        n66["CZE_join_allies"]
+        n68["CZE_nazi_puppet"]
+        n61["CZE_peoples_revolution"]
+        n80["CZE_soviet_treaties"]
+        n52{"CZE_state_defense_guard"}
+    end
+    subgraph tier_1["Tier 1"]
+        n43["CZE_2nd_departnment"]
+        n81{"CZE_french_military_mission"}
+    end
+    subgraph tier_2["Tier 2"]
+        n50{"CZE_intelligence_service_defense"}
+        n82["CZE_revive_little_entente"]
+    end
+    subgraph tier_3["Tier 3"]
+        n58["CZE_intelligence_service_offense"]
+        n83{"CZE_invite_romania"}
+        n84{"CZE_invite_yugoslavia"}
+        n60{"CZE_partial_mobilization"}
+        n63["CZE_soviet_intelligence"]
+    end
+    subgraph tier_4["Tier 4"]
+        n85["CZE_hungarian_alliance"]
+        n86["CZE_hungary_intervention"]
+        n65["CZE_infiltrate_abwehr"]
+        n67{"CZE_military_coup"}
+        n70["CZE_uranium_for_soviets"]
+    end
+    subgraph tier_5["Tier 5"]
+        n37["CZE_claims_bohemian_crown"]
+        n71["CZE_join_axis"]
+        n72["CZE_join_commitern"]
+        n73["CZE_support_oster"]
+        n74["CZE_zaolzie_for_alliance"]
+    end
+    subgraph tier_6["Tier 6"]
+        n75["CZE_expand_soviet_ties"]
+        n76["CZE_faction_research_exchange"]
+        n77["CZE_together_against_berlin"]
+    end
+    subgraph tier_7["Tier 7"]
+        n78["CZE_split_poland"]
+    end
+    subgraph tier_8["Tier 8"]
+        n79["CZE_union_with_warsaw"]
+    end
+    n39 --> n43
+    n41 --> n43
+    n86 --> n37
+    n85 --> n37
+    n72 --> n75
+    n66 --> n76
+    n71 --> n76
+    n72 --> n76
+    n68 --> n76
+    n37 --> n76
+    n39 --> n81
+    n83 --> n85
+    n84 --> n85
+    n83 --> n86
+    n84 --> n86
+    n58 --> n65
+    n43 --> n50
+    n50 --> n58
+    n82 --> n83
+    n82 --> n84
+    n55 --> n71
+    n67 --> n71
+    n61 --> n72
+    n70 --> n72
+    n60 --> n67
+    n48 --> n67
+    n52 --> n60
+    n50 --> n60
+    n81 --> n82
+    n50 --> n63
+    n75 --> n78
+    n65 --> n73
+    n74 --> n77
+    n78 --> n79
+    n63 --> n70
+    n36 --> n70
+    n67 --> n74
+    n55 --> n74
+    n55 x--x n67
+    n48 x--x n60
     n85 x--x n86
+    n71 x--x n68
+    n71 x--x n74
+    n67 x--x n63
+    n82 x--x n80
 ```
 
 # CZE_ministry_of_defense
 
 ```mermaid
-flowchart TD
-    n87["CZE_R56_air_is_our_sea"]
-    n3["CZE_R56_complete_the_dubnica_nad_vahom_munition_factory"]
-    n88["CZE_R56_expand_aircraft_production"]
-    n89["CZE_R56_finish_the_masaryk_military_hospital"]
-    n12["CZE_R56_firearms_deliveries"]
-    n90["CZE_R56_heavy_fighter_experiments"]
-    n91["CZE_R56_new_bomber_prototypes"]
-    n21["CZE_R56_secure_armament_contracts"]
-    n23["CZE_R56_support_strategic_industries"]
-    n37["CZE_acquire_access_for_soviets"]
-    n92["CZE_advanced_aircraft_prototypes"]
-    n93["CZE_air_modernization"]
-    n94["CZE_an_armoured_army"]
-    n95["CZE_an_impregnable_wall"]
-    n24["CZE_armament_program"]
-    n25["CZE_armoured_cars"]
-    n26["CZE_artillery_focus"]
-    n96["CZE_border_brigades"]
-    n97["CZE_cas_focus"]
-    n40["CZE_claims_bohemian_crown"]
-    n98["CZE_complete_the_shift_towards_static_defence"]
-    n99["CZE_construct_additional_defence_lines"]
-    n100["CZE_czechoslovak_airforce"]
-    n27["CZE_czechoslovak_firearms"]
-    n101["CZE_engineer_corps"]
-    n48["CZE_expand_soviet_ties"]
-    n28["CZE_explosives_production"]
-    n102["CZE_extend_military_service_army"]
-    n50["CZE_faction_research_exchange"]
-    n103["CZE_fund_further_monoplane_experiments"]
-    n29["CZE_holek_brothers"]
-    n104["CZE_indirect_combat"]
-    n105["CZE_integrate_aspects_of_mobile_defence"]
-    n106["CZE_jet_engine_research"]
-    n57["CZE_join_allies"]
-    n58["CZE_join_axis"]
-    n59["CZE_join_commitern"]
-    n107["CZE_legacy_of_legions"]
-    n30["CZE_mechanized_units"]
-    n108{"CZE_military_education"}
-    n109{"CZE_military_maneuvers"}
-    n110["CZE_military_science_institute"]
-    n111(("CZE_ministry_of_defense"))
-    n112["CZE_mobile_army"]
-    n113["CZE_mobile_artillery"]
-    n63["CZE_nazi_puppet"]
-    n114["CZE_new_doctrines"]
-    n32["CZE_new_tanks"]
-    n115["CZE_paradesant_brigade"]
-    n65["CZE_peoples_revolution"]
-    n116["CZE_pilot_training"]
-    n117["CZE_prepare_new_plan"]
-    n118["CZE_reform_the_rop"]
-    n119["CZE_reorganize_general_staff"]
-    n120["CZE_repurpose_the_rop"]
-    n121["CZE_return_to_mobile_defence"]
-    n85["CZE_revive_little_entente"]
-    n68["CZE_soviet_intelligence"]
-    n86["CZE_soviet_treaties"]
-    n69["CZE_split_poland"]
-    n35["CZE_the_central_role_of_artillery_citadels"]
-    n122["CZE_the_legacy_of_kaiserjagers"]
-    n123["CZE_the_new_sturmbaons"]
-    n77["CZE_union_with_warsaw"]
-    n78["CZE_uranium_for_soviets"]
-    n124["CZE_walter_engines"]
-    n108 --> n87
-    n23 --> n3
-    n24 --> n3
-    n100 --> n88
-    n116 --> n88
-    n111 --> n89
-    n27 --> n12
-    n3 --> n12
-    n103 --> n90
-    n124 --> n91
-    n12 --> n21
-    n86 --> n37
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n8["CZE_R56_support_strategic_industries"]
+        n37["CZE_claims_bohemian_crown"]
+        n66["CZE_join_allies"]
+        n71["CZE_join_axis"]
+        n87(("CZE_ministry_of_defense"))
+        n68["CZE_nazi_puppet"]
+        n20["CZE_new_tanks"]
+        n61["CZE_peoples_revolution"]
+        n82["CZE_revive_little_entente"]
+        n63["CZE_soviet_intelligence"]
+    end
+    subgraph tier_1["Tier 1"]
+        n88["CZE_R56_finish_the_masaryk_military_hospital"]
+        n2["CZE_armament_program"]
+        n89["CZE_legacy_of_legions"]
+        n90{"CZE_military_education"}
+        n91["CZE_reorganize_general_staff"]
+    end
+    subgraph tier_2["Tier 2"]
+        n92["CZE_R56_air_is_our_sea"]
+        n11["CZE_R56_complete_the_dubnica_nad_vahom_munition_factory"]
+        n3["CZE_czechoslovak_firearms"]
+        n93{"CZE_military_maneuvers"}
+        n94["CZE_military_science_institute"]
+        n80["CZE_soviet_treaties"]
+    end
+    subgraph tier_3["Tier 3"]
+        n18["CZE_R56_firearms_deliveries"]
+        n36["CZE_acquire_access_for_soviets"]
+        n95["CZE_complete_the_shift_towards_static_defence"]
+        n96["CZE_czechoslovak_airforce"]
+        n97["CZE_pilot_training"]
+        n98["CZE_return_to_mobile_defence"]
+    end
+    subgraph tier_4["Tier 4"]
+        n99["CZE_R56_expand_aircraft_production"]
+        n24["CZE_R56_secure_armament_contracts"]
+        n25["CZE_artillery_focus"]
+        n100["CZE_border_brigades"]
+        n101["CZE_extend_military_service_army"]
+        n26["CZE_holek_brothers"]
+        n102["CZE_integrate_aspects_of_mobile_defence"]
+        n103["CZE_mobile_army"]
+        n5["CZE_the_central_role_of_artillery_citadels"]
+        n70["CZE_uranium_for_soviets"]
+        n104["CZE_walter_engines"]
+    end
+    subgraph tier_5["Tier 5"]
+        n105["CZE_R56_new_bomber_prototypes"]
+        n29["CZE_armoured_cars"]
+        n106["CZE_construct_additional_defence_lines"]
+        n107["CZE_engineer_corps"]
+        n30["CZE_explosives_production"]
+        n108["CZE_fund_further_monoplane_experiments"]
+        n109["CZE_indirect_combat"]
+        n72["CZE_join_commitern"]
+        n110["CZE_new_doctrines"]
+        n111["CZE_prepare_new_plan"]
+        n112["CZE_reform_the_rop"]
+        n113["CZE_the_new_sturmbaons"]
+    end
+    subgraph tier_6["Tier 6"]
+        n114["CZE_R56_heavy_fighter_experiments"]
+        n115["CZE_an_impregnable_wall"]
+        n116["CZE_cas_focus"]
+        n75["CZE_expand_soviet_ties"]
+        n76["CZE_faction_research_exchange"]
+        n33["CZE_mechanized_units"]
+        n117["CZE_repurpose_the_rop"]
+        n118["CZE_the_legacy_of_kaiserjagers"]
+    end
+    subgraph tier_7["Tier 7"]
+        n119["CZE_advanced_aircraft_prototypes"]
+        n120["CZE_air_modernization"]
+        n121["CZE_mobile_artillery"]
+        n122["CZE_paradesant_brigade"]
+        n78["CZE_split_poland"]
+    end
+    subgraph tier_8["Tier 8"]
+        n123["CZE_an_armoured_army"]
+        n124["CZE_jet_engine_research"]
+        n79["CZE_union_with_warsaw"]
+    end
     n90 --> n92
-    n91 --> n92
+    n8 --> n11
+    n2 --> n11
+    n96 --> n99
+    n97 --> n99
+    n87 --> n88
+    n3 --> n18
+    n11 --> n18
+    n108 --> n114
+    n104 --> n105
+    n18 --> n24
+    n80 --> n36
+    n114 --> n119
+    n105 --> n119
+    n105 --> n120
+    n114 --> n120
+    n121 --> n123
+    n118 --> n123
+    n112 --> n115
+    n106 --> n115
+    n87 --> n2
+    n20 --> n29
+    n26 --> n29
+    n18 --> n25
+    n3 --> n25
+    n95 --> n100
+    n98 --> n100
+    n109 --> n116
+    n99 --> n116
+    n93 --> n95
+    n102 --> n106
+    n92 --> n96
+    n2 --> n3
+    n100 --> n107
+    n72 --> n75
+    n25 --> n30
+    n5 --> n30
+    n95 --> n101
+    n66 --> n76
+    n71 --> n76
+    n72 --> n76
+    n68 --> n76
+    n37 --> n76
+    n104 --> n108
+    n99 --> n108
+    n11 --> n26
+    n18 --> n26
+    n103 --> n109
+    n95 --> n102
+    n119 --> n124
+    n61 --> n72
+    n70 --> n72
+    n87 --> n89
+    n29 --> n33
+    n87 --> n90
+    n89 --> n93
     n91 --> n93
     n90 --> n93
-    n113 --> n94
-    n122 --> n94
-    n118 --> n95
-    n99 --> n95
-    n111 --> n24
-    n32 --> n25
-    n29 --> n25
-    n12 --> n26
-    n27 --> n26
-    n98 --> n96
-    n121 --> n96
-    n104 --> n97
-    n88 --> n97
-    n109 --> n98
-    n105 --> n99
-    n87 --> n100
-    n24 --> n27
-    n96 --> n101
-    n59 --> n48
-    n26 --> n28
-    n35 --> n28
-    n98 --> n102
-    n57 --> n50
-    n58 --> n50
-    n59 --> n50
-    n63 --> n50
-    n40 --> n50
-    n124 --> n103
-    n88 --> n103
-    n3 --> n29
-    n12 --> n29
-    n112 --> n104
-    n98 --> n105
-    n92 --> n106
-    n65 --> n59
-    n78 --> n59
-    n111 --> n107
-    n25 --> n30
-    n111 --> n108
-    n107 --> n109
-    n119 --> n109
-    n108 --> n109
-    n108 --> n110
-    n121 --> n112
-    n120 --> n113
-    n96 --> n114
-    n91 --> n115
-    n90 --> n115
-    n87 --> n116
-    n96 --> n117
-    n105 --> n118
-    n111 --> n119
-    n104 --> n120
-    n109 --> n121
-    n108 --> n86
-    n48 --> n69
-    n98 --> n35
-    n123 --> n122
-    n96 --> n123
-    n112 --> n123
-    n69 --> n77
-    n68 --> n78
-    n37 --> n78
-    n100 --> n124
-    n98 x--x n121
-    n85 x--x n86
+    n90 --> n94
+    n98 --> n103
+    n117 --> n121
+    n100 --> n110
+    n105 --> n122
+    n114 --> n122
+    n92 --> n97
+    n100 --> n111
+    n102 --> n112
+    n87 --> n91
+    n109 --> n117
+    n93 --> n98
+    n90 --> n80
+    n75 --> n78
+    n95 --> n5
+    n113 --> n118
+    n100 --> n113
+    n103 --> n113
+    n78 --> n79
+    n63 --> n70
+    n36 --> n70
+    n96 --> n104
+    n95 x--x n98
+    n82 x--x n80
 ```
 
 # CZE_revitalising_the_danube_flotilla
 
 ```mermaid
-flowchart TD
-    n5["CZE_R56_devalue_the_koruna"]
-    n125["CZE_a_matter_of_prestige"]
-    n126["CZE_a_new_strategy"]
-    n127["CZE_aero_carrier_fighters"]
-    n128{"CZE_begin_building_the_radetzky_battleship"}
-    n129["CZE_build_the_ersatz_huszar_destroyers"]
-    n130["CZE_contesting_the_adriatic"]
-    n131["CZE_focus_on_u-boats"]
-    n132["CZE_heavy_fighter_cover"]
-    n133["CZE_mediterrenean_wolfpacks"]
-    n134["CZE_modern_anti-torpedo_protection"]
-    n135["CZE_modernize_the_whitehead_torpedo"]
-    n136["CZE_naval_bomber_focus"]
-    n137["CZE_our_battleship_fleet"]
-    n138["CZE_our_own_aircraft_carrier"]
-    n33["CZE_poldi_steelworks"]
-    n139["CZE_quiet_and_deadly"]
-    n140["CZE_radar_instalations_in_dalmatia"]
-    n141["CZE_rebuild_our_navy"]
-    n142{"CZE_return_to_the_coastline"}
-    n143["CZE_return_to_the_fleet_in_being_doctrine"]
-    n34(("CZE_revitalising_the_danube_flotilla"))
-    n144["CZE_shkoda_heavy_cannons"]
-    n145["CZE_unrestricted_submarine_warfare"]
-    n143 --> n125
-    n142 --> n126
-    n138 --> n127
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["CZE_R56_devalue_the_koruna"]
+        n4(("CZE_revitalising_the_danube_flotilla"))
+    end
+    subgraph tier_1["Tier 1"]
+        n9["CZE_poldi_steelworks"]
+        n125{"CZE_return_to_the_coastline"}
+        n126["CZE_shkoda_heavy_cannons"]
+    end
+    subgraph tier_2["Tier 2"]
+        n127["CZE_a_new_strategy"]
+        n128["CZE_rebuild_our_navy"]
+    end
+    subgraph tier_3["Tier 3"]
+        n129["CZE_build_the_ersatz_huszar_destroyers"]
+        n130["CZE_modernize_the_whitehead_torpedo"]
+        n131["CZE_naval_bomber_focus"]
+        n132["CZE_return_to_the_fleet_in_being_doctrine"]
+    end
+    subgraph tier_4["Tier 4"]
+        n133["CZE_a_matter_of_prestige"]
+        n134["CZE_focus_on_u-boats"]
+        n135["CZE_modern_anti-torpedo_protection"]
+    end
+    subgraph tier_5["Tier 5"]
+        n136{"CZE_begin_building_the_radetzky_battleship"}
+        n137["CZE_contesting_the_adriatic"]
+        n138["CZE_unrestricted_submarine_warfare"]
+    end
+    subgraph tier_6["Tier 6"]
+        n139["CZE_our_battleship_fleet"]
+        n140["CZE_our_own_aircraft_carrier"]
+        n141["CZE_quiet_and_deadly"]
+    end
+    subgraph tier_7["Tier 7"]
+        n142["CZE_aero_carrier_fighters"]
+        n143["CZE_heavy_fighter_cover"]
+        n144["CZE_mediterrenean_wolfpacks"]
+        n145["CZE_radar_instalations_in_dalmatia"]
+    end
+    n132 --> n133
+    n125 --> n127
+    n140 --> n142
+    n133 --> n136
+    n127 --> n129
+    n135 --> n137
+    n134 --> n137
+    n133 --> n137
+    n129 --> n134
+    n139 --> n143
+    n141 --> n144
+    n130 --> n135
+    n127 --> n130
+    n128 --> n130
+    n127 --> n131
+    n136 --> n139
+    n136 --> n140
+    n4 --> n9
+    n1 --> n9
+    n138 --> n141
+    n140 --> n145
+    n139 --> n145
     n125 --> n128
-    n126 --> n129
-    n134 --> n130
-    n131 --> n130
-    n125 --> n130
-    n129 --> n131
-    n137 --> n132
-    n139 --> n133
-    n135 --> n134
-    n126 --> n135
-    n141 --> n135
-    n126 --> n136
-    n128 --> n137
-    n128 --> n138
-    n34 --> n33
-    n5 --> n33
-    n145 --> n139
-    n138 --> n140
-    n137 --> n140
-    n142 --> n141
-    n34 --> n142
-    n141 --> n143
-    n34 --> n144
-    n131 --> n145
-    n126 x--x n141
-    n137 x--x n138
+    n4 --> n125
+    n128 --> n132
+    n4 --> n126
+    n134 --> n138
+    n127 x--x n128
+    n139 x--x n140
 ```

@@ -1,6 +1,8 @@
 # (no focuses parsed)
 
 ```mermaid
-flowchart TD
-    empty["(no focuses parsed)"]
+swimlane-beta TD
+    subgraph tier_0["(no focuses parsed)"]
+        empty["(no focuses parsed)"]
+    end
 ```

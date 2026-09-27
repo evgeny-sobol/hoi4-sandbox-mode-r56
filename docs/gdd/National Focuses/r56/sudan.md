@@ -1,160 +1,208 @@
 # SUD_assessing_our_future
 
 ```mermaid
-flowchart TD
-    n1["SUD_ansar_nationalism"]
-    n2{"SUD_assessing_our_future"}
-    n3["SUD_embrace_modernity"]
-    n4["SUD_enforce_atheism"]
-    n5["SUD_galvanize_the_khatmiyya_movement"]
-    n6["SUD_industrial_modernization"]
-    n7{"SUD_invite_the_mahdists"}
-    n8["SUD_join_comintern"]
-    n9["SUD_join_the_axis"]
-    n10["SUD_liberate_the_holy_land"]
-    n11["SUD_marxist_pan_islamism"]
-    n12{"SUD_mass_strikes"}
-    n13["SUD_neo_mahdist_government"]
-    n14["SUD_red_army"]
-    n15["SUD_redistribution_of_wealth"]
-    n16["SUD_secure_africa"]
-    n17["SUD_secure_international_protection"]
-    n18["SUD_secure_parlementarianism"]
-    n19["SUD_secure_security_ministers"]
-    n20["SUD_steel_production_plan"]
-    n21{"SUD_strengthen_national_unity"}
-    n22["SUD_strike_against_the_opressors"]
-    n23["SUD_support_the_spanish_republic"]
-    n24["SUD_the_well_guided"]
-    n25{"SUD_tip_the_balance_of_power"}
-    n26["SUD_topple_the_empire"]
-    n27["SUD_undermine_theocracy"]
-    n28["SUD_unite_the_opposition"]
-    n2 --> n1
-    n28 --> n3
-    n25 --> n4
-    n21 --> n5
-    n19 --> n6
-    n18 --> n6
-    n1 --> n7
-    n28 --> n7
-    n4 --> n8
-    n11 --> n8
-    n24 --> n9
-    n24 --> n10
-    n25 --> n11
-    n27 --> n12
-    n21 --> n13
-    n7 --> n13
-    n11 --> n14
-    n4 --> n14
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"SUD_assessing_our_future"}
+    end
+    subgraph tier_1["Tier 1"]
+        n2["SUD_ansar_nationalism"]
+        n3["SUD_unite_the_opposition"]
+    end
+    subgraph tier_2["Tier 2"]
+        n4["SUD_embrace_modernity"]
+        n5{"SUD_invite_the_mahdists"}
+        n6{"SUD_strengthen_national_unity"}
+        n7["SUD_undermine_theocracy"]
+    end
+    subgraph tier_3["Tier 3"]
+        n8["SUD_galvanize_the_khatmiyya_movement"]
+        n9{"SUD_mass_strikes"}
+        n10["SUD_neo_mahdist_government"]
+    end
+    subgraph tier_4["Tier 4"]
+        n11["SUD_secure_parlementarianism"]
+        n12["SUD_secure_security_ministers"]
+        n13["SUD_support_the_spanish_republic"]
+        n14["SUD_the_well_guided"]
+    end
+    subgraph tier_5["Tier 5"]
+        n15["SUD_industrial_modernization"]
+        n16["SUD_join_the_axis"]
+        n17["SUD_liberate_the_holy_land"]
+        n18["SUD_secure_international_protection"]
+        n19{"SUD_tip_the_balance_of_power"}
+    end
+    subgraph tier_6["Tier 6"]
+        n20["SUD_enforce_atheism"]
+        n21["SUD_marxist_pan_islamism"]
+        n22["SUD_steel_production_plan"]
+    end
+    subgraph tier_7["Tier 7"]
+        n23["SUD_join_comintern"]
+        n24["SUD_red_army"]
+        n25["SUD_redistribution_of_wealth"]
+    end
+    subgraph tier_8["Tier 8"]
+        n26["SUD_strike_against_the_opressors"]
+    end
+    subgraph tier_9["Tier 9"]
+        n27["SUD_secure_africa"]
+    end
+    subgraph tier_10["Tier 10"]
+        n28["SUD_topple_the_empire"]
+    end
+    n1 --> n2
+    n3 --> n4
+    n19 --> n20
+    n6 --> n8
+    n12 --> n15
     n11 --> n15
-    n4 --> n15
-    n22 --> n16
-    n10 --> n16
-    n18 --> n17
-    n12 --> n18
+    n2 --> n5
+    n3 --> n5
+    n20 --> n23
+    n21 --> n23
+    n14 --> n16
+    n14 --> n17
+    n19 --> n21
+    n7 --> n9
+    n6 --> n10
+    n5 --> n10
+    n21 --> n24
+    n20 --> n24
+    n21 --> n25
+    n20 --> n25
+    n26 --> n27
+    n17 --> n27
+    n11 --> n18
+    n9 --> n11
+    n9 --> n12
+    n15 --> n22
+    n2 --> n6
+    n14 --> n26
+    n24 --> n26
+    n9 --> n13
+    n8 --> n14
     n12 --> n19
-    n6 --> n20
-    n1 --> n21
-    n24 --> n22
-    n14 --> n22
-    n12 --> n23
-    n5 --> n24
-    n19 --> n25
-    n16 --> n26
-    n28 --> n27
-    n2 --> n28
-    n1 x--x n28
-    n4 x--x n11
-    n5 x--x n13
-    n18 x--x n19
+    n27 --> n28
+    n3 --> n7
+    n1 --> n3
+    n2 x--x n3
+    n20 x--x n21
+    n8 x--x n10
+    n11 x--x n12
 ```
 
 # SUD_develop_capitalstate
 
 ```mermaid
-flowchart TD
-    n29["SUD_American_Air"]
-    n30["SUD_Autarky"]
-    n31["SUD_Automobile"]
-    n32["SUD_Civilian_One"]
-    n33["SUD_Civilian_Two"]
-    n34["SUD_Excavation"]
-    n35["SUD_Futher_Investments"]
-    n36["SUD_Licences"]
-    n37{"SUD_Military_Buildup"}
-    n38["SUD_Refinery"]
-    n39["SUD_Research"]
-    n40["SUD_Soviet_Heavy_Industry"]
-    n41(("SUD_develop_capitalstate"))
-    n42["SUD_german_heavy_industry_expansion"]
-    n43["SUD_gold_mining"]
-    n44["SUD_improve_the_road_network"]
-    n45["SUD_invite_american_investors"]
-    n46["SUD_invite_german_investors"]
-    n47["SUD_invite_soviet_planners"]
-    n45 --> n29
-    n34 --> n30
-    n45 --> n31
-    n46 --> n31
-    n47 --> n31
-    n44 --> n32
-    n32 --> n33
-    n33 --> n34
-    n43 --> n34
-    n45 --> n35
-    n46 --> n35
-    n47 --> n35
-    n29 --> n36
-    n42 --> n36
-    n40 --> n36
-    n41 --> n37
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n29(("SUD_develop_capitalstate"))
+    end
+    subgraph tier_1["Tier 1"]
+        n30{"SUD_Military_Buildup"}
+        n31["SUD_gold_mining"]
+        n32["SUD_improve_the_road_network"]
+    end
+    subgraph tier_2["Tier 2"]
+        n33["SUD_Civilian_One"]
+        n34["SUD_invite_american_investors"]
+        n35["SUD_invite_german_investors"]
+        n36["SUD_invite_soviet_planners"]
+    end
+    subgraph tier_3["Tier 3"]
+        n37["SUD_American_Air"]
+        n38["SUD_Automobile"]
+        n39["SUD_Civilian_Two"]
+        n40["SUD_Futher_Investments"]
+        n41["SUD_Soviet_Heavy_Industry"]
+        n42["SUD_german_heavy_industry_expansion"]
+    end
+    subgraph tier_4["Tier 4"]
+        n43["SUD_Excavation"]
+        n44["SUD_Licences"]
+        n45["SUD_Research"]
+    end
+    subgraph tier_5["Tier 5"]
+        n46["SUD_Autarky"]
+        n47["SUD_Refinery"]
+    end
+    n34 --> n37
+    n43 --> n46
     n34 --> n38
-    n39 --> n38
+    n35 --> n38
+    n36 --> n38
+    n32 --> n33
     n33 --> n39
-    n47 --> n40
-    n46 --> n42
-    n41 --> n43
+    n39 --> n43
+    n31 --> n43
+    n34 --> n40
+    n35 --> n40
+    n36 --> n40
+    n37 --> n44
+    n42 --> n44
     n41 --> n44
-    n37 --> n45
-    n37 --> n46
-    n37 --> n47
-    n45 x--x n46
-    n45 x--x n47
-    n46 x--x n47
+    n29 --> n30
+    n43 --> n47
+    n45 --> n47
+    n39 --> n45
+    n36 --> n41
+    n35 --> n42
+    n29 --> n31
+    n29 --> n32
+    n30 --> n34
+    n30 --> n35
+    n30 --> n36
+    n34 x--x n35
+    n34 x--x n36
+    n35 x--x n36
 ```
 
 # SUD_the_sudanese_armed_forces
 
 ```mermaid
-flowchart TD
-    n48{"SUD_capital_military_academy"}
-    n49["SUD_develop_indigenous_models"]
-    n50{"SUD_encourage_local_arms_production"}
-    n51["SUD_field_piece_research"]
-    n52{"SUD_improve_our_weaponary"}
-    n53["SUD_legacy_of_the_mahdist_war"]
-    n54["SUD_metal_beasts"]
-    n55["SUD_modern_infantry"]
-    n56["SUD_names_finest"]
-    n57["SUD_rearm_the_defence_force"]
-    n58["SUD_reform_the_conscription"]
-    n59["SUD_the_steel_lions"]
-    n60(("SUD_the_sudanese_armed_forces"))
-    n51 --> n48
-    n50 --> n49
-    n51 --> n50
-    n53 --> n51
-    n57 --> n51
-    n60 --> n52
-    n52 --> n53
-    n48 --> n54
-    n49 --> n55
-    n53 --> n56
-    n52 --> n57
-    n57 --> n58
-    n54 --> n59
-    n49 x--x n54
-    n53 x--x n57
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n48(("SUD_the_sudanese_armed_forces"))
+    end
+    subgraph tier_1["Tier 1"]
+        n49{"SUD_improve_our_weaponary"}
+    end
+    subgraph tier_2["Tier 2"]
+        n50["SUD_legacy_of_the_mahdist_war"]
+        n51["SUD_rearm_the_defence_force"]
+    end
+    subgraph tier_3["Tier 3"]
+        n52["SUD_field_piece_research"]
+        n53["SUD_names_finest"]
+        n54["SUD_reform_the_conscription"]
+    end
+    subgraph tier_4["Tier 4"]
+        n55{"SUD_capital_military_academy"}
+        n56{"SUD_encourage_local_arms_production"}
+    end
+    subgraph tier_5["Tier 5"]
+        n57["SUD_develop_indigenous_models"]
+        n58["SUD_metal_beasts"]
+    end
+    subgraph tier_6["Tier 6"]
+        n59["SUD_modern_infantry"]
+        n60["SUD_the_steel_lions"]
+    end
+    n52 --> n55
+    n56 --> n57
+    n52 --> n56
+    n50 --> n52
+    n51 --> n52
+    n48 --> n49
+    n49 --> n50
+    n55 --> n58
+    n57 --> n59
+    n50 --> n53
+    n49 --> n51
+    n51 --> n54
+    n58 --> n60
+    n57 x--x n58
+    n50 x--x n51
 ```

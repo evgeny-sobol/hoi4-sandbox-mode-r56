@@ -1,1077 +1,1253 @@
 # POL_assemble_the_regency_council
 
 ```mermaid
-flowchart TD
-    n1["POL_LIT_union"]
-    n2["POL_ROM_join_allies"]
-    n3["POL_align_with_habsburgs"]
-    n4["POL_arm_monarchist_militants"]
-    n5(("POL_assemble_the_regency_council"))
-    n6["POL_assert_eastern_claims_pavel"]
-    n7["POL_assert_western_claims"]
-    n8["POL_claim_greater_lithuania"]
-    n9{"POL_claim_livonia"}
-    n10["POL_claim_prussia"]
-    n11["POL_claim_russia"]
-    n12["POL_claiming_lithuania"]
-    n13["POL_complete_april_constitution"]
-    n14["POL_complete_the_bermontian_mission"]
-    n15["POL_cossack_king"]
-    n16["POL_demand_LIT_pavel"]
-    n17["POL_demand_pomerania"]
-    n18["POL_demand_slovakia"]
-    n19["POL_demand_slovakia_monarchy"]
-    n20{"POL_demand_slovakia_pavel"}
-    n21{"POL_demand_yugoslav_subjugation"}
-    n22["POL_expand_lithuanian_shipyards"]
-    n23{"POL_fulfil_fifth_of_november"}
-    n24{"POL_governorate_livonia"}
-    n25["POL_greater_commonwealth"]
-    n26["POL_habsburg"]
-    n27["POL_habsburg_monarchist_militants"]
-    n28["POL_hohenzollern"]
-    n29["POL_institute_royal_guards"]
-    n30["POL_internal_romanian_support"]
-    n31["POL_invite_exiled_nobility"]
-    n32["POL_join_CZE_industry"]
-    n33["POL_join_CZE_military"]
-    n34["POL_join_CZE_rails"]
-    n35["POL_king_michaels_coup"]
-    n36["POL_king_of_bohemia"]
-    n37["POL_king_of_lithuania"]
-    n38["POL_kings_guard"]
-    n39["POL_levy_liechtenstein_properties"]
-    n40["POL_lithuanian_rail"]
-    n41["POL_merge_civilian_industries"]
-    n42{"POL_merge_internal_governments"}
-    n43["POL_merge_the_arms_industries"]
-    n44["POL_organize_the_peasants_strike"]
-    n45["POL_pan_slavism"]
-    n46["POL_press_the_habsburg_claim"]
-    n47["POL_pro_allied_government"]
-    n48["POL_proclaim_slavic_unity"]
-    n49["POL_push_for_ruthenia"]
-    n50["POL_radicalize_the_front"]
-    n51["POL_reclaim_west_slavia"]
-    n52["POL_restoration_of_the_royal_sejm"]
-    n53["POL_restore_bermontians"]
-    n54["POL_restore_poland_hungary"]
-    n55["POL_restore_the_diet_of_galicia"]
-    n56["POL_rewrite_1935_constitution"]
-    n57["POL_romanov"]
-    n58["POL_royal_dictatorship"]
-    n59["POL_royal_hussars"]
-    n60{"POL_royal_officer_corps"}
-    n61["POL_seek_an_alliance_with_kaiser"]
-    n62["POL_seek_german_alignment"]
-    n63["POL_soldier_king"]
-    n64["POL_support_monarchism_in_LIT"]
-    n65["POL_support_monarchy_in_CZE"]
-    n66["POL_trust_in_the_west"]
-    n67["POL_unite_west_slavia"]
-    n68["POL_warsaw_to_crimea_railway"]
-    n37 --> n1
-    n16 --> n1
-    n47 --> n2
-    n60 --> n3
-    n64 --> n4
-    n30 --> n4
-    n62 --> n6
-    n20 --> n7
-    n24 --> n7
-    n9 --> n8
-    n1 --> n9
-    n37 --> n9
-    n4 --> n9
-    n9 --> n10
-    n24 --> n11
-    n20 --> n11
-    n21 --> n11
-    n23 --> n12
-    n17 --> n14
-    n6 --> n14
-    n23 --> n15
-    n53 --> n16
-    n31 --> n16
-    n7 --> n17
-    n11 --> n17
-    n58 --> n18
-    n67 --> n19
-    n16 --> n20
-    n45 --> n21
-    n16 --> n21
-    n1 --> n22
-    n5 --> n23
-    n16 --> n24
-    n8 --> n25
-    n10 --> n25
-    n23 --> n26
-    n65 --> n27
-    n59 --> n27
-    n23 --> n28
-    n52 --> n29
-    n28 --> n30
-    n52 --> n30
-    n57 --> n31
-    n67 --> n32
-    n32 --> n33
-    n34 --> n33
-    n67 --> n34
-    n30 --> n35
-    n4 --> n35
-    n65 --> n36
-    n59 --> n36
-    n64 --> n37
-    n29 --> n37
-    n63 --> n38
-    n26 --> n39
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("POL_assemble_the_regency_council"))
+        n2["POL_complete_april_constitution"]
+        n3["POL_organize_the_peasants_strike"]
+        n4["POL_radicalize_the_front"]
+        n5["POL_rewrite_1935_constitution"]
+    end
+    subgraph tier_1["Tier 1"]
+        n6{"POL_fulfil_fifth_of_november"}
+        n7["POL_seek_an_alliance_with_kaiser"]
+    end
+    subgraph tier_2["Tier 2"]
+        n8["POL_claiming_lithuania"]
+        n9["POL_cossack_king"]
+        n10["POL_habsburg"]
+        n11["POL_hohenzollern"]
+        n12["POL_romanov"]
+    end
+    subgraph tier_3["Tier 3"]
+        n13["POL_invite_exiled_nobility"]
+        n14["POL_levy_liechtenstein_properties"]
+        n15["POL_restoration_of_the_royal_sejm"]
+        n16["POL_restore_bermontians"]
+        n17["POL_restore_the_diet_of_galicia"]
+        n18["POL_soldier_king"]
+    end
+    subgraph tier_4["Tier 4"]
+        n19["POL_demand_LIT_pavel"]
+        n20["POL_institute_royal_guards"]
+        n21["POL_internal_romanian_support"]
+        n22["POL_kings_guard"]
+        n23["POL_pan_slavism"]
+        n24["POL_royal_hussars"]
+        n25["POL_support_monarchism_in_LIT"]
+        n26["POL_support_monarchy_in_CZE"]
+    end
+    subgraph tier_5["Tier 5"]
+        n27["POL_arm_monarchist_militants"]
+        n28{"POL_demand_slovakia_pavel"}
+        n29{"POL_demand_yugoslav_subjugation"}
+        n30{"POL_governorate_livonia"}
+        n31["POL_habsburg_monarchist_militants"]
+        n32["POL_king_of_bohemia"]
+        n33["POL_king_of_lithuania"]
+        n34["POL_press_the_habsburg_claim"]
+        n35{"POL_royal_officer_corps"}
+    end
+    subgraph tier_6["Tier 6"]
+        n36["POL_LIT_union"]
+        n37["POL_align_with_habsburgs"]
+        n38["POL_assert_western_claims"]
+        n39["POL_claim_russia"]
+        n40["POL_king_michaels_coup"]
+        n41["POL_seek_german_alignment"]
+        n42["POL_trust_in_the_west"]
+        n43["POL_unite_west_slavia"]
+    end
+    subgraph tier_7["Tier 7"]
+        n44["POL_assert_eastern_claims_pavel"]
+        n45{"POL_claim_livonia"}
+        n46["POL_demand_pomerania"]
+        n47["POL_demand_slovakia_monarchy"]
+        n48["POL_expand_lithuanian_shipyards"]
+        n49["POL_join_CZE_industry"]
+        n50["POL_join_CZE_rails"]
+        n51["POL_lithuanian_rail"]
+        n52{"POL_merge_internal_governments"}
+        n53["POL_reclaim_west_slavia"]
+    end
+    subgraph tier_8["Tier 8"]
+        n54["POL_claim_greater_lithuania"]
+        n55["POL_claim_prussia"]
+        n56["POL_complete_the_bermontian_mission"]
+        n57["POL_join_CZE_military"]
+        n58["POL_merge_the_arms_industries"]
+        n59["POL_pro_allied_government"]
+        n60["POL_proclaim_slavic_unity"]
+        n61["POL_push_for_ruthenia"]
+        n62["POL_royal_dictatorship"]
+    end
+    subgraph tier_9["Tier 9"]
+        n63["POL_ROM_join_allies"]
+        n64["POL_demand_slovakia"]
+        n65["POL_greater_commonwealth"]
+        n66["POL_merge_civilian_industries"]
+        n67["POL_warsaw_to_crimea_railway"]
+    end
+    subgraph tier_10["Tier 10"]
+        n68["POL_restore_poland_hungary"]
+    end
+    n33 --> n36
+    n19 --> n36
+    n59 --> n63
+    n35 --> n37
+    n25 --> n27
+    n21 --> n27
+    n41 --> n44
+    n28 --> n38
+    n30 --> n38
+    n45 --> n54
+    n36 --> n45
+    n33 --> n45
+    n27 --> n45
+    n45 --> n55
+    n30 --> n39
     n28 --> n39
-    n1 --> n40
-    n43 --> n41
-    n35 --> n42
-    n40 --> n43
-    n31 --> n45
+    n29 --> n39
+    n6 --> n8
+    n46 --> n56
+    n44 --> n56
+    n6 --> n9
+    n16 --> n19
+    n13 --> n19
     n38 --> n46
-    n42 --> n47
-    n9 --> n47
-    n11 --> n48
-    n17 --> n48
-    n40 --> n49
-    n3 --> n51
-    n66 --> n51
-    n67 --> n51
-    n12 --> n52
-    n28 --> n52
-    n15 --> n53
-    n18 --> n54
-    n26 --> n55
-    n23 --> n57
-    n42 --> n58
-    n55 --> n59
-    n63 --> n59
-    n38 --> n60
-    n5 --> n61
-    n20 --> n62
-    n24 --> n62
-    n26 --> n63
-    n52 --> n64
-    n12 --> n64
+    n39 --> n46
+    n62 --> n64
+    n43 --> n47
+    n19 --> n28
+    n23 --> n29
+    n19 --> n29
+    n36 --> n48
+    n1 --> n6
+    n19 --> n30
+    n54 --> n65
     n55 --> n65
-    n60 --> n66
-    n36 --> n67
-    n27 --> n67
-    n49 --> n68
-    n3 x--x n66
-    n5 x--x n13
-    n5 x--x n44
-    n5 x--x n50
-    n5 x--x n56
-    n7 x--x n11
-    n7 x--x n62
-    n11 x--x n62
-    n12 x--x n15
-    n12 x--x n26
-    n12 x--x n28
-    n12 x--x n57
-    n15 x--x n26
-    n15 x--x n28
-    n15 x--x n57
-    n26 x--x n28
-    n26 x--x n57
-    n28 x--x n57
-    n47 x--x n58
+    n6 --> n10
+    n26 --> n31
+    n24 --> n31
+    n6 --> n11
+    n15 --> n20
+    n11 --> n21
+    n15 --> n21
+    n12 --> n13
+    n43 --> n49
+    n49 --> n57
+    n50 --> n57
+    n43 --> n50
+    n21 --> n40
+    n27 --> n40
+    n26 --> n32
+    n24 --> n32
+    n25 --> n33
+    n20 --> n33
+    n18 --> n22
+    n10 --> n14
+    n11 --> n14
+    n36 --> n51
+    n58 --> n66
+    n40 --> n52
+    n51 --> n58
+    n13 --> n23
+    n22 --> n34
+    n52 --> n59
+    n45 --> n59
+    n39 --> n60
+    n46 --> n60
+    n51 --> n61
+    n37 --> n53
+    n42 --> n53
+    n43 --> n53
+    n8 --> n15
+    n11 --> n15
+    n9 --> n16
+    n64 --> n68
+    n10 --> n17
+    n6 --> n12
+    n52 --> n62
+    n17 --> n24
+    n18 --> n24
+    n22 --> n35
+    n1 --> n7
+    n28 --> n41
+    n30 --> n41
+    n10 --> n18
+    n15 --> n25
+    n8 --> n25
+    n17 --> n26
+    n35 --> n42
+    n32 --> n43
+    n31 --> n43
+    n61 --> n67
+    n37 x--x n42
+    n1 x--x n2
+    n1 x--x n3
+    n1 x--x n4
+    n1 x--x n5
+    n38 x--x n39
+    n38 x--x n41
+    n39 x--x n41
+    n8 x--x n9
+    n8 x--x n10
+    n8 x--x n11
+    n8 x--x n12
+    n9 x--x n10
+    n9 x--x n11
+    n9 x--x n12
+    n10 x--x n11
+    n10 x--x n12
+    n11 x--x n12
+    n59 x--x n62
 ```
 
 # POL_clamp_down_on_danzig
 
 ```mermaid
-flowchart TD
-    n69["POL_High_Frequency_Radio_Detection"]
-    n70["POL_Maritime_Defense_Fund"]
-    n71["POL_Maritime_and_Colonial_League"]
-    n72{"POL_Naval_Officers_School"}
-    n73["POL_River_Flotillas"]
-    n74["POL_a_cruiser_navy"]
-    n75["POL_attract_poles_to_gdynia"]
-    n76["POL_baltic_navy"]
-    n77["POL_ban_the_nazi_party"]
-    n78(("POL_clamp_down_on_danzig"))
-    n79["POL_coastal_defense"]
-    n80["POL_commerce_attack"]
-    n81["POL_develop_gdansk_ship_building"]
-    n82["POL_develop_polish_ship_building"]
-    n83["POL_expand_gdynia_seaport"]
-    n84{"POL_import_submarine_technology"}
-    n85["POL_integrate_gdansk_industries"]
-    n86["POL_strike_force"]
-    n87["POL_study_foreign_built_ships"]
-    n72 --> n69
-    n85 --> n70
-    n83 --> n70
-    n74 --> n71
-    n85 --> n72
-    n83 --> n72
-    n79 --> n73
-    n72 --> n74
-    n86 --> n76
-    n79 --> n76
-    n78 --> n77
-    n72 --> n79
-    n84 --> n79
-    n84 --> n80
-    n77 --> n81
-    n75 --> n83
-    n87 --> n83
-    n85 --> n84
-    n83 --> n84
-    n77 --> n85
-    n72 --> n86
-    n84 --> n86
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n69["POL_attract_poles_to_gdynia"]
+        n70(("POL_clamp_down_on_danzig"))
+        n71["POL_develop_polish_ship_building"]
+    end
+    subgraph tier_1["Tier 1"]
+        n72["POL_ban_the_nazi_party"]
+        n73["POL_study_foreign_built_ships"]
+    end
+    subgraph tier_2["Tier 2"]
+        n74["POL_develop_gdansk_ship_building"]
+        n75["POL_expand_gdynia_seaport"]
+        n76["POL_integrate_gdansk_industries"]
+    end
+    subgraph tier_3["Tier 3"]
+        n77["POL_Maritime_Defense_Fund"]
+        n78{"POL_Naval_Officers_School"}
+        n79{"POL_import_submarine_technology"}
+    end
+    subgraph tier_4["Tier 4"]
+        n80["POL_High_Frequency_Radio_Detection"]
+        n81["POL_a_cruiser_navy"]
+        n82["POL_coastal_defense"]
+        n83["POL_commerce_attack"]
+        n84["POL_strike_force"]
+    end
+    subgraph tier_5["Tier 5"]
+        n85["POL_Maritime_and_Colonial_League"]
+        n86["POL_River_Flotillas"]
+        n87["POL_baltic_navy"]
+    end
+    n78 --> n80
+    n76 --> n77
+    n75 --> n77
+    n81 --> n85
+    n76 --> n78
+    n75 --> n78
+    n82 --> n86
+    n78 --> n81
+    n84 --> n87
     n82 --> n87
-    n78 --> n87
-    n78 x--x n82
-    n79 x--x n86
+    n70 --> n72
+    n78 --> n82
+    n79 --> n82
+    n79 --> n83
+    n72 --> n74
+    n69 --> n75
+    n73 --> n75
+    n76 --> n79
+    n75 --> n79
+    n72 --> n76
+    n78 --> n84
+    n79 --> n84
+    n71 --> n73
+    n70 --> n73
+    n70 x--x n71
+    n82 x--x n84
 ```
 
 # POL_complete_april_constitution
 
 ```mermaid
-flowchart TD
-    n88["POL_Align_With_Japan"]
-    n89["POL_Align_With_Kaiserreich"]
-    n90["POL_Army_Modernisation"]
-    n91{"POL_Budget_Reform"}
-    n92["POL_Consolidate_The_Nationalist_Wing"]
-    n93["POL_Defensive_Focus"]
-    n94["POL_Devalue_Zloty"]
-    n95["POL_Finnish_Guarantee"]
-    n96["POL_Found_Our_Own_Faction"]
-    n97["POL_Fund_The_Promethean_Program"]
-    n98{"POL_Interventionist_Foreign_Policy"}
-    n99["POL_Invite_Hungary"]
-    n100["POL_Invite_Sweden"]
-    n101["POL_Invite_Yugoslavia"]
-    n102["POL_Minsk_Or_War"]
-    n103{"POL_Polish_Czechoslovakian_Alliance"}
-    n104["POL_Polish_German_Trade_Agreement"]
-    n105{"POL_Polish_Revanchism"}
-    n106["POL_Prepare_For_The_upcoming_conflict"]
-    n107["POL_Pressure_Czechoslovakia"]
-    n108["POL_Re_Expand_The_Military"]
-    n109["POL_Reaffirm_Ties_With_Romania"]
-    n110["POL_Sarny_Fortified_Area"]
-    n111["POL_Silesia_Or_War"]
-    n112["POL_The_Baltic_Alliance"]
-    n113["POL_The_Endecja_Movement"]
-    n114["POL_The_Front_Morges"]
-    n115["POL_The_Intermarium"]
-    n116{"POL_Third_Europe"}
-    n117["POL_Universalism"]
-    n118{"POL_align_with_the_west"}
-    n5["POL_assemble_the_regency_council"]
-    n119["POL_baltic_alliance_focus"]
-    n120["POL_baltic_security"]
-    n121["POL_baltic_ultimatums"]
-    n122{"POL_camp_of_national_unity"}
-    n123["POL_codify_national_unity"]
-    n124{"POL_common_organization_of_society"}
-    n13(("POL_complete_april_constitution"))
-    n125["POL_consolidate_sanation_government"]
-    n126["POL_department_for_home_defence"]
-    n127{"POL_dissolve_the_bbwr"}
-    n128["POL_dissolve_the_sejm"]
-    n129["POL_draft_a_new_constitution"]
-    n130["POL_eliminate_socialist_parties"]
-    n131["POL_invite_romania_to_morges"]
-    n132["POL_invite_ukraine"]
-    n133["POL_join_allies"]
-    n134["POL_legion_of_merit"]
-    n135["POL_lithuanian_alliance"]
-    n136{"POL_lithuanian_annexation"}
-    n137["POL_lithuanian_ultimatum"]
-    n138["POL_modus_vivendi"]
-    n139["POL_morges_economic_union"]
-    n44["POL_organize_the_peasants_strike"]
-    n140{"POL_ozon"}
-    n141["POL_pan_slavic_revanchism"]
-    n142["POL_polish_militarism"]
-    n143["POL_preserve_baltic_independence"]
-    n144["POL_preserve_bougoise_democracy"]
-    n145["POL_press_for_liberia"]
-    n146["POL_promote_chemical_industry"]
-    n147["POL_protect_czechozlovakia"]
-    n50["POL_radicalize_the_front"]
-    n148["POL_reopen_the_maritime_and_colonial_league"]
-    n56["POL_rewrite_1935_constitution"]
-    n149["POL_romanian_alliance"]
-    n150["POL_romanian_bridgehead_strategy"]
-    n151["POL_sea_to_sea"]
-    n152{"POL_second_man_of_the_state"}
-    n153["POL_support_right_paramilitaries"]
-    n154{"POL_the_castle"}
-    n155["POL_the_left_chairman"]
-    n156["POL_the_neighbours_protection"]
-    n157["POL_the_old_borders"]
-    n158{"POL_the_sanation_left"}
-    n159{"POL_the_sanation_right"}
-    n127 --> n89
-    n152 --> n90
-    n154 --> n91
-    n113 --> n92
-    n125 --> n92
-    n114 --> n93
-    n158 --> n93
-    n152 --> n94
-    n91 --> n94
-    n100 --> n95
-    n149 --> n95
-    n115 --> n95
-    n115 --> n97
-    n96 --> n97
-    n88 --> n97
-    n116 --> n99
-    n117 --> n99
-    n115 --> n101
-    n96 --> n101
-    n97 --> n102
-    n155 --> n104
-    n92 --> n105
-    n155 --> n106
-    n141 --> n107
-    n117 --> n107
-    n106 --> n108
-    n125 --> n109
-    n150 --> n110
-    n116 --> n111
-    n117 --> n111
-    n116 --> n112
-    n127 --> n115
-    n98 --> n115
-    n103 --> n116
-    n122 --> n116
-    n140 --> n116
-    n105 --> n116
-    n103 --> n116
-    n122 --> n118
-    n127 --> n118
-    n140 --> n118
-    n120 --> n119
-    n115 --> n119
-    n127 --> n120
-    n116 --> n121
-    n136 --> n121
-    n91 --> n122
-    n152 --> n122
-    n159 --> n123
-    n155 --> n124
-    n142 --> n125
-    n159 --> n126
-    n124 --> n127
-    n130 --> n128
-    n158 --> n129
-    n154 --> n130
-    n139 --> n131
-    n143 --> n131
-    n115 --> n132
-    n118 --> n133
-    n158 --> n134
-    n137 --> n135
-    n118 --> n136
-    n116 --> n136
-    n118 --> n137
-    n158 --> n138
-    n152 --> n140
-    n116 --> n141
-    n13 --> n142
-    n144 --> n143
-    n93 --> n144
-    n98 --> n144
-    n91 --> n146
-    n120 --> n147
-    n115 --> n147
-    n145 --> n148
-    n144 --> n148
-    n147 --> n149
-    n133 --> n150
-    n121 --> n151
-    n157 --> n151
-    n159 --> n152
-    n159 --> n153
-    n125 --> n154
-    n158 --> n155
-    n116 --> n156
-    n141 --> n157
-    n125 --> n158
-    n125 --> n159
-    n89 x--x n115
-    n91 x--x n152
-    n91 x--x n155
-    n112 x--x n121
-    n116 x--x n118
-    n116 x--x n120
-    n118 x--x n120
-    n5 x--x n13
-    n122 x--x n127
-    n122 x--x n140
-    n123 x--x n129
-    n13 x--x n44
-    n13 x--x n50
-    n13 x--x n56
-    n127 x--x n140
-    n136 x--x n137
-    n152 x--x n155
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n88["POL_Align_With_Japan"]
+        n89["POL_Found_Our_Own_Faction"]
+        n90{"POL_Interventionist_Foreign_Policy"}
+        n91["POL_Invite_Sweden"]
+        n92{"POL_Polish_Czechoslovakian_Alliance"}
+        n93["POL_The_Endecja_Movement"]
+        n94["POL_The_Front_Morges"]
+        n95["POL_Universalism"]
+        n1["POL_assemble_the_regency_council"]
+        n2(("POL_complete_april_constitution"))
+        n96["POL_morges_economic_union"]
+        n3["POL_organize_the_peasants_strike"]
+        n97["POL_press_for_liberia"]
+        n4["POL_radicalize_the_front"]
+        n5["POL_rewrite_1935_constitution"]
+    end
+    subgraph tier_1["Tier 1"]
+        n98["POL_Invite_Hungary"]
+        n99["POL_Pressure_Czechoslovakia"]
+        n100["POL_Silesia_Or_War"]
+        n101["POL_polish_militarism"]
+    end
+    subgraph tier_2["Tier 2"]
+        n102["POL_consolidate_sanation_government"]
+    end
+    subgraph tier_3["Tier 3"]
+        n103["POL_Consolidate_The_Nationalist_Wing"]
+        n104["POL_Reaffirm_Ties_With_Romania"]
+        n105{"POL_the_castle"}
+        n106{"POL_the_sanation_left"}
+        n107{"POL_the_sanation_right"}
+    end
+    subgraph tier_4["Tier 4"]
+        n108{"POL_Budget_Reform"}
+        n109["POL_Defensive_Focus"]
+        n110{"POL_Polish_Revanchism"}
+        n111["POL_codify_national_unity"]
+        n112["POL_department_for_home_defence"]
+        n113["POL_draft_a_new_constitution"]
+        n114["POL_eliminate_socialist_parties"]
+        n115["POL_legion_of_merit"]
+        n116["POL_modus_vivendi"]
+        n117{"POL_second_man_of_the_state"}
+        n118["POL_support_right_paramilitaries"]
+        n119["POL_the_left_chairman"]
+    end
+    subgraph tier_5["Tier 5"]
+        n120["POL_Army_Modernisation"]
+        n121["POL_Devalue_Zloty"]
+        n122["POL_Polish_German_Trade_Agreement"]
+        n123["POL_Prepare_For_The_upcoming_conflict"]
+        n124{"POL_camp_of_national_unity"}
+        n125{"POL_common_organization_of_society"}
+        n126["POL_dissolve_the_sejm"]
+        n127{"POL_ozon"}
+        n128["POL_preserve_bougoise_democracy"]
+        n129["POL_promote_chemical_industry"]
+    end
+    subgraph tier_6["Tier 6"]
+        n130["POL_Re_Expand_The_Military"]
+        n131{"POL_Third_Europe"}
+        n132{"POL_dissolve_the_bbwr"}
+        n133["POL_preserve_baltic_independence"]
+        n134["POL_reopen_the_maritime_and_colonial_league"]
+    end
+    subgraph tier_7["Tier 7"]
+        n135["POL_Align_With_Kaiserreich"]
+        n136["POL_The_Intermarium"]
+        n137{"POL_align_with_the_west"}
+        n138["POL_baltic_security"]
+        n139["POL_invite_romania_to_morges"]
+    end
+    subgraph tier_8["Tier 8"]
+        n140["POL_Fund_The_Promethean_Program"]
+        n141["POL_Invite_Yugoslavia"]
+        n142["POL_baltic_alliance_focus"]
+        n143["POL_invite_ukraine"]
+        n144["POL_join_allies"]
+        n145{"POL_lithuanian_annexation"}
+        n146["POL_lithuanian_ultimatum"]
+        n147["POL_protect_czechozlovakia"]
+    end
+    subgraph tier_9["Tier 9"]
+        n148["POL_Minsk_Or_War"]
+        n149["POL_lithuanian_alliance"]
+        n150["POL_romanian_alliance"]
+        n151["POL_romanian_bridgehead_strategy"]
+    end
+    subgraph tier_10["Tier 10"]
+        n152["POL_Finnish_Guarantee"]
+        n153["POL_Sarny_Fortified_Area"]
+    end
+    subgraph tier_unplaced["Unplaced (cycle)"]
+        n154["POL_The_Baltic_Alliance"]
+        n155["POL_baltic_ultimatums"]
+        n156["POL_pan_slavic_revanchism"]
+        n157["POL_sea_to_sea"]
+        n158["POL_the_neighbours_protection"]
+        n159["POL_the_old_borders"]
+    end
+    n132 --> n135
+    n117 --> n120
+    n105 --> n108
+    n93 --> n103
+    n102 --> n103
+    n94 --> n109
+    n106 --> n109
+    n117 --> n121
+    n108 --> n121
+    n91 --> n152
+    n150 --> n152
+    n136 --> n152
+    n136 --> n140
+    n89 --> n140
+    n88 --> n140
+    n131 --> n98
+    n95 --> n98
+    n136 --> n141
+    n89 --> n141
+    n140 --> n148
+    n119 --> n122
+    n103 --> n110
+    n119 --> n123
+    n156 --> n99
+    n95 --> n99
+    n123 --> n130
+    n102 --> n104
+    n151 --> n153
+    n131 --> n100
+    n95 --> n100
+    n131 --> n154
+    n132 --> n136
+    n90 --> n136
+    n92 --> n131
+    n124 --> n131
+    n127 --> n131
+    n110 --> n131
+    n92 --> n131
+    n124 --> n137
+    n132 --> n137
+    n127 --> n137
+    n138 --> n142
+    n136 --> n142
+    n132 --> n138
+    n131 --> n155
+    n145 --> n155
+    n108 --> n124
+    n117 --> n124
+    n107 --> n111
+    n119 --> n125
+    n101 --> n102
+    n107 --> n112
+    n125 --> n132
+    n114 --> n126
+    n106 --> n113
+    n105 --> n114
+    n96 --> n139
+    n133 --> n139
+    n136 --> n143
+    n137 --> n144
+    n106 --> n115
+    n146 --> n149
+    n137 --> n145
+    n131 --> n145
+    n137 --> n146
+    n106 --> n116
+    n117 --> n127
+    n131 --> n156
+    n2 --> n101
+    n128 --> n133
+    n109 --> n128
+    n90 --> n128
+    n108 --> n129
+    n138 --> n147
+    n136 --> n147
+    n97 --> n134
+    n128 --> n134
+    n147 --> n150
+    n144 --> n151
+    n155 --> n157
+    n159 --> n157
+    n107 --> n117
+    n107 --> n118
+    n102 --> n105
+    n106 --> n119
+    n131 --> n158
+    n156 --> n159
+    n102 --> n106
+    n102 --> n107
+    n135 x--x n136
+    n108 x--x n117
+    n108 x--x n119
+    n154 x--x n155
+    n131 x--x n137
+    n131 x--x n138
+    n137 x--x n138
+    n1 x--x n2
+    n124 x--x n132
+    n124 x--x n127
+    n111 x--x n113
+    n2 x--x n3
+    n2 x--x n4
+    n2 x--x n5
+    n132 x--x n127
+    n145 x--x n146
+    n117 x--x n119
 ```
 
 # POL_develop_polish_ship_building
 
 ```mermaid
-flowchart TD
-    n160["POL_Break_Away_From_Germany"]
-    n161["POL_German_Berlinka_Highway_Project"]
-    n69["POL_High_Frequency_Radio_Detection"]
-    n70["POL_Maritime_Defense_Fund"]
-    n71["POL_Maritime_and_Colonial_League"]
-    n72{"POL_Naval_Officers_School"}
-    n162["POL_Ribbentrop_Beck_Pact"]
-    n73["POL_River_Flotillas"]
-    n163["POL_Seek_Accommodation_With_Germany"]
-    n74["POL_a_cruiser_navy"]
-    n75["POL_attract_poles_to_gdynia"]
-    n76["POL_baltic_navy"]
-    n78["POL_clamp_down_on_danzig"]
-    n79["POL_coastal_defense"]
-    n80["POL_commerce_attack"]
-    n82(("POL_develop_polish_ship_building"))
-    n83["POL_expand_gdynia_seaport"]
-    n84{"POL_import_submarine_technology"}
-    n85["POL_integrate_gdansk_industries"]
-    n86["POL_strike_force"]
-    n87["POL_study_foreign_built_ships"]
-    n162 --> n160
-    n163 --> n161
-    n72 --> n69
-    n85 --> n70
-    n83 --> n70
-    n74 --> n71
-    n85 --> n72
-    n83 --> n72
-    n163 --> n162
-    n79 --> n73
-    n82 --> n163
-    n72 --> n74
-    n82 --> n75
-    n86 --> n76
-    n79 --> n76
-    n72 --> n79
-    n84 --> n79
-    n84 --> n80
-    n75 --> n83
-    n87 --> n83
-    n85 --> n84
-    n83 --> n84
-    n72 --> n86
-    n84 --> n86
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n70["POL_clamp_down_on_danzig"]
+        n71(("POL_develop_polish_ship_building"))
+        n76["POL_integrate_gdansk_industries"]
+    end
+    subgraph tier_1["Tier 1"]
+        n160["POL_Seek_Accommodation_With_Germany"]
+        n69["POL_attract_poles_to_gdynia"]
+        n73["POL_study_foreign_built_ships"]
+    end
+    subgraph tier_2["Tier 2"]
+        n161["POL_German_Berlinka_Highway_Project"]
+        n162["POL_Ribbentrop_Beck_Pact"]
+        n75["POL_expand_gdynia_seaport"]
+    end
+    subgraph tier_3["Tier 3"]
+        n163["POL_Break_Away_From_Germany"]
+        n77["POL_Maritime_Defense_Fund"]
+        n78{"POL_Naval_Officers_School"}
+        n79{"POL_import_submarine_technology"}
+    end
+    subgraph tier_4["Tier 4"]
+        n80["POL_High_Frequency_Radio_Detection"]
+        n81["POL_a_cruiser_navy"]
+        n82["POL_coastal_defense"]
+        n83["POL_commerce_attack"]
+        n84["POL_strike_force"]
+    end
+    subgraph tier_5["Tier 5"]
+        n85["POL_Maritime_and_Colonial_League"]
+        n86["POL_River_Flotillas"]
+        n87["POL_baltic_navy"]
+    end
+    n162 --> n163
+    n160 --> n161
+    n78 --> n80
+    n76 --> n77
+    n75 --> n77
+    n81 --> n85
+    n76 --> n78
+    n75 --> n78
+    n160 --> n162
+    n82 --> n86
+    n71 --> n160
+    n78 --> n81
+    n71 --> n69
+    n84 --> n87
     n82 --> n87
-    n78 --> n87
-    n78 x--x n82
-    n79 x--x n86
+    n78 --> n82
+    n79 --> n82
+    n79 --> n83
+    n69 --> n75
+    n73 --> n75
+    n76 --> n79
+    n75 --> n79
+    n78 --> n84
+    n79 --> n84
+    n71 --> n73
+    n70 --> n73
+    n70 x--x n71
+    n82 x--x n84
 ```
 
 # POL_organize_the_peasants_strike
 
 ```mermaid
-flowchart TD
-    n164{"POL_KPP_focus"}
-    n165["POL_a_leftist_sejm"]
-    n166["POL_anti_capitalist_revolution"]
-    n167["POL_anti_fascist_military"]
-    n168{"POL_anti_imperialism"}
-    n169["POL_arm_peasant_militia"]
-    n170["POL_armia_ludowa"]
-    n5["POL_assemble_the_regency_council"]
-    n171["POL_baltic_socialism"]
-    n172["POL_com_independence"]
-    n173["POL_committee_of_national_liberation"]
-    n174["POL_communal_governance"]
-    n13["POL_complete_april_constitution"]
-    n175["POL_dabrowszczacy"]
-    n176["POL_dismantle_capitalist_empires"]
-    n177["POL_dismantle_fascist_empires"]
-    n178["POL_dismantle_soviet_empire"]
-    n179["POL_ease_sanationist_tensions"]
-    n180["POL_elect_a_PSL_leader"]
-    n181["POL_empower_the_morges"]
-    n182["POL_greater_polish_SSR"]
-    n183{"POL_invest_in_the_peasantry"}
-    n131["POL_invite_romania_to_morges"]
-    n184["POL_leftist_economics"]
-    n185["POL_lower_class_education"]
-    n139["POL_morges_economic_union"]
-    n186["POL_morges_pact"]
-    n187["POL_non_discriminatory_recruitment"]
-    n44(("POL_organize_the_peasants_strike"))
-    n188["POL_polish_path_to_socialism"]
-    n189["POL_polish_peoples_republic"]
-    n143["POL_preserve_baltic_independence"]
-    n144["POL_preserve_bougoise_democracy"]
-    n145["POL_press_for_liberia"]
-    n190{"POL_pressure_for_the_west"}
-    n191["POL_purchase_madagascar"]
-    n50["POL_radicalize_the_front"]
-    n192{"POL_raise_the_black_madonna"}
-    n193["POL_reassemble_the_sejm"]
-    n148["POL_reopen_the_maritime_and_colonial_league"]
-    n56["POL_rewrite_1935_constitution"]
-    n194["POL_social_commonwealth"]
-    n195{"POL_soviet_industry"}
-    n196{"POL_soviet_military_staff"}
-    n197{"POL_state_national_council"}
-    n198["POL_support_colonial_workers_strikes"]
-    n199["POL_surrender_the_east"]
-    n200{"POL_woo_morges_staff"}
-    n197 --> n164
-    n197 --> n165
-    n168 --> n166
-    n186 --> n167
-    n188 --> n168
-    n200 --> n169
-    n173 --> n170
-    n187 --> n170
-    n166 --> n171
-    n195 --> n172
-    n190 --> n172
-    n196 --> n172
-    n184 --> n173
-    n197 --> n174
-    n164 --> n175
-    n180 --> n175
-    n171 --> n176
-    n176 --> n177
-    n177 --> n178
-    n200 --> n179
-    n192 --> n180
-    n192 --> n181
-    n195 --> n182
-    n190 --> n182
-    n196 --> n182
-    n180 --> n183
-    n139 --> n131
-    n143 --> n131
-    n188 --> n184
-    n199 --> n184
-    n183 --> n184
-    n188 --> n185
-    n199 --> n185
-    n183 --> n185
-    n186 --> n139
-    n183 --> n186
-    n184 --> n187
-    n164 --> n188
-    n199 --> n189
-    n166 --> n145
-    n186 --> n145
-    n189 --> n190
-    n139 --> n191
-    n200 --> n192
-    n192 --> n193
-    n145 --> n148
-    n144 --> n148
-    n176 --> n194
-    n189 --> n195
-    n189 --> n196
-    n200 --> n197
-    n145 --> n198
-    n166 --> n198
-    n164 --> n199
-    n44 --> n200
-    n164 x--x n180
-    n166 x--x n186
-    n169 x--x n179
-    n5 x--x n44
-    n172 x--x n182
-    n13 x--x n44
-    n44 x--x n50
-    n44 x--x n56
-    n188 x--x n199
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["POL_assemble_the_regency_council"]
+        n2["POL_complete_april_constitution"]
+        n3(("POL_organize_the_peasants_strike"))
+        n133["POL_preserve_baltic_independence"]
+        n128["POL_preserve_bougoise_democracy"]
+        n4["POL_radicalize_the_front"]
+        n5["POL_rewrite_1935_constitution"]
+    end
+    subgraph tier_1["Tier 1"]
+        n164{"POL_woo_morges_staff"}
+    end
+    subgraph tier_2["Tier 2"]
+        n165["POL_arm_peasant_militia"]
+        n166["POL_ease_sanationist_tensions"]
+        n167{"POL_raise_the_black_madonna"}
+        n168{"POL_state_national_council"}
+    end
+    subgraph tier_3["Tier 3"]
+        n169{"POL_KPP_focus"}
+        n170["POL_a_leftist_sejm"]
+        n171["POL_communal_governance"]
+        n172["POL_elect_a_PSL_leader"]
+        n173["POL_empower_the_morges"]
+        n174["POL_reassemble_the_sejm"]
+    end
+    subgraph tier_4["Tier 4"]
+        n175["POL_dabrowszczacy"]
+        n176{"POL_invest_in_the_peasantry"}
+        n177["POL_polish_path_to_socialism"]
+        n178["POL_surrender_the_east"]
+    end
+    subgraph tier_5["Tier 5"]
+        n179{"POL_anti_imperialism"}
+        n180["POL_leftist_economics"]
+        n181["POL_lower_class_education"]
+        n182["POL_morges_pact"]
+        n183["POL_polish_peoples_republic"]
+    end
+    subgraph tier_6["Tier 6"]
+        n184["POL_anti_capitalist_revolution"]
+        n185["POL_anti_fascist_military"]
+        n186["POL_committee_of_national_liberation"]
+        n96["POL_morges_economic_union"]
+        n187["POL_non_discriminatory_recruitment"]
+        n188{"POL_pressure_for_the_west"}
+        n189{"POL_soviet_industry"}
+        n190{"POL_soviet_military_staff"}
+    end
+    subgraph tier_7["Tier 7"]
+        n191["POL_armia_ludowa"]
+        n192["POL_baltic_socialism"]
+        n193["POL_com_independence"]
+        n194["POL_greater_polish_SSR"]
+        n139["POL_invite_romania_to_morges"]
+        n97["POL_press_for_liberia"]
+        n195["POL_purchase_madagascar"]
+    end
+    subgraph tier_8["Tier 8"]
+        n196["POL_dismantle_capitalist_empires"]
+        n134["POL_reopen_the_maritime_and_colonial_league"]
+        n197["POL_support_colonial_workers_strikes"]
+    end
+    subgraph tier_9["Tier 9"]
+        n198["POL_dismantle_fascist_empires"]
+        n199["POL_social_commonwealth"]
+    end
+    subgraph tier_10["Tier 10"]
+        n200["POL_dismantle_soviet_empire"]
+    end
+    n168 --> n169
+    n168 --> n170
+    n179 --> n184
+    n182 --> n185
+    n177 --> n179
+    n164 --> n165
+    n186 --> n191
+    n187 --> n191
+    n184 --> n192
+    n189 --> n193
+    n188 --> n193
+    n190 --> n193
+    n180 --> n186
+    n168 --> n171
+    n169 --> n175
+    n172 --> n175
+    n192 --> n196
+    n196 --> n198
+    n198 --> n200
+    n164 --> n166
+    n167 --> n172
+    n167 --> n173
+    n189 --> n194
+    n188 --> n194
+    n190 --> n194
+    n172 --> n176
+    n96 --> n139
+    n133 --> n139
+    n177 --> n180
+    n178 --> n180
+    n176 --> n180
+    n177 --> n181
+    n178 --> n181
+    n176 --> n181
+    n182 --> n96
+    n176 --> n182
+    n180 --> n187
+    n169 --> n177
+    n178 --> n183
+    n184 --> n97
+    n182 --> n97
+    n183 --> n188
+    n96 --> n195
+    n164 --> n167
+    n167 --> n174
+    n97 --> n134
+    n128 --> n134
+    n196 --> n199
+    n183 --> n189
+    n183 --> n190
+    n164 --> n168
+    n97 --> n197
+    n184 --> n197
+    n169 --> n178
+    n3 --> n164
+    n169 x--x n172
+    n184 x--x n182
+    n165 x--x n166
+    n1 x--x n3
+    n193 x--x n194
+    n2 x--x n3
+    n3 x--x n4
+    n3 x--x n5
+    n177 x--x n178
 ```
 
 # POL_prepare_for_the_inevitable
 
 ```mermaid
-flowchart TD
-    n201["POL_Evacuate_Polands_Gold_Reserves"]
-    n202["POL_accept_border_realignment"]
-    n203["POL_aces_in_exile"]
-    n204["POL_exile_industries"]
-    n205["POL_expand_polish_intelligence"]
-    n206["POL_foreign_air_support"]
-    n207["POL_foreign_army_support"]
-    n208["POL_foreign_naval_support"]
-    n209["POL_niech_zyje_opor"]
-    n210(("POL_prepare_for_the_inevitable"))
-    n211["POL_resistance_industries"]
-    n212["POL_the_bombe"]
-    n213["POL_the_cyclometer"]
-    n214["POL_the_long_push_home"]
-    n210 --> n201
-    n210 --> n202
-    n206 --> n203
-    n211 --> n204
-    n210 --> n205
-    n210 --> n206
-    n206 --> n207
-    n210 --> n208
-    n205 --> n209
-    n201 --> n211
-    n213 --> n212
-    n205 --> n213
-    n205 --> n214
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n201(("POL_prepare_for_the_inevitable"))
+    end
+    subgraph tier_1["Tier 1"]
+        n202["POL_Evacuate_Polands_Gold_Reserves"]
+        n203["POL_accept_border_realignment"]
+        n204["POL_expand_polish_intelligence"]
+        n205["POL_foreign_air_support"]
+        n206["POL_foreign_naval_support"]
+    end
+    subgraph tier_2["Tier 2"]
+        n207["POL_aces_in_exile"]
+        n208["POL_foreign_army_support"]
+        n209["POL_niech_zyje_opor"]
+        n210["POL_resistance_industries"]
+        n211["POL_the_cyclometer"]
+        n212["POL_the_long_push_home"]
+    end
+    subgraph tier_3["Tier 3"]
+        n213["POL_exile_industries"]
+        n214["POL_the_bombe"]
+    end
+    n201 --> n202
+    n201 --> n203
+    n205 --> n207
+    n210 --> n213
+    n201 --> n204
+    n201 --> n205
+    n205 --> n208
+    n201 --> n206
+    n204 --> n209
+    n202 --> n210
+    n211 --> n214
+    n204 --> n211
+    n204 --> n212
 ```
 
 # POL_prepare_for_the_next_war
 
 ```mermaid
-flowchart TD
-    n215["POL_Artillery_Motorization"]
-    n216["POL_Cegielski_Artillery_Factory"]
-    n217["POL_Class_A_Reservists"]
-    n218["POL_Expand_the_Lucznik_State_Arms_Factory"]
-    n219["POL_Gundlach_Periscope"]
-    n220["POL_Independent_Parachute_Brigades"]
-    n221["POL_KOR_Committee_For_Defense"]
-    n222["POL_Kasprzycki_Gamelin_Convention"]
-    n223["POL_Land_Mine_Detectors"]
-    n224["POL_Mielec_Aircraft_Factory"]
-    n225["POL_Military_Aviation_Exports"]
-    n226["POL_Modernize_The_Starachowice_Works"]
-    n227["POL_Modlin_Fortress"]
-    n228["POL_Plan_W"]
-    n229["POL_Plan_Z"]
-    n230["POL_Swiatecki_Bomb_Slip"]
-    n231["POL_Wartime_Industry"]
-    n232["POL_Wz_35_Anti_Tank_Rifle"]
-    n233["POL_adaptive_designs"]
-    n234{"POL_air_innovations"}
-    n235["POL_air_modernisations_programme"]
-    n236["POL_anti_blitz_vehicles"]
-    n237{"POL_army_modernisation"}
-    n238["POL_attract_foreign_motors"]
-    n239["POL_belorussian_army"]
-    n240["POL_complete_plan_east"]
-    n241["POL_complete_plan_west"]
-    n242["POL_cruiser_tank_experiments"]
-    n243["POL_eastern_conscripts"]
-    n244["POL_expand_poznan_forts"]
-    n245{"POL_fighter_modernisation"}
-    n246["POL_fortification_of_belarus"]
-    n247["POL_fortification_of_ukraine"]
-    n248{"POL_heavy_fighter_concept"}
-    n249["POL_hel_fortified_area"]
-    n250["POL_invest_anti_air"]
-    n251["POL_light_bomber_focus"]
-    n252["POL_local_eastern_plans"]
-    n253["POL_local_western_plans"]
-    n254["POL_medium_bomber_focus"]
-    n255["POL_modernising_the_cavalry"]
-    n256["POL_naval_bomber_experiments"]
-    n257["POL_new_military_academy"]
-    n258["POL_plan_east"]
-    n259["POL_plan_west"]
-    n260(("POL_prepare_for_the_next_war"))
-    n261["POL_rocket_development"]
-    n262["POL_ruthenian_army"]
-    n263["POL_sabotage_polish_industry"]
-    n264["POL_silesia_fortified_area"]
-    n265["POL_standardisation_of_equipment"]
-    n266["POL_study_foreign_tanks"]
-    n267["POL_sudeten_mountaineers"]
-    n268["POL_supply_the_rail_nexus"]
-    n269["POL_the_prusya_army"]
-    n270["POL_the_prusya_line"]
-    n237 --> n215
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n215(("POL_prepare_for_the_next_war"))
+    end
+    subgraph tier_1["Tier 1"]
+        n216["POL_Expand_the_Lucznik_State_Arms_Factory"]
+        n217["POL_Kasprzycki_Gamelin_Convention"]
+        n218["POL_Modlin_Fortress"]
+        n219["POL_Plan_W"]
+        n220["POL_new_military_academy"]
+        n221["POL_plan_east"]
+        n222["POL_plan_west"]
+    end
+    subgraph tier_2["Tier 2"]
+        n223["POL_Class_A_Reservists"]
+        n224["POL_KOR_Committee_For_Defense"]
+        n225["POL_Plan_Z"]
+        n226["POL_belorussian_army"]
+        n227["POL_eastern_conscripts"]
+        n228["POL_expand_poznan_forts"]
+        n229["POL_fortification_of_belarus"]
+        n230["POL_fortification_of_ukraine"]
+        n231["POL_hel_fortified_area"]
+        n232["POL_invest_anti_air"]
+        n233["POL_local_eastern_plans"]
+        n234["POL_local_western_plans"]
+        n235["POL_ruthenian_army"]
+        n236["POL_sabotage_polish_industry"]
+        n237["POL_silesia_fortified_area"]
+        n238["POL_standardisation_of_equipment"]
+        n239["POL_sudeten_mountaineers"]
+        n240["POL_supply_the_rail_nexus"]
+        n241["POL_the_prusya_army"]
+        n242["POL_the_prusya_line"]
+    end
+    subgraph tier_3["Tier 3"]
+        n243["POL_Land_Mine_Detectors"]
+        n244["POL_Military_Aviation_Exports"]
+        n245["POL_Wartime_Industry"]
+        n246{"POL_army_modernisation"}
+        n247["POL_complete_plan_east"]
+        n248["POL_complete_plan_west"]
+    end
+    subgraph tier_4["Tier 4"]
+        n249["POL_Artillery_Motorization"]
+        n250["POL_Wz_35_Anti_Tank_Rifle"]
+        n251{"POL_air_innovations"}
+        n252["POL_attract_foreign_motors"]
+        n253{"POL_fighter_modernisation"}
+        n254["POL_modernising_the_cavalry"]
+    end
+    subgraph tier_5["Tier 5"]
+        n255["POL_Cegielski_Artillery_Factory"]
+        n256["POL_Independent_Parachute_Brigades"]
+        n257["POL_Modernize_The_Starachowice_Works"]
+        n258["POL_adaptive_designs"]
+        n259{"POL_heavy_fighter_concept"}
+        n260["POL_naval_bomber_experiments"]
+        n261["POL_study_foreign_tanks"]
+    end
+    subgraph tier_6["Tier 6"]
+        n262["POL_Gundlach_Periscope"]
+        n263["POL_anti_blitz_vehicles"]
+        n264["POL_cruiser_tank_experiments"]
+        n265["POL_light_bomber_focus"]
+        n266["POL_medium_bomber_focus"]
+    end
+    subgraph tier_7["Tier 7"]
+        n267["POL_Mielec_Aircraft_Factory"]
+        n268["POL_Swiatecki_Bomb_Slip"]
+        n269["POL_air_modernisations_programme"]
+    end
+    subgraph tier_8["Tier 8"]
+        n270["POL_rocket_development"]
+    end
+    n246 --> n249
+    n249 --> n255
+    n219 --> n223
     n215 --> n216
-    n228 --> n217
-    n260 --> n218
-    n266 --> n219
-    n234 --> n220
-    n257 --> n221
-    n260 --> n222
-    n265 --> n223
-    n251 --> n224
-    n265 --> n225
-    n215 --> n226
-    n260 --> n227
-    n260 --> n228
-    n228 --> n229
-    n254 --> n230
-    n217 --> n231
-    n229 --> n231
-    n237 --> n232
-    n238 --> n233
-    n232 --> n233
-    n225 --> n234
-    n251 --> n235
-    n254 --> n235
-    n266 --> n236
-    n232 --> n236
-    n265 --> n237
-    n237 --> n238
-    n258 --> n239
-    n246 --> n240
-    n247 --> n240
-    n268 --> n240
-    n243 --> n240
-    n239 --> n240
-    n262 --> n240
-    n252 --> n240
-    n269 --> n241
-    n264 --> n241
-    n253 --> n241
-    n267 --> n241
-    n250 --> n241
-    n270 --> n241
-    n244 --> n241
-    n249 --> n241
-    n266 --> n242
-    n258 --> n243
-    n259 --> n244
+    n261 --> n262
+    n251 --> n256
+    n220 --> n224
+    n215 --> n217
+    n238 --> n243
+    n265 --> n267
+    n238 --> n244
+    n249 --> n257
+    n215 --> n218
+    n215 --> n219
+    n219 --> n225
+    n266 --> n268
+    n223 --> n245
     n225 --> n245
-    n258 --> n246
-    n258 --> n247
+    n246 --> n250
+    n252 --> n258
+    n250 --> n258
+    n244 --> n251
+    n265 --> n269
+    n266 --> n269
+    n261 --> n263
+    n250 --> n263
+    n238 --> n246
+    n246 --> n252
+    n221 --> n226
+    n229 --> n247
+    n230 --> n247
+    n240 --> n247
+    n227 --> n247
+    n226 --> n247
+    n235 --> n247
+    n233 --> n247
+    n241 --> n248
+    n237 --> n248
     n234 --> n248
-    n245 --> n248
-    n259 --> n249
-    n259 --> n250
-    n248 --> n251
-    n245 --> n251
-    n258 --> n252
-    n259 --> n253
-    n248 --> n254
-    n234 --> n254
-    n237 --> n255
-    n234 --> n256
-    n260 --> n257
-    n260 --> n258
-    n260 --> n259
-    n235 --> n261
-    n258 --> n262
-    n258 --> n263
-    n259 --> n263
-    n259 --> n264
-    n257 --> n265
-    n255 --> n266
-    n238 --> n266
-    n259 --> n267
-    n258 --> n268
-    n259 --> n269
-    n259 --> n270
-    n238 x--x n255
-    n251 x--x n254
+    n239 --> n248
+    n232 --> n248
+    n242 --> n248
+    n228 --> n248
+    n231 --> n248
+    n261 --> n264
+    n221 --> n227
+    n222 --> n228
+    n244 --> n253
+    n221 --> n229
+    n221 --> n230
+    n251 --> n259
+    n253 --> n259
+    n222 --> n231
+    n222 --> n232
+    n259 --> n265
+    n253 --> n265
+    n221 --> n233
+    n222 --> n234
+    n259 --> n266
+    n251 --> n266
+    n246 --> n254
+    n251 --> n260
+    n215 --> n220
+    n215 --> n221
+    n215 --> n222
+    n269 --> n270
+    n221 --> n235
+    n221 --> n236
+    n222 --> n236
+    n222 --> n237
+    n220 --> n238
+    n254 --> n261
+    n252 --> n261
+    n222 --> n239
+    n221 --> n240
+    n222 --> n241
+    n222 --> n242
+    n252 x--x n254
+    n265 x--x n266
 ```
 
 # POL_radicalize_the_front
 
 ```mermaid
-flowchart TD
-    n88["POL_Align_With_Japan"]
-    n89["POL_Align_With_Kaiserreich"]
-    n271["POL_Attract_Foreign_Investment"]
-    n272["POL_Austerity_Measures"]
-    n273["POL_Baltic_Naval_Vanguard"]
-    n274{"POL_Beck_Molotov_Pact"}
-    n275["POL_Civil_Service_Reform"]
-    n93["POL_Defensive_Focus"]
-    n276["POL_Draw_Closer_To_France"]
-    n277["POL_Draw_Closer_To_The_USSR"]
-    n95["POL_Finnish_Guarantee"]
-    n96["POL_Found_Our_Own_Faction"]
-    n97["POL_Fund_The_Promethean_Program"]
-    n98{"POL_Interventionist_Foreign_Policy"}
-    n100["POL_Invite_Sweden"]
-    n101["POL_Invite_Yugoslavia"]
-    n278["POL_License_Soviet_Equipment"]
-    n279["POL_Mandatory_Firearm_Ownership"]
-    n102["POL_Minsk_Or_War"]
-    n280["POL_Polish_Peoples_Army"]
-    n281["POL_Political_Commissars"]
-    n282["POL_Preemptive_Strike"]
-    n283["POL_Seek_Accommodation_With_The_USSR"]
-    n284["POL_Seek_Autonomy"]
-    n285["POL_Socialist_Realism"]
-    n286["POL_State_Capitalism"]
-    n287["POL_Subsidized_Universal_Education"]
-    n114["POL_The_Front_Morges"]
-    n288{"POL_The_Great_Peasant_Strike"}
-    n115["POL_The_Intermarium"]
-    n289["POL_The_Leviathan_Group"]
-    n290["POL_The_Polish_Socialist_Party"]
-    n291["POL_The_Three_Year_Plan"]
-    n292["POL_Vladimir_Lenin_Steelworks"]
-    n293["POL_Workers_Brigades"]
-    n5["POL_assemble_the_regency_council"]
-    n119["POL_baltic_alliance_focus"]
-    n120["POL_baltic_security"]
-    n13["POL_complete_april_constitution"]
-    n127{"POL_dissolve_the_bbwr"}
-    n131["POL_invite_romania_to_morges"]
-    n132["POL_invite_ukraine"]
-    n139["POL_morges_economic_union"]
-    n44["POL_organize_the_peasants_strike"]
-    n143["POL_preserve_baltic_independence"]
-    n144["POL_preserve_bougoise_democracy"]
-    n145["POL_press_for_liberia"]
-    n147["POL_protect_czechozlovakia"]
-    n50(("POL_radicalize_the_front"))
-    n148["POL_reopen_the_maritime_and_colonial_league"]
-    n56["POL_rewrite_1935_constitution"]
-    n149["POL_romanian_alliance"]
-    n294["POL_the_Agrarian_Reform"]
-    n158["POL_the_sanation_left"]
-    n280 --> n88
-    n279 --> n88
-    n289 --> n271
-    n290 --> n272
-    n277 --> n273
-    n283 --> n274
-    n114 --> n275
-    n114 --> n93
-    n158 --> n93
-    n98 --> n276
-    n274 --> n277
-    n100 --> n95
-    n149 --> n95
-    n115 --> n95
-    n280 --> n96
-    n279 --> n96
-    n115 --> n97
-    n96 --> n97
-    n88 --> n97
-    n275 --> n98
-    n96 --> n100
-    n115 --> n101
-    n96 --> n101
-    n277 --> n278
-    n293 --> n279
-    n97 --> n102
-    n272 --> n280
-    n281 --> n280
-    n279 --> n280
-    n277 --> n281
-    n284 --> n281
-    n276 --> n282
-    n290 --> n283
-    n274 --> n284
-    n291 --> n285
-    n290 --> n286
-    n286 --> n287
-    n288 --> n114
-    n50 --> n288
-    n127 --> n115
-    n98 --> n115
-    n275 --> n289
-    n288 --> n290
-    n277 --> n291
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n135["POL_Align_With_Kaiserreich"]
+        n1["POL_assemble_the_regency_council"]
+        n138["POL_baltic_security"]
+        n2["POL_complete_april_constitution"]
+        n132{"POL_dissolve_the_bbwr"}
+        n96["POL_morges_economic_union"]
+        n3["POL_organize_the_peasants_strike"]
+        n97["POL_press_for_liberia"]
+        n4(("POL_radicalize_the_front"))
+        n5["POL_rewrite_1935_constitution"]
+        n106["POL_the_sanation_left"]
+    end
+    subgraph tier_1["Tier 1"]
+        n271{"POL_The_Great_Peasant_Strike"}
+    end
+    subgraph tier_2["Tier 2"]
+        n94["POL_The_Front_Morges"]
+        n272["POL_The_Polish_Socialist_Party"]
+    end
+    subgraph tier_3["Tier 3"]
+        n273["POL_Austerity_Measures"]
+        n274["POL_Civil_Service_Reform"]
+        n109["POL_Defensive_Focus"]
+        n275["POL_Seek_Accommodation_With_The_USSR"]
+        n276["POL_State_Capitalism"]
+        n277["POL_the_Agrarian_Reform"]
+    end
+    subgraph tier_4["Tier 4"]
+        n278{"POL_Beck_Molotov_Pact"}
+        n90{"POL_Interventionist_Foreign_Policy"}
+        n279["POL_Subsidized_Universal_Education"]
+        n280["POL_The_Leviathan_Group"]
+        n281["POL_Workers_Brigades"]
+    end
+    subgraph tier_5["Tier 5"]
+        n282["POL_Attract_Foreign_Investment"]
+        n283["POL_Draw_Closer_To_France"]
+        n284["POL_Draw_Closer_To_The_USSR"]
+        n285["POL_Mandatory_Firearm_Ownership"]
+        n286["POL_Seek_Autonomy"]
+        n136["POL_The_Intermarium"]
+        n128["POL_preserve_bougoise_democracy"]
+    end
+    subgraph tier_6["Tier 6"]
+        n287["POL_Baltic_Naval_Vanguard"]
+        n288["POL_License_Soviet_Equipment"]
+        n289["POL_Political_Commissars"]
+        n290["POL_Preemptive_Strike"]
+        n291["POL_The_Three_Year_Plan"]
+        n142["POL_baltic_alliance_focus"]
+        n143["POL_invite_ukraine"]
+        n133["POL_preserve_baltic_independence"]
+        n147["POL_protect_czechozlovakia"]
+        n134["POL_reopen_the_maritime_and_colonial_league"]
+    end
+    subgraph tier_7["Tier 7"]
+        n292["POL_Polish_Peoples_Army"]
+        n293["POL_Socialist_Realism"]
+        n294["POL_Vladimir_Lenin_Steelworks"]
+        n139["POL_invite_romania_to_morges"]
+        n150["POL_romanian_alliance"]
+    end
+    subgraph tier_8["Tier 8"]
+        n88["POL_Align_With_Japan"]
+        n89["POL_Found_Our_Own_Faction"]
+    end
+    subgraph tier_9["Tier 9"]
+        n140["POL_Fund_The_Promethean_Program"]
+        n91["POL_Invite_Sweden"]
+        n141["POL_Invite_Yugoslavia"]
+    end
+    subgraph tier_10["Tier 10"]
+        n152["POL_Finnish_Guarantee"]
+        n148["POL_Minsk_Or_War"]
+    end
+    n292 --> n88
+    n285 --> n88
+    n280 --> n282
+    n272 --> n273
+    n284 --> n287
+    n275 --> n278
+    n94 --> n274
+    n94 --> n109
+    n106 --> n109
+    n90 --> n283
+    n278 --> n284
+    n91 --> n152
+    n150 --> n152
+    n136 --> n152
+    n292 --> n89
+    n285 --> n89
+    n136 --> n140
+    n89 --> n140
+    n88 --> n140
+    n274 --> n90
+    n89 --> n91
+    n136 --> n141
+    n89 --> n141
+    n284 --> n288
+    n281 --> n285
+    n140 --> n148
+    n273 --> n292
+    n289 --> n292
+    n285 --> n292
+    n284 --> n289
+    n286 --> n289
+    n283 --> n290
+    n272 --> n275
+    n278 --> n286
+    n291 --> n293
+    n272 --> n276
+    n276 --> n279
+    n271 --> n94
+    n4 --> n271
+    n132 --> n136
+    n90 --> n136
+    n274 --> n280
+    n271 --> n272
     n284 --> n291
-    n291 --> n292
-    n286 --> n293
-    n120 --> n119
-    n115 --> n119
-    n139 --> n131
-    n143 --> n131
-    n115 --> n132
-    n144 --> n143
-    n93 --> n144
-    n98 --> n144
-    n120 --> n147
-    n115 --> n147
-    n145 --> n148
-    n144 --> n148
-    n147 --> n149
-    n290 --> n294
-    n114 --> n294
-    n89 x--x n115
-    n277 x--x n284
-    n114 x--x n290
-    n5 x--x n50
-    n13 x--x n50
-    n44 x--x n50
-    n50 x--x n56
+    n286 --> n291
+    n291 --> n294
+    n276 --> n281
+    n138 --> n142
+    n136 --> n142
+    n96 --> n139
+    n133 --> n139
+    n136 --> n143
+    n128 --> n133
+    n109 --> n128
+    n90 --> n128
+    n138 --> n147
+    n136 --> n147
+    n97 --> n134
+    n128 --> n134
+    n147 --> n150
+    n272 --> n277
+    n94 --> n277
+    n135 x--x n136
+    n284 x--x n286
+    n94 x--x n272
+    n1 x--x n4
+    n2 x--x n4
+    n3 x--x n4
+    n4 x--x n5
 ```
 
 # POL_rewrite_1935_constitution
 
 ```mermaid
-flowchart TD
-    n295["POL_Align_With_Italy"]
-    n296["POL_Align_With_Russia"]
-    n297["POL_All_Polish_Youth"]
-    n298["POL_Autarky"]
-    n299["POL_Beyond_The_Proletariat"]
-    n92["POL_Consolidate_The_Nationalist_Wing"]
-    n300["POL_Folk_High_Schools"]
-    n301["POL_Invest_In_The_Middle_Class"]
-    n99["POL_Invite_Hungary"]
-    n302["POL_Invite_Nationalist_Spain"]
-    n303["POL_Mend_Ties_With_Czechoslovakia"]
-    n304{"POL_Nationalist_Rhetoric"}
-    n103{"POL_Polish_Czechoslovakian_Alliance"}
-    n105{"POL_Polish_Revanchism"}
-    n107["POL_Pressure_Czechoslovakia"]
-    n305["POL_Propaganda_Corps"]
-    n111["POL_Silesia_Or_War"]
-    n112["POL_The_Baltic_Alliance"]
-    n113["POL_The_Endecja_Movement"]
-    n306["POL_The_National_Radical_Camp"]
-    n307["POL_The_Student_Movement"]
-    n116{"POL_Third_Europe"}
-    n117["POL_Universalism"]
-    n118{"POL_align_with_the_west"}
-    n5["POL_assemble_the_regency_council"]
-    n120["POL_baltic_security"]
-    n121["POL_baltic_ultimatums"]
-    n122{"POL_camp_of_national_unity"}
-    n13["POL_complete_april_constitution"]
-    n125["POL_consolidate_sanation_government"]
-    n308["POL_konfederacja_narodu"]
-    n136{"POL_lithuanian_annexation"}
-    n137["POL_lithuanian_ultimatum"]
-    n44["POL_organize_the_peasants_strike"]
-    n140{"POL_ozon"}
-    n141["POL_pan_slavic_revanchism"]
-    n309["POL_polish_shock_battallions"]
-    n50["POL_radicalize_the_front"]
-    n56(("POL_rewrite_1935_constitution"))
-    n151["POL_sea_to_sea"]
-    n310["POL_support_falangists_in_the_americas"]
-    n156["POL_the_neighbours_protection"]
-    n157["POL_the_old_borders"]
-    n113 --> n295
-    n306 --> n295
-    n113 --> n296
-    n306 --> n296
-    n113 --> n297
-    n306 --> n297
-    n299 --> n298
-    n306 --> n299
-    n113 --> n92
-    n125 --> n92
-    n301 --> n300
-    n113 --> n301
-    n116 --> n99
-    n117 --> n99
-    n117 --> n302
-    n113 --> n303
-    n306 --> n303
-    n56 --> n304
-    n303 --> n103
-    n92 --> n105
-    n141 --> n107
-    n117 --> n107
-    n306 --> n305
-    n116 --> n111
-    n117 --> n111
-    n116 --> n112
-    n304 --> n113
-    n304 --> n306
-    n297 --> n307
-    n103 --> n116
-    n122 --> n116
-    n140 --> n116
-    n105 --> n116
-    n103 --> n116
-    n305 --> n117
-    n116 --> n121
-    n136 --> n121
-    n305 --> n308
-    n118 --> n136
-    n116 --> n136
-    n116 --> n141
-    n308 --> n309
-    n121 --> n151
-    n157 --> n151
-    n117 --> n310
-    n116 --> n156
-    n141 --> n157
-    n112 x--x n121
-    n113 x--x n306
-    n116 x--x n118
-    n116 x--x n120
-    n5 x--x n56
-    n13 x--x n56
-    n136 x--x n137
-    n44 x--x n56
-    n50 x--x n56
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n137{"POL_align_with_the_west"}
+        n1["POL_assemble_the_regency_council"]
+        n138["POL_baltic_security"]
+        n124{"POL_camp_of_national_unity"}
+        n2["POL_complete_april_constitution"]
+        n102["POL_consolidate_sanation_government"]
+        n146["POL_lithuanian_ultimatum"]
+        n3["POL_organize_the_peasants_strike"]
+        n127{"POL_ozon"}
+        n4["POL_radicalize_the_front"]
+        n5(("POL_rewrite_1935_constitution"))
+    end
+    subgraph tier_1["Tier 1"]
+        n295{"POL_Nationalist_Rhetoric"}
+        n145{"POL_lithuanian_annexation"}
+    end
+    subgraph tier_2["Tier 2"]
+        n93["POL_The_Endecja_Movement"]
+        n296["POL_The_National_Radical_Camp"]
+    end
+    subgraph tier_3["Tier 3"]
+        n297["POL_Align_With_Italy"]
+        n298["POL_Align_With_Russia"]
+        n299["POL_All_Polish_Youth"]
+        n300["POL_Beyond_The_Proletariat"]
+        n103["POL_Consolidate_The_Nationalist_Wing"]
+        n301["POL_Invest_In_The_Middle_Class"]
+        n302["POL_Mend_Ties_With_Czechoslovakia"]
+        n303["POL_Propaganda_Corps"]
+    end
+    subgraph tier_4["Tier 4"]
+        n304["POL_Autarky"]
+        n305["POL_Folk_High_Schools"]
+        n92{"POL_Polish_Czechoslovakian_Alliance"}
+        n110{"POL_Polish_Revanchism"}
+        n306["POL_The_Student_Movement"]
+        n95["POL_Universalism"]
+        n307["POL_konfederacja_narodu"]
+    end
+    subgraph tier_5["Tier 5"]
+        n98["POL_Invite_Hungary"]
+        n308["POL_Invite_Nationalist_Spain"]
+        n99["POL_Pressure_Czechoslovakia"]
+        n100["POL_Silesia_Or_War"]
+        n131{"POL_Third_Europe"}
+        n309["POL_polish_shock_battallions"]
+        n310["POL_support_falangists_in_the_americas"]
+    end
+    subgraph tier_unplaced["Unplaced (cycle)"]
+        n154["POL_The_Baltic_Alliance"]
+        n155["POL_baltic_ultimatums"]
+        n156["POL_pan_slavic_revanchism"]
+        n157["POL_sea_to_sea"]
+        n158["POL_the_neighbours_protection"]
+        n159["POL_the_old_borders"]
+    end
+    n93 --> n297
+    n296 --> n297
+    n93 --> n298
+    n296 --> n298
+    n93 --> n299
+    n296 --> n299
+    n300 --> n304
+    n296 --> n300
+    n93 --> n103
+    n102 --> n103
+    n301 --> n305
+    n93 --> n301
+    n131 --> n98
+    n95 --> n98
+    n95 --> n308
+    n93 --> n302
+    n296 --> n302
+    n5 --> n295
+    n302 --> n92
+    n103 --> n110
+    n156 --> n99
+    n95 --> n99
+    n296 --> n303
+    n131 --> n100
+    n95 --> n100
+    n131 --> n154
+    n295 --> n93
+    n295 --> n296
+    n299 --> n306
+    n92 --> n131
+    n124 --> n131
+    n127 --> n131
+    n110 --> n131
+    n92 --> n131
+    n303 --> n95
+    n131 --> n155
+    n145 --> n155
+    n303 --> n307
+    n137 --> n145
+    n131 --> n145
+    n131 --> n156
+    n307 --> n309
+    n155 --> n157
+    n159 --> n157
+    n95 --> n310
+    n131 --> n158
+    n156 --> n159
+    n154 x--x n155
+    n93 x--x n296
+    n131 x--x n137
+    n131 x--x n138
+    n1 x--x n5
+    n2 x--x n5
+    n145 x--x n146
+    n3 x--x n5
+    n4 x--x n5
 ```
 
 # POL_the_four_year_plan
 
 ```mermaid
-flowchart TD
-    n311["POL_Construct_Hydroelectric_Power_Plants"]
-    n312["POL_Electrification_of_the_Countryside"]
-    n313["POL_Expansion_Of_New_Towns"]
-    n314["POL_Huta_Stalowa_Wola_Steel_Mill"]
-    n315["POL_Phase_III_Agriculture_and_Education"]
-    n316["POL_Phase_II_Infrastructure_Development"]
-    n317["POL_Phase_IV_Urbanization"]
-    n318["POL_Phase_I_Military_Rearmament"]
-    n319["POL_Phase_V_Equalize_Poland_A_and_B"]
-    n320["POL_Start_The_Fifteen_Year_Plan"]
-    n321["POL_Stomil_Debica_Rubber_Plant"]
-    n322["POL_abolish_segregated_seating"]
-    n323["POL_additional_research_slot1"]
-    n324{"POL_additional_research_slot2"}
-    n325["POL_agrarian_reform"]
-    n326["POL_atomic_physics_institute"]
-    n327["POL_central_defence_of_poland"]
-    n328["POL_central_region_strategy"]
-    n329["POL_develop_upper_silesia"]
-    n330["POL_expand_central_industrial_region"]
-    n331["POL_expand_katowice_mines"]
-    n332["POL_expansion_of_new_towns"]
-    n333["POL_fill_the_railways_gaps"]
-    n334["POL_ideological_fanaticism"]
-    n335["POL_invest_in_eastern_poland"]
-    n336["POL_invest_in_the_old_polish_region"]
-    n337["POL_modernize_congressional_factories"]
-    n338["POL_national_defence_fund"]
-    n339["POL_start_central_industrial_region"]
-    n340(("POL_the_four_year_plan"))
-    n341["POL_warsaw_main_railway_station"]
-    n316 --> n311
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n311(("POL_the_four_year_plan"))
+    end
+    subgraph tier_1["Tier 1"]
+        n312["POL_Stomil_Debica_Rubber_Plant"]
+        n313["POL_additional_research_slot1"]
+        n314["POL_central_region_strategy"]
+        n315["POL_fill_the_railways_gaps"]
+    end
+    subgraph tier_2["Tier 2"]
+        n316["POL_Huta_Stalowa_Wola_Steel_Mill"]
+        n317["POL_agrarian_reform"]
+        n318["POL_central_defence_of_poland"]
+        n319["POL_expansion_of_new_towns"]
+        n320["POL_invest_in_the_old_polish_region"]
+        n321["POL_national_defence_fund"]
+    end
+    subgraph tier_3["Tier 3"]
+        n322{"POL_additional_research_slot2"}
+        n323["POL_develop_upper_silesia"]
+        n324["POL_expand_katowice_mines"]
+        n325["POL_invest_in_eastern_poland"]
+        n326["POL_modernize_congressional_factories"]
+        n327["POL_start_central_industrial_region"]
+    end
+    subgraph tier_4["Tier 4"]
+        n328["POL_abolish_segregated_seating"]
+        n329["POL_expand_central_industrial_region"]
+        n330["POL_ideological_fanaticism"]
+        n331["POL_warsaw_main_railway_station"]
+    end
+    subgraph tier_5["Tier 5"]
+        n332["POL_Start_The_Fifteen_Year_Plan"]
+        n333["POL_atomic_physics_institute"]
+    end
+    subgraph tier_6["Tier 6"]
+        n334["POL_Phase_I_Military_Rearmament"]
+    end
+    subgraph tier_7["Tier 7"]
+        n335["POL_Phase_II_Infrastructure_Development"]
+    end
+    subgraph tier_8["Tier 8"]
+        n336["POL_Construct_Hydroelectric_Power_Plants"]
+        n337["POL_Phase_III_Agriculture_and_Education"]
+    end
+    subgraph tier_9["Tier 9"]
+        n338["POL_Electrification_of_the_Countryside"]
+        n339["POL_Phase_IV_Urbanization"]
+    end
+    subgraph tier_10["Tier 10"]
+        n340["POL_Expansion_Of_New_Towns"]
+        n341["POL_Phase_V_Equalize_Poland_A_and_B"]
+    end
+    n335 --> n336
+    n336 --> n338
+    n339 --> n340
+    n315 --> n316
+    n335 --> n337
+    n334 --> n335
+    n337 --> n339
+    n332 --> n334
+    n339 --> n341
+    n323 --> n332
+    n331 --> n332
+    n329 --> n332
     n311 --> n312
-    n317 --> n313
-    n333 --> n314
-    n316 --> n315
-    n318 --> n316
+    n322 --> n328
+    n311 --> n313
+    n319 --> n322
     n315 --> n317
-    n320 --> n318
-    n317 --> n319
-    n329 --> n320
-    n341 --> n320
-    n330 --> n320
-    n340 --> n321
-    n324 --> n322
-    n340 --> n323
-    n332 --> n324
-    n333 --> n325
-    n334 --> n326
-    n322 --> n326
-    n333 --> n327
-    n328 --> n327
-    n340 --> n328
+    n330 --> n333
+    n328 --> n333
+    n315 --> n318
+    n314 --> n318
+    n311 --> n314
+    n318 --> n323
     n327 --> n329
-    n339 --> n330
-    n332 --> n331
-    n328 --> n332
-    n340 --> n333
-    n324 --> n334
-    n325 --> n335
-    n327 --> n335
-    n328 --> n336
-    n336 --> n337
-    n333 --> n338
-    n332 --> n339
-    n337 --> n341
-    n322 x--x n334
+    n319 --> n324
+    n314 --> n319
+    n311 --> n315
+    n322 --> n330
+    n317 --> n325
+    n318 --> n325
+    n314 --> n320
+    n320 --> n326
+    n315 --> n321
+    n319 --> n327
+    n326 --> n331
+    n328 x--x n330
 ```
