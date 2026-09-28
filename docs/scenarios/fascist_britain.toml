@@ -1,0 +1,37 @@
+# Arc 5: Fascist Britain (r56). Aggressor ENG must turn fascist by the crises
+# phase or the arc derails; it then pressures FRA and SOV, or GER and ITA.
+#
+# Top-level keys first, tables last: in TOML everything after a [table]
+# header belongs to that table.
+
+id = "fascist_britain"
+number = 5
+status = "ready"
+aggressor = "ENG"
+
+targets = { a = ["FRA", "SOV"], b = ["GER", "ITA"] }
+
+paths = [
+  ["ENG_a_change_in_course", "ENG_war_france"],
+  ["ENG_a_change_in_course", "ENG_war_with_ussr"],
+]
+
+notes = """
+The flip arc: Britain changes course, organizes the Blackshirts and turns
+outward. The variant roll picks the continental pair (FRA, SOV) or the
+central pair (GER, ITA); the ladder releases the crisis at the crises rung
+and ultimatums plus join offers at peak. Without a fascist government by
+the crises rung the arc derails.
+"""
+
+[ladder]
+crises_at_month = 12
+peak_at_month = 30
+
+[joiners]
+select = "top_n_by_scorer"
+n = 2
+
+[gate]
+ideology = "fascism"
+at_phase = "crises"
