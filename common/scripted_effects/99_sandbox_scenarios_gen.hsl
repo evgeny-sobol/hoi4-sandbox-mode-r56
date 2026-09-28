@@ -1,0 +1,87 @@
+# Generated from docs/scenarios/*.toml by core/tools/build_scenario_catalog.py -
+# do not edit by hand. Hand-written code lives in 99_sandbox_scenarios.hsl.
+
+gen_fascist_britain_set_targets():
+  if global.sandbox_target_variant == a:
+    global.&sandbox_targets[].add(FRA)
+    global.&sandbox_targets[].add(SOV)
+  else:
+    global.&sandbox_targets[].add(GER)
+    global.&sandbox_targets[].add(ITA)
+
+gen_fascist_britain_seed():
+  ENG:
+    sandbox_seed_from_targets()
+
+gen_fascist_britain_telemetry():
+  if global.sandbox_target_variant == a:
+    ENG:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(FRA):
+      FRA:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, fra_on_eng)
+    if country_exists(SOV):
+      SOV:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, sov_on_eng)
+    ENG:
+      if has_wargoal_against(FRA) or is_justifying_wargoal_against(FRA):
+        $sandbox_log_sc(sc_goal, eng_on_fra)
+      if is_justifying_wargoal_against(FRA):
+        $sandbox_log_sc(sc_justify, eng_on_fra)
+      if has_wargoal_against(SOV) or is_justifying_wargoal_against(SOV):
+        $sandbox_log_sc(sc_goal, eng_on_sov)
+      if is_justifying_wargoal_against(SOV):
+        $sandbox_log_sc(sc_justify, eng_on_sov)
+  else:
+    ENG:
+      sc_div = num_divisions
+      sc_fab = num_of_factories
+      $sandbox_log_sc_power()
+    if country_exists(GER):
+      GER:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ger_on_eng)
+    if country_exists(ITA):
+      ITA:
+        sc_div = num_divisions
+        sc_fab = num_of_factories
+        $sandbox_log_sc_power()
+        if has_wargoal_against(ENG) or is_justifying_wargoal_against(ENG):
+          $sandbox_log_sc(sc_goal, ita_on_eng)
+    ENG:
+      if has_wargoal_against(GER) or is_justifying_wargoal_against(GER):
+        $sandbox_log_sc(sc_goal, eng_on_ger)
+      if is_justifying_wargoal_against(GER):
+        $sandbox_log_sc(sc_justify, eng_on_ger)
+      if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
+        $sandbox_log_sc(sc_goal, eng_on_ita)
+      if is_justifying_wargoal_against(ITA):
+        $sandbox_log_sc(sc_justify, eng_on_ita)
+
+gen_fascist_britain_derail():
+  if not country_exists(ENG):
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, eng_gone)
+    $sandbox_log_sc(sc_end, eng_gone)
+  elif ENG->has_capitulated():
+    global.&sandbox_scenario_phase = 3
+    $sandbox_log_sc(sc_derail, eng_capitulated)
+    $sandbox_log_sc(sc_end, eng_capitulated)
+  else:
+    if global.sandbox_target_variant == a:
+      $sandbox_check_targets_derail2(ENG, FRA, SOV)
+    else:
+      $sandbox_check_targets_derail2(ENG, GER, ITA)
