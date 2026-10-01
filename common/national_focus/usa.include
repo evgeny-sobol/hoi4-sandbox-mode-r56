@@ -997,8 +997,8 @@ focus_tree[id = usa_focus]:
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, USA_global_hegemony)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_global_hegemony)
 
   focus[id = USA_war_plans_division]:
     ai_will_do:
@@ -1100,8 +1100,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_mic_modifier()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, USA_intervention_in_europe)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_intervention_in_europe)
 
   focus[id = USA_war_plan_gold]:
     ai_will_do:
@@ -1126,8 +1126,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_mic_modifier()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, USA_war_plan_black)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_war_plan_black)
 
   focus[id = USA_destroyers_for_bases]:
     +ai_will_do:
@@ -1195,8 +1195,8 @@ focus_tree[id = usa_focus]:
       modifier:
         $ai_mic_modifier()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, USA_war_plan_orange)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_war_plan_orange)
 
   focus[id = USA_war_plan_yellow]:
     ai_will_do:
@@ -1224,8 +1224,8 @@ focus_tree[id = usa_focus]:
     available:
       $JAP->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, USA_defense_of_the_pacific)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, USA_defense_of_the_pacific)
 
   focus[id = USA_war_department]:
     ai_will_do:

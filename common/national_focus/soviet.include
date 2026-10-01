@@ -2207,8 +2207,8 @@ focus_tree[id = soviet_focus]:
     available:
       $PER->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_preemptive_invasion_of_iran)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_preemptive_invasion_of_iran)
 
   focus[id = SOV_the_threat_from_the_land_of_the_rising_sun]:
     ai_will_do:
@@ -2261,8 +2261,8 @@ focus_tree[id = soviet_focus]:
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_into_the_plateau)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_into_the_plateau)
 
   focus[id = SOV_two_red_flags]:
     ai_will_do:
@@ -2908,8 +2908,8 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_scenario_focus_boost()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_white_exiles)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_white_exiles)
 
   focus[id = SOV_adopt_soviet_policies]:
     ai_will_do:
@@ -3109,8 +3109,8 @@ focus_tree[id = soviet_focus]:
       $GER->can_PREV_get_wargoal_on_THIS()
       $PRE->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_strike_the_eagle)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_strike_the_eagle)
 
   focus[id = SOV_form_solider_committees]:
     ai_will_do:
@@ -3226,8 +3226,8 @@ focus_tree[id = soviet_focus]:
       $MAN->can_PREV_get_wargoal_on_THIS()
       $JAP->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_crush_our_eastern_rival)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_crush_our_eastern_rival)
 
   focus[id = SOV_our_american_holding]:
     ai_will_do:
@@ -3246,8 +3246,8 @@ focus_tree[id = soviet_focus]:
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_our_american_holding)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_our_american_holding)
 
   focus[id = SOV_reclaim_polish_overlordship]:
     ai_will_do:
@@ -3591,8 +3591,8 @@ focus_tree[id = soviet_focus]:
       $CAN->can_PREV_get_wargoal_on_THIS()
       $USA->can_PREV_get_wargoal_on_THIS()
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_restore_the_old_eastern_empire)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_restore_the_old_eastern_empire)
 
   focus[id = SOV_into_central_asia]:
     ai_will_do:
@@ -3659,8 +3659,8 @@ focus_tree[id = soviet_focus]:
           $PAK->is_friend_of_PREV(no)
         $RAJ->is_friend_of_PREV(no)
 
-  +completion_reward:
-    $sandbox_log_sc(sc_focus, SOV_the_last_break_southward)
+    +completion_reward:
+      $sandbox_log_sc(sc_focus, SOV_the_last_break_southward)
 
   focus[id = SOV_rebuild_the_far_eastern_fleet]:
     ai_will_do:
