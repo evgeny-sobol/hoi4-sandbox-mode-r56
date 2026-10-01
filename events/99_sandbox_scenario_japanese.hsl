@@ -124,7 +124,7 @@ country_event:
   picture(GFX_news_event_002)
   is_triggered_only(yes)
   trigger:
-    tag(JAP)
+    tag(MAL)
   option:
     name(sandbox_japanese_5_a)
     ai_chance:
@@ -145,7 +145,7 @@ country_event:
   picture(GFX_news_event_001)
   is_triggered_only(yes)
   trigger:
-    tag(BRM)
+    tag(BRM | INS)
   option:
     name(sandbox_japanese_6_a)
     ai_chance:
@@ -191,3 +191,29 @@ country_event:
       $sandbox_add_rivalry_vs(INS, 15)
     $sandbox_log_sc(sc_crisis, indonesian_defy)
 
+# Variant B: ultimatum to MAL (third target).
+country_event:
+  id(sandbox_japanese.8)
+  title(sandbox_japanese_8_t)
+  desc(sandbox_japanese_8_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(MAL)
+  option:
+    name(sandbox_japanese_8_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    JAP:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, MAL_submit)
+  option:
+    name(sandbox_japanese_8_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    JAP:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, MAL_defy)

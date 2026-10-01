@@ -58,7 +58,7 @@ country_event:
   picture(GFX_news_event_001)
   is_triggered_only(yes)
   trigger:
-    tag(MON)
+    tag(MON | CHI)
   option:
     name(sandbox_jap_north_3_a)
     ai_chance:

@@ -1293,7 +1293,11 @@ sandbox_fire_japanese_peak():
       if country_exists(INS) and not JAP->has_war_with(INS):
         INS:
           country_event:
-            id(sandbox_japanese.7)
+            id(sandbox_japanese.6)
+      if country_exists(MAL) and not JAP->has_war_with(MAL):
+        MAL:
+          country_event:
+            id(sandbox_japanese.8)
     JAP:
       sandbox_select_japanese_joiners()
 # sc_target telemetry for the Italian arc: one status line per target at
@@ -1535,7 +1539,7 @@ sandbox_fire_napoleonic_france_peak():
       if country_exists(ENG) and not FRA->has_war_with(ENG):
         ENG:
           country_event:
-            id(sandbox_france.2)
+            id(sandbox_france.6)
     FRA:
       sandbox_select_napoleonic_france_joiners()
 # sc_target telemetry for the Habsburg arc: one status line per target at
@@ -3979,7 +3983,7 @@ sandbox_fire_ger_atl_peak():
       if country_exists(USA) and not GER->has_war_with(USA):
         USA:
           country_event:
-            id(sandbox_ger_atl.2)
+            id(sandbox_ger_atl.3)
 sandbox_fire_ger_me_crises():
   if global.sandbox_scenario == 10 and global.sandbox_scenario_phase == 1:
     GER:
@@ -4016,7 +4020,7 @@ sandbox_fire_ger_me_peak():
       if country_exists(IRQ) and not GER->has_war_with(IRQ):
         IRQ:
           country_event:
-            id(sandbox_ger_me.2)
+            id(sandbox_ger_me.3)
       if country_exists(PER) and not GER->has_war_with(PER):
         PER:
           country_event:
@@ -4057,6 +4061,10 @@ sandbox_fire_sov_south_peak():
         IRQ:
           country_event:
             id(sandbox_sov_south.3)
+      if country_exists(PER) and not SOV->has_war_with(PER):
+        PER:
+          country_event:
+            id(sandbox_sov_south.4)
     else:
       if country_exists(PAK):
         PAK:
@@ -4084,6 +4092,10 @@ sandbox_fire_sov_south_peak():
         RAJ:
           country_event:
             id(sandbox_sov_south.3)
+      if country_exists(AFG) and not SOV->has_war_with(AFG):
+        AFG:
+          country_event:
+            id(sandbox_sov_south.4)
 sandbox_fire_sov_east_crises():
   if global.sandbox_scenario == 12 and global.sandbox_scenario_phase == 1:
     SOV:
@@ -4216,7 +4228,7 @@ sandbox_fire_jap_old_peak():
       if country_exists(ENG) and not JAP->has_war_with(ENG):
         ENG:
           country_event:
-            id(sandbox_jap_old.2)
+            id(sandbox_jap_old.3)
 sandbox_fire_ita_west_crises():
   if global.sandbox_scenario == 15 and global.sandbox_scenario_phase == 1:
     ITA:
@@ -4247,7 +4259,7 @@ sandbox_fire_ita_west_peak():
       if country_exists(ENG) and not ITA->has_war_with(ENG):
         ENG:
           country_event:
-            id(sandbox_ita_west.2)
+            id(sandbox_ita_west.3)
 # Crises phase: ongoing provocation on the desks in ITA-related capitals.
 sandbox_fire_ita_med_crises():
   if global.sandbox_scenario == 16 and global.sandbox_scenario_phase == 1:

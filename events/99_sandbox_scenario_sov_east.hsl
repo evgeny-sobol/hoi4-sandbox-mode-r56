@@ -31,7 +31,7 @@ country_event:
   picture(GFX_news_event_005)
   is_triggered_only(yes)
   trigger:
-    tag(JAP)
+    tag(JAP | USA)
   option:
     name(sandbox_sov_east_2_a)
     ai_chance:
@@ -58,7 +58,7 @@ country_event:
   picture(GFX_news_event_001)
   is_triggered_only(yes)
   trigger:
-    tag(MAN)
+    tag(MAN | CAN)
   option:
     name(sandbox_sov_east_3_a)
     ai_chance:

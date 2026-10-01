@@ -31,7 +31,7 @@ country_event:
   picture(GFX_news_event_005)
   is_triggered_only(yes)
   trigger:
-    tag(TUR)
+    tag(TUR | PAK)
   option:
     name(sandbox_sov_south_2_a)
     ai_chance:
@@ -58,7 +58,7 @@ country_event:
   picture(GFX_news_event_001)
   is_triggered_only(yes)
   trigger:
-    tag(IRQ)
+    tag(IRQ | RAJ)
   option:
     name(sandbox_sov_south_3_a)
     ai_chance:
@@ -76,3 +76,30 @@ country_event:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(IRQ, 15)
     $sandbox_log_sc(sc_crisis, IRQ_defy)
+
+# Ultimatum to PER (A) / AFG (B).
+country_event:
+  id(sandbox_sov_south.4)
+  title(sandbox_sov_south_4_t)
+  desc(sandbox_sov_south_4_d)
+  picture(GFX_news_event_001)
+  is_triggered_only(yes)
+  trigger:
+    tag(PER | AFG)
+  option:
+    name(sandbox_sov_south_4_a)
+    ai_chance:
+      factor(30)
+    add_war_support(-0.10)
+    SOV:
+      add_war_support(0.05)
+    $sandbox_log_sc(sc_crisis, PER_submit)
+  option:
+    name(sandbox_sov_south_4_b)
+    ai_chance:
+      factor(70)
+    add_war_support(0.10)
+    SOV:
+      add_war_support(0.05)
+      $sandbox_add_rivalry_vs(PREV, 15)
+    $sandbox_log_sc(sc_crisis, PER_defy)

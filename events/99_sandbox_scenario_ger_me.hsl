@@ -58,7 +58,7 @@ country_event:
   picture(GFX_news_event_001)
   is_triggered_only(yes)
   trigger:
-    tag(IRQ)
+    tag(IRQ | PER)
   option:
     name(sandbox_ger_me_3_a)
     ai_chance:
