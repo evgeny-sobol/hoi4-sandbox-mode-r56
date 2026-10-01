@@ -1232,12 +1232,12 @@ sandbox_fire_axis_peak():
       else:
         GER:
           $sandbox_log_sc(sc_target, pol_gone)
-      if country_exists(CZE) and not GER->has_war_with(CZE):
-        CZE:
-          country_event:
-            id(sandbox_axis.2)
       if country_exists(POL) and not GER->has_war_with(POL):
         POL:
+          country_event:
+            id(sandbox_axis.2)
+      if country_exists(CZE) and not GER->has_war_with(CZE):
+        CZE:
           country_event:
             id(sandbox_axis.3)
     else:
