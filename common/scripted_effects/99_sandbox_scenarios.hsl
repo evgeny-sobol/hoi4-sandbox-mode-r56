@@ -3451,113 +3451,293 @@ sandbox_scenario_check_derail():
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 8:
     sandbox_scenario_check_habsburg_derail()
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 9:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(GER, ENG)
+    if not country_exists(GER):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_gone)
+      $sandbox_log_sc(sc_end, germany_gone)
+    elif GER->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_capitulated)
+      $sandbox_log_sc(sc_end, germany_capitulated)
     else:
-      $sandbox_check_targets_derail1(GER, USA)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(GER, ENG)
+      else:
+        $sandbox_check_targets_derail1(GER, USA)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 10:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(GER, SOV)
+    if not country_exists(GER):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_gone)
+      $sandbox_log_sc(sc_end, germany_gone)
+    elif GER->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_capitulated)
+      $sandbox_log_sc(sc_end, germany_capitulated)
     else:
-      $sandbox_check_targets_derail2(GER, IRQ, PER)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(GER, SOV)
+      else:
+        $sandbox_check_targets_derail2(GER, IRQ, PER)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 11:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
+    if not country_exists(SOV):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, soviet_gone)
+      $sandbox_log_sc(sc_end, soviet_gone)
+    elif SOV->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, soviet_capitulated)
+      $sandbox_log_sc(sc_end, soviet_capitulated)
     else:
-      $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail3(SOV, TUR, IRQ, PER)
+      else:
+        $sandbox_check_targets_derail3(SOV, PAK, RAJ, AFG)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 12:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(SOV, JAP, MAN)
+    if not country_exists(SOV):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, soviet_gone)
+      $sandbox_log_sc(sc_end, soviet_gone)
+    elif SOV->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, soviet_capitulated)
+      $sandbox_log_sc(sc_end, soviet_capitulated)
     else:
-      $sandbox_check_targets_derail2(SOV, USA, CAN)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail2(SOV, JAP, MAN)
+      else:
+        $sandbox_check_targets_derail2(SOV, USA, CAN)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 13:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(JAP, SOV, MON)
+    if not country_exists(JAP):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, japan_gone)
+      $sandbox_log_sc(sc_end, japan_gone)
+    elif JAP->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, japan_capitulated)
+      $sandbox_log_sc(sc_end, japan_capitulated)
     else:
-      $sandbox_check_targets_derail2(JAP, SOV, CHI)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail2(JAP, SOV, MON)
+      else:
+        $sandbox_check_targets_derail2(JAP, SOV, CHI)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 14:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(JAP, USA)
+    if not country_exists(JAP):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, japan_gone)
+      $sandbox_log_sc(sc_end, japan_gone)
+    elif JAP->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, japan_capitulated)
+      $sandbox_log_sc(sc_end, japan_capitulated)
     else:
-      $sandbox_check_targets_derail1(JAP, ENG)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(JAP, USA)
+      else:
+        $sandbox_check_targets_derail1(JAP, ENG)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 15:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(ITA, FRA)
+    if not country_exists(ITA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, italy_gone)
+      $sandbox_log_sc(sc_end, italy_gone)
+    elif ITA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, italy_capitulated)
+      $sandbox_log_sc(sc_end, italy_capitulated)
     else:
-      $sandbox_check_targets_derail1(ITA, ENG)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(ITA, FRA)
+      else:
+        $sandbox_check_targets_derail1(ITA, ENG)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 16:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(ITA, TUR, ROM)
+    if not country_exists(ITA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, italy_gone)
+      $sandbox_log_sc(sc_end, italy_gone)
+    elif ITA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, italy_capitulated)
+      $sandbox_log_sc(sc_end, italy_capitulated)
     else:
-      $sandbox_check_targets_derail2(ITA, FRA, ENG)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail2(ITA, TUR, ROM)
+      else:
+        $sandbox_check_targets_derail2(ITA, FRA, ENG)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 17:
-    $sandbox_check_flip_gate2(ENG, neutrality, fascism, britain_not_imperial)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(ENG, RAJ)
+    if not country_exists(ENG):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, britain_gone)
+      $sandbox_log_sc(sc_end, britain_gone)
+    elif ENG->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, britain_capitulated)
+      $sandbox_log_sc(sc_end, britain_capitulated)
     else:
-      $sandbox_check_targets_derail2(ENG, USA, JAP)
+      $sandbox_check_flip_gate2(ENG, neutrality, fascism, britain_not_imperial)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(ENG, RAJ)
+      else:
+        $sandbox_check_targets_derail2(ENG, USA, JAP)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 18:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(USA, JAP)
+    if not country_exists(USA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, america_gone)
+      $sandbox_log_sc(sc_end, america_gone)
+    elif USA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, america_capitulated)
+      $sandbox_log_sc(sc_end, america_capitulated)
     else:
-      $sandbox_check_targets_derail2(USA, ENG, CAN)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(USA, JAP)
+      else:
+        $sandbox_check_targets_derail2(USA, ENG, CAN)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 19:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail4(USA, ENG, GER, HUN, JAP)
+    if not country_exists(USA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, america_gone)
+      $sandbox_log_sc(sc_end, america_gone)
+    elif USA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, america_capitulated)
+      $sandbox_log_sc(sc_end, america_capitulated)
     else:
-      $sandbox_check_targets_derail2(USA, ENG, FRA)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail4(USA, ENG, GER, HUN, JAP)
+      else:
+        $sandbox_check_targets_derail2(USA, ENG, FRA)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 20:
-    $sandbox_check_flip_gate1(FRA, neutrality, france_not_neutral)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(FRA, SPR, ADR, MEX)
+    if not country_exists(FRA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, france_gone)
+      $sandbox_log_sc(sc_end, france_gone)
+    elif FRA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, france_capitulated)
+      $sandbox_log_sc(sc_end, france_capitulated)
     else:
-      $sandbox_check_targets_derail1(FRA, SOV)
+      $sandbox_check_flip_gate1(FRA, neutrality, france_not_neutral)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail3(FRA, SPR, ADR, MEX)
+      else:
+        $sandbox_check_targets_derail1(FRA, SOV)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 21:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(FRA, GER)
+    if not country_exists(FRA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, france_gone)
+      $sandbox_log_sc(sc_end, france_gone)
+    elif FRA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, france_capitulated)
+      $sandbox_log_sc(sc_end, france_capitulated)
     else:
-      $sandbox_check_targets_derail1(FRA, ENG)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(FRA, GER)
+      else:
+        $sandbox_check_targets_derail1(FRA, ENG)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 22:
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail1(FRA, SWI)
+    if not country_exists(FRA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, france_gone)
+      $sandbox_log_sc(sc_end, france_gone)
+    elif FRA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, france_capitulated)
+      $sandbox_log_sc(sc_end, france_capitulated)
     else:
-      $sandbox_check_targets_derail1(FRA, ITA)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail1(FRA, SWI)
+      else:
+        $sandbox_check_targets_derail1(FRA, ITA)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 23:
-    $sandbox_check_flip_gate1(GER, communism, germany_not_communist)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(GER, ENG, FRA, ITA)
+    if not country_exists(GER):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_gone)
+      $sandbox_log_sc(sc_end, germany_gone)
+    elif GER->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_capitulated)
+      $sandbox_log_sc(sc_end, germany_capitulated)
     else:
-      $sandbox_check_targets_derail3(GER, SOV, USA, JAP)
+      $sandbox_check_flip_gate1(GER, communism, germany_not_communist)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail3(GER, ENG, FRA, ITA)
+      else:
+        $sandbox_check_targets_derail3(GER, SOV, USA, JAP)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 24:
-    $sandbox_check_flip_gate1(GER, neutrality, germany_not_neutral)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(GER, SOV, DEN)
+    if not country_exists(GER):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_gone)
+      $sandbox_log_sc(sc_end, germany_gone)
+    elif GER->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, germany_capitulated)
+      $sandbox_log_sc(sc_end, germany_capitulated)
     else:
-      $sandbox_check_targets_derail2(GER, VEN, FRA)
+      $sandbox_check_flip_gate1(GER, neutrality, germany_not_neutral)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail2(GER, SOV, DEN)
+      else:
+        $sandbox_check_targets_derail2(GER, VEN, FRA)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 25:
-    $sandbox_check_flip_gate_inv(SOV, communism, soviet_not_communist)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(SOV, GER, POL, FIN)
+    if not country_exists(SOV):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, soviet_gone)
+      $sandbox_log_sc(sc_end, soviet_gone)
+    elif SOV->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, soviet_capitulated)
+      $sandbox_log_sc(sc_end, soviet_capitulated)
     else:
-      $sandbox_check_targets_derail1(SOV, UKR)
+      $sandbox_check_flip_gate_inv(SOV, communism, soviet_not_communist)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail3(SOV, GER, POL, FIN)
+      else:
+        $sandbox_check_targets_derail1(SOV, UKR)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 26:
-    $sandbox_check_flip_gate1(JAP, communism, japan_not_communist)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(JAP, CHI, SOV)
+    if not country_exists(JAP):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, japan_gone)
+      $sandbox_log_sc(sc_end, japan_gone)
+    elif JAP->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, japan_capitulated)
+      $sandbox_log_sc(sc_end, japan_capitulated)
     else:
-      $sandbox_check_targets_derail3(JAP, ENG, USA, SIA)
+      $sandbox_check_flip_gate1(JAP, communism, japan_not_communist)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail2(JAP, CHI, SOV)
+      else:
+        $sandbox_check_targets_derail3(JAP, ENG, USA, SIA)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 27:
-    $sandbox_check_flip_gate1(ITA, communism, italy_not_communist)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail2(ITA, FRA, ENG)
+    if not country_exists(ITA):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, italy_gone)
+      $sandbox_log_sc(sc_end, italy_gone)
+    elif ITA->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, italy_capitulated)
+      $sandbox_log_sc(sc_end, italy_capitulated)
     else:
-      $sandbox_check_targets_derail2(ITA, BUL, YUG)
+      $sandbox_check_flip_gate1(ITA, communism, italy_not_communist)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail2(ITA, FRA, ENG)
+      else:
+        $sandbox_check_targets_derail2(ITA, BUL, YUG)
   elif global.sandbox_scenario_phase < 3 and global.sandbox_scenario == 28:
-    $sandbox_check_flip_gate1(ENG, communism, britain_not_communist)
-    if global.sandbox_target_variant == a:
-      $sandbox_check_targets_derail3(ENG, GER, USA, CAN)
+    if not country_exists(ENG):
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, britain_gone)
+      $sandbox_log_sc(sc_end, britain_gone)
+    elif ENG->has_capitulated():
+      global.&sandbox_scenario_phase = 3
+      $sandbox_log_sc(sc_derail, britain_capitulated)
+      $sandbox_log_sc(sc_end, britain_capitulated)
     else:
-      $sandbox_check_targets_derail1(ENG, SOV)
+      $sandbox_check_flip_gate1(ENG, communism, britain_not_communist)
+      if global.sandbox_target_variant == a:
+        $sandbox_check_targets_derail3(ENG, GER, USA, CAN)
+      else:
+        $sandbox_check_targets_derail1(ENG, SOV)
   if phase_before < 3 and global.sandbox_scenario_phase == 3:
     sandbox_scenario_maybe_repick()
 
