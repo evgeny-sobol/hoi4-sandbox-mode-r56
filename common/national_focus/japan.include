@@ -330,7 +330,7 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_ultimate_deterrence)
+      $sandbox_log_sc_focus(JAP_ultimate_deterrence)
 
   focus[id = JAP_full_sovereignty_for_the_philippines]:
     ai_will_do:
@@ -1128,7 +1128,7 @@ focus_tree[id = japan_wtt_focus]:
       $SND->can_PREV_get_wargoal_on_THIS()
       $XIC->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_reinforce_the_beijing_garrison)
+      $sandbox_log_sc_focus(JAP_reinforce_the_beijing_garrison)
 
   focus[id = JAP_strategic_offensives]:
     ai_will_do:
@@ -1491,7 +1491,7 @@ focus_tree[id = japan_wtt_focus]:
       $BRM->can_PREV_get_wargoal_on_THIS()
       $WPG->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_strike_the_southern_road)
+      $sandbox_log_sc_focus(JAP_strike_the_southern_road)
 
   focus[id = JAP_hokushin_ron]:
     ai_will_do:
@@ -1501,7 +1501,7 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_hokushin_ron)
+      $sandbox_log_sc_focus(JAP_hokushin_ron)
 
   focus[id = JAP_ensure_temporary_peace_with_china]:
     ai_will_do:
@@ -1605,7 +1605,7 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_sea_establish_the_northern_resource_area)
+      $sandbox_log_sc_focus(JAP_sea_establish_the_northern_resource_area)
 
   focus[id = JAP_seek_yakuza_support]:
     ai_will_do:
@@ -1964,7 +1964,7 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_raise_the_red_flag_high)
+      $sandbox_log_sc_focus(JAP_raise_the_red_flag_high)
 
   focus[id = JAP_guide_the_lesser_states]:
     ai_will_do:
@@ -2233,7 +2233,7 @@ focus_tree[id = japan_wtt_focus]:
       $BRN->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_spread_the_revolutuon_south)
+      $sandbox_log_sc_focus(JAP_spread_the_revolutuon_south)
 
   focus[id = JAP_free_asians_from_soviet_opression]:
     ai_will_do:
@@ -2253,7 +2253,7 @@ focus_tree[id = japan_wtt_focus]:
       $SOV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_free_asians_from_soviet_opression)
+      $sandbox_log_sc_focus(JAP_free_asians_from_soviet_opression)
 
   focus[id = JAP_go_after_the_capitalists]:
     ai_will_do:
@@ -2279,7 +2279,7 @@ focus_tree[id = japan_wtt_focus]:
       $ENG->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_go_after_the_capitalists)
+      $sandbox_log_sc_focus(JAP_go_after_the_capitalists)
 
   focus[id = JAP_a_free_asia_pacific]:
     ai_will_do:
@@ -2448,7 +2448,7 @@ focus_tree[id = japan_wtt_focus]:
       $HBC->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_put_an_end_to_chinese_feudalism)
+      $sandbox_log_sc_focus(JAP_put_an_end_to_chinese_feudalism)
 
   focus[id = JAP_mobilize_the_proletariat]:
     ai_will_do:
@@ -2831,7 +2831,7 @@ focus_tree[id = japan_wtt_focus]:
       $SOV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_strike_the_soviets)
+      $sandbox_log_sc_focus(JAP_strike_the_soviets)
 
   focus[id = JAP_free_colonized_asian_countries]:
     ai_will_do:
@@ -3744,7 +3744,7 @@ focus_tree[id = japan_wtt_focus]:
       $USA->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, JAP_strike_the_old_oppressors)
+      $sandbox_log_sc_focus(JAP_strike_the_old_oppressors)
 
   focus[id = JAP_reddoborantias]:
     ai_will_do:

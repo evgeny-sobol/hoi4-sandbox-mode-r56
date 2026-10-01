@@ -62,7 +62,7 @@ focus_tree[id = french_focus]:
         $root_modifier()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_action_francaise)
+      $sandbox_log_sc_focus(FRA_action_francaise)
 
   focus[id = FRA_sncf]:
     ai_will_do:
@@ -633,7 +633,7 @@ focus_tree[id = french_focus]:
       $PRE->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_dismantle_germany)
+      $sandbox_log_sc_focus(FRA_dismantle_germany)
 
   focus[id = FRA_service_ordre_legionnaire]:
     ai_will_do:
@@ -655,7 +655,7 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_papal_rehabilitation)
+      $sandbox_log_sc_focus(FRA_papal_rehabilitation)
 
   focus[id = FRA_repeal_the_law_of_exile]:
     ai_will_do:
@@ -665,7 +665,7 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_repeal_the_law_of_exile)
+      $sandbox_log_sc_focus(FRA_repeal_the_law_of_exile)
 
   focus[id = FRA_support_the_legitimatises]:
     ai_will_do:
@@ -685,7 +685,7 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_brumaire_movement)
+      $sandbox_log_sc_focus(FRA_brumaire_movement)
 
   focus[id = FRA_national_integralism]:
     ai_will_do:
@@ -800,7 +800,7 @@ focus_tree[id = french_focus]:
       $SPR->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_secure_the_crown_of_spain)
+      $sandbox_log_sc_focus(FRA_secure_the_crown_of_spain)
 
   focus[id = FRA_claim_the_andorran_throne]:
     ai_will_do:
@@ -820,7 +820,7 @@ focus_tree[id = french_focus]:
       $ADR->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_claim_the_andorran_throne)
+      $sandbox_log_sc_focus(FRA_claim_the_andorran_throne)
 
   focus[id = FRA_proclaim_the_dual_monarchy]:
     ai_will_do:
@@ -892,7 +892,7 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_the_new_continental_system)
+      $sandbox_log_sc_focus(FRA_the_new_continental_system)
 
   focus[id = FRA_our_natural_borders]:
     ai_will_do:
@@ -939,7 +939,7 @@ focus_tree[id = french_focus]:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_destroy_albion)
+      $sandbox_log_sc_focus(FRA_destroy_albion)
 
   focus[id = FRA_approach_the_empire_of_brazil]:
     ai_will_do:
@@ -965,7 +965,7 @@ focus_tree[id = french_focus]:
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_nothern_italy_claim)
+      $sandbox_log_sc_focus(FRA_nothern_italy_claim)
 
   focus[id = FRA_napoleon_iii_legacy]:
     ai_will_do:
@@ -1043,7 +1043,7 @@ focus_tree[id = french_focus]:
       $GER->can_PREV_get_wargoal_on_THIS()
       $PRE->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_crush_germany)
+      $sandbox_log_sc_focus(FRA_crush_germany)
 
   focus[id = FRA_reorganize_the_dutch]:
     ai_will_do:
@@ -1080,7 +1080,7 @@ focus_tree[id = french_focus]:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_return_to_dalmatia)
+      $sandbox_log_sc_focus(FRA_return_to_dalmatia)
 
   focus[id = FRA_empire_invite_yugoslavia]:
     ai_will_do:
@@ -1109,7 +1109,7 @@ focus_tree[id = french_focus]:
       $SOV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_second_march_on_moscow)
+      $sandbox_log_sc_focus(FRA_second_march_on_moscow)
 
   focus[id = FRA_a_more_durable_tilsit_treaty]:
     ai_will_do:
@@ -1151,7 +1151,7 @@ focus_tree[id = french_focus]:
       $MEX->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_restore_the_mexican_monarchy)
+      $sandbox_log_sc_focus(FRA_restore_the_mexican_monarchy)
 
   focus[id = FRA_take_back_north_america]:
     ai_will_do:
@@ -1219,7 +1219,7 @@ focus_tree[id = french_focus]:
       $SWI->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_plan_xiv)
+      $sandbox_log_sc_focus(FRA_plan_xiv)
 
   focus[id = FRA_woo_italy]:
     ai_will_do:
@@ -1338,7 +1338,7 @@ focus_tree[id = french_focus]:
       $ENG->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, FRA_strike_empire)
+      $sandbox_log_sc_focus(FRA_strike_empire)
 
   focus[id = FRA_help_the_spanish_republicans]:
     ai_will_do:

@@ -1654,7 +1654,7 @@ focus_tree[id = italian_focus]:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_all_roads_lead_to_rome)
+      $sandbox_log_sc_focus(ITA_all_roads_lead_to_rome)
 
   focus[id = ITA_the_king_of_the_skies]:
     +ai_will_do:
@@ -1751,7 +1751,7 @@ focus_tree[id = italian_focus]:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_a_time_for_war)
+      $sandbox_log_sc_focus(ITA_a_time_for_war)
 
   focus[id = ITA_the_holy_lands]:
     +ai_will_do:
@@ -2003,7 +2003,7 @@ focus_tree[id = italian_focus]:
       $MNT->can_PREV_get_wargoal_on_THIS()
       $TRA->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_italys_destiny)
+      $sandbox_log_sc_focus(ITA_italys_destiny)
 
   focus[id = ITA_preventive_intervention]:
     ai_will_do:
@@ -2170,7 +2170,7 @@ focus_tree[id = italian_focus]:
       $FRA->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_war_with_france)
+      $sandbox_log_sc_focus(ITA_war_with_france)
 
   focus[id = ITA_demand_ticino]:
     +ai_will_do:
@@ -2190,7 +2190,7 @@ focus_tree[id = italian_focus]:
       $SWI->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_demand_ticino)
+      $sandbox_log_sc_focus(ITA_demand_ticino)
 
   focus[id = ITA_operazione_druso]:
     ai_will_do:
@@ -2246,7 +2246,7 @@ focus_tree[id = italian_focus]:
       $ENG->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_war_with_the_uk)
+      $sandbox_log_sc_focus(ITA_war_with_the_uk)
 
   focus[id = ITA_war_with_greece]:
     ai_will_do:
@@ -2267,7 +2267,7 @@ focus_tree[id = italian_focus]:
     available:
       $GRE->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_war_with_greece)
+      $sandbox_log_sc_focus(ITA_war_with_greece)
 
   focus[id = ITA_befriend_greece]:
     ai_will_do:
@@ -2304,7 +2304,7 @@ focus_tree[id = italian_focus]:
       $TUR->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_claims_on_turkey_bba)
+      $sandbox_log_sc_focus(ITA_claims_on_turkey_bba)
 
   focus[id = ITA_befriend_turkey]:
     +ai_will_do:
@@ -2630,7 +2630,7 @@ focus_tree[id = italian_focus]:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_pugno_alzato)
+      $sandbox_log_sc_focus(ITA_pugno_alzato)
 
   focus[id = ITA_a_leader_steps_forward]:
     +ai_will_do:
@@ -2945,7 +2945,7 @@ focus_tree[id = italian_focus]:
       $SOV->can_PREV_get_wargoal_on_THIS()
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_the_enemies_of_capitalism)
+      $sandbox_log_sc_focus(ITA_the_enemies_of_capitalism)
 
   focus[id = ITA_the_ethiopian_question]:
     +ai_will_do:
@@ -3063,7 +3063,7 @@ focus_tree[id = italian_focus]:
       $can_get_wargoal_on($SPA)
 
     +completion_reward:
-      $sandbox_log_sc(sc_focus, ITA_liberate_the_workers_of_africa)
+      $sandbox_log_sc_focus(ITA_liberate_the_workers_of_africa)
 
   focus[id = ITA_ascari]:
     +ai_will_do:
