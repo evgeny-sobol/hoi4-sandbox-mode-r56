@@ -1707,6 +1707,8 @@ sandbox_fire_habsburg_peak():
 # a persistent country variable first; temp would not survive into the
 # scorer's scope.
 sandbox_select_axis_joiners():
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1719,11 +1721,15 @@ sandbox_select_axis_joiners():
       country_event:
         id(sandbox_axis.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the Soviet arc: same open-pool top-2, same scorer. Runs in
 # SOV scope so the scorer's FROM is the aggressor; letters fire the Soviet
 # join event (Comintern faction).
 sandbox_select_soviet_joiners():
+  global.&scenario_join_same_ideology = 1
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1736,11 +1742,15 @@ sandbox_select_soviet_joiners():
       country_event:
         id(sandbox_soviet.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the Japanese arc: same open-pool top-2, same scorer. Runs in
 # JAP scope so the scorer's FROM is the aggressor; letters fire the Japanese
 # join event (Co-Prosperity faction).
 sandbox_select_japanese_joiners():
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1753,11 +1763,15 @@ sandbox_select_japanese_joiners():
       country_event:
         id(sandbox_japanese.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the Italian arc: same open-pool top-2, same scorer. Runs in
 # ITA scope so the scorer's FROM is the aggressor; letters fire the Italian
 # join event (Mare Nostrum faction).
 sandbox_select_italian_joiners():
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1770,11 +1784,15 @@ sandbox_select_italian_joiners():
       country_event:
         id(sandbox_italian.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the British arc: same open-pool top-2, same scorer. Runs in
 # ENG scope so the scorer's FROM is the aggressor; letters fire the British
 # join event (New Empire faction).
 sandbox_select_britain_joiners():
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1787,11 +1805,15 @@ sandbox_select_britain_joiners():
       country_event:
         id(sandbox_britain.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the Red America arc: same open-pool top-2, same scorer. Runs
 # in USA scope so the scorer's FROM is the aggressor; letters fire the
 # American join event (People's Internationale faction).
 sandbox_select_red_america_joiners():
+  global.&scenario_join_same_ideology = 1
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1804,11 +1826,15 @@ sandbox_select_red_america_joiners():
       country_event:
         id(sandbox_red_america.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the Napoleonic France arc: same open-pool top-2, same scorer.
 # Runs in FRA scope so the scorer's FROM is the aggressor; letters fire the
 # French join event (the Continental System faction).
 sandbox_select_napoleonic_france_joiners():
+  global.&scenario_join_same_ideology = 1
+  global.&scenario_join_same_continent = 1
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1821,11 +1847,15 @@ sandbox_select_napoleonic_france_joiners():
       country_event:
         id(sandbox_france.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # Join 2.0 for the Habsburg arc: same open-pool top-2, same scorer. Runs in
 # HUN scope so the scorer's FROM is the aggressor; letters fire the
 # Habsburg join event (the Danubian Empire faction).
 sandbox_select_habsburg_joiners():
+  global.&scenario_join_same_ideology = 1
+  global.&scenario_join_same_continent = 0
   sandbox_snapshot_join_industry()
   get_sorted_scored_countries(scenario_join_scorer, scenario_join_candidates[], scenario_join_scores[])
   if scenario_join_scores[0] > 0:
@@ -1838,6 +1868,8 @@ sandbox_select_habsburg_joiners():
       country_event:
         id(sandbox_habsburg.4)
       $sandbox_log_sc(sc_offer, invited)
+  global.&scenario_join_same_ideology = 0
+  global.&scenario_join_same_continent = 0
 
 # s7 diagnostic (read-only): monthly strength + wargoal snapshot for arc
 # actors while the arc is alive. Temps and logs only; no game state changes.
@@ -2117,8 +2149,6 @@ sandbox_scenario_s7_telemetry():
         ENG:
           if has_wargoal_against(ITA) or is_justifying_wargoal_against(ITA):
             $sandbox_log_sc(sc_goal, eng_on_ita)
-  if global.sandbox_scenario == 5 and global.sandbox_scenario_phase < 3:
-    gen_fascist_britain_telemetry()
   if global.sandbox_scenario == 6 and global.sandbox_scenario_phase < 3:
     if global.sandbox_target_variant == a:
       USA:
