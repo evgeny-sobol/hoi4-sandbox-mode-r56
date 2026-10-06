@@ -47,6 +47,7 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, usa_hegemony_ult_2_defy)
 # Ultimatum 3 (GER | FRA).
 country_event:
@@ -73,6 +74,7 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, usa_hegemony_ult_3_defy)
 # Ultimatum 4 (HUN).
 country_event:
@@ -99,6 +101,7 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, usa_hegemony_ult_4_defy)
 # Ultimatum 5 (JAP).
 country_event:
@@ -125,4 +128,5 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, usa_hegemony_ult_5_defy)

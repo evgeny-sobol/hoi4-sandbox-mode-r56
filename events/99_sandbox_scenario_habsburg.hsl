@@ -53,6 +53,7 @@ country_event:
     HUN:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(ROM, 15)
+      $create_wargoal(ROM, topple_government)
     $sandbox_log_sc(sc_crisis, rumano_defy)
 
 # Peak phase: ultimatum to Prague. Submit hurts; defy feeds Budapest.
@@ -80,6 +81,7 @@ country_event:
     HUN:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(CZE, 15)
+      $create_wargoal(CZE, topple_government)
     $sandbox_log_sc(sc_crisis, czech_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the
@@ -162,6 +164,7 @@ country_event:
     HUN:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(YUG, 15)
+      $create_wargoal(YUG, topple_government)
     $sandbox_log_sc(sc_crisis, yugoslav_defy)
 
 # Variant B: ultimatum to SLO.
@@ -189,5 +192,6 @@ country_event:
     HUN:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(SLO, 15)
+      $create_wargoal(SLO, topple_government)
     $sandbox_log_sc(sc_crisis, slovene_defy)
 

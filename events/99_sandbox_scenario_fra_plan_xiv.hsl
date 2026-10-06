@@ -47,4 +47,5 @@ country_event:
     FRA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, fra_plan_xiv_ult_2_defy)

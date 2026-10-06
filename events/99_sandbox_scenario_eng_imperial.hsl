@@ -47,6 +47,7 @@ country_event:
     ENG:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, eng_imperial_ult_2_defy)
 # Ultimatum 3 (JAP).
 country_event:
@@ -73,4 +74,5 @@ country_event:
     ENG:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, eng_imperial_ult_3_defy)

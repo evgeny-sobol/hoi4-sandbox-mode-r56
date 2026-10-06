@@ -52,6 +52,7 @@ country_event:
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(CZE, 15)
+      $create_wargoal(CZE, topple_government)
     $sandbox_log_sc(sc_crisis, czech_defy)
 
 # Peak phase: ultimatum to Warsaw. Submit hurts; defy feeds Berlin.
@@ -79,6 +80,7 @@ country_event:
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(POL, 15)
+      $create_wargoal(POL, topple_government)
     $sandbox_log_sc(sc_crisis, polish_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the Axis.
@@ -161,6 +163,7 @@ country_event:
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(FRA, 15)
+      $create_wargoal(FRA, topple_government)
     $sandbox_log_sc(sc_crisis, french_defy)
 
 # Variant B: ultimatum to Britain. Submit hurts; defy feeds Berlin.
@@ -188,4 +191,5 @@ country_event:
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(ENG, 15)
+      $create_wargoal(ENG, topple_government)
     $sandbox_log_sc(sc_crisis, british_defy)

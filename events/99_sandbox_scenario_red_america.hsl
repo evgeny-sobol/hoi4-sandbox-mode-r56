@@ -53,6 +53,7 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(JAP, 15)
+      $create_wargoal(JAP, topple_government)
     $sandbox_log_sc(sc_crisis, japanese_defy)
 
 # Peak phase: ultimatum to Ottawa. Submit hurts; defy feeds Washington.
@@ -80,6 +81,7 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(CAN, 15)
+      $create_wargoal(CAN, topple_government)
     $sandbox_log_sc(sc_crisis, canadian_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the
@@ -162,6 +164,7 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(ENG, 15)
+      $create_wargoal(ENG, topple_government)
     $sandbox_log_sc(sc_crisis, british_defy)
 
 # Variant B: ultimatum to SOV.
@@ -189,5 +192,6 @@ country_event:
     USA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(SOV, 15)
+      $create_wargoal(SOV, topple_government)
     $sandbox_log_sc(sc_crisis, soviet_defy)
 

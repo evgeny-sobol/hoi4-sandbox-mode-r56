@@ -53,6 +53,7 @@ country_event:
     ENG:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(SOV, 15)
+      $create_wargoal(SOV, topple_government)
     $sandbox_log_sc(sc_crisis, soviet_defy)
 
 # Peak phase: ultimatum to Paris. Submit hurts; defy feeds London.
@@ -80,6 +81,7 @@ country_event:
     ENG:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(FRA, 15)
+      $create_wargoal(FRA, topple_government)
     $sandbox_log_sc(sc_crisis, french_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the New
@@ -162,6 +164,7 @@ country_event:
     ENG:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(GER, 15)
+      $create_wargoal(GER, topple_government)
     $sandbox_log_sc(sc_crisis, german_defy)
 
 # Variant B: ultimatum to ITA.
@@ -189,5 +192,6 @@ country_event:
     ENG:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(ITA, 15)
+      $create_wargoal(ITA, topple_government)
     $sandbox_log_sc(sc_crisis, italian_defy)
 

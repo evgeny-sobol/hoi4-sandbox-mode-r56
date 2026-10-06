@@ -48,6 +48,7 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(JAP, 15)
+      $create_wargoal(JAP, topple_government)
     $sandbox_log_sc(sc_crisis, JAP_defy)
 
 # Ultimatum to MAN.
@@ -75,4 +76,5 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(MAN, 15)
+      $create_wargoal(MAN, topple_government)
     $sandbox_log_sc(sc_crisis, MAN_defy)

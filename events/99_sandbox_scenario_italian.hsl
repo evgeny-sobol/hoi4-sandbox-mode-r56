@@ -53,6 +53,7 @@ country_event:
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(GRE, 15)
+      $create_wargoal(GRE, topple_government)
     $sandbox_log_sc(sc_crisis, greek_defy)
 
 # Peak phase: ultimatum to Belgrade. Submit hurts; defy feeds Rome.
@@ -80,6 +81,7 @@ country_event:
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(YUG, 15)
+      $create_wargoal(YUG, topple_government)
     $sandbox_log_sc(sc_crisis, yugoslav_defy)
 
 # Peak phase: a top-2 open-pool candidate is offered a place in the
@@ -162,6 +164,7 @@ country_event:
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(FRA, 15)
+      $create_wargoal(FRA, topple_government)
     $sandbox_log_sc(sc_crisis, french_defy)
 
 # Variant B: ultimatum to ENG.
@@ -189,5 +192,6 @@ country_event:
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(ENG, 15)
+      $create_wargoal(ENG, topple_government)
     $sandbox_log_sc(sc_crisis, british_defy)
 

@@ -48,6 +48,7 @@ country_event:
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(SOV, 15)
+      $create_wargoal(SOV, topple_government)
     $sandbox_log_sc(sc_crisis, SOV_defy)
 
 # Ultimatum to IRQ.
@@ -75,4 +76,5 @@ country_event:
     GER:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(IRQ, 15)
+      $create_wargoal(IRQ, topple_government)
     $sandbox_log_sc(sc_crisis, IRQ_defy)

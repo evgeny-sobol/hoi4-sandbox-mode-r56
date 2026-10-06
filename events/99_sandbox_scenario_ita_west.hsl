@@ -48,6 +48,7 @@ country_event:
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(FRA, 15)
+      $create_wargoal(FRA, topple_government)
     $sandbox_log_sc(sc_crisis, FRA_defy)
 
 # Ultimatum to ENG.
@@ -75,4 +76,5 @@ country_event:
     ITA:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(ENG, 15)
+      $create_wargoal(ENG, topple_government)
     $sandbox_log_sc(sc_crisis, ENG_defy)

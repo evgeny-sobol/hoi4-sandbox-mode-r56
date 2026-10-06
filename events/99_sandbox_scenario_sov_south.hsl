@@ -48,6 +48,7 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(TUR, 15)
+      $create_wargoal(TUR, topple_government)
     $sandbox_log_sc(sc_crisis, TUR_defy)
 
 # Ultimatum to IRQ.
@@ -75,6 +76,7 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(IRQ, 15)
+      $create_wargoal(IRQ, topple_government)
     $sandbox_log_sc(sc_crisis, IRQ_defy)
 
 # Ultimatum to PER (A) / AFG (B).
@@ -102,4 +104,5 @@ country_event:
     SOV:
       add_war_support(0.05)
       $sandbox_add_rivalry_vs(PREV, 15)
+      $create_wargoal(PREV, topple_government)
     $sandbox_log_sc(sc_crisis, PER_defy)
