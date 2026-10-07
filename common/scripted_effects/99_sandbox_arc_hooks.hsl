@@ -9,198 +9,47 @@
 # sc_goal_end per-arc tag gates (runs under phase < 3).
 sandbox_arc_wargoal_expire_hook():
   if global.sandbox_scenario == 1:
-    if global.sandbox_target_variant == a:
+    if global.sandbox_target_variant == 0:
       if tag(GER | CZE | POL):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
       if tag(GER | FRA | ENG):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 2:
-    if global.sandbox_target_variant == a:
-      if tag(SOV | POL | FIN):
+    if global.sandbox_target_variant == 0:
+      if tag(ITA | ENG | FRA):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
-      if tag(SOV | CZE | BUL):
+      if tag(ITA | YUG | SWI):
         $sandbox_log_sc(sc_goal_end, goal_expired)
   if global.sandbox_scenario == 3:
-    if global.sandbox_target_variant == a:
-      if tag(JAP | CHI | PHI):
+    if global.sandbox_target_variant == 0:
+      if tag(JAP | CHI | AST):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
-      if tag(JAP | BRM | INS | MAL):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 4:
-    if global.sandbox_target_variant == a:
-      if tag(ITA | YUG | GRE):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(ITA | FRA | ENG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 5:
-    if global.sandbox_target_variant == a:
-      if tag(ENG | FRA | SOV):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(ENG | GER | ITA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 6:
-    if global.sandbox_target_variant == a:
-      if tag(USA | CAN | JAP):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(USA | ENG | SOV):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 7:
-    if global.sandbox_target_variant == a:
-      if tag(FRA | GER | ITA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(FRA | ENG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 8:
-    if global.sandbox_target_variant == a:
-      if tag(HUN | CZE | ROM):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(HUN | YUG | SLO):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 9:
-    if global.sandbox_target_variant == a:
-      if tag(GER | ENG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(GER | USA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 10:
-    if global.sandbox_target_variant == a:
-      if tag(GER | SOV):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(GER | IRQ | PER):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 11:
-    if global.sandbox_target_variant == a:
-      if tag(SOV | TUR | IRQ | PER):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(SOV | PAK | RAJ | AFG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 12:
-    if global.sandbox_target_variant == a:
-      if tag(SOV | JAP | MAN):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(SOV | USA | CAN):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 13:
-    if global.sandbox_target_variant == a:
       if tag(JAP | SOV | MON):
         $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(JAP | SOV | CHI):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 14:
-    if global.sandbox_target_variant == a:
-      if tag(JAP | USA):
+  if global.sandbox_scenario == 4:
+    if global.sandbox_target_variant == 0:
+      if tag(SOV | EST | LAT | LIT):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
-      if tag(JAP | ENG):
+      if tag(SOV | POL | ROM):
         $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 15:
-    if global.sandbox_target_variant == a:
-      if tag(ITA | FRA):
+  if global.sandbox_scenario == 5:
+    if global.sandbox_target_variant == 0:
+      if tag(FRA | BEL | HOL | LUX):
         $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(ITA | ENG):
+  if global.sandbox_scenario == 6:
+    if global.sandbox_target_variant == 0:
+      if tag(ENG | ITA | IRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 16:
-    if global.sandbox_target_variant == a:
-      if tag(ITA | TUR | ROM):
+    elif global.sandbox_target_variant == 1:
+      if tag(ENG | JAP | IRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(ITA | FRA | ENG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 17:
-    if global.sandbox_target_variant == a:
-      if tag(ENG | RAJ):
+    elif global.sandbox_target_variant == 2:
+      if tag(ENG | SOV | IRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)
     else:
-      if tag(ENG | USA | JAP):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 18:
-    if global.sandbox_target_variant == a:
-      if tag(USA | JAP):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(USA | ENG | CAN):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 19:
-    if global.sandbox_target_variant == a:
-      if tag(USA | ENG | GER | HUN | JAP):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(USA | ENG | FRA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 20:
-    if global.sandbox_target_variant == a:
-      if tag(FRA | SPR | ADR | MEX):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(FRA | SOV):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 21:
-    if global.sandbox_target_variant == a:
-      if tag(FRA | GER):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(FRA | ENG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 22:
-    if global.sandbox_target_variant == a:
-      if tag(FRA | SWI):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(FRA | ITA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 23:
-    if global.sandbox_target_variant == a:
-      if tag(GER | ENG | FRA | ITA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(GER | SOV | USA | JAP):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 24:
-    if global.sandbox_target_variant == a:
-      if tag(GER | SOV | DEN):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(GER | VEN | FRA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 25:
-    if global.sandbox_target_variant == a:
-      if tag(SOV | GER | POL | FIN):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(SOV | UKR):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 26:
-    if global.sandbox_target_variant == a:
-      if tag(JAP | CHI | SOV):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(JAP | ENG | USA | SIA):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 27:
-    if global.sandbox_target_variant == a:
-      if tag(ITA | FRA | ENG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(ITA | BUL | YUG):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-  if global.sandbox_scenario == 28:
-    if global.sandbox_target_variant == a:
-      if tag(ENG | GER | USA | CAN):
-        $sandbox_log_sc(sc_goal_end, goal_expired)
-    else:
-      if tag(ENG | SOV):
+      if tag(ENG | USA | IRE):
         $sandbox_log_sc(sc_goal_end, goal_expired)

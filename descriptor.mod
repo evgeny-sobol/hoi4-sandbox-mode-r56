@@ -1,5 +1,5 @@
 name="Sandbox Mode Overhaul for The Road to 56"
-version="0.2.1"
+version="0.2.2"
 dependencies={
 	"The Road to 56"
 }

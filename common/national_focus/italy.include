@@ -4,19 +4,31 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_ethiopian_war_logistics_bba)
+
+
 
   focus[id = ITA_italian_highways_bba]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_italian_highways_bba)
+
+
 
   focus[id = ITA_ministry_of_italian_africa]:
     +ai_will_do:
@@ -775,48 +787,78 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
       modifier:
         f = (mtth:democracy_factor + mtth:communism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_the_abyssinian_fiasco)
+
+
 
   focus[id = ITA_solid_progress]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_solid_progress)
+
+
 
   focus[id = ITA_struggle_in_ethiopia]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $root_modifier()
       modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_struggle_in_ethiopia)
+
+
 
   focus[id = ITA_undermine_the_duce]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = 1 + mtth:monarchy_factor + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_undermine_the_duce)
+
+
 
   focus[id = ITA_servizio_informazione_militare]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_servizio_informazione_militare)
+
+
 
   focus[id = ITA_royal_intervention]:
     ai_will_do:
@@ -918,19 +960,31 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = 1 + mtth:monarchy_factor + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_conspiracies_in_the_shadows)
+
+
 
   focus[id = ITA_triumph_in_africa_bba]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_scenario_focus_boost()
+      +modifier:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_triumph_in_africa_bba)
+
+
 
   focus[id = ITA_convene_the_grand_council]:
     +ai_will_do:
@@ -967,10 +1021,16 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:fascism_factor / (mtth:democracy_factor + mtth:monarchy_factor + mtth:communism_factor + 2 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_culto_del_duce)
+
+
 
   focus[id = ITA_the_man_of_providence]:
     +ai_will_do:
@@ -996,13 +1056,25 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_la_battaglia_del_grano)
+
+
 
   focus[id = ITA_la_battaglia_per_la_terra]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_la_battaglia_per_la_terra)
+
+
 
   focus[id = ITA_move_toward_autarky]:
     ai_will_do:
@@ -1015,11 +1087,23 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_la_battaglia_per_le_nascite)
+
+
 
   focus[id = ITA_strengthen_the_regime]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_strengthen_the_regime)
+
+
 
   focus[id = ITA_devotion]:
     +ai_will_do:
@@ -1091,6 +1175,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(a)
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -1118,6 +1204,10 @@ focus_tree[id = italian_focus]:
       $FRA->can_PREV_get_wargoal_on_THIS()
       $YUG->can_PREV_get_wargoal_on_THIS()
       $ALB->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_towards_a_greater_italy)
+
+
 
   focus[id = ITA_heroes_of_the_nation]:
     +ai_will_do:
@@ -1133,6 +1223,8 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(a)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1149,11 +1241,17 @@ focus_tree[id = italian_focus]:
     +available:
       $FRA->can_PREV_get_wargoal_on_THIS()
       $ENG->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_bend_the_bars)
+
+
 
   focus[id = ITA_subdue_the_sentinels]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(a)
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1164,6 +1262,10 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($ENG)
     +available:
       $ENG->can_PREV_get_wargoal_on_THIS()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_subdue_the_sentinels)
+
+
 
   focus[id = ITA_a_colonial_empire]:
     +ai_will_do:
@@ -1189,62 +1291,116 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_depose_mussolini)
+
+
 
   focus[id = ITA_italo_balbo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:fascism_factor + mtth:fascism_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + 3 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_italo_balbo_focus)
+
+
 
   focus[id = ITA_dino_grandi_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + 3 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_dino_grandi_focus)
+
+
 
   focus[id = ITA_stop_the_squandering]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_stop_the_squandering)
+
+
 
   focus[id = ITA_consolidate_power]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_consolidate_power)
+
+
 
   focus[id = ITA_purge_the_party]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         $ai_high_tyranny_tilt()
     available:
       is_liberal_leader(no)
     completion_reward:
       $add_tyranny(20)
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_purge_the_party)
+
+
 
   focus[id = ITA_the_fate_of_mussolini]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_the_fate_of_mussolini)
+
+
 
   focus[id = ITA_divino_duce]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_divino_duce)
+
+
 
   focus[id = ITA_blackshirt_loyalty]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_blackshirt_loyalty)
+
+
 
   focus[id = ITA_a_greater_purpose]:
     +ai_will_do:
@@ -1440,10 +1596,16 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + 3 * mtth:fascism_factor) * 3
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_monarchia_d_italia)
+
+
 
   focus[id = ITA_extraction_industry]:
     +ai_will_do:
@@ -1489,76 +1651,142 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:democracy_factor * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_revoke_the_acerbo_law)
+
+
 
   focus[id = ITA_christian_democracy]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:democracy_factor * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_christian_democracy)
+
+
 
   focus[id = ITA_democratic_king]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = mtth:monarchy_factor * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_democratic_king)
+
+
 
   focus[id = ITA_cooperate_with_moderates]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_cooperate_with_moderates)
+
+
 
   focus[id = ITA_expand_intelligence_services]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_expand_intelligence_services)
+
+
 
   focus[id = ITA_crush_opposition]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_crush_opposition)
+
+
 
   focus[id = ITA_power_to_the_king]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_power_to_the_king)
+
+
 
   focus[id = ITA_disband_the_blackshirts]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:democracy_factor + mtth:monarchy_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_disband_the_blackshirts)
+
+
 
   focus[id = ITA_utilize_the_blackshirts]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
       modifier:
         f = (mtth:monarchy_factor + mtth:fascism_factor) / (mtth:democracy_factor + 2 * mtth:monarchy_factor + mtth:fascism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_utilize_the_blackshirts)
+
+
 
   focus[id = ITA_expand_the_royal_guard]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_expand_the_royal_guard)
+
+
 
   focus[id = ITA_gloria_al_regno_d_italia]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_gloria_al_regno_d_italia)
+
+
 
   focus[id = ITA_paramilitary_training]:
     +ai_will_do:
@@ -1569,16 +1797,34 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_seek_papal_support)
+
+
 
   focus[id = ITA_agents_of_the_church]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_agents_of_the_church)
+
+
 
   focus[id = ITA_strengthen_the_papacy]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_strengthen_the_papacy)
+
+
 
   focus[id = ITA_sanction_mafia_killings]:
     +ai_will_do:
@@ -1609,15 +1855,27 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_setting_course)
+
+
 
   focus[id = ITA_mare_nostrum_bba]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(b)
       modifier:
         $crossroad_modifier(2)
       modifier:
         $ai_mic_modifier()
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_mare_nostrum_bba)
+
+
 
   focus[id = ITA_auxiliaries]:
     +ai_will_do:
@@ -1628,6 +1886,12 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_scenario_focus_boost_variant(b)
+    +completion_reward:
+      $sandbox_log_sc_focus(ITA_the_italian_legions)
+
+
 
   focus[id = ITA_new_roman_citizens]:
     +ai_will_do:
@@ -1639,7 +1903,7 @@ focus_tree[id = italian_focus]:
       modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
+        $ai_scenario_focus_boost_variant(b)
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -1652,9 +1916,10 @@ focus_tree[id = italian_focus]:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
-
     +completion_reward:
       $sandbox_log_sc_focus(ITA_all_roads_lead_to_rome)
+
+
 
   focus[id = ITA_the_king_of_the_skies]:
     +ai_will_do:
@@ -1735,8 +2000,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_mic_modifier()
       modifier:
@@ -1750,8 +2013,6 @@ focus_tree[id = italian_focus]:
     +available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_a_time_for_war)
 
   focus[id = ITA_the_holy_lands]:
     +ai_will_do:
@@ -1779,8 +2040,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_scenario_focus_boost()
 
   focus[id = ITA_balkan_ambition]:
     +ai_will_do:
@@ -1788,8 +2047,6 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $crossroad_modifier(2)
-      modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -1902,8 +2159,6 @@ focus_tree[id = italian_focus]:
         cooperation = 1 + ($opinion_factor($ENG) + $opinion_factor($FRA)) / 2
         factor(cooperation)
         is_sandbox_mode_on()
-      modifier:
-        $ai_scenario_focus_boost()
     available:
       $not_rival_of_PREV($ENG)
       $not_rival_of_PREV($FRA)
@@ -1937,8 +2192,6 @@ focus_tree[id = italian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_war_support_modifier()
-      modifier:
-        $ai_scenario_focus_boost()
       modifier:
         antagonism = 1 - ($opinion_factor($BUL) + $opinion_factor($GRE) +
           $opinion_factor($YUG) + $opinion_factor($ALB) + $opinion_factor($ROM) +
@@ -1984,8 +2237,6 @@ focus_tree[id = italian_focus]:
           $MNT->is_friend_of_PREV()
           $TRA->is_friend_of_PREV()
       modifier:
-        $ai_scenario_focus_boost()
-      modifier:
         $ai_mic_modifier()
     available:
       $BUL->can_PREV_get_wargoal_on_THIS()
@@ -2002,8 +2253,6 @@ focus_tree[id = italian_focus]:
       $KOS->can_PREV_get_wargoal_on_THIS()
       $MNT->can_PREV_get_wargoal_on_THIS()
       $TRA->can_PREV_get_wargoal_on_THIS()
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_italys_destiny)
 
   focus[id = ITA_preventive_intervention]:
     ai_will_do:
@@ -2155,8 +2404,6 @@ focus_tree[id = italian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_war_support_modifier()
@@ -2169,15 +2416,11 @@ focus_tree[id = italian_focus]:
     available:
       $FRA->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_war_with_france)
 
   focus[id = ITA_demand_ticino]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -2189,8 +2432,6 @@ focus_tree[id = italian_focus]:
     available:
       $SWI->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_demand_ticino)
 
   focus[id = ITA_operazione_druso]:
     ai_will_do:
@@ -2233,8 +2474,6 @@ focus_tree[id = italian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_scenario_focus_boost()
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         $ai_antagonism_modifier($ENG)
@@ -2245,8 +2484,6 @@ focus_tree[id = italian_focus]:
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_war_with_the_uk)
 
   focus[id = ITA_war_with_greece]:
     ai_will_do:
@@ -2262,12 +2499,8 @@ focus_tree[id = italian_focus]:
         $ai_rivalry_modifier($GRE)
       +modifier:
         $ai_betrayal_modifier_vs($GRE)
-      +modifier:
-        $ai_scenario_focus_boost()
     available:
       $GRE->can_PREV_get_wargoal_on_THIS()
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_war_with_greece)
 
   focus[id = ITA_befriend_greece]:
     ai_will_do:
@@ -2288,8 +2521,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $crossroad_modifier(2)
       modifier:
@@ -2303,8 +2534,6 @@ focus_tree[id = italian_focus]:
     available:
       $TUR->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_claims_on_turkey_bba)
 
   focus[id = ITA_befriend_turkey]:
     +ai_will_do:
@@ -2616,8 +2845,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -2629,8 +2856,6 @@ focus_tree[id = italian_focus]:
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_pugno_alzato)
 
   focus[id = ITA_a_leader_steps_forward]:
     +ai_will_do:
@@ -2931,8 +3156,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -2944,8 +3167,6 @@ focus_tree[id = italian_focus]:
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_the_enemies_of_capitalism)
 
   focus[id = ITA_the_ethiopian_question]:
     +ai_will_do:
@@ -3024,8 +3245,6 @@ focus_tree[id = italian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_scenario_focus_boost()
       modifier:
         $ai_war_support_modifier()
       modifier:
@@ -3062,8 +3281,6 @@ focus_tree[id = italian_focus]:
       $POR->can_PREV_get_wargoal_on_THIS()
       $can_get_wargoal_on($SPA)
 
-    +completion_reward:
-      $sandbox_log_sc_focus(ITA_liberate_the_workers_of_africa)
 
   focus[id = ITA_ascari]:
     +ai_will_do:
