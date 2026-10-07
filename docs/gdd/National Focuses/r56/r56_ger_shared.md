@@ -1,48 +1,62 @@
 # GERK_legacy_of_the_zollverein
 
 ```mermaid
-flowchart TD
-    n1(("GERK_legacy_of_the_zollverein"))
-    n2["GERK_move_towards_german_reunification"]
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("GERK_legacy_of_the_zollverein"))
+        n2["GERK_move_towards_german_reunification"]
+    end
     n1 x--x n2
 ```
 
 # GERK_move_towards_german_reunification
 
 ```mermaid
-flowchart TD
-    n1["GERK_legacy_of_the_zollverein"]
-    n2(("GERK_move_towards_german_reunification"))
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1["GERK_legacy_of_the_zollverein"]
+        n2(("GERK_move_towards_german_reunification"))
+    end
     n1 x--x n2
 ```
 
 # GERK_revitalize_old_traditions
 
 ```mermaid
-flowchart TD
-    n3["GERK_all_terrain_military_motorcycle"]
-    n4["GERK_army_with_a_state"]
-    n5["GERK_continue_motorization"]
-    n6["GERK_factory_of_europe"]
-    n7["GERK_field_piece_research"]
-    n8["GERK_gott_mit_uns"]
-    n9["GERK_panzer_armies"]
-    n10(("GERK_revitalize_old_traditions"))
-    n11["GERK_rifle_modernization"]
-    n12["GERK_root_militarism"]
-    n13["GERK_shocktroops"]
-    n14["GERK_train_panzergrenadiers"]
-    n13 --> n3
-    n8 --> n4
-    n10 --> n5
-    n9 --> n6
-    n8 --> n6
-    n11 --> n7
-    n12 --> n8
-    n5 --> n9
-    n10 --> n11
-    n10 --> n12
-    n7 --> n13
-    n5 --> n13
-    n13 --> n14
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n3(("GERK_revitalize_old_traditions"))
+    end
+    subgraph tier_1["Tier 1"]
+        n4["GERK_continue_motorization"]
+        n5["GERK_rifle_modernization"]
+        n6["GERK_root_militarism"]
+    end
+    subgraph tier_2["Tier 2"]
+        n7["GERK_field_piece_research"]
+        n8["GERK_gott_mit_uns"]
+        n9["GERK_panzer_armies"]
+    end
+    subgraph tier_3["Tier 3"]
+        n10["GERK_army_with_a_state"]
+        n11["GERK_factory_of_europe"]
+        n12["GERK_shocktroops"]
+    end
+    subgraph tier_4["Tier 4"]
+        n13["GERK_all_terrain_military_motorcycle"]
+        n14["GERK_train_panzergrenadiers"]
+    end
+    n12 --> n13
+    n8 --> n10
+    n3 --> n4
+    n9 --> n11
+    n8 --> n11
+    n5 --> n7
+    n6 --> n8
+    n4 --> n9
+    n3 --> n5
+    n3 --> n6
+    n7 --> n12
+    n4 --> n12
+    n12 --> n14
 ```

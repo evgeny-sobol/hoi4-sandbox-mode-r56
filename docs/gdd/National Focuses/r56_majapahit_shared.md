@@ -1,20 +1,28 @@
 # MAL_UNIFIED_majapahit_unification
 
 ```mermaid
-flowchart TD
-    n1["MAL_UNIFIED_defend_the_new_union"]
-    n2["MAL_UNIFIED_develop_mining"]
-    n3["MAL_UNIFIED_ethnic_collaboration"]
-    n4["MAL_UNIFIED_improve_local_infrastructure"]
-    n5["MAL_UNIFIED_legacy_of_piracy"]
-    n6(("MAL_UNIFIED_majapahit_unification"))
-    n7["MAL_UNIFIED_naval_buildup"]
-    n8["MAL_UNIFIED_united_armed_forces"]
-    n6 --> n1
-    n6 --> n2
-    n4 --> n3
-    n6 --> n4
-    n7 --> n5
-    n4 --> n7
-    n1 --> n8
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1(("MAL_UNIFIED_majapahit_unification"))
+    end
+    subgraph tier_1["Tier 1"]
+        n2["MAL_UNIFIED_defend_the_new_union"]
+        n3["MAL_UNIFIED_develop_mining"]
+        n4["MAL_UNIFIED_improve_local_infrastructure"]
+    end
+    subgraph tier_2["Tier 2"]
+        n5["MAL_UNIFIED_ethnic_collaboration"]
+        n6["MAL_UNIFIED_naval_buildup"]
+        n7["MAL_UNIFIED_united_armed_forces"]
+    end
+    subgraph tier_3["Tier 3"]
+        n8["MAL_UNIFIED_legacy_of_piracy"]
+    end
+    n1 --> n2
+    n1 --> n3
+    n4 --> n5
+    n1 --> n4
+    n6 --> n8
+    n4 --> n6
+    n2 --> n7
 ```

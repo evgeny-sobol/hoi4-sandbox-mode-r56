@@ -1,178 +1,210 @@
 # TRK_State_Matter
 
 ```mermaid
-flowchart TD
-    n1["TRK_Anti_Invasion"]
-    n2["TRK_Brigades"]
-    n3["TRK_Collectivist_Propaganda"]
-    n4["TRK_Com_Generals"]
-    n5["TRK_Conquer"]
-    n6["TRK_Defence_Act"]
-    n7["TRK_Fanaticism"]
-    n8["TRK_Forced_Conscription"]
-    n9["TRK_Militarism"]
-    n10["TRK_Military_Build"]
-    n11["TRK_Organise_Youth"]
-    n12{"TRK_State_Matter"}
-    n13{"TRK_Strenghten_Democracy"}
-    n14["TRK_border_contest"]
-    n15["TRK_comrpomise_with_soviet_settlers"]
-    n16["TRK_form_the_turkestan_legion"]
-    n17["TRK_integrate_the_settlers"]
-    n18{"TRK_internationalism_focus"}
-    n19{"TRK_interventionism_focus"}
-    n20["TRK_invade_borderlands"]
-    n21["TRK_khanate_expansionism"]
-    n22["TRK_khans_horde"]
-    n23["TRK_military_government"]
-    n24["TRK_nationalism_focus"]
-    n25{"TRK_neutrality_focus"}
-    n26{"TRK_popular_will"}
-    n27["TRK_provide_autonomy_to_settlers"]
-    n28["TRK_restore_khanate"]
-    n29{"TRK_steppic_memories"}
-    n30["TRK_subdue_the_soviet_minority"]
-    n31{"TRK_tear_down_stalins_legacy"}
-    n32["TRK_the_road_to_turkestan"]
-    n33["TRK_war_cry"]
-    n34["TRK_why_we_fight"]
-    n25 --> n1
-    n19 --> n2
-    n18 --> n3
-    n18 --> n4
-    n18 --> n5
-    n13 --> n6
-    n5 --> n7
-    n5 --> n8
-    n19 --> n8
-    n24 --> n9
-    n28 --> n9
-    n25 --> n10
-    n19 --> n10
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"TRK_State_Matter"}
+    end
+    subgraph tier_1["Tier 1"]
+        n2{"TRK_popular_will"}
+        n3{"TRK_steppic_memories"}
+    end
+    subgraph tier_2["Tier 2"]
+        n4{"TRK_Strenghten_Democracy"}
+        n5{"TRK_internationalism_focus"}
+        n6["TRK_nationalism_focus"]
+        n7["TRK_restore_khanate"]
+        n8{"TRK_tear_down_stalins_legacy"}
+    end
+    subgraph tier_3["Tier 3"]
+        n9["TRK_Collectivist_Propaganda"]
+        n10["TRK_Com_Generals"]
+        n11["TRK_Conquer"]
+        n12["TRK_Defence_Act"]
+        n13["TRK_Militarism"]
+        n14["TRK_comrpomise_with_soviet_settlers"]
+        n15["TRK_form_the_turkestan_legion"]
+        n16{"TRK_interventionism_focus"}
+        n17["TRK_khanate_expansionism"]
+        n18["TRK_khans_horde"]
+        n19["TRK_military_government"]
+        n20{"TRK_neutrality_focus"}
+        n21["TRK_subdue_the_soviet_minority"]
+    end
+    subgraph tier_4["Tier 4"]
+        n22["TRK_Anti_Invasion"]
+        n23["TRK_Brigades"]
+        n24["TRK_Fanaticism"]
+        n25["TRK_Forced_Conscription"]
+        n26["TRK_Military_Build"]
+        n27["TRK_Organise_Youth"]
+        n28["TRK_border_contest"]
+        n29["TRK_integrate_the_settlers"]
+        n30["TRK_invade_borderlands"]
+        n31["TRK_provide_autonomy_to_settlers"]
+    end
+    subgraph tier_5["Tier 5"]
+        n32["TRK_the_road_to_turkestan"]
+        n33["TRK_war_cry"]
+        n34["TRK_why_we_fight"]
+    end
+    n20 --> n22
+    n16 --> n23
+    n5 --> n9
+    n5 --> n10
     n5 --> n11
-    n26 --> n13
-    n21 --> n14
-    n31 --> n15
-    n24 --> n16
-    n30 --> n17
-    n15 --> n17
-    n26 --> n18
-    n13 --> n19
-    n18 --> n19
-    n21 --> n20
-    n9 --> n20
-    n28 --> n21
-    n24 --> n21
-    n28 --> n22
-    n24 --> n23
-    n29 --> n24
-    n13 --> n25
-    n12 --> n26
-    n15 --> n27
-    n29 --> n28
-    n12 --> n29
-    n31 --> n30
-    n29 --> n31
-    n26 --> n31
-    n14 --> n32
-    n20 --> n32
-    n20 --> n33
-    n1 --> n34
-    n10 --> n34
-    n2 --> n34
-    n1 x--x n10
-    n5 x--x n19
-    n13 x--x n18
-    n15 x--x n30
-    n19 x--x n25
-    n24 x--x n28
-    n26 x--x n29
+    n4 --> n12
+    n11 --> n24
+    n11 --> n25
+    n16 --> n25
+    n6 --> n13
+    n7 --> n13
+    n20 --> n26
+    n16 --> n26
+    n11 --> n27
+    n2 --> n4
+    n17 --> n28
+    n8 --> n14
+    n6 --> n15
+    n21 --> n29
+    n14 --> n29
+    n2 --> n5
+    n4 --> n16
+    n5 --> n16
+    n17 --> n30
+    n13 --> n30
+    n7 --> n17
+    n6 --> n17
+    n7 --> n18
+    n6 --> n19
+    n3 --> n6
+    n4 --> n20
+    n1 --> n2
+    n14 --> n31
+    n3 --> n7
+    n1 --> n3
+    n8 --> n21
+    n3 --> n8
+    n2 --> n8
+    n28 --> n32
+    n30 --> n32
+    n30 --> n33
+    n22 --> n34
+    n26 --> n34
+    n23 --> n34
+    n22 x--x n26
+    n11 x--x n16
+    n4 x--x n5
+    n14 x--x n21
+    n16 x--x n20
+    n6 x--x n7
+    n2 x--x n3
 ```
 
 # TRK_reinvigorating_the_economy
 
 ```mermaid
-flowchart TD
-    n35["TRK_MOVING_FILM_STUDIOS"]
-    n36["TRK_accommodate_exiled_companies"]
-    n37["TRK_agricultural_expansion"]
-    n38["TRK_agricultural_renewal"]
-    n39["TRK_almati_lead_industry"]
-    n40["TRK_baikonour_launching_site"]
-    n41["TRK_emba_bassin_oil_infrastructure"]
-    n42["TRK_exploit_the_virgin_lands"]
-    n43["TRK_exportation_nazi_helpers"]
-    n44["TRK_increase_armament_production"]
-    n45["TRK_industrial_expansion"]
-    n46["TRK_khrouchtchev_memorandum"]
-    n47["TRK_kun_project"]
-    n48["TRK_lead_ammunition_production"]
-    n49["TRK_military_industries"]
-    n50["TRK_mining_tech"]
-    n51{"TRK_new_plans_of_war"}
-    n52["TRK_nuclear"]
-    n53["TRK_railway"]
-    n54(("TRK_reinvigorating_the_economy"))
-    n55["TRK_secondary_roads"]
-    n56["TRK_semipalatinsk_nuclear_site"]
-    n57["TRK_soviet_secret_weapons"]
-    n58["TRK_space"]
-    n59["TRK_temirtaw_steel_mill"]
-    n60["TRK_war_readiness"]
-    n60 --> n35
-    n45 --> n36
-    n38 --> n37
-    n54 --> n38
-    n55 --> n39
-    n58 --> n40
-    n50 --> n41
-    n38 --> n42
-    n36 --> n43
-    n49 --> n44
-    n54 --> n45
-    n43 --> n46
-    n51 --> n47
-    n49 --> n48
-    n45 --> n49
-    n60 --> n49
-    n53 --> n50
-    n60 --> n51
-    n57 --> n52
-    n47 --> n52
-    n45 --> n53
-    n53 --> n55
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n35(("TRK_reinvigorating_the_economy"))
+    end
+    subgraph tier_1["Tier 1"]
+        n36["TRK_agricultural_renewal"]
+        n37["TRK_industrial_expansion"]
+        n38["TRK_war_readiness"]
+    end
+    subgraph tier_2["Tier 2"]
+        n39["TRK_MOVING_FILM_STUDIOS"]
+        n40["TRK_accommodate_exiled_companies"]
+        n41["TRK_agricultural_expansion"]
+        n42["TRK_exploit_the_virgin_lands"]
+        n43["TRK_military_industries"]
+        n44{"TRK_new_plans_of_war"}
+        n45["TRK_railway"]
+    end
+    subgraph tier_3["Tier 3"]
+        n46["TRK_exportation_nazi_helpers"]
+        n47["TRK_increase_armament_production"]
+        n48["TRK_kun_project"]
+        n49["TRK_lead_ammunition_production"]
+        n50["TRK_mining_tech"]
+        n51["TRK_secondary_roads"]
+        n52["TRK_soviet_secret_weapons"]
+    end
+    subgraph tier_4["Tier 4"]
+        n53["TRK_almati_lead_industry"]
+        n54["TRK_emba_bassin_oil_infrastructure"]
+        n55["TRK_khrouchtchev_memorandum"]
+        n56["TRK_nuclear"]
+        n57["TRK_space"]
+        n58["TRK_temirtaw_steel_mill"]
+    end
+    subgraph tier_5["Tier 5"]
+        n59["TRK_baikonour_launching_site"]
+        n60["TRK_semipalatinsk_nuclear_site"]
+    end
+    n38 --> n39
+    n37 --> n40
+    n36 --> n41
+    n35 --> n36
+    n51 --> n53
+    n57 --> n59
+    n50 --> n54
+    n36 --> n42
+    n40 --> n46
+    n43 --> n47
+    n35 --> n37
+    n46 --> n55
+    n44 --> n48
+    n43 --> n49
+    n37 --> n43
+    n38 --> n43
+    n45 --> n50
+    n38 --> n44
     n52 --> n56
-    n51 --> n57
-    n57 --> n58
-    n47 --> n58
-    n50 --> n59
-    n54 --> n60
-    n47 x--x n57
+    n48 --> n56
+    n37 --> n45
+    n45 --> n51
+    n56 --> n60
+    n44 --> n52
+    n52 --> n57
+    n48 --> n57
+    n50 --> n58
+    n35 --> n38
+    n48 x--x n52
 ```
 
 # TRK_turkestan_unification
 
 ```mermaid
-flowchart TD
-    n61["SIB_siberian_unification"]
-    n62["TRK_connect_the_cities"]
-    n63["TRK_defend_the_new_union"]
-    n64["TRK_develop_mining"]
-    n65["TRK_emba_bassin_oil_infrastructure_shared"]
-    n66["TRK_ethnic_collaboration"]
-    n67["TRK_military_camelry"]
-    n68["TRK_temirtaw_steel_mill_shared"]
-    n69["TRK_trans_turkestan_railway"]
-    n70(("TRK_turkestan_unification"))
-    n71["TRK_united_armed_forces"]
-    n70 --> n62
-    n70 --> n63
-    n70 --> n64
-    n64 --> n65
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n61["SIB_siberian_unification"]
+        n62(("TRK_turkestan_unification"))
+    end
+    subgraph tier_1["Tier 1"]
+        n63["TRK_connect_the_cities"]
+        n64["TRK_defend_the_new_union"]
+        n65["TRK_develop_mining"]
+        n66["TRK_military_camelry"]
+    end
+    subgraph tier_2["Tier 2"]
+        n67["TRK_emba_bassin_oil_infrastructure_shared"]
+        n68["TRK_ethnic_collaboration"]
+        n69["TRK_temirtaw_steel_mill_shared"]
+        n70["TRK_united_armed_forces"]
+    end
+    subgraph tier_3["Tier 3"]
+        n71["TRK_trans_turkestan_railway"]
+    end
+    n62 --> n63
+    n62 --> n64
+    n62 --> n65
+    n65 --> n67
+    n63 --> n68
     n62 --> n66
-    n70 --> n67
-    n62 --> n68
-    n66 --> n69
-    n63 --> n71
-    n61 x--x n70
+    n63 --> n69
+    n68 --> n71
+    n64 --> n70
+    n61 x--x n62
 ```

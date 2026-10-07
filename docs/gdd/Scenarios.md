@@ -1,270 +1,288 @@
 # Scenarios
 
-A scenario is a full-session crisis arc run by a **director**: a background system that picks one plausible conflict at startup and pushes the AI toward it with bonuses and scripted crises until a big war fires. The war is the point. Some sessions the player joins it; some sessions they sit it out; no session is quiet.
+A sandbox-only director that gives every session a crisis to live through: at
+startup it picks one **arc** (a plausible 1930s conflict), rolls its target
+variant, seeds the aggressor against its targets, and runs a three-rung ladder
+that pushes the AI toward war. The player either gets drawn in or watches the
+world burn. The system is designed to reuse the other sandbox mechanics (Honor,
+Tyranny, Rivals, Civil Wars, National Focuses) rather than add new ones.
 
-Scenarios are **not**:
-- Scripted declarations of war. The director never declares war itself and never calls `start_civil_war`; it only changes weights, rivalry, Honor exposure, and fires crisis events. The AI pulls the trigger.
-- A railroader. There are no fixed dates for declarations, no forced peace deals, no teleporting divisions.
-- A player-targeting system. The challenge is ambient: the war is somewhere in the world, not aimed at the player's tag.
-- Civil wars (`docs/gdd/Civil Wars.md`). Scenario wars are international. The civil-war counter and cap are untouched by the director.
-
-Sandbox-only: every rule below runs under `is_sandbox_mode_on()`. Historical mode is unchanged.
-
-## Why this is needed
-
-Observer sessions are boring: countries rarely start wars and even more rarely join each other. Diagnosis (GDDs plus sources, September 2026):
-
-1. The historical engine of wars is gone with no replacement. All vanilla strategy plans abort in sandbox; war focuses weigh 40 like industry and are further cut by war support (about x0.5 in 1936). (`docs/gdd/National Focuses.md`, "Basic modifiers"; `common/ai_strategy_plans/*.include`.)
-2. Honor gates plus the betrayal weight block wars on friends: on startup most leaders cannot touch an ally, and honorable AI almost never takes a betrayal focus. (`docs/gdd/Honor System.md`, "Gating betrayal focuses by band", "AI weighting".)
-3. The Feud threshold: `conquer` / `prepare_for_war` plans exist only at `rivalry >= 75`, slots start at 50 and decay without fuel. (`docs/gdd/Rivals System.md`, "AI strategies", "Rivalry changes".)
-4. Fragmented alliances: rival-gated cooperation plus `alliance -200` means fewer factions and fewer cascades through call to arms, even though Honor pays for joining. (`docs/gdd/Rivals System.md`, "National focuses"; `docs/gdd/Honor System.md`, "Honor gains".)
-5. False trail excluded: the civil-war cap does not touch international wars.
-
-Fixing each gate in isolation restores noise, not drama. The director fixes the session shape instead: one picked conflict, escalated on a schedule, guaranteed in practice.
+This is the Rt56 mod. The vanilla mod (`_sandbox`) shares the engine and most
+documentation; this file describes what is specific to the Rt56 overlay.
 
 ## Design goals
 
-1. Every session has a big war. "Guaranteed" is delivered by an escalation ladder, not by forcing declarations.
-2. The challenge is ambient: the scenario war is somewhere; the player may join or sit out.
-3. Plausible arcs only: historical and could-have-happened. No joke arcs in v1.
-4. The director uses bonuses and crises only. If a war cannot be earned with levers, the arc is wrong, not the rule.
-5. Shared mechanics, per-mod content: one director engine, separate actor/event/focus ids for vanilla and Rt56.
-6. Verifiable like civil wars: log-first acceptance on observer sessions (`#sandbox` telemetry).
+1. Make sessions alarming: an arc must, on a random draw, drive a major war.
+2. Leave the player free: the director pushes AI, not the human; the player can
+   join, meddle, or sit it out.
+3. No new PM-level systems: reuse existing modifiers and hooks.
+4. Stay legible: every mechanism logs to `game.log` under `#sandbox` for
+   observer sessions.
 
-## Model
+## Selection
 
-### Arc (generator-ready schema)
+One arc per session, chosen at startup: pinned by a game rule or rolled at
+random over the arcs whose aggressor exists. Arc ids are fixed per major
+(1 GER, 2 ITA, 3 JAP, 4 SOV, 5 FRA, 6 ENG); the USA arc is an authored draft,
+not in the shipped pool. The pick rolls the A/B target variant 50/50 and logs
+`sc_pick` plus `sc_variant`.
 
-Content is fixed authorial arcs, but every arc is written as data on one schema so a generator can later randomize over it. Proof of "generator-ready" is the second arc: if it needs new mechanics, fix the schema, not the arc.
+### Pool and selection
 
-```yaml
-arc:
-  id: axis_expansion
-  plausibility: historical      # historical | plausible
-  actors:
-    aggressors: [GER]
-    joiners: { select: top_n_by_scorer, n: 2, scorer: scenario_join_scorer }
-    targets: [CZE, POL]
-  ladder:                       # calendar phases, "Escalation ladder"
-    - { phase: smolder, from: 1936.1.1 }
-    - { phase: crises,  from: 1937.1.1 }
-    - { phase: peak,    from: 1938.1.1 }
-  levers:                       # "Levers", global plus per-phase parameters
-    rivalry_seed / honor_exemptions / war_support / focus_weights / join
-  crises: [...]                 # scripted events per phase
-  end: stand_down_to_support    # "Lifecycle"
-  derail: abort_and_repick      # "Lifecycle"
-  content_refs:                 # per-mod ids, "Per-mod content"
-    vanilla: [...]  r56: [...]
+- Random sessions pick from the pool with equal weights, over arcs whose
+  aggressor exists. Pin options exist for all six.
+- A derail repicks the next eligible never-derailed arc; a derailed arc never
+  re-enters the pool in the same session.
+- Target variants are rolled at pick (50/50) and remain fixed for the session.
+
+### Excluded majors
+
+- **HUN**: the Habsburg restoration arc is out of scope for this pool by user
+  decision; its focuses do exist should it be added later.
+- **USA**: the fascist-America arc is authored as a spec (`draft`, no arc id)
+  but is not in the shipped pool.
+
+## Arc schema
+
+Each arc is described by one TOML **arc spec** in `docs/scenarios/<id>.toml`
+(one per arc per mod). Shared tooling reads the specs and derives the catalog,
+the focus diagrams, the focus-boost closure and the expected telemetry labels;
+scripted events and effects stay hand-written in the HSL catalog.
+
+```toml
+id = "axis_expansion"       # slug; identity and file name
+number = 1                  # the director's arc id; written when the arc has code
+status = "ready"            # ready (in the shipped pool) | draft (authored, not selected)
+aggressor = "GER"           # a single tag
+key = "axis"                # short slug for the pin trigger and pick label; optional
+
+targets = { a = ["CZE", "POL"], b = ["FRA", "ENG"] }  # target variants, rolled evenly
+suppress = ["GER_austria_first"]  # optional: focus ids the AI must not pick while the arc is live
+
+[ladder]                    # months from arc start
+crises_at_month = 12
+peak_at_month = 24
+# Content rungs (optional pair): hand-written functions the tick calls.
+# Both or neither; absent means the arc has no generated tick branch yet.
+crises_func = "sandbox_fire_axis_crises"
+peak_func = "sandbox_fire_axis_peak"
+
+[joiners]                   # shared scorer, no per-arc parameters
+select = "top_n_by_scorer"
+n = 2
+
+[gate]                      # optional; absent means no gate
+# Derail pair (optional): park the arc when the aggressor is off ideology.
+ideology = "fascism"
+at_phase = "crises"
+# Hold set (optional, all three together): freeze the arc clock while the
+# aggressor is not yet on hold_ideology, then run the ladder; if it never
+# changes, park the arc after hold_max_months months with hold_reason.
+hold_ideology = "neutrality"
+hold_max_months = 30
+hold_reason = "no_regime_change"
+
+# Ordered focus paths: each table runs from a branch entry to a war leaf and
+# declares the variants it serves (absent means shared across all variants).
+[[paths]]
+focuses = ["GER_remilitarize_the_rhineland", "GER_anschluss", "GER_demand_sudetenland"]
+
+# Optional `after`: gate this path's boost on the listed focuses being done, so
+# a later stage waits for an earlier path. Shared ancestors stay ungated.
+[[paths]]
+after = ["GER_anschluss"]
+focuses = ["GER_austria_first"]
+
+notes = """
+Free rationale prose, printed into the catalog beside the arc.
+"""
 ```
 
-### Selection
-
-One arc per session, picked at startup by weighted random from eligible arcs. Eligibility is plausibility plus sanity (actors exist on the map). The pick is a surprise in-game: it is logged (`sc_pick`) but no UI, event, or tooltip names the picked arc. The pool itself is visible (the pinning game rule lists its options); `game.log` is out of band, same as `cw_` telemetry.
-
-The v2 pool holds six arcs (Axis plus five new) with equal weights. A game rule pins a fixed scenario for replays and tests; pin options exist only for implemented arcs and grow with the pool. The pin overrides the random pick and means strict isolation: a pinned session never repicks (a derailed pin goes quiet). In random sessions a derail repicks the next eligible arc that has not derailed yet this session (`sc_derail` + `sc_repick` + a new `sc_pick`); a derailed arc never re-enters the pool in the same session. A repicked arc runs its ladder from smolder, compressed by the calendar (late repicks hit crises and peak on consecutive ticks).
-
-### Escalation ladder
-
-The ladder replaces forcing. Three phases for every arc (smolder / crises / peak), each rung firing once (the anti-spam rule). The ladder holds at peak until the war fires, bounded by the **peak timeout**: an arc still at peak 12 months after entering it derails (`peak_timeout`) and repicks, because the ladder has no other way out (an observer session on the vanilla port sat at peak for six years). There is no deadline fuse that declares war by script (see "Scenarios are not").
-
-Dates are per arc (tuned to each arc's history); the Axis calendar is the template:
-
-| Arc | Smolder from | Crises from | Peak from |
-|-----|------|------|------|
-| 1 Axis | 1936.1.1 | 1937.1.1 | 1938.1.1 |
-| 2 Soviet | 1936.1.1 | 1937.1.1 | 1938.1.1 |
-| 3 Japanese | 1936.1.1 | 1937.6.1 | 1938.6.1 |
-| 4 Italian | 1936.1.1 | 1937.6.1 | 1938.6.1 |
-| 5 Fascist Britain | 1936.1.1 | 1937.1.1 | 1938.6.1 |
-| 6 Red America | 1936.1.1 | 1937.1.1 | 1938.6.1 |
-| 7 Napoleonic France | 1936.1.1 | 1937.6.1 | 1938.6.1 |
-| 8 Habsburg restoration | 1936.1.1 | 1937.6.1 | 1938.6.1 |
-
-- **Smolder**: rivalry seeding for aggressors vs targets, Honor exemptions for scenario pairs, war-focus weights. Quiet buildup, no crises.
-- **Crises**: scripted crisis events (claims, incidents), war-support pump, join levers for joiners. The world notices. Flip arcs (5-6) must have flipped by this phase or derail.
-- **Peak**: ultimatums, maximum pressure. Every peak leaves 12-18 months before the pooled 1940 deadline.
-
-### Levers
-
-**Aggression** (addresses diagnosis 1-3):
-- Rivalry seeding and injection toward Feud (`>= 75`) for aggressors vs targets, through the existing slot discipline (`$add_rivalry`, `set_rival`; `docs/gdd/Rivals System.md`). At Feud the AI gets `conquer 100` / `prepare_for_war 100` and antagonism focuses weigh x3.
-- Honor exemptions: each arc registers its declared scenario enemies at selection (a named pair list; representation is an implementation detail). War declarations between declared enemies skip the betrayal charge in `on_declare_war` and pass `can_PREV_get_wargoal_on_THIS`. This is a narrow, explicit carve-out: `docs/gdd/Honor System.md` ("Honor losses") needs one line acknowledging the scenario exception. The exemption covers the gate and the weight alike: declared enemies pass `can_PREV_get_wargoal_on_THIS` and skip `$ai_betrayal_modifier_vs` (the weight half was missing until s8, when a day-1 SOV-FIN NAP zeroed the Soviet war-focus weight for all of 1936). Rivalry itself still never lowers betrayal cost.
-- War support for actors, offsetting the systemic antagonism cut.
-- Lever numbers are shared: every arc starts with the Axis values (seed 65, crisis injection +10, ultimatum-defy injection +15, war-support grants) and tunes only from observer logs. No armchair per-arc balancing.
-
-**Focus weights** (addresses diagnosis 1): push actors toward their war focuses through the existing antagonism/rivalry modifiers. A scenario-specific boost is allowed only if Feud plus exemptions prove insufficient in logs. s8 and s9 were that case (Soviet QUIET: Feud 100, no `sc_focus` on the war branch). The boost is shared `$ai_scenario_focus_boost()` (x5, live aggressor only, ladder not ended) spliced onto the arc war-focus branch; Arc 2 uses `SOV_beaten_but_not_defeated` plus the six `sc_focus` ids. s10 verdict: the x5 fork boost lost to the Stalinist branch baseline (`factor(1)` + `add(40)` + `communism_factor*2` vs `5` + `(demo+mon+fasc)*2`); SOV re-ran `SOV_the_path_of_marxism_leninism`, all six boosted focuses stayed unreachable, zero `sc_focus`. Raising the fork boost (or retargeting the fork) is the open v2 question; boost value stays shared until logs say otherwise. Which focus branch each arc pushes is drawn as a Mermaid diagram per arc in `docs/gdd/Scenarios Catalog.md` ("Focus paths per arc"; generated from `docs/gdd/National Focuses/*.md`).
-
-**Join levers** (addresses diagnosis 4): at peak, the two highest-scoring countries in an open pool get a faction invitation (`scenario_join_scorer`, top-2, one letter each, `sc_offer` per letter). One scorer for all arcs, no per-arc parameters and no guaranteed flavor joiners. No fixed tag list: eligibility is gated, not curated. A candidate scores zero (is skipped) if it is the aggressor, is human-ruled, is in a civil war, is at war with the aggressor, already sits in the aggressor's faction, is the aggressor's subject or overlord, or holds an enemy ideology toward the aggressor (`has_enemy_ideology`: same group or non-aligned on either side passes). Faction membership elsewhere is not a bar: a joiner that accepts leaves its old faction first (leave-then-join; a joiner that leads its own faction leaves it and leadership passes by game rules) and the exit carries no Honor charge (one-shot `sandbox_honor_skip_leave_faction`, same as a released nation). The score is strength plus goodwill in three staircases (thresholds stack; maxima 60/60/60, tunable): divisions (>10/+5, >30/+10, >60/+15, >100/+15, >150/+15), industry as total `num_factories` (>10/+10, >25/+15, >50/+20, >80/+15, snapshotted into `scenario_join_industry` before scoring), opinion toward the aggressor (>25/+10, >50/+20, >75/+30, <0/-10, <-50/-20). The bloc keeps its arc name (Axis, Comintern, Co-Prosperity, Mare Nostrum, New Empire, People's Internationale); post-join ideology flips are not tracked (once in, in).
-
-**Crises**: scripted events per phase (claims, border incidents, ultimatums) that create cores, tension, and war support. Same anatomy for every arc: claims plus incidents in crises, ultimatums at peak. Crisis events are the only scenario content the player sees, and they never name the arc. Ultimatum options are the reference anatomy everywhere: **submit 30%** (war support -0.10, aggressor +0.05) and **defy 70%** (war support +0.10, aggressor +0.05 and `$sandbox_add_rivalry_vs(PREV, 15)`). A later generator emitted arcs 16-28 mirrored (submit 70% with no rivalry push), which made those arcs effectively peace-locked (s13: arc 16 peaked, both ultimatums fired, both targets submitted); all 13 were restored to the reference. Arcs 16-28 share one event across both variant targets, so their rivalry uses `PREV` (the event recipient), not a literal tag.
-
-**Flips** (arcs 5-6 only, no new mechanics): the director pushes the flip through existing focus weights only. If the aggressor has not flipped by the crises phase, the arc derails (and repicks on random). A near-zero flip rate in logs is a measured fact for v3 flip levers, not a guess to pre-fix. The gate is two macros (`$sandbox_check_flip_gate1` one ideology, `$sandbox_check_flip_gate2` two for imperial neutrality-OR-fascism) plus `$sandbox_check_flip_gate_inv` for post-flip arcs; split by arity because macro params are text-substituted and a single macro with an unused ideology slot would emit `has_government = 0` (s12 error.log).
-
-### Lifecycle
-
-One arc per session. The arc ends at ignition: the moment its war fires, the ladder stands down and the director drops to light join support (join levers stay warm, no new crises, no new phases). Ignition is symmetric: a war in either direction between declared scenario enemies (the aggressor attacks the target, or the target attacks the aggressor) ends the arc. It is detected on two paths, because a war between the two tags is not always a direct declaration: `on_declare_war` catches the direct case, and the monthly tick catches any ongoing war between the aggressor and a chosen target (`sandbox_scenario_check_ignite_by_war` -> `sandbox_ignite_if_at_war`). The tick path is what closes the s13 gap: Axis vs Britain in that session came through a call-to-arms cascade (guarantee withdrawals plus dominion `call_to_arms`), so no `declare_war` ever fired between GER and ENG and the arc hung at peak through a live war. Ignition logs `sc_ignite` + `sc_success` + `sc_end` (the `sc_success` marker makes a successful arc greppable on its own).
-
-Derail policy is abort and repick on random, abort and end when pinned. The arc is derailed when it can no longer fire: the aggressor no longer exists, capitulated, abandoned its arc ideology (Axis: Germany no longer fascist; Soviet: Russia no longer communist; Japanese: Japan democratic or communist; Italian: Italy no longer fascist; flip arcs: England / America not flipped by crises), or no viable target remains (each target is gone, is the aggressor's subject, or sits in the aggressor's faction - a neutralized target can never fight its overlord or bloc). "The aggressor's faction" is resolved against the arc's aggressor tag explicitly, not against the director's scope (`THIS`): a target that starts in another target's faction (Rt56 puts Mongolia in the Soviet faction, which derailed Arc 13 on turn one in s12) is not neutralized. A fourth arm covers a **protracted civil war**: an aggressor that has been in a civil war for 12 consecutive months derails (`aggressor_civil_war`), because a country fighting itself cannot prosecute its arc (s15: USA spent months at peak in a civil war, shedding divisions and factories, and never ignited). The counter resets when the war ends and at pick/repick. A fifth arm is the **peak timeout**: an arc that has held at peak for 12 months without ignition derails (`peak_timeout`), because the ladder has no other exit and a stalled arc would otherwise sit there forever (the vanilla port's Italian arc parked at peak for six years). Its counter resets at pick/repick. Then `sc_derail` and `sc_end` are logged. On random the director repicks the next eligible never-derailed arc (`sc_repick` + a new `sc_pick`); when pinned it goes quiet: no further `sc_phase` or scenario crises. The guarantee in "Design goals" requires it: a dead arc must not mean a quiet session (on random).
-
-### Plausibility
-
-Historical arcs (Axis expansion) and could-have-happened arcs (communist America, fascist Britain). Bar for "plausible": a reader of the arc must be able to say which real 1930s tension it continues. Joke arcs are a separate future pack, never mixed into the v1 pool.
-
-### Per-mod content
-
-Shared: director tick, ladder engine, lever macros, selection, logging. Per mod: actor tags, focus and event ids, crisis events, localisation.
-
-- v1: Rt56 Axis arc (parked Sep 2026 as good enough; history s3-s7 in the checklist).
-- v2: five more arcs on Rt56, easy-to-hard: Soviet, Japanese, Italian, Fascist Britain, Red America. Each new arc ships with no new mechanics, macros, or hooks (review check per arc diff); if one needs any, the schema is wrong: fix the schema, do not accumulate per-arc code. All five v2 arcs are implemented (Soviet, Japanese, Italian, Fascist Britain, Red America). Arc 7 (Napoleonic France) covers the last classic major, and Arc 8 (Habsburg restoration) is the event-driven minor-led arc (Hungary restores the Dual Monarchy) added by request; both also shipped with no new mechanics. Arcs 9-15 (the extended catalog: GER Atlantic, GER Middle East, SOV South, SOV East, JAP North, JAP Old Oppressors, ITA West) generalize the target system further: every arc now rolls an A/B target variant at pick and reads all seeds, crises, ultimatums, derail checks, and telemetry from the shared `sandbox_targets[]` array plus `sandbox_target_variant`. The pool is now fifteen arcs, all implemented on Rt56 with no new mechanics (the target-variant system is the same engine, generalized).
-- Then: vanilla port of the pool (the same engine, content-portable arcs only; see `docs/adr/0001-full-scenario-engine-in-vanilla-port.md`).
-
-### Hooks and telemetry
-
-- Tick: `on_startup` (selection) plus `on_weekly` / `on_monthly` in `common/on_actions/99_sandbox_on_actions.hsl`, next to the civil-war retry and the monthly census. `on_monthly` runs per country, so the ladder tick must fire in exactly one host per month: it walks a host chain (GER, then SOV, JAP, ITA, ENG, USA, FRA, HUN, each only if the earlier hosts are gone). HAI was the original sole host; a removed minor froze every arc silently (s12), so the chain guarantees the director survives losing any single country.
-- Reactions: `on_declare_war` (ignition and join detection), `on_capitulation` / `on_annex` (derail detection), `on_join_allies` / `on_join_faction` (joiner tracking).
-- Telemetry mirrors the `cw_` conventions: `sc_pick`, `sc_variant`, `sc_seed`, `sc_phase`, `sc_crisis`, `sc_target`, `sc_power`, `sc_goal`, `sc_justify`, `sc_goal_end`, `sc_focus`, `sc_offer`, `sc_ignite`, `sc_success`, `sc_join`, `sc_end`, `sc_derail`, `sc_repick`. At pick (and repick) the director rolls the A/B target variant and logs it as a separate `sc_variant a|b` line right after `sc_pick` (the picked pair itself is fixed by `sandbox_targets[]`); seeding then logs `sc_seed` with the chosen targets (`t0`/`t1`/`t2`) from the aggressor's scope. At peak each arc target logs one `sc_target` status line (`at_war` / `civil_war` / `subject` / `in_faction` / `open`, or `<tag>_gone` when the tag is missing), so a silent ultimatum arm stays diagnosable; the generic `$sandbox_log_target_status(AGG)` macro covers arcs 9-28 (arcs 1-8 keep their per-arc loggers). Scenario war-focus branches log `sc_focus` on completion (Arc 2 branch spliced, 6 focuses; Arc 3 spliced, 2 focuses; Arc 4 spliced, 2 focuses; Arc 5 spliced, 3 focuses; Arc 6 spliced, 4 focuses; Arc 7 spliced, 6 focuses incl. the Bonapartist chain; Arc 8 spliced, 4 focuses; arcs 9-15 spliced, 5/5/6/3/3/2/2 focuses respectively, 26 in total). The s7 diagnostic package (read-only, behavior-neutral) is per-arc: monthly `sc_power` (divisions and factories per live arc actor), monthly `sc_goal` (held wargoals between the aggressor and its targets, positives only), daily `sc_justify` (aggressor justifying on a target), `sc_goal_end` (an arc actor's wargoal expired unused). Telemetry functions are shared with one arm per arc (schema-shaped, no per-arc telemetry files). A repick logs the chain `sc_derail` + `sc_end` + `sc_repick` + a new `sc_pick`. Census countries (`is_sandbox_census_country()`) carry the same coverage as other systems.
-
-**Telemetry label convention**: `sc_goal` and `sc_justify` carry one label per aggressor/target pair, always `<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). The catalog writes the `sc_goal` labels by hand; `sc_justify` is generated from the same pair by `core/tools/extract_arc_hooks.py`, which lowercases. Both must match exactly, or one arc reads as two keys when a session is grepped. `sc_goal` logs wargoals in **both** directions, so it also holds `<target>_on_<aggressor>` labels (`cze_on_ger`); `sc_justify` only covers the aggressor's justifications. Every target tag in a label must be a real tag the arc seeds (`sandbox_set_targets`) - Romania is `ROM`, never `ROU`.
-
-## Arc 1: Axis expansion (v1, parked)
-
-Historical. Aggressor: GER (derail if no longer fascist). Joiners: open-pool top-2 at peak ("Join levers"). Targets: CZE, POL. Bloc: Axis. Ladder: the template calendar (smolder 36.1.1 / crises 37.1.1 / peak 38.1.1). Crisis content: Rhineland-style remilitarisation pressure, Sudeten-style claims, ultimatums at peak. Parked Sep 2026 as good enough (plays imperfectly, history s3-s7 in the checklist); per-mod `content_refs` carry the vanilla focus/event ids and the Rt56 ones separately.
-
-## Arc 2: Soviet expansion (v2 first)
-
-Historical. Aggressor: SOV (derail if no longer communist). Joiners: open-pool top-2, same scorer. Targets: POL, FIN (the partition of Poland, the Winter War). Bloc: Comintern. Ladder: the template calendar. Crisis content mirrors Axis anatomy with Soviet flavor: Eastern Poland and Karelia/Petsamo claims plus border incidents in crises, ultimatums to Warsaw and Helsinki at peak. Lever numbers are the Axis values.
-
-## Arc 3: Japanese expansion (v2 second)
-
-Historical. Aggressor: JAP (derail if democratic or communist - Japan starts on the non-aligned government, so neutrality and fascism both stay alive). Joiners: open-pool top-2, same scorer. Targets: CHI, PHI (Marco Polo Bridge; a strike on the Philippines cascades into the USA through the puppet and delivers the big war). Bloc: Co-Prosperity. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. Crisis content mirrors the other arcs with Japanese flavor: the China incident in crises, ultimatums to Nanjing and Manila at peak. War-focus branch: `JAP_reinforce_the_beijing_garrison` (China) and `JAP_strike_the_southern_road` (the south); `$ai_scenario_focus_boost()` also sits on the branch roots `JAP_revisit_the_thirteen_demands` and `JAP_occupy_siam`, so the boost is reachable even before the war focuses (the s10 lesson: a boost behind an unboosted fork is dead).
-
-## Arc 4: Italian expansion (v2 third)
-
-Historical. Aggressor: ITA (derail if no longer fascist - Italy starts fascist; neutrality/democracy/communism are all off-arc). Joiners: open-pool top-2, same scorer. Targets: YUG, GRE (historical claims; Albania-39 / Greece-40 run later than the Sudeten). Bloc: Mare Nostrum. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. Crisis content mirrors the other arcs with Italian flavor: the Adriatic incident in crises, ultimatums to Belgrade and Athens at peak. War-focus branch: `ITA_italys_destiny` (Balkan puppet-wargoals, including YUG and GRE) and `ITA_war_with_greece`; `$ai_scenario_focus_boost()` also sits on the branch roots `ITA_foreign_affairs`, `ITA_balkan_ambition`, and `ITA_ratify_the_stresa_front`, so the boost stays reachable ahead of the war focuses (Arc 3 lesson). `sc_focus` splices: `ITA_italys_destiny`, `ITA_war_with_greece`.
-
-## Arc 5: Fascist Britain (v2 fourth)
-
-Plausible. Aggressor: ENG (derail if not fascist by the crises phase; the flip is pushed through focus weights only). Joiners: open-pool top-2, same scorer. Targets: FRA, SOV (breaking the Entente, an anti-communist crusade). Bloc: New Empire. Ladder: smolder 36.1.1 / crises 37.1.1 / peak 38.6.1. Crisis content mirrors the other arcs with British flavor: the New Order incident in crises, ultimatums to Paris and Moscow at peak. Flip branch: `ENG_a_change_in_course` roots it; `$ai_scenario_focus_boost()` sits on `ENG_a_change_in_course` and `ENG_organize_the_blackshirts` so the flip branch wins the fork (s10 lesson). War-focus branch: `ENG_war_france` and `ENG_war_with_ussr` (plus roots `ENG_burn_french` and `ENG_embargo_ussr`), all with the boost. `sc_focus` splices: the flip `ENG_organize_the_blackshirts` and the two war focuses.
-
-## Arc 6: Red America (v2 fifth, flip validation)
-
-Plausible. Aggressor: USA (derail if not communist by the crises phase; the flip is pushed through focus weights only). Joiners: open-pool top-2, same scorer - the USSR is an emergent joiner (same ideology group passes the gate, Soviet strength all but guarantees a top-2 letter), not a guaranteed ally. Targets: CAN, JAP (both hemispheres: Canada pulls England through the dominion, Japan continues the Pacific rivalry under the red flag). Bloc: People's Internationale. Ladder: smolder 36.1.1 / crises 37.1.1 / peak 38.6.1. Crisis content mirrors the other arcs with American flavor: the World Revolution incident in crises, ultimatums to Ottawa and Tokyo at peak. Flip branch: the communist path roots at `USA_continue_the_new_deal`; `$ai_scenario_focus_boost()` sits on `USA_continue_the_new_deal` and the flip root `USA_suspend_the_presecution` so the red branch wins its fork (s10 lesson). War-focus branch: `USA_end_monarchism`, `USA_shatter_the_empires`, and `USA_us_ussr_economic_cooperation` (the SOV cooperation focus doubles as a joiner pull), all with the boost. `sc_focus` splices: the flip root and the three war focuses. If this arc needs any new mechanics, the schema is wrong: fix the schema, do not accumulate per-arc code (it did not need any - the flip validation is the proof).
-
-## Arc 7: Napoleonic France (v2 sixth)
-
-Historical. Aggressor: FRA (no ideology arm - France reaches the Bonapartist branch from a democratic or neutral government, so only gone/capitulated/targets derail). The last of the majors. Joiners: open-pool top-2, same scorer. Targets: GER, ITA (the Rhine and the Alps: France restores the Continental System, breaks Germany, and reclaims Savoy/Nice). Bloc: Continental System. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1 (late, matching the other late-Balkans arcs - France needs time to find the Bonapartist branch). Crisis content mirrors the other arcs with French flavor: the Rhine question in crises, ultimatums to Berlin and Rome at peak. War-focus branch: the Continental System root is `FRA_the_new_continental_system`; `$ai_scenario_focus_boost()` sits on it, on `FRA_crush_germany` (puppet wargoals on GER and Prussia), on `FRA_nothern_italy_claim` (Italy), **and on the whole Bonapartist chain** - `FRA_action_francaise`, `FRA_papal_rehabilitation`, `FRA_repeal_the_law_of_exile`, `FRA_brumaire_movement` - because in Rt56 the Bonapartist branch is hidden behind those focuses (mutually-exclusive with status-quo/radicalize/far-right), so the earlier boost-on-wars-only version never fired (s11: FRA went status-quo, zero `sc_focus`, no wargoals by t=24). `sc_focus` splices: the chain (4) + the Continental System root + the two war focuses. French flavor: the aggression is revanchist-imperial, not ideological - no flip, no ideological derail.
-
-## Arc 8: Habsburg restoration (v2 seventh)
-
-Historical. Aggressor: HUN (Hungary; derail when Hungary is gone, capitulated, both targets neutralized, or - the flip-style gate - Hungary never commits to the restoration path). Targets: CZE, ROU (the historic crown lands: Bohemia/Moravia and Transylvania). Joiners: open-pool top-2, same scorer (the Austro-Hungarian crown tier pulls the Danubian minors in). Bloc: Danubian Empire. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1 (late - Hungary needs to find the restoration branch first). Hungerian flavor: the revanchist Regency. The "restoration gate" replaces an ideology arm: Hungary must complete `HUN_proclaim_the_restoration_of_austria_hungary` (or the take-Austria-by-force path) by the crises phase, or the arc derails - no separate Dual Monarchy tag is created by the director (Rt56 forms Austria-Hungary by annexing Austria into Hungary, so Hungary itself is the aggressor). Crisis content mirrors the other arcs: the Habsburg question in crises, ultimatums to Prague and Bucharest at peak. War-focus branch: the restoration root `HUN_proclaim_the_restoration_of_austria_hungary` plus the claims `HUN_claim_transylvania`, `HUN_march_to_the_shore`, `HUN_claim_galicia`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 9: German Atlantic (v3 catalog)
-
-Historical. Aggressor: GER (derail if no longer fascist). Joiners: open-pool top-2, same scorer. Variant targets: A = ENG, B = USA (the naval question: break the Anglo-American ring on the waves). Bloc: Atlantic. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. Crisis content mirrors the other arcs with German naval flavor: the Atlantic question in crises, ultimatums at peak to the A/B first target. War-focus branch: `GER_crossing_the_atlantic` and `GER_atlantic_naval_bases`, both with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 10: German Middle East (v3 catalog)
-
-Historical. Aggressor: GER (derail if no longer fascist). Joiners: open-pool top-2, same scorer. Variant targets: A = SOV, B = IRQ, PER (the eastern question: the drive toward oil and the East). Bloc: Eastern. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `GER_influence_the_middle_east`, `GER_claim_old_colonies_in_the_east`, and `GER_wage_war_on_capitalism`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 11: Soviet South (v3 catalog)
-
-Historical. Aggressor: SOV (derail if no longer communist). Joiners: open-pool top-2, same scorer. Variant targets: A = TUR, IRQ, PER, B = PAK, RAJ, AFG (the southern thrust: the warm seas and the Indian frontier). Bloc: Southern. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `SOV_the_last_break_southward`, `SOV_preemptive_invasion_of_iran`, and `SOV_into_the_plateau`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 12: Soviet East (v3 catalog)
-
-Historical. Aggressor: SOV (derail if no longer communist). Joiners: open-pool top-2, same scorer. Variant targets: A = JAP, MAN, B = USA, CAN (the eastern frontier: reckoning with Japan or a trans-Pacific red drive). Bloc: Eastern. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `SOV_crush_our_eastern_rival`, `SOV_our_american_holding`, and `SOV_restore_the_old_eastern_empire`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 13: Japanese North (v3 catalog)
-
-Historical. Aggressor: JAP (derail if democratic or communist). Joiners: open-pool top-2, same scorer. Variant targets: A = SOV, MON, B = SOV, CHI (the northern path: hokushin-ron against the Soviet Union and its satellites). Bloc: Northern. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `JAP_hokushin_ron`, `JAP_sea_establish_the_northern_resource_area`, and `JAP_strike_the_soviets`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 14: Japanese Old Oppressors (v3 catalog)
-
-Historical. Aggressor: JAP (derail if democratic or communist). Joiners: open-pool top-2, same scorer. Variant targets: A = USA, B = ENG (strike the old oppressors: break the Anglo-American ring). Bloc: Anti-Oppressor. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `JAP_strike_the_old_oppressors` and `JAP_ultimate_deterrence`, both with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 15: Italian West (v3 catalog)
-
-Historical. Aggressor: ITA (derail if no longer fascist). Joiners: open-pool top-2, same scorer. Variant targets: A = FRA, B = ENG (the western enemy: mastery of the western Mediterranean against France or England). Bloc: Western. Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `ITA_war_with_france`, `ITA_war_with_the_uk`, and `ITA_demand_ticino`, all with `$ai_scenario_focus_boost()` and `sc_focus`. Audit fix Sep 2026: arc 15 was missing from `sandbox_set_targets`, the derail dispatcher, `sandbox_seed_actors`, and the two `on_actions` telemetry arms (a copy-paste gap in the 14->16 range); all four were added, so the arc now seeds, derails and telemetries like the rest.
-
-## Arc 16: Italian Mediterranean Empire (v4 catalog)
-
-Historical. Aggressor: ITA (derail if no longer fascist). Joiners: open-pool top-2. Variant targets: A = TUR, ROM, B = FRA, ENG (restore the Roman sea from Anatolia to the west). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `ITA_a_time_for_war`, `ITA_claims_on_turkey_bba`, `ITA_all_roads_lead_to_rome`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 17: British Imperial Restoration (v4 catalog)
-
-Imperial (gate: neutrality OR fascism by crises; derail `britain_not_imperial`). Aggressor: ENG. Variant targets: A = RAJ, B = USA, JAP (reunite the Empire under the Crown). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `ENG_reclaim_the_jewel_in_the_crown`, `ENG_bring_the_dominions_back_into_the_fold`, `ENG_unite_the_anglosphere`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 18: American War Plan (v4 catalog)
-
-Historical. Aggressor: USA. Variant targets: A = JAP, B = ENG, CAN (the war plans: Pacific against Japan, Atlantic against the entente). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `USA_war_plan_orange`, `USA_war_plan_black`, `USA_defense_of_the_pacific`, `USA_intervention_in_europe`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 19: American Global Hegemony (v4 catalog)
-
-Historical (no flip gate). Aggressor: USA. Variant targets: A = ENG, GER, HUN, JAP (the old imperial order), B = ENG, FRA (the open challenge). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `USA_global_hegemony` (plus the already-boosted `USA_end_monarchism` / `USA_shatter_the_empires`), all with `$ai_scenario_focus_boost()` and `sc_focus`. Variant A uses the 4-target derail arm.
-
-## Arc 20: French Monarchist Revival (v4 catalog)
-
-Imperial (gate: neutrality by crises; derail `france_not_neutral`). Aggressor: FRA. Variant targets: A = SPR, ADR, MEX (the Latin union), B = SOV (the second march on Moscow). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `FRA_secure_the_crown_of_spain`, `FRA_claim_the_andorran_throne`, `FRA_restore_the_mexican_monarchy`, `FRA_second_march_on_moscow`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 21: French Revenge (v4 catalog)
-
-Historical. Aggressor: FRA. Variant targets: A = GER (partition), B = ENG (destroy Albion). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `FRA_dismantle_germany`, `FRA_crush_germany` (already boosted), `FRA_destroy_albion`, `FRA_strike_empire`, all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 22: French Plan XIV (v4 catalog)
-
-Historical. Aggressor: FRA. Variant targets: A = SWI, B = ITA (the neutral border, Plan XIV). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `FRA_plan_xiv`, `FRA_return_to_dalmatia`, `FRA_nothern_italy_claim` (already boosted), all with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 23: Communist Germany (v4 catalog)
-
-Flip (gate: communism by crises; derail `germany_not_communist`). Aggressor: GER. Variant targets: A = ENG, FRA, ITA (the world revolution westward), B = SOV, USA, JAP (eastward). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `GER_root_out_imperialism`, `GER_hegemony_over_europe`, `GER_wage_war_on_capitalism` (already boosted), `GER_strike_at_the_rising_sun`, with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 24: Monarchist Germany (v4 catalog)
-
-Flip (gate: neutrality by crises; derail `germany_not_neutral`). Aggressor: GER. Variant targets: A = SOV, DEN, B = VEN, FRA (the Kaiserreich restoration). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `GER_soviet_invasion`, `GER_restore_klein_venedig` (the northern-Schleswig demand focus does not exist in Rt56 and is skipped), with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 25: White Russia (v4 catalog)
-
-Flip (gate: SOV NOT communist by crises; derail `soviet_not_communist`, inverted gate). Aggressor: SOV (post-civil-war white Russia). Variant targets: A = GER, POL, FIN, B = UKR (the restored imperial borders). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `SOV_beaten_but_not_defeated` (already boosted), `SOV_white_exiles`, `SOV_imperial_legacy` (already boosted), `SOV_strike_the_eagle`, with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 26: Communist Japan (v4 catalog)
-
-Flip (gate: communism by crises; derail `japan_not_communist`). Aggressor: JAP. Variant targets: A = CHI, SOV, B = ENG, USA, SIA (the pan-Asian revolution). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `JAP_put_an_end_to_chinese_feudalism`, `JAP_spread_the_revolutuon_south`, `JAP_free_asians_from_soviet_opression`, `JAP_go_after_the_capitalists`, with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 27: Communist Italy (v4 catalog)
-
-Flip (gate: communism by crises; derail `italy_not_communist`). Aggressor: ITA. Variant targets: A = FRA, ENG, B = BUL, YUG (the red revolution in the West or the Balkans). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `ITA_pugno_alzato`, `ITA_the_enemies_of_capitalism`, `ITA_liberate_the_workers_of_africa`, with `$ai_scenario_focus_boost()` and `sc_focus`.
-
-## Arc 28: Communist Britain (v4 catalog)
-
-Flip (gate: communism by crises; derail `britain_not_communist`). Aggressor: ENG. Variant targets: A = GER, USA, CAN, B = SOV (the world revolution under the red flag). Ladder: smolder 36.1.1 / crises 37.6.1 / peak 38.6.1. War-focus branch: `ENG_soviet_cooperation`, `ENG_the_one_true_revolution`, `ENG_liberate_the_home_of_marx`, `ENG_liberate_the_american_workers`, with `$ai_scenario_focus_boost()` and `sc_focus`.
+Top-level keys come before `[table]` headers: in TOML everything after a
+header belongs to that table. `id` must match the file name; `number` is
+unique and must match the code dispatcher; a `ready` arc requires a `number`.
+Every key focus must exist in the aggressor's focus graph. The ladder content
+functions come as an optional pair (`crises_func` + `peak_func` naming the
+hand-written rung functions); absent means no generated tick branch. The
+optional `key` names the pin trigger suffix and pick label; absent means no
+generated pick data. Every variant holds 1-4 targets (the derail arms cover
+that range). Every `targets` key is covered by at least one path; every listed
+`variants` entry is a `targets` key. Boosts follow the live variant: shared
+focuses stay boosted whenever the aggressor is live, path-specific focuses
+only while their variant runs, and an entry's optional `after` holds its boost
+back until every listed focus is completed (shared ancestors of a gated path
+stay ungated). The peak rung waits for the AI to complete
+the last focus of the live path (humans proceed on schedule), with a
+fallback twelve months past the peak month; put rarely-bypassed focuses
+last, since a bypassed tail stalls to the fallback. The optional `suppress`
+list closes focuses for the AI while the aggressor is live
+(`$ai_scenario_focus_suppress()`, factor 0); a suppressed id must exist in the
+graph and must not be a key focus, so suppressing a fork forces the AI onto a
+sibling (issue 33: the SOV purge-opposition forks, leaving `the_centre`). There
+is no `type`, `block` or `content_refs` field. The optional `gate` table either
+holds the arc until a regime flip (the `hold_*` trio) or carries the derail
+pair (`ideology`/`at_phase`); the hold freezes `arc_months` at zero while the
+aggressor is off `hold_ideology` and parks the arc with `hold_reason` once
+`hold_max_months` held months pass, so a ladder whose premise is a regime
+change never fires into the old regime. A hold needs the ladder content pair
+(its tick is where the rungs live).
+
+## Ladder
+
+| Rung | Fires at | Releases |
+|---|---|---|
+| smolder | month 0 | seed only |
+| crises | month 12 | crisis events (claims, incidents) |
+| peak | month 24 | ultimatums to targets, join offers |
+
+The template calendar (smolder 36.1.1 / crises 37.1.1 / peak 38.1.1) is what
+vanilla arcs use; later arcs may shift the rungs.
+
+## Levers
+
+**Rivals and antagonism**: the director seeds each aggressor-target pair as a
+national rival at 65 and injects rivalry at the crises phase, so the existing
+AI weights push war planning. Rivalry is the main lever; no new AI code.
+
+**Focus weights**: `$ai_scenario_focus_boost()` (x5, live aggressor only) is
+spliced onto the arc's war focuses and their branch roots, so the AI actually
+walks the war branch (the s10 lesson: a boost behind an unboosted fork is dead).
+Which focuses each arc boosts is drawn per arc in
+`docs/gdd/Scenarios Catalog.md`. The spec's `suppress` list adds
+`$ai_scenario_focus_suppress()` (factor 0) to focuses the arc closes, so a
+wrong fork cannot win the AI's pick even before the boost applies.
+
+**Join levers**: at peak the two highest-scoring outsiders (`scenario_join_scorer`)
+get a bloc invitation. The scorer gates on ideology and hostility and scores
+strength plus goodwill; a joiner leaves its old faction first (no Honor charge).
+
+**Ultimatum casus belli**: a refused peak ultimatum must give the aggressor a
+wargoal (`create_wargoal`), or ignition waits on the AI's own war decision and
+can miss the `peak_timeout`. Arcs war through their ultimatum events, not
+wargoals on the focus tree (issue 34).
+
+## Lifecycle
+
+The arc ends at **ignition**: any war between declared scenario enemies, in
+either direction, detected at declaration or by the monthly ongoing-war sweep.
+Ignition logs `sc_ignite` + `sc_success` + `sc_end`.
+
+**Derail** parks a dead arc at phase 3: the aggressor is gone, capitulated, or
+has been in a protracted civil war (12 months); no viable target remains; or the
+arc has sat at peak for 12 months without ignition (`peak_timeout`). On random a
+derail repicks; pinned sessions go quiet.
+
+## Hooks and telemetry
+
+- Tick: `on_startup` (selection) plus `on_weekly` / `on_monthly`. `on_monthly`
+  runs per country, so the ladder tick fires in exactly one host per month: HAI
+  is the primary host with a fallback chain through the majors.
+- Reactions: `on_declare_war` (ignition), `on_annex` / `on_capitulation`
+  (derail), `on_join_allies` / `on_join_faction` (joiner tracking).
+- Telemetry: `sc_pick`, `sc_variant`, `sc_seed`, `sc_phase`, `sc_crisis`,
+  `sc_target`, `sc_power`, `sc_goal`, `sc_justify`, `sc_goal_end`, `sc_focus`,
+  `sc_offer`, `sc_ignite`, `sc_success`, `sc_join`, `sc_end`, `sc_derail`,
+  `sc_repick`. Per-actor lines are gated on `is_scenario_actor` (aggressor or a
+  declared target), so an unrelated country's focus does not pollute the arc.
+
+### Sampling cadence
+
+A recurring state is sampled on a schedule; a transition is logged when it
+happens. The s7 diagnostic package follows this rule:
+
+| Line | Cadence |
+| --- | --- |
+| `sc_power` | monthly per live actor |
+| `sc_goal` | monthly per declared pair with a held wargoal or an active justification |
+| `sc_justify` | monthly per declared pair with an active justification |
+| `sc_goal_end` | on wargoal expiry (transition) |
+
+`sc_justify` used to ride the daily justification pulse (one line per day per
+justification); since issue 15 it is a monthly sample like the rest of s7, so
+a long justification costs lines per month, not per day.
+
+### Telemetry label convention
+
+`sc_goal` and `sc_justify` carry one label per aggressor/target pair, always
+`<aggressor>_on_<target>` in **lowercase** (`ger_on_cze`, `hun_on_rom`). The
+catalog writes both label sets by hand in the s7 telemetry; both must
+match exactly, or one arc reads as two keys when a session is grepped.
+
+- `sc_goal` logs wargoals in **both** directions, so it also holds
+  `<target>_on_<aggressor>` labels (`cze_on_ger`); `sc_justify` only covers the
+  aggressor's justifications.
+- Every target tag in a label must be a real tag the arc seeds
+  (`sandbox_set_targets`). Romania is `ROM`, never `ROU`.
+
+### Join lever
+
+The lever sends `sc_offer` to the top-2 pool candidates. Accepting is
+Honor-free (`sandbox_honor_skip_leave_faction`), grants **mutual military
+access** with the aggressor and the `scenario_ally` opinion modifier, and logs
+`sc_join`. **No faction is formed.** Making the aggressor a faction leader locks
+it out of its own war focuses, several of which require `is_in_faction = no`
+(`ITA_pact_of_steel`, `ITA_italy_first`, `GER_integrate_czechoslovakia`,
+`JAP_sea_pressure_siam`); an observer session showed Italy reaching
+`ITA_foreign_affairs` and then stalling for six years, unable to open the
+`italian_irredentism` path to war.
 
 ## Acceptance checklist
 
-Log-first. Observer sandbox. Tick only when the grep holds (same discipline as `docs/gdd/Civil Wars.md`).
+Log-first. Observer sandbox. Tick only when the grep holds.
 
-- [x] Startup: exactly one `sc_pick` naming one pool arc; no UI, event, or tooltip names the picked scenario (the game-rule options may list the pool; `game.log` is out of band).
-- [x] Ladder phases logged on the picked arc's schedule in an idle observer session: `sc_phase smolder`, then `crises`, then `peak`; each rung once.
-- [x] Aggressor rivalry vs targets seeded and rising for the picked arc (`sc_seed`, then `rivals_set` / Feud bands); Feud reached before peak.
-- [ ] Pooled war bar: 5 random-pick observer sessions, `sc_ignite`-only from any arc by 1940 (post-repick ignitions count; non-scenario cascades do not). 4 of 5 must ignite. No scripted declaration exists in scenario files (review check, not a grep). Axis history (pre-pool window, kept for reference): s3/s4 ignited inverted (direction settled Sep 2026: inverted counts), s5 no scenario war by Oct 1939 (CZE puppeted by GER Feb 1938, POL ultimatum arm did not fire with POL alive - human-popup cause excluded, observer started on Ireland; civil-war tag-gap likely, TBD via target-status telemetry, GER fought only non-scenario wars); s6 QUIET (FAIL): no scenario war by Feb 1940 despite a perfect peak (sc_target open x2, both ultimatums fired, CHI+JAP joined); CZE alive at rivalry 100 for 25+ months, GER fought only non-scenario wars (FRA+X, then intermittent minors). Running 2/4 (s3/s4 inverted-ignited, s5/s6 quiet) - the 4-of-5 bar cannot pass on this window; counting decision Sep 2026: NEW SERIES from s7 (need 4/5 with fixes); s3-s6 kept as history. s7 QUIET (new series 0/1): no `sc_ignite` by Apr 1940; CZE neutralized pre-peak (Axis faction Aug 1937, GER subject by Jan 1938 - second puppet in a row after s5); POL open + rivalry 100 from Feb 1938 + defied ultimatum, never justified (`sc_justify`=0, `sc_goal`=0 across 51 months incl. 13 peaceful months with CZE:100 at 27 divs vs GER 67-106 - deterrence excluded); GER declared on USA (Jul 1938, distant random rival) instead and collected faction co-belligerencies (ITA Feb 1938, BEL, CHI, SAN, D15, CHL); the session still had a big non-scenario war (Axis vs ENG from Feb-Mar 1938) via cascade - the ambient goal was met by accident while the arc parked at peak 27 months.
-- [ ] Per-arc gates: each new arc passes 3 pinned observer sessions with 2 of 3 `sc_ignite` by 1940 before the next arc starts. Soviet 0/2 (s8 QUIET: no `sc_ignite` by Oct 1944; SOV never justified on anyone in 105 months despite Feud 100 vs POL/FIN, Honor exemption, 232 div / 179 fab at Jan 1940 vs POL 81/61; FIN vanished Dec 1939 with no war/CW telemetry - likely Rt56 native content; SOV took a D08 civil-war split Jul 1941 and sat as a 240/16 rump; POL open all session, defied ultimatum, never attacked. s9 QUIET with the F1+F4 fixes active: ladder + peak all fired, JAP+ENG offered, JAP joined; zero `sc_focus` - SOV completed `SOV_the_path_of_marxism_leninism` (Mar 1936) again, so the whole white/imperial branch with the war focuses was unreachable; the x5 `beaten_but_not_defeated` boost lost the fork to the Stalinist branch's baseline `add(40)` + `communism_factor*2`; derail trigger left for later) Japanese 0/0 (implemented; not yet observed) Italian 0/0 (implemented; not yet observed) Fascist Britain 0/0 (implemented; not yet observed) Red America 0/0 (implemented; not yet observed) Napoleonic France 0/0 (implemented; not yet observed) Habsburg restoration 0/0 (implemented; not yet observed) GER Atlantic 0/0 (implemented; not yet observed) GER Middle East 0/0 (implemented; not yet observed) SOV South 0/0 (implemented; not yet observed) SOV East 0/0 (implemented; not yet observed) JAP North 0/0 (implemented; not yet observed) JAP Old Oppressors 0/0 (implemented; not yet observed) ITA West 0/0 (implemented; not yet observed) Arcs 16-28 0/0 per arc (implemented; not yet observed).
-- [x] Joiners: one shared scorer, at most two `sc_offer` letters per arc at peak, and `sc_join` for each joiner before ignition or within 6 months after (faction, guarantee answered, or call to arms). Offer gates (enemy ideology, self, human, civil war, at-war, own faction, subject) are present in the scorer (review check, not a grep). (s5: offers to CHI + ROM, ROM faction-joined same tick, fought for the bloc Nov 1938; both recipients neutral/monarchist per observer; s7: offers CHI + ITA, both faction-joined same tick. Industry leg of the scorer was silently zero in s5-s7 (invalid `num_factories` token, always read 0 - fixed to `num_of_factories` after s7; s7 joins ran on divisions + opinion only); s8: offers FRA + SIK, SIK faction-joined same tick, FRA refused (no sc_join) - a microstate winning a top-2 slot shows the non-hostile gate empties the major pool for a communist aggressor (all democratic/fascist majors score 0).)
-- [x] Derail: a dead arc (aggressor gone, capitulated, or off-ideology; no viable target remains - gone, subject of the aggressor, or in its faction) logs `sc_derail` + `sc_end` and either goes quiet when pinned (no further `sc_phase` or scenario crises) or repicks on random (next item). (Neutralized-target arm added Sep 2026; s7 partial test: single neutralization (CZE subject, POL viable) correctly did NOT derail - the arc held peak; s8: single FIN loss (vanished Dec 1939) correctly did NOT derail - POL viable, the arc held peak; s10: the both-gone arm finally fired - POL and FIN were annexed by third countries mid-1938 (no wars with SOV, no `cw_ignition` for either), arc derailed Jan 1939 `targets_gone`, pinned so it went quiet.)
-- [ ] Repick: a derail on random logs `sc_derail` + `sc_end` + `sc_repick` + a new `sc_pick`, and the next eligible never-derailed arc runs its ladder from smolder; a derailed arc never re-enters the pool in the session.
-- [x] One arc per session: never two `sc_pick` lines without `sc_end` or `sc_derail` between them.
-- [x] After ignition: `sc_end`, no further `sc_phase` or scenario crises for that arc; join support may continue (`sc_join` allowed).
-- [x] Game-rule pin: the pinned scenario runs and never repicks (s5+s6+s7 ran pinned Axis, s8 ran pinned Soviet with ladder + crises + offers all firing; pin options grow with implemented arcs).
-- [ ] No-new-mechanics per arc: each v2 arc ships with no new mechanics, macros, or hooks (review check per arc diff). Soviet [ ] Japanese [x] Italian [x] Fascist Britain [x] Red America [x] Napoleonic France [x] Habsburg restoration [x] Arcs 9-15 [x] Arcs 16-28 [x] (the target-variant system and the generic flip/imperial gates are the same engine generalized; the 4-target derail arm is the same arm extended, no new mechanic). Each arc reuses the shared seed/join/tick/derail/telemetry engine and the shared `$ai_scenario_focus_boost()`; per-arc content is actor tags, crises + ultimatums, game-rule option, and focus splices (Arc 8's "restoration gate" is a flavor-renamed version of the flip gate, no new code path; arcs 17/20/23/24/25/26/27/28 use the shared `$sandbox_check_flip_gate` / `$sandbox_check_flip_gate_inv`).
-- [x] No `error.log` lines attributable to scenario files (`99_sandbox_scenario*`, scenario crisis events). (s7: 4219 lines, zero sandbox/scenario refs - all vanilla/Rt56 load and UI noise; s8: zero sandbox/scenario refs.)
-- [x] Civil wars unaffected: scenario wars are international and never move the civil-war counter; `cw_` logging in scenario sessions shows no scenario-attributed lines.
+- [ ] Startup: exactly one `sc_pick` naming one pool arc, plus one `sc_variant`.
+- [ ] Ladder phases logged on schedule: `sc_phase smolder`, `crises`, `peak`.
+- [ ] At peak each target logs one `sc_target` status line.
+- [ ] Ignition: `sc_ignite` + `sc_success` + `sc_end` when a war fires between
+  declared enemies (direct or ongoing).
+- [ ] Derail: `sc_derail` + `sc_end` with a reason; random repicks.
+- [ ] No `error.log` lines attributable to scenario files.
+
+Observer note (first vanilla session, `italian` / variant a / YUG+GRE): phases
+ran on schedule, the chosen variant was honoured, and the join lever fired
+(`sc_offer` -> `sc_join`). The arc then hung at peak for a full year with no
+`sc_ignite`, `sc_success` or `sc_derail`: both ultimatums were defied and the
+defy option only adds war support, so ignition depends on the AI justifying on
+its own. The betrayal exemption (F1) and the `sc_justify` / `sc_goal_end` /
+`sc_focus` telemetry were missing from the vanilla port and are now wired;
+a peak that outlives the ladder is still undetected and is an open item.
+
+Observer note (second vanilla session, `japanese` / variant a / CHI+PHI): the
+new `sc_focus` telemetry showed Japan completing **zero** war focuses over four
+years while the arc sat at peak. Cause: the port boosted only the war leafs and
+one or two roots, so nearly every leaf sat behind an unboosted prerequisite
+(the ideological fork `JAP_sea_purge_the_kodoha_faction` XOR
+`JAP_revere_the_emperor_destroy_the_traitors` for Japan, the Africa path for
+Italy, `reorganize_the_wehrmacht` for Germany, `the_comintern` for the USSR,
+`no_further_appeasement` for Britain, `intervention_in_asia` for the USA). The
+AI never commits to the gate, so the leaf is never *available* and the boost on
+it does nothing. `boost_focus_ancestors.py` now boosts the transitive ancestor
+closure of every key focus (63 focuses), and `sc_focus` logging was extended to
+match, so a dead gate is visible in the log rather than silent.
+
+Observer note (third vanilla session, `japanese` -> `axis` repick): the peak
+timeout worked as designed. Japan held at peak from 1938.1, both ultimatums were
+submitted, the join lever fired (GER and SOV joined), and on 1939.1 the arc
+derailed with `sc_derail peak_timeout` and repicked to `axis`. The axis arc then
+compressed its ladder (crises and peak on consecutive ticks) and reached peak
+with CZE/POL ultimatums and JAP/HUN joiners within a month. `sc_focus` showed
+zero lines: the gate `is_scenario_actor` called the aggressor branch without
+parentheses, so the compiler dropped it and only targets could log; fixed.
+
+l10n note: `99_sandbox_l_english.yml` must stay UTF-8 **with BOM**. HOI4
+silently drops a localisation file without it, and every string falls back to
+its raw key (the leader-personality tooltip is the tell). The event-key
+generator writes with `utf-8-sig` for this reason. Separately, every key the
+engine points at must exist: the `scenario_ally` opinion modifier was missing
+and surfaced as a raw key in the diplomacy tooltip. Game-rule
+`option = sandbox_<arc>` ids are not l10n keys and need no entry.
 
 ## Out of scope for this iteration
 
-- Scripted declarations of war by the director, under any name (fuses, deadlines, forced DOWs).
-- Flip-assist levers for v2: arcs 5-6 flip through focus weights only (a near-zero flip rate in logs is the measured case for v3).
-- Joke arcs and mixed plausibility pools.
+- Flip and imperial arcs (DLC-gated focus branches in vanilla; they live in the
+  Rt56 overlay).
+- The full 28-arc catalog: only the content-portable subset ships here (six
+  arcs plus the USA draft).
 - Player-facing scenario UI beyond the pinning game rule.
-- Concurrent arcs (revisit after the v2 pool proves the single-arc loop).
-- Scenario behaviour in historical mode: everything here is sandbox-only.
-- Vanilla port mechanics changes: the port carries the whole engine and differs only in focus/event ids and pool composition (content-portable arcs only); see `docs/adr/0001-full-scenario-engine-in-vanilla-port.md`.
-- News events and notifications about director actions (the player sees crises, not the director).
+- Concurrent arcs.
+- Scenario behaviour in historical mode: sandbox-only.

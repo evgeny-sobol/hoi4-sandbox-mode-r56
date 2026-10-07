@@ -1,137 +1,159 @@
 # GUA_centralize_the_state
 
 ```mermaid
-flowchart TD
-    n1["GUA_a_broken_promise"]
-    n2["GUA_ally_the_franquistas"]
-    n3["GUA_american_military_assistance"]
-    n4["GUA_appease_the_german_colony"]
-    n5["GUA_appropriate_german_assets"]
-    n6["GUA_bolster_the_secret_police"]
-    n7["GUA_censor_the_press"]
-    n8{"GUA_centralize_the_state"}
-    n9{"GUA_claim_the_french_throne"}
-    n10["GUA_concession_to_the_church"]
-    n11["GUA_concessions_to_the_UFCo"]
-    n12["GUA_crack_down_on_extremism"]
-    n13["GUA_crush_the_resistance"]
-    n14["GUA_divert_our_trade"]
-    n15["GUA_dreams_of_glory"]
-    n16["GUA_establish_the_armada_de_guatemala"]
-    n17["GUA_establish_the_garde_imperiale"]
-    n18["GUA_exploit_nicaragua_gold"]
-    n19["GUA_exploit_the_workforce"]
-    n20["GUA_extend_the_school_system"]
-    n21["GUA_fortress_of_the_isthmus"]
-    n22["GUA_hegemonize_civil_service"]
-    n23["GUA_implement_social_reforms"]
-    n24["GUA_improve_national_infrastructure"]
-    n25["GUA_invite_french_nobility"]
-    n26["GUA_join_the_allies"]
-    n27["GUA_join_the_axis"]
-    n28["GUA_leave_the_league_of_nations"]
-    n29["GUA_militarize_the_schools"]
-    n30["GUA_napoleons_true_successor"]
-    n31["GUA_operation_eagles_fall"]
-    n32["GUA_our_russia"]
-    n33["GUA_pass_the_vagrancy_law"]
-    n34{"GUA_placate_the_landowners"}
-    n35["GUA_professionalize_the_military"]
-    n36["GUA_purchase_italian_weaponry"]
-    n37["GUA_purge_the_old_guard"]
-    n38{"GUA_reassure_the_americans"}
-    n39["GUA_settle_the_belize_dispute"]
-    n40["GUA_stike_honduras"]
-    n41["GUA_storm_the_tropics"]
-    n42["GUA_strike_costarica"]
-    n43["GUA_strike_elsalvador"]
-    n44["GUA_strike_nicaragua"]
-    n45["GUA_support_the_caudillo"]
-    n46["GUA_surveillance_state"]
-    n47["GUA_take_panama"]
-    n48["GUA_the_base_of_north_american_operations"]
-    n49["GUA_the_central_american_detente"]
-    n50["GUA_the_emperors_coronation"]
-    n51["GUA_the_legacy_of_1805"]
-    n52["GUA_the_papal_compromise"]
-    n53["GUA_the_second_code_napoleon"]
-    n54["GUA_the_throne_belongs_to_one"]
-    n55{"GUA_the_ubiquista_youth"}
-    n56["GUA_ties_with_the_anti_bonapartists"]
-    n57["GUA_ubiquistas"]
-    n58["GUA_undermine_UFCo_influence"]
-    n8 --> n1
-    n52 --> n2
-    n26 --> n3
-    n38 --> n4
-    n26 --> n5
-    n24 --> n6
-    n1 --> n7
-    n30 --> n9
-    n52 --> n10
-    n34 --> n11
-    n38 --> n12
-    n54 --> n13
-    n27 --> n14
-    n7 --> n15
-    n35 --> n15
-    n47 --> n16
-    n32 --> n16
-    n30 --> n17
-    n44 --> n18
-    n11 --> n19
-    n58 --> n19
-    n24 --> n20
-    n14 --> n21
-    n48 --> n21
-    n33 --> n22
-    n4 --> n23
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"GUA_centralize_the_state"}
+    end
+    subgraph tier_1["Tier 1"]
+        n2["GUA_a_broken_promise"]
+        n3{"GUA_reassure_the_americans"}
+    end
+    subgraph tier_2["Tier 2"]
+        n4["GUA_appease_the_german_colony"]
+        n5["GUA_censor_the_press"]
+        n6["GUA_crack_down_on_extremism"]
+        n7["GUA_pass_the_vagrancy_law"]
+        n8["GUA_professionalize_the_military"]
+        n9["GUA_the_central_american_detente"]
+    end
+    subgraph tier_3["Tier 3"]
+        n10["GUA_dreams_of_glory"]
+        n11["GUA_hegemonize_civil_service"]
+        n12["GUA_implement_social_reforms"]
+        n13["GUA_leave_the_league_of_nations"]
+        n14{"GUA_placate_the_landowners"}
+        n15["GUA_purge_the_old_guard"]
+        n16["GUA_settle_the_belize_dispute"]
+        n17["GUA_support_the_caudillo"]
+        n18["GUA_ubiquistas"]
+    end
+    subgraph tier_4["Tier 4"]
+        n19["GUA_concessions_to_the_UFCo"]
+        n20["GUA_improve_national_infrastructure"]
+        n21["GUA_militarize_the_schools"]
+        n22["GUA_napoleons_true_successor"]
+        n23["GUA_purchase_italian_weaponry"]
+        n24["GUA_stike_honduras"]
+        n25["GUA_strike_elsalvador"]
+        n26["GUA_undermine_UFCo_influence"]
+    end
+    subgraph tier_5["Tier 5"]
+        n27["GUA_bolster_the_secret_police"]
+        n28{"GUA_claim_the_french_throne"}
+        n29["GUA_establish_the_garde_imperiale"]
+        n30["GUA_exploit_the_workforce"]
+        n31["GUA_extend_the_school_system"]
+        n32["GUA_strike_nicaragua"]
+        n33{"GUA_the_ubiquista_youth"}
+    end
+    subgraph tier_6["Tier 6"]
+        n34["GUA_exploit_nicaragua_gold"]
+        n35["GUA_join_the_allies"]
+        n36["GUA_join_the_axis"]
+        n37["GUA_strike_costarica"]
+        n38["GUA_surveillance_state"]
+        n39["GUA_the_papal_compromise"]
+        n40["GUA_ties_with_the_anti_bonapartists"]
+    end
+    subgraph tier_7["Tier 7"]
+        n41["GUA_ally_the_franquistas"]
+        n42["GUA_american_military_assistance"]
+        n43["GUA_appropriate_german_assets"]
+        n44["GUA_concession_to_the_church"]
+        n45["GUA_divert_our_trade"]
+        n46["GUA_invite_french_nobility"]
+        n47["GUA_our_russia"]
+        n48["GUA_take_panama"]
+        n49["GUA_the_base_of_north_american_operations"]
+    end
+    subgraph tier_8["Tier 8"]
+        n50["GUA_establish_the_armada_de_guatemala"]
+        n51["GUA_fortress_of_the_isthmus"]
+        n52["GUA_operation_eagles_fall"]
+        n53["GUA_storm_the_tropics"]
+        n54["GUA_the_throne_belongs_to_one"]
+    end
+    subgraph tier_9["Tier 9"]
+        n55["GUA_crush_the_resistance"]
+        n56["GUA_the_legacy_of_1805"]
+        n57["GUA_the_second_code_napoleon"]
+    end
+    subgraph tier_10["Tier 10"]
+        n58["GUA_the_emperors_coronation"]
+    end
+    n1 --> n2
+    n39 --> n41
+    n35 --> n42
+    n3 --> n4
+    n35 --> n43
+    n20 --> n27
+    n2 --> n5
+    n22 --> n28
+    n39 --> n44
+    n14 --> n19
+    n3 --> n6
+    n54 --> n55
+    n36 --> n45
+    n5 --> n10
+    n8 --> n10
+    n48 --> n50
+    n47 --> n50
+    n22 --> n29
+    n32 --> n34
+    n19 --> n30
+    n26 --> n30
+    n20 --> n31
+    n45 --> n51
+    n49 --> n51
+    n7 --> n11
+    n4 --> n12
+    n6 --> n12
+    n18 --> n20
+    n11 --> n20
+    n40 --> n46
+    n33 --> n35
+    n33 --> n36
+    n9 --> n13
+    n12 --> n21
+    n10 --> n22
+    n47 --> n52
+    n37 --> n47
+    n2 --> n7
+    n3 --> n7
+    n7 --> n14
+    n2 --> n8
     n12 --> n23
-    n57 --> n24
-    n22 --> n24
-    n56 --> n25
-    n55 --> n26
-    n55 --> n27
-    n49 --> n28
-    n23 --> n29
-    n15 --> n30
-    n32 --> n31
-    n42 --> n32
-    n1 --> n33
-    n38 --> n33
-    n33 --> n34
-    n1 --> n35
-    n23 --> n36
-    n35 --> n37
-    n8 --> n38
-    n49 --> n39
-    n15 --> n40
-    n47 --> n41
-    n44 --> n42
-    n15 --> n43
-    n40 --> n44
-    n43 --> n44
-    n49 --> n45
-    n6 --> n46
-    n42 --> n47
-    n27 --> n48
-    n38 --> n49
-    n1 --> n49
-    n13 --> n50
-    n53 --> n50
-    n54 --> n51
-    n9 --> n52
-    n54 --> n53
-    n10 --> n54
-    n25 --> n54
-    n36 --> n55
-    n29 --> n55
-    n9 --> n56
-    n33 --> n57
-    n34 --> n58
-    n1 x--x n38
-    n4 x--x n12
-    n11 x--x n58
-    n26 x--x n27
-    n52 x--x n56
+    n8 --> n15
+    n1 --> n3
+    n9 --> n16
+    n10 --> n24
+    n48 --> n53
+    n32 --> n37
+    n10 --> n25
+    n24 --> n32
+    n25 --> n32
+    n9 --> n17
+    n27 --> n38
+    n37 --> n48
+    n36 --> n49
+    n3 --> n9
+    n2 --> n9
+    n55 --> n58
+    n57 --> n58
+    n54 --> n56
+    n28 --> n39
+    n54 --> n57
+    n44 --> n54
+    n46 --> n54
+    n23 --> n33
+    n21 --> n33
+    n28 --> n40
+    n7 --> n18
+    n14 --> n26
+    n2 x--x n3
+    n4 x--x n6
+    n19 x--x n26
+    n35 x--x n36
+    n39 x--x n40
 ```

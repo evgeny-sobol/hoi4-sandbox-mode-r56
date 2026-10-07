@@ -1,510 +1,580 @@
 # LIT_Aviation_Effort
 
 ```mermaid
-flowchart TD
-    n1["LIT_Aircraft_England"]
-    n2["LIT_Aircraft_German"]
-    n3["LIT_Aircraft_Italian"]
-    n4["LIT_Aircraft_Soviet"]
-    n5["LIT_Aircraft_american"]
-    n6["LIT_Aircraft_japanese"]
-    n7{"LIT_Aviation_Effort"}
-    n8["LIT_Bomber_Competition"]
-    n9["LIT_Close_Air_Support"]
-    n10["LIT_Fighter_Competition"]
-    n11{"LIT_Foreign_Design"}
-    n12["LIT_German_Rocketry"]
-    n13["LIT_Shared_Air_Doctrine"]
-    n14["LIT_aircraft_design_cooperation"]
-    n15["LIT_anbo_viii"]
-    n16["LIT_antanas_gustaitis_reforms"]
-    n17["LIT_fund_the_anbo"]
-    n18["LIT_import_foreign_engines"]
-    n19["LIT_modernize_planes"]
-    n20["LIT_open_new_aviation_workshops"]
-    n21["LIT_open_pilot_training_facilities"]
-    n11 --> n1
-    n11 --> n2
-    n11 --> n3
-    n11 --> n4
-    n11 --> n5
-    n11 --> n6
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n1{"LIT_Aviation_Effort"}
+    end
+    subgraph tier_1["Tier 1"]
+        n2{"LIT_Foreign_Design"}
+        n3["LIT_fund_the_anbo"]
+    end
+    subgraph tier_2["Tier 2"]
+        n4["LIT_Aircraft_England"]
+        n5["LIT_Aircraft_German"]
+        n6["LIT_Aircraft_Italian"]
+        n7["LIT_Aircraft_Soviet"]
+        n8["LIT_Aircraft_american"]
+        n9["LIT_Aircraft_japanese"]
+        n10["LIT_import_foreign_engines"]
+    end
+    subgraph tier_3["Tier 3"]
+        n11["LIT_Bomber_Competition"]
+        n12["LIT_Fighter_Competition"]
+        n13["LIT_German_Rocketry"]
+        n14["LIT_modernize_planes"]
+        n15["LIT_open_pilot_training_facilities"]
+    end
+    subgraph tier_4["Tier 4"]
+        n16["LIT_Close_Air_Support"]
+        n17["LIT_Shared_Air_Doctrine"]
+        n18["LIT_aircraft_design_cooperation"]
+        n19["LIT_anbo_viii"]
+        n20["LIT_open_new_aviation_workshops"]
+    end
+    subgraph tier_5["Tier 5"]
+        n21["LIT_antanas_gustaitis_reforms"]
+    end
+    n2 --> n4
+    n2 --> n5
+    n2 --> n6
+    n2 --> n7
     n2 --> n8
-    n1 --> n8
-    n5 --> n8
-    n4 --> n8
-    n3 --> n8
-    n6 --> n8
-    n10 --> n9
-    n1 --> n10
-    n2 --> n10
-    n4 --> n10
-    n3 --> n10
-    n6 --> n10
+    n2 --> n9
+    n5 --> n11
+    n4 --> n11
+    n8 --> n11
     n7 --> n11
-    n2 --> n12
-    n10 --> n13
-    n8 --> n13
+    n6 --> n11
+    n9 --> n11
+    n12 --> n16
+    n4 --> n12
+    n5 --> n12
+    n7 --> n12
+    n6 --> n12
+    n9 --> n12
+    n1 --> n2
+    n5 --> n13
+    n12 --> n17
+    n11 --> n17
+    n12 --> n18
+    n11 --> n18
+    n14 --> n19
+    n19 --> n21
+    n20 --> n21
+    n1 --> n3
+    n3 --> n10
     n10 --> n14
-    n8 --> n14
-    n19 --> n15
-    n15 --> n16
-    n20 --> n16
-    n7 --> n17
-    n17 --> n18
-    n18 --> n19
-    n21 --> n20
-    n18 --> n21
-    n1 x--x n5
+    n15 --> n20
+    n10 --> n15
+    n4 x--x n8
+    n5 x--x n6
+    n7 x--x n9
     n2 x--x n3
-    n4 x--x n6
-    n11 x--x n17
 ```
 
 # LIT_a_separate_branch
 
 ```mermaid
-flowchart TD
-    n22(("LIT_a_separate_branch"))
-    n23["LIT_baltic_navy"]
-    n24["LIT_cooperate_with_maritime_organisations"]
-    n25["LIT_cruisers_development"]
-    n26["LIT_defend_the_coast"]
-    n27{"LIT_develop_indigenous_designs"}
-    n28["LIT_educate_naval_officers_abroad"]
-    n29{"LIT_expansion_of_naval_facilities"}
-    n30["LIT_focus_on_destroyer_production"]
-    n31["LIT_found_the_lithuanian_maritime_academy"]
-    n32["LIT_klaipda_shipyards"]
-    n33["LIT_purchase_foreign_ships"]
-    n34["LIT_purchase_french_ships"]
-    n35["LIT_purchase_italian_ships"]
-    n36["LIT_raiding_fleet"]
-    n37["LIT_revisit_naval_doctrine"]
-    n38["LIT_streamline_submarine_production"]
-    n39["LIT_study_foreign_navies"]
-    n40["LIT_ventoji_shipyards"]
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n22(("LIT_a_separate_branch"))
+    end
+    subgraph tier_1["Tier 1"]
+        n23["LIT_baltic_navy"]
+    end
+    subgraph tier_2["Tier 2"]
+        n24["LIT_cruisers_development"]
+        n25{"LIT_expansion_of_naval_facilities"}
+        n26["LIT_study_foreign_navies"]
+    end
+    subgraph tier_3["Tier 3"]
+        n27["LIT_educate_naval_officers_abroad"]
+        n28["LIT_klaipda_shipyards"]
+        n29["LIT_purchase_foreign_ships"]
+        n30["LIT_ventoji_shipyards"]
+    end
+    subgraph tier_4["Tier 4"]
+        n31["LIT_cooperate_with_maritime_organisations"]
+        n32{"LIT_develop_indigenous_designs"}
+        n33["LIT_purchase_french_ships"]
+        n34["LIT_purchase_italian_ships"]
+    end
+    subgraph tier_5["Tier 5"]
+        n35["LIT_defend_the_coast"]
+        n36["LIT_raiding_fleet"]
+        n37["LIT_revisit_naval_doctrine"]
+    end
+    subgraph tier_6["Tier 6"]
+        n38["LIT_focus_on_destroyer_production"]
+        n39["LIT_found_the_lithuanian_maritime_academy"]
+        n40["LIT_streamline_submarine_production"]
+    end
     n22 --> n23
-    n28 --> n24
+    n27 --> n31
+    n23 --> n24
+    n32 --> n35
+    n28 --> n32
+    n30 --> n32
+    n26 --> n27
+    n25 --> n27
     n23 --> n25
-    n27 --> n26
-    n32 --> n27
-    n40 --> n27
-    n39 --> n28
-    n29 --> n28
-    n23 --> n29
-    n26 --> n30
-    n37 --> n31
-    n29 --> n32
-    n39 --> n33
-    n33 --> n34
-    n33 --> n35
-    n27 --> n36
-    n24 --> n37
-    n36 --> n38
-    n23 --> n39
-    n29 --> n40
-    n26 x--x n36
-    n32 x--x n40
+    n35 --> n38
+    n37 --> n39
+    n25 --> n28
+    n26 --> n29
+    n29 --> n33
+    n29 --> n34
+    n32 --> n36
+    n31 --> n37
+    n36 --> n40
+    n23 --> n26
+    n25 --> n30
+    n35 x--x n36
+    n28 x--x n30
 ```
 
 # LIT_announce_upcoming_elections
 
 ```mermaid
-flowchart TD
-    n41["LIT_academy_of_sciences"]
-    n42["LIT_accept_opposition_in_the_government"]
-    n43["LIT_adopt_a_new_constitution"]
-    n44["LIT_ally_france"]
-    n45["LIT_ally_italy"]
-    n46["LIT_amend_the_electoral_law"]
-    n47["LIT_amnesty_to_political_prisoners"]
-    n48{"LIT_announce_upcoming_elections"}
-    n49{"LIT_arrest_nazi_sympathizers"}
-    n50["LIT_banish_smetonists"]
-    n51["LIT_battle_for_lithuania"]
-    n52["LIT_break_nationalist_union"]
-    n53["LIT_collectivisation"]
-    n54["LIT_contact_the_aurininkai"]
-    n55{"LIT_contain_german_agression"}
-    n56["LIT_continue_griniuss_presidency"]
-    n57["LIT_cooperate_with_the_conservatives"]
-    n58["LIT_cult_of_vytautas_the_great"]
-    n59["LIT_db_six_hundred"]
-    n60["LIT_decrease_representation"]
-    n61["LIT_dissolve_the_klaipda_directorate"]
-    n62["LIT_dissolve_the_seimas"]
-    n63["LIT_draw_closer_to_finland"]
-    n64{"LIT_draw_closer_to_sweden"}
-    n65["LIT_elect_the_fourth_seimas"]
-    n66["LIT_empower_litvak_community"]
-    n67["LIT_empower_patriots"]
-    n68["LIT_empower_radicals"]
-    n69["LIT_empower_smetona"]
-    n70["LIT_enforce_lithuaniazation"]
-    n71["LIT_ensure_german_support"]
-    n72["LIT_exile_voldemaras"]
-    n73["LIT_expand_riflemans_union"]
-    n74["LIT_expand_to_markets"]
-    n75["LIT_force_parties_to_reregister"]
-    n76["LIT_form_a_baltic_alliance"]
-    n77["LIT_form_the_lithuanian_security_police"]
-    n78["LIT_form_the_youth_branch"]
-    n79["LIT_fortify_klaipda"]
-    n80["LIT_gediminas_heritage"]
-    n81{"LIT_german_capital"}
-    n82["LIT_german_industrial_aid"]
-    n83["LIT_germanlithuanian_credit_agreement"]
-    n84["LIT_germanlithuanian_mutual_assistance_treaty"]
-    n85["LIT_greater_lithuania"]
-    n86{"LIT_hold_fair_elections"}
-    n87{"LIT_hold_the_lnp_commission"}
-    n88["LIT_industrialisation"]
-    n89["LIT_integrate_lithuanian_rail_network"]
-    n90["LIT_intervene_in_the_german_civil_war"]
-    n91["LIT_invest_in_public_education"]
-    n92["LIT_join_allies"]
-    n93["LIT_join_axis"]
-    n94["LIT_join_central_powers"]
-    n95["LIT_join_comintern"]
-    n96["LIT_join_northern_lights"]
-    n97["LIT_join_ussr"]
-    n98{"LIT_kaunas_conference"}
-    n99["LIT_kings_party"]
-    n100["LIT_launch_the_revolution"]
-    n101["LIT_lcp_resurgence"]
-    n102["LIT_lead_by_example"]
-    n103["LIT_legacy_of_mindaugas"]
-    n104["LIT_liberalization_of_trade_policies"]
-    n105["LIT_lithuanian_antibolshevik_legions"]
-    n106["LIT_lithuanian_autarky"]
-    n107{"LIT_lithuanian_irridentism"}
-    n108{"LIT_mercedes_benz_engine_plant"}
-    n109["LIT_militarise_the_iron_wolf"]
-    n110["LIT_model_capitalist_society"]
-    n111["LIT_nationalist_education"]
-    n112["LIT_new_lithuania"]
-    n113["LIT_new_noble_class"]
-    n114["LIT_northern_intervention"]
-    n115{"LIT_offer_our_enemies_support"}
-    n116{"LIT_operation_mindaugas"}
-    n117["LIT_peoples_army"]
-    n118["LIT_preparing_for_the_inevitable"]
-    n119["LIT_preparing_for_the_uprising"]
-    n120["LIT_privatise_lithuanian_railroads"]
-    n121["LIT_promote_lithuanian_aryanism"]
-    n122["LIT_propose_a_baltic_union"]
-    n123{"LIT_r56_demand_vilnius"}
-    n124{"LIT_reconvene_the_council_of_lithuania"}
-    n125["LIT_red_estonia"]
-    n126["LIT_red_latvia"]
-    n127["LIT_red_volunteers"]
-    n128["LIT_redraft_the_twelve_point_proposal"]
-    n129["LIT_reform_the_iron_wolf"]
-    n130["LIT_rehabilitate_organisers_of_the_1934_coup"]
-    n131["LIT_reinforce_czechoslovak_ties"]
-    n132["LIT_reinforce_kaunas_fortress"]
-    n133["LIT_reintegrate_lit_minor"]
-    n134["LIT_remove_cencorship"]
-    n135["LIT_remove_martial_law"]
-    n136["LIT_research_cooperative"]
-    n137["LIT_restore_constitutionalism"]
-    n138["LIT_restore_the_gdl"]
-    n139["LIT_return_of_voldemaras"]
-    n140["LIT_roman_recognition"]
-    n141{"LIT_root_out_communists"}
-    n142["LIT_royal_adress"]
-    n143{"LIT_royal_legacy"}
-    n144["LIT_seek_accommodation_with_germany"]
-    n145["LIT_seize_minority_assets"]
-    n146["LIT_skirpas_coup"]
-    n147["LIT_social_welfare_focus"]
-    n148["LIT_socialist_science"]
-    n149{"LIT_solicit_ratikiss_support"}
-    n150["LIT_sovietlithuanian_mutual_assistance_treaty"]
-    n151["LIT_spread_the_revolution"]
-    n152["LIT_subsidize_farmers"]
-    n153["LIT_subsidize_food_industry"]
-    n154["LIT_support_domestic_entrepreneurs"]
-    n155["LIT_support_the_lkma"]
-    n156["LIT_syndicalize_agriculture"]
-    n157["LIT_the_4th_president"]
-    n158["LIT_three_thousand"]
-    n159["LIT_unify_baltics_communist"]
-    n160["LIT_unify_baltics_fascist"]
-    n161["LIT_urbanisation"]
-    n162["LIT_vilnius_procession"]
-    n163["LIT_voldemarininkai_coup"]
-    n164{"LIT_vote_on_monarchy"}
-    n112 --> n41
-    n141 --> n42
-    n65 --> n43
-    n78 --> n43
-    n55 --> n44
-    n55 --> n45
-    n75 --> n46
-    n157 --> n47
-    n56 --> n47
-    n69 --> n49
-    n124 --> n50
-    n70 --> n51
-    n156 --> n51
-    n124 --> n52
-    n112 --> n53
-    n56 --> n54
-    n107 --> n55
-    n86 --> n56
-    n164 --> n57
-    n143 --> n58
-    n108 --> n59
-    n75 --> n60
-    n49 --> n61
-    n149 --> n62
-    n152 --> n63
-    n152 --> n64
-    n46 --> n65
-    n112 --> n66
-    n87 --> n67
-    n87 --> n68
-    n72 --> n69
-    n43 --> n69
-    n67 --> n70
-    n124 --> n71
-    n65 --> n72
-    n78 --> n72
-    n78 --> n73
-    n81 --> n74
-    n48 --> n75
-    n64 --> n76
-    n129 --> n77
-    n60 --> n78
-    n61 --> n79
-    n143 --> n80
-    n104 --> n81
-    n99 --> n81
-    n57 --> n81
-    n137 --> n81
-    n83 --> n82
-    n121 --> n83
-    n145 --> n83
-    n115 --> n84
-    n123 --> n85
-    n116 --> n85
-    n149 --> n86
-    n139 --> n87
-    n130 --> n87
-    n129 --> n87
-    n53 --> n88
-    n81 --> n89
-    n124 --> n90
-    n47 --> n91
-    n134 --> n91
-    n64 --> n92
-    n144 --> n93
-    n99 --> n94
-    n57 --> n94
-    n112 --> n95
-    n117 --> n95
-    n64 --> n96
-    n95 --> n97
-    n142 --> n98
-    n94 --> n98
-    n164 --> n99
-    n119 --> n100
-    n48 --> n101
-    n111 --> n102
-    n143 --> n103
-    n157 --> n104
-    n109 --> n105
-    n94 --> n105
-    n51 --> n106
-    n109 --> n107
-    n89 --> n108
-    n68 --> n109
-    n67 --> n109
-    n154 --> n110
-    n120 --> n110
-    n65 --> n111
-    n87 --> n111
-    n100 --> n112
-    n128 --> n113
-    n107 --> n114
-    n42 --> n115
-    n61 --> n115
-    n107 --> n116
-    n98 --> n116
-    n100 --> n117
-    n64 --> n118
-    n131 --> n118
-    n101 --> n119
-    n104 --> n120
-    n68 --> n121
-    n131 --> n122
-    n107 --> n123
-    n98 --> n123
-    n62 --> n124
-    n151 --> n125
-    n151 --> n126
-    n117 --> n127
-    n142 --> n128
-    n140 --> n128
-    n163 --> n129
-    n163 --> n130
-    n157 --> n131
-    n42 --> n132
-    n151 --> n133
-    n157 --> n134
-    n56 --> n134
-    n157 --> n135
-    n56 --> n135
-    n92 --> n136
-    n76 --> n136
-    n96 --> n136
-    n164 --> n137
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n41{"LIT_announce_upcoming_elections"}
+    end
+    subgraph tier_1["Tier 1"]
+        n42["LIT_force_parties_to_reregister"]
+        n43["LIT_lcp_resurgence"]
+        n44{"LIT_solicit_ratikiss_support"}
+        n45["LIT_voldemarininkai_coup"]
+    end
+    subgraph tier_2["Tier 2"]
+        n46["LIT_amend_the_electoral_law"]
+        n47["LIT_decrease_representation"]
+        n48["LIT_dissolve_the_seimas"]
+        n49{"LIT_hold_fair_elections"}
+        n50["LIT_preparing_for_the_uprising"]
+        n51["LIT_reform_the_iron_wolf"]
+        n52["LIT_rehabilitate_organisers_of_the_1934_coup"]
+        n53["LIT_return_of_voldemaras"]
+    end
+    subgraph tier_3["Tier 3"]
+        n54["LIT_continue_griniuss_presidency"]
+        n55["LIT_elect_the_fourth_seimas"]
+        n56["LIT_form_the_lithuanian_security_police"]
+        n57["LIT_form_the_youth_branch"]
+        n58{"LIT_hold_the_lnp_commission"}
+        n59["LIT_launch_the_revolution"]
+        n60{"LIT_reconvene_the_council_of_lithuania"}
+        n61["LIT_subsidize_food_industry"]
+        n62["LIT_the_4th_president"]
+    end
+    subgraph tier_4["Tier 4"]
+        n63["LIT_adopt_a_new_constitution"]
+        n64["LIT_amnesty_to_political_prisoners"]
+        n65["LIT_banish_smetonists"]
+        n66["LIT_break_nationalist_union"]
+        n67["LIT_contact_the_aurininkai"]
+        n68["LIT_empower_patriots"]
+        n69["LIT_empower_radicals"]
+        n70["LIT_ensure_german_support"]
+        n71["LIT_exile_voldemaras"]
+        n72["LIT_expand_riflemans_union"]
+        n73["LIT_intervene_in_the_german_civil_war"]
+        n74["LIT_liberalization_of_trade_policies"]
+        n75["LIT_nationalist_education"]
+        n76["LIT_new_lithuania"]
+        n77["LIT_peoples_army"]
+        n78["LIT_reinforce_czechoslovak_ties"]
+        n79["LIT_remove_cencorship"]
+        n80["LIT_remove_martial_law"]
+        n81["LIT_social_welfare_focus"]
+        n82["LIT_subsidize_farmers"]
+    end
+    subgraph tier_5["Tier 5"]
+        n83["LIT_academy_of_sciences"]
+        n84["LIT_collectivisation"]
+        n85["LIT_draw_closer_to_finland"]
+        n86{"LIT_draw_closer_to_sweden"}
+        n87["LIT_empower_litvak_community"]
+        n88["LIT_empower_smetona"]
+        n89["LIT_enforce_lithuaniazation"]
+        n90["LIT_invest_in_public_education"]
+        n91["LIT_join_comintern"]
+        n92["LIT_lead_by_example"]
+        n93["LIT_militarise_the_iron_wolf"]
+        n94["LIT_privatise_lithuanian_railroads"]
+        n95["LIT_promote_lithuanian_aryanism"]
+        n96["LIT_propose_a_baltic_union"]
+        n97["LIT_red_volunteers"]
+        n98["LIT_seize_minority_assets"]
+        n99["LIT_spread_the_revolution"]
+        n100["LIT_syndicalize_agriculture"]
+        n101{"LIT_vote_on_monarchy"}
+    end
+    subgraph tier_6["Tier 6"]
+        n102{"LIT_arrest_nazi_sympathizers"}
+        n103["LIT_battle_for_lithuania"]
+        n104["LIT_cooperate_with_the_conservatives"]
+        n105["LIT_form_a_baltic_alliance"]
+        n106["LIT_germanlithuanian_credit_agreement"]
+        n107["LIT_industrialisation"]
+        n108["LIT_join_allies"]
+        n109["LIT_join_northern_lights"]
+        n110["LIT_join_ussr"]
+        n111["LIT_kings_party"]
+        n112{"LIT_lithuanian_irridentism"}
+        n113["LIT_preparing_for_the_inevitable"]
+        n114["LIT_red_estonia"]
+        n115["LIT_red_latvia"]
+        n116["LIT_reintegrate_lit_minor"]
+        n117["LIT_restore_constitutionalism"]
+        n118{"LIT_root_out_communists"}
+        n119["LIT_socialist_science"]
+        n120["LIT_urbanisation"]
+    end
+    subgraph tier_7["Tier 7"]
+        n121["LIT_accept_opposition_in_the_government"]
+        n122{"LIT_contain_german_agression"}
+        n123["LIT_dissolve_the_klaipda_directorate"]
+        n124{"LIT_german_capital"}
+        n125["LIT_german_industrial_aid"]
+        n126["LIT_join_central_powers"]
+        n127["LIT_lithuanian_autarky"]
+        n128["LIT_northern_intervention"]
+        n129["LIT_research_cooperative"]
+        n130["LIT_roman_recognition"]
+        n131["LIT_royal_adress"]
+        n132["LIT_seek_accommodation_with_germany"]
+        n133["LIT_support_the_lkma"]
+        n134["LIT_unify_baltics_communist"]
+    end
+    subgraph tier_8["Tier 8"]
+        n135["LIT_ally_france"]
+        n136["LIT_ally_italy"]
+        n137["LIT_expand_to_markets"]
+        n138["LIT_fortify_klaipda"]
+        n139["LIT_integrate_lithuanian_rail_network"]
+        n140["LIT_join_axis"]
+        n141{"LIT_kaunas_conference"}
+        n142["LIT_lithuanian_antibolshevik_legions"]
+        n143{"LIT_offer_our_enemies_support"}
+        n144["LIT_redraft_the_twelve_point_proposal"]
+        n145["LIT_reinforce_kaunas_fortress"]
+    end
+    subgraph tier_9["Tier 9"]
+        n146["LIT_germanlithuanian_mutual_assistance_treaty"]
+        n147{"LIT_mercedes_benz_engine_plant"}
+        n148["LIT_new_noble_class"]
+        n149{"LIT_operation_mindaugas"}
+        n150{"LIT_r56_demand_vilnius"}
+        n151["LIT_sovietlithuanian_mutual_assistance_treaty"]
+        n152["LIT_support_domestic_entrepreneurs"]
+        n153["LIT_vilnius_procession"]
+    end
+    subgraph tier_10["Tier 10"]
+        n154["LIT_db_six_hundred"]
+        n155["LIT_greater_lithuania"]
+        n156["LIT_model_capitalist_society"]
+        n157["LIT_restore_the_gdl"]
+        n158{"LIT_royal_legacy"}
+        n159["LIT_skirpas_coup"]
+        n160["LIT_three_thousand"]
+        n161["LIT_unify_baltics_fascist"]
+    end
+    subgraph tier_11["Tier 11"]
+        n162["LIT_cult_of_vytautas_the_great"]
+        n163["LIT_gediminas_heritage"]
+        n164["LIT_legacy_of_mindaugas"]
+    end
+    n76 --> n83
+    n118 --> n121
+    n55 --> n63
+    n57 --> n63
+    n122 --> n135
+    n122 --> n136
+    n42 --> n46
+    n62 --> n64
+    n54 --> n64
+    n88 --> n102
+    n60 --> n65
+    n89 --> n103
+    n100 --> n103
+    n60 --> n66
+    n76 --> n84
+    n54 --> n67
+    n112 --> n122
+    n49 --> n54
+    n101 --> n104
+    n158 --> n162
+    n147 --> n154
+    n42 --> n47
+    n102 --> n123
+    n44 --> n48
+    n82 --> n85
+    n82 --> n86
+    n46 --> n55
+    n76 --> n87
+    n58 --> n68
+    n58 --> n69
+    n71 --> n88
+    n63 --> n88
+    n68 --> n89
+    n60 --> n70
+    n55 --> n71
+    n57 --> n71
+    n57 --> n72
+    n124 --> n137
+    n41 --> n42
+    n86 --> n105
+    n51 --> n56
+    n47 --> n57
     n123 --> n138
-    n116 --> n138
-    n163 --> n139
-    n99 --> n140
-    n57 --> n140
-    n137 --> n140
-    n69 --> n141
-    n99 --> n142
-    n57 --> n142
-    n137 --> n142
-    n162 --> n143
-    n113 --> n143
-    n107 --> n144
-    n68 --> n145
-    n84 --> n146
-    n56 --> n147
-    n41 --> n148
-    n48 --> n149
-    n115 --> n150
-    n117 --> n151
-    n56 --> n152
-    n46 --> n153
-    n60 --> n153
-    n74 --> n154
-    n99 --> n155
-    n57 --> n155
-    n137 --> n155
-    n67 --> n156
-    n86 --> n157
-    n108 --> n158
-    n125 --> n159
-    n126 --> n159
-    n123 --> n160
-    n116 --> n160
-    n53 --> n161
-    n98 --> n162
-    n48 --> n163
-    n52 --> n164
-    n50 --> n164
-    n42 x--x n61
+    n158 --> n163
+    n74 --> n124
+    n111 --> n124
+    n104 --> n124
+    n117 --> n124
+    n106 --> n125
+    n95 --> n106
+    n98 --> n106
+    n143 --> n146
+    n150 --> n155
+    n149 --> n155
+    n44 --> n49
+    n53 --> n58
+    n52 --> n58
+    n51 --> n58
+    n84 --> n107
+    n124 --> n139
+    n60 --> n73
+    n64 --> n90
+    n79 --> n90
+    n86 --> n108
+    n132 --> n140
+    n111 --> n126
+    n104 --> n126
+    n76 --> n91
+    n77 --> n91
+    n86 --> n109
+    n91 --> n110
+    n131 --> n141
+    n126 --> n141
+    n101 --> n111
+    n50 --> n59
+    n41 --> n43
+    n75 --> n92
+    n158 --> n164
+    n62 --> n74
+    n93 --> n142
+    n126 --> n142
+    n103 --> n127
+    n93 --> n112
+    n139 --> n147
+    n69 --> n93
+    n68 --> n93
+    n152 --> n156
+    n94 --> n156
+    n55 --> n75
+    n58 --> n75
+    n59 --> n76
+    n144 --> n148
+    n112 --> n128
+    n121 --> n143
+    n123 --> n143
+    n112 --> n149
+    n141 --> n149
+    n59 --> n77
+    n86 --> n113
+    n78 --> n113
+    n43 --> n50
+    n74 --> n94
+    n69 --> n95
+    n78 --> n96
+    n112 --> n150
+    n141 --> n150
+    n48 --> n60
+    n99 --> n114
+    n99 --> n115
+    n77 --> n97
+    n131 --> n144
+    n130 --> n144
+    n45 --> n51
+    n45 --> n52
+    n62 --> n78
+    n121 --> n145
+    n99 --> n116
+    n62 --> n79
+    n54 --> n79
+    n62 --> n80
+    n54 --> n80
+    n108 --> n129
+    n105 --> n129
+    n109 --> n129
+    n101 --> n117
+    n150 --> n157
+    n149 --> n157
+    n45 --> n53
+    n111 --> n130
+    n104 --> n130
+    n117 --> n130
+    n88 --> n118
+    n111 --> n131
+    n104 --> n131
+    n117 --> n131
+    n153 --> n158
+    n148 --> n158
+    n112 --> n132
+    n69 --> n98
+    n146 --> n159
+    n54 --> n81
+    n83 --> n119
+    n41 --> n44
+    n143 --> n151
+    n77 --> n99
+    n54 --> n82
+    n46 --> n61
+    n47 --> n61
+    n137 --> n152
+    n111 --> n133
+    n104 --> n133
+    n117 --> n133
+    n68 --> n100
+    n49 --> n62
+    n147 --> n160
+    n114 --> n134
+    n115 --> n134
+    n150 --> n161
+    n149 --> n161
+    n84 --> n120
+    n141 --> n153
+    n41 --> n45
+    n66 --> n101
+    n65 --> n101
+    n121 x--x n123
+    n135 x--x n136
+    n65 x--x n66
+    n122 x--x n132
+    n54 x--x n62
+    n104 x--x n111
+    n104 x--x n117
+    n162 x--x n163
+    n162 x--x n164
+    n154 x--x n160
+    n48 x--x n49
+    n68 x--x n69
+    n137 x--x n139
+    n42 x--x n43
+    n42 x--x n44
+    n42 x--x n45
+    n105 x--x n108
+    n105 x--x n109
+    n163 x--x n164
+    n146 x--x n151
+    n155 x--x n157
+    n155 x--x n161
+    n108 x--x n109
+    n111 x--x n117
+    n43 x--x n44
+    n43 x--x n45
+    n149 x--x n150
+    n157 x--x n161
     n44 x--x n45
-    n50 x--x n52
-    n55 x--x n144
-    n56 x--x n157
-    n57 x--x n99
-    n57 x--x n137
-    n58 x--x n80
-    n58 x--x n103
-    n59 x--x n158
-    n62 x--x n86
-    n67 x--x n68
-    n74 x--x n89
-    n75 x--x n101
-    n75 x--x n149
-    n75 x--x n163
-    n76 x--x n92
-    n76 x--x n96
-    n80 x--x n103
-    n84 x--x n150
-    n85 x--x n138
-    n85 x--x n160
-    n92 x--x n96
-    n99 x--x n137
-    n101 x--x n149
-    n101 x--x n163
-    n116 x--x n123
-    n138 x--x n160
-    n149 x--x n163
 ```
 
 # LIT_finish_marshalls_reforms
 
 ```mermaid
-flowchart TD
-    n165["LIT_army_expansion"]
-    n166["LIT_army_modernization"]
-    n167["LIT_doctrine_effort"]
-    n168["LIT_doctrine_effort_2"]
-    n169["LIT_equipment_effort"]
-    n170["LIT_equipment_effort_2"]
-    n171["LIT_equipment_effort_3"]
-    n172["LIT_establish_a_armor_corp"]
-    n173["LIT_expand_the_MAL"]
-    n174["LIT_field_hospitals"]
-    n175(("LIT_finish_marshalls_reforms"))
-    n176["LIT_fortify_the_border"]
-    n177["LIT_mechanization_effort"]
-    n178["LIT_modern_logistics"]
-    n179["LIT_motorization_effort"]
-    n180["LIT_prepare_the_mobilization_plans"]
-    n181["LIT_signal_companies"]
-    n182["LIT_special_forces"]
-    n175 --> n165
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n165(("LIT_finish_marshalls_reforms"))
+    end
+    subgraph tier_1["Tier 1"]
+        n166["LIT_army_expansion"]
+    end
+    subgraph tier_2["Tier 2"]
+        n167["LIT_army_modernization"]
+        n168["LIT_doctrine_effort"]
+        n169["LIT_equipment_effort"]
+        n170["LIT_fortify_the_border"]
+        n171["LIT_prepare_the_mobilization_plans"]
+    end
+    subgraph tier_3["Tier 3"]
+        n172["LIT_doctrine_effort_2"]
+        n173["LIT_equipment_effort_2"]
+        n174["LIT_equipment_effort_3"]
+        n175["LIT_establish_a_armor_corp"]
+        n176["LIT_motorization_effort"]
+    end
+    subgraph tier_4["Tier 4"]
+        n177["LIT_expand_the_MAL"]
+        n178["LIT_field_hospitals"]
+        n179["LIT_mechanization_effort"]
+        n180["LIT_signal_companies"]
+        n181["LIT_special_forces"]
+    end
+    subgraph tier_5["Tier 5"]
+        n182["LIT_modern_logistics"]
+    end
     n165 --> n166
-    n165 --> n167
-    n167 --> n168
-    n165 --> n169
-    n169 --> n170
-    n169 --> n171
-    n166 --> n172
-    n168 --> n173
-    n179 --> n174
-    n165 --> n176
+    n166 --> n167
+    n166 --> n168
+    n168 --> n172
+    n166 --> n169
+    n169 --> n173
+    n169 --> n174
+    n167 --> n175
     n172 --> n177
-    n179 --> n177
-    n174 --> n178
-    n177 --> n178
-    n181 --> n178
-    n166 --> n179
-    n165 --> n180
+    n176 --> n178
+    n166 --> n170
+    n175 --> n179
+    n176 --> n179
+    n178 --> n182
+    n179 --> n182
+    n180 --> n182
+    n167 --> n176
+    n166 --> n171
+    n175 --> n180
+    n174 --> n181
     n172 --> n181
-    n171 --> n182
-    n168 --> n182
-    n170 --> n182
+    n173 --> n181
 ```
 
 # LIT_revive_the_trade_sector
 
 ```mermaid
-flowchart TD
-    n183["LIT_all_in"]
-    n184["LIT_control_the_exports"]
-    n185["LIT_develop_coastal_regions"]
-    n186["LIT_develop_the_banks_holdings"]
-    n187["LIT_develop_the_fledgling_industry"]
-    n188["LIT_increase_commercialism"]
-    n189["LIT_increase_the_currency_value"]
-    n190["LIT_lithuanian_industrial_boom"]
-    n191["LIT_long_term_investments"]
-    n192["LIT_prepare_the_military_industry"]
-    n193["LIT_prepare_the_nations_defences"]
-    n194(("LIT_revive_the_trade_sector"))
-    n193 --> n183
-    n192 --> n183
-    n191 --> n184
-    n187 --> n185
-    n187 --> n186
-    n194 --> n187
-    n191 --> n188
-    n184 --> n189
-    n188 --> n189
-    n186 --> n190
-    n185 --> n190
-    n194 --> n191
-    n194 --> n192
-    n194 --> n193
+swimlane-beta TD
+    subgraph tier_0["Tier 0"]
+        n183(("LIT_revive_the_trade_sector"))
+    end
+    subgraph tier_1["Tier 1"]
+        n184["LIT_develop_the_fledgling_industry"]
+        n185["LIT_long_term_investments"]
+        n186["LIT_prepare_the_military_industry"]
+        n187["LIT_prepare_the_nations_defences"]
+    end
+    subgraph tier_2["Tier 2"]
+        n188["LIT_all_in"]
+        n189["LIT_control_the_exports"]
+        n190["LIT_develop_coastal_regions"]
+        n191["LIT_develop_the_banks_holdings"]
+        n192["LIT_increase_commercialism"]
+    end
+    subgraph tier_3["Tier 3"]
+        n193["LIT_increase_the_currency_value"]
+        n194["LIT_lithuanian_industrial_boom"]
+    end
+    n187 --> n188
+    n186 --> n188
+    n185 --> n189
+    n184 --> n190
+    n184 --> n191
+    n183 --> n184
+    n185 --> n192
+    n189 --> n193
+    n192 --> n193
+    n191 --> n194
+    n190 --> n194
+    n183 --> n185
+    n183 --> n186
+    n183 --> n187
 ```

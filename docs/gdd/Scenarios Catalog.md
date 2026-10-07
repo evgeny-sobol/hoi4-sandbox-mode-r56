@@ -1,111 +1,95 @@
 # Scenarios Catalog
 
-Full inventory of focus-tree arcs for the seven majors (GER, SOV, JAP, ITA, ENG, USA, FRA) plus HUN, based on the Road to 56 focus trees. Every arc in this catalog is a candidate for the scenario pool; the pool is the full catalog plus the seed arcs already implemented. Arc ids are sequential over the pool; implemented arcs keep their existing ids (1-8).
+Generated from `docs/scenarios/*.toml` by `core/tools/build_scenario_catalog.py` -
+do not edit by hand. The arc schema lives in `docs/gdd/Scenarios.md`.
 
-Cross-reference: `docs/gdd/Scenarios.md` defines the arc schema (aggressor, targets, joiners, ladder, levers, derail, telemetry). This file only lists which focus branches become which arc, their flip gates, and their target variants.
+## Reading a diagram
 
-## Arc anatomy
+- `([id])` rounded - a branch entry / path root.
+- `[[id]]` double-bordered - a key focus the director boosts and logs.
+- `[id]` plain - an intermediate prerequisite, boosted as part of the path closure.
+- `A --> B` - B requires A.
+- `A x--x B` - mutually exclusive: taking one hides the other.
 
-- **Type**: `historical` (no flip), `flip` (ideology gate by the crises phase, like arcs 5/6), `imperial` (gate on neutrality/fascism, like `ENG_god_save_the_king`).
-- **Target variants**: every arc has two target sets, A and B, rolled 50/50 at pick. The roll is logged (`sc_pick` carries the variant). Seeding, crises, ultimatums, and derail checks follow the chosen variant.
-- **Flip gates** mirror arcs 5/6: a flip arc derails (`britain_not_fascist`-style) if the aggressor is not on the required ideology by the crises phase. `imperial` gates accept `neutrality` OR `fascism`.
-- **Implementation order**: cheapest first (target variants for existing arcs, then new flip gates, then new historical arcs). No new mechanics per arc; the shared engine (seed / join / ladder / derail / telemetry / `$ai_scenario_focus_boost`) is reused.
+## United States
 
-## Implemented arcs (1-8)
+| # | Aggressor | Arc | Variant a | Key focuses | Status |
+|---|---|---|---|---|---|
+| - | USA | Fascist america scenario | CAN, MEX | `ally_with_the_silver_shirts`, `recruit_the_free_corps`, `work_with_the_bund`, `voter_registration_act`, `national_prosperity_program`, `privatize_the_TVA`, `de_regulate_the_banking_sector`, `national_employment_strategy`, `honor_the_confederacy` | draft |
 
-| # | Aggressor | Branch | Type | Targets | Blocks | Key focuses |
+### Arc -: Fascist america scenario
+
+The non-historical arc: a fascist America turns on the hemisphere. The name is
+fiction - the vanilla mechanics deliver a non-aligned "American Junta" (the
+civil-war regime), so the join filter reads non-aligned, not fascism. The arc
+holds its clock until that regime change, then releases claims and incidents at
+the crises rung and ultimatums plus join offers at peak.
+
+**Telemetry labels**: `sc_goal`: ; `sc_justify`: .
+
+```mermaid
+flowchart TD
+    subgraph arc0
+        USA_adjusted_compensation_act["USA_adjusted_compensation_act"]
+        USA_ally_with_the_silver_shirts[["USA_ally_with_the_silver_shirts"]]
+        USA_america_first["USA_america_first"]
+        USA_de_regulate_the_banking_sector[["USA_de_regulate_the_banking_sector"]]
+        USA_empower_the_huac["USA_empower_the_huac"]
+        USA_extend_the_chinese_exclusion_acts["USA_extend_the_chinese_exclusion_acts"]
+        USA_honor_the_confederacy[["USA_honor_the_confederacy"]]
+        USA_invite_foreign_support["USA_invite_foreign_support"]
+        USA_labour_management_relations_act["USA_labour_management_relations_act"]
+        USA_national_employment_strategy[["USA_national_employment_strategy"]]
+        USA_national_prosperity_program[["USA_national_prosperity_program"]]
+        USA_privatize_the_TVA[["USA_privatize_the_TVA"]]
+        USA_recruit_the_free_corps[["USA_recruit_the_free_corps"]]
+        USA_reestablish_the_gold_standard(["USA_reestablish_the_gold_standard"])
+        USA_send_lindbergh_to_germany["USA_send_lindbergh_to_germany"]
+        USA_voter_registration_act[["USA_voter_registration_act"]]
+        USA_work_with_the_bund[["USA_work_with_the_bund"]]
+        USA_adjusted_compensation_act --> USA_labour_management_relations_act
+        USA_ally_with_the_silver_shirts --> USA_invite_foreign_support
+        USA_ally_with_the_silver_shirts --> USA_national_prosperity_program
+        USA_america_first --> USA_ally_with_the_silver_shirts
+        USA_america_first --> USA_extend_the_chinese_exclusion_acts
+        USA_de_regulate_the_banking_sector --> USA_national_employment_strategy
+        USA_empower_the_huac --> USA_voter_registration_act
+        USA_extend_the_chinese_exclusion_acts --> USA_empower_the_huac
+        USA_invite_foreign_support --> USA_send_lindbergh_to_germany
+        USA_labour_management_relations_act --> USA_empower_the_huac
+        USA_national_employment_strategy --> USA_honor_the_confederacy
+        USA_national_prosperity_program --> USA_de_regulate_the_banking_sector
+        USA_national_prosperity_program --> USA_privatize_the_TVA
+        USA_privatize_the_TVA --> USA_national_employment_strategy
+        USA_reestablish_the_gold_standard --> USA_adjusted_compensation_act
+        USA_reestablish_the_gold_standard --> USA_america_first
+        USA_send_lindbergh_to_germany --> USA_recruit_the_free_corps
+        USA_send_lindbergh_to_germany --> USA_work_with_the_bund
+        USA_work_with_the_bund --> USA_honor_the_confederacy
+    end
+```
+
+## Germany
+
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
 |---|---|---|---|---|---|---|
-| 1 | GER | Axis eastern expansion | historical | A: CZE, POL / B: FRA, ENG | Axis | `danzig_or_war`, `demand_sudetenland`, `war_with_france`, `around_maginot` |
-| 2 | SOV | Western push | historical | A: POL, FIN / B: CZE, BUL | Comintern | `imperial_legacy`, `reclaim_polish_overlordship`, `westward_bound`, `secure_finland` |
-| 3 | JAP | Southern road | historical | A: CHI, PHI / B: BRM, INS, MAL | Co-Prosperity | `strike_the_southern_road`, `reinforce_the_beijing_garrison` |
-| 4 | ITA | Balkan claims | historical | A: YUG, GRE / B: FRA, ENG | Mare Nostrum | `balkan_ambition`, `italys_destiny`, `war_with_greece` |
-| 5 | ENG | Fascist Britain | flip (fascism) | A: FRA, SOV / B: GER, ITA | New Empire | `a_change_in_course`, `war_france`, `war_with_ussr` |
-| 6 | USA | Red America | flip (communism) | A: CAN, JAP / B: ENG, SOV | People's Internationale | `suspend_the_presecution`, `end_monarchism`, `shatter_the_empires` |
-| 7 | FRA | Napoleonic France | historical | A: GER, ITA / B: ENG | Continental System | `the_new_continental_system`, `crush_germany`, `nothern_italy_claim` |
-| 8 | HUN | Habsburg restoration | imperial | A: CZE, ROU / B: YUG, SLO | Danubian Empire | `proclaim_the_restoration`, `claim_transylvania`, `march_to_the_shore` |
+| 1 | GER | Nazi germany scenario | CZE, POL | FRA, ENG | `remilitarize_the_rhineland`, `anschluss`, `demand_sudetenland`, `danzig_or_war`, `around_maginot`, `war_with_france` | ready |
 
-## German branches beyond Arc 1
+### Arc 1: Nazi germany scenario
 
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 9 | Communist Germany (world revolution) | flip (communism) | A: ENG, FRA, ITA / B: SOV, USA, JAP | `GER_world_revolution` | `root_out_imperialism`, `hegemony_over_europe`, `wage_war_on_capitalism`, `strike_at_the_rising_sun` |
-| 10 | Monarchist Germany (Kaiserreich) | flip (monarchy/neutrality) | A: SOV, DEN / B: VEN, FRA | `GER_restore_the_empire` | `soviet_invasion`, `restore_klein_venedig`, `demand_northern_schleswig` |
-| 11 | Atlantic / naval war with the UK-USA | historical | A: ENG / B: USA | none | `crossing_the_atlantic`, `atlantic_naval_bases` |
-| 12 | Middle East / anti-Soviet pact | historical | A: SOV / B: IRQ, PER | none | `influence_the_middle_east`, `claim_old_colonies_in_the_east`, `wage_war_on_capitalism` |
+The historical arc: Germany remilitarizes, absorbs Austria, pressures
+Czechoslovakia and Poland through ultimatums, then turns on France. The
+variant roll picks the eastern pair (CZE, POL) or the western pair
+(FRA, ENG); the ladder releases claims and incidents at the crises rung
+and ultimatums plus join offers at peak.
 
-## Soviet branches beyond Arc 2
-
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 13 | White Russia (post civil war) | flip (fascism or monarchy) | A: GER, POL, FIN / B: UKR, Baltic | SOV not communist by crises | `beaten_but_not_defeated`, `white_exiles`, `imperial_legacy`, `strike_the_eagle` |
-| 14 | Southern thrust (Turkey / Persia / India) | historical | A: TUR, IRQ, PER / B: PAK, RAJ, AFG | none | `the_last_break_southward`, `preemptive_invasion_of_iran`, `into_the_plateau` |
-| 15 | Eastern push (Japan / Manchuria / Alaska) | historical | A: JAP, MAN / B: USA, CAN | none | `crush_our_eastern_rival`, `our_american_holding`, `restore_the_old_eastern_empire` |
-
-## Japanese branches beyond Arc 3
-
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 16 | Communist Japan (pan-Asian revolution) | flip (communism) | A: CHI, SOV / B: ENG, USA, SEA | `JAP_raise_the_red_flag_high` | `put_an_end_to_chinese_feudalism`, `spread_the_revolutuon_south`, `free_asians_from_soviet_opression` |
-| 17 | Northern push (hokushin-ron) | historical | A: SOV, MON / B: SOV, CHI | none | `hokushin_ron`, `sea_establish_the_northern_resource_area`, `strike_the_soviets`, `preemptive_strike_soviet` |
-| 18 | Old oppressors (against the USA) | historical | A: USA / B: ENG | none | `strike_the_old_oppressors`, `ultimate_deterrence` |
-
-## Italian branches beyond Arc 4
-
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 19 | War with France / UK | historical | A: FRA / B: ENG | none | `war_with_france`, `war_with_the_uk`, `demand_ticino` |
-| 20 | Mediterranean empire | historical | A: TUR, ROM / B: FRA, ENG | none | `a_time_for_war`, `claims_on_turkey_bba`, `all_roads_lead_to_rome` |
-| 21 | Communist Italy | flip (communism) | A: FRA, ENG / B: BUL, YUG | `ITA_pugno_alzato` | `pugno_alzato`, `the_enemies_of_capitalism`, `liberate_the_workers_of_africa` |
-
-## British branches beyond Arc 5
-
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 22 | Imperial / monarchist restoration | imperial (neutrality/fascism) | A: RAJ, dominions / B: USA, JAP | `ENG_god_save_the_king` | `reclaim_the_jewel_in_the_crown`, `bring_the_dominions_back_into_the_fold`, `unite_the_anglosphere` |
-| 23 | Communist Britain | flip (communism) | A: GER, USA, CAN / B: SOV | none (communism path) | `soviet_cooperation`, `the_one_true_revolution`, `liberate_the_home_of_marx`, `liberate_the_american_workers` |
-
-## American branches beyond Arc 6
-
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 24 | War Plan (historical pacific / anti-imperial) | historical | A: JAP / B: ENG, CAN | none | `war_plan_orange`, `war_plan_black`, `defense_of_the_pacific`, `intervention_in_europe` |
-| 25 | End monarchism / global hegemony | historical or flip | A: ENG, GER, HUN, JAP / B: (hegemony) | none | `end_monarchism`, `shatter_the_empires`, `global_hegemony`, `seize_cuba` |
-
-## French branches beyond Arc 7
-
-| # | Branch | Type | Targets | Gate | Key focuses |
-|---|---|---|---|---|---|
-| 26 | Monarchist France (legitimist / Latin union) | flip (monarchy/neutrality) | A: SPR, ADR, MEX / B: SOV | `FRA_restore_ancient_reights` | `secure_the_crown_of_spain`, `claim_the_andorran_throne`, `restore_the_mexican_monarchy`, `second_march_on_moscow` |
-| 27 | Dismantle Germany (revanchist) | historical | A: GER (partition) / B: ENG (destroy Albion) | none | `dismantle_germany`, `crush_germany`, `destroy_albion`, `strike_empire` |
-| 28 | Plan XIV / neutral-Italy border | historical | A: SWI / B: ITA | none | `plan_xiv`, `return_to_dalmatia`, `nothern_italy_claim` |
-
-## Focus paths per arc
-
-Which focus branch each scenario pushes, derived from the Rt56 trees (node
-and edge data generated from `docs/gdd/National Focuses/*.md` by
-`.scratch/scripts/build_scenario_graphs.py`). Reading a diagram:
-
-- **`([id])` rounded** - a branch entry / path root (not itself boosted).
-- **`[[id]]` double-bordered** - a key focus the director boosts with
-  `$ai_scenario_focus_boost()` and logs with `sc_focus`.
-- **`[id]` plain** - an intermediate prerequisite on the path (not boosted).
-- **`A --> B`** - B requires A.
-- **`A x--x B`** - mutually exclusive: taking one hides the other, so the
-  boost on the wrong side of a fork is dead (the Arc 3 / s10 lesson; Arc 7
-  shows the Bonapartist fork).
-
-### Germany
-
-
-#### Arc 1: Axis expansion
+**Telemetry labels**: `sc_goal`: cze_on_ger, eng_on_ger, fra_on_ger, ger_on_cze, ger_on_eng, ger_on_fra, ger_on_pol, pol_on_ger; `sc_justify`: ger_on_cze, ger_on_eng, ger_on_fra, ger_on_pol.
 
 ```mermaid
 flowchart TD
     subgraph arc1
-        GER_anschluss["GER_anschluss"]
+        GER_anschluss[["GER_anschluss"]]
         GER_around_maginot[["GER_around_maginot"]]
-        GER_befriend_czechoslovakia["GER_befriend_czechoslovakia"]
-        GER_befriend_poland["GER_befriend_poland"]
         GER_danzig_or_war[["GER_danzig_or_war"]]
         GER_demand_sudetenland[["GER_demand_sudetenland"]]
         GER_fate_of_czechoslovakia["GER_fate_of_czechoslovakia"]
@@ -115,651 +99,393 @@ flowchart TD
         GER_remilitarize_the_rhineland(["GER_remilitarize_the_rhineland"])
         GER_reorganize_the_wehrmacht["GER_reorganize_the_wehrmacht"]
         GER_war_with_france[["GER_war_with_france"]]
-        GER_anschluss --> GER_befriend_czechoslovakia
         GER_anschluss --> GER_demand_sudetenland
         GER_anschluss --> GER_reassert_eastern_claims
         GER_around_maginot --> GER_war_with_france
-        GER_befriend_czechoslovakia --> GER_befriend_poland
-        GER_befriend_poland --> GER_around_maginot
-        GER_befriend_poland --> GER_operation_weserubung
         GER_danzig_or_war --> GER_around_maginot
         GER_danzig_or_war --> GER_operation_weserubung
         GER_demand_sudetenland --> GER_first_vienna_award
-        GER_fate_of_czechoslovakia --> GER_befriend_poland
         GER_first_vienna_award --> GER_fate_of_czechoslovakia
         GER_operation_weserubung --> GER_war_with_france
         GER_reassert_eastern_claims --> GER_danzig_or_war
         GER_remilitarize_the_rhineland --> GER_reorganize_the_wehrmacht
         GER_reorganize_the_wehrmacht --> GER_anschluss
-        GER_befriend_czechoslovakia x--x GER_demand_sudetenland
-        GER_befriend_poland x--x GER_danzig_or_war
     end
 ```
 
-#### Arc 9: German Atlantic
+## Italy
 
-```mermaid
-flowchart TD
-    subgraph arc9
-        GER_around_maginot(["GER_around_maginot"])
-        GER_atlantic_naval_bases[["GER_atlantic_naval_bases"]]
-        GER_crossing_the_atlantic[["GER_crossing_the_atlantic"]]
-        GER_operation_sea_lion["GER_operation_sea_lion"]
-        GER_operation_weserubung(["GER_operation_weserubung"])
-        GER_re_establish_the_seekriegsleitung["GER_re_establish_the_seekriegsleitung"]
-        GER_strengthen_the_kriegsmarine(["GER_strengthen_the_kriegsmarine"])
-        GER_war_with_france["GER_war_with_france"]
-        GER_around_maginot --> GER_war_with_france
-        GER_operation_sea_lion --> GER_crossing_the_atlantic
-        GER_operation_weserubung --> GER_war_with_france
-        GER_re_establish_the_seekriegsleitung --> GER_atlantic_naval_bases
-        GER_strengthen_the_kriegsmarine --> GER_re_establish_the_seekriegsleitung
-        GER_war_with_france --> GER_operation_sea_lion
-    end
-```
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
+|---|---|---|---|---|---|---|
+| 2 | ITA | Fascist italy scenario | ENG, FRA | YUG, SWI | `ethiopian_war_logistics_bba`, `italian_highways_bba`, `culto_del_duce`, `strengthen_the_regime`, `subdue_the_sentinels`, `ethiopian_war_logistics_bba`, `italian_highways_bba`, `culto_del_duce`, `strengthen_the_regime`, `all_roads_lead_to_rome` | ready |
 
-#### Arc 10: German Middle East
+### Arc 2: Fascist italy scenario
 
-```mermaid
-flowchart TD
-    subgraph arc10
-        GER_align_south_america["GER_align_south_america"]
-        GER_alliance_with_the_ussr["GER_alliance_with_the_ussr"]
-        GER_anti_comintern_pact["GER_anti_comintern_pact"]
-        GER_asia_department["GER_asia_department"]
-        GER_befriend_china["GER_befriend_china"]
-        GER_befriend_turkey["GER_befriend_turkey"]
-        GER_claim_old_colonies_in_the_east[["GER_claim_old_colonies_in_the_east"]]
-        GER_influence_the_middle_east[["GER_influence_the_middle_east"]]
-        GER_puppet_turkey["GER_puppet_turkey"]
-        GER_red_europe(["GER_red_europe"])
-        GER_remilitarize_the_rhineland(["GER_remilitarize_the_rhineland"])
-        GER_restore_the_central_powers(["GER_restore_the_central_powers"])
-        GER_root_out_imperialism["GER_root_out_imperialism"]
-        GER_the_end_to_fascist_europe(["GER_the_end_to_fascist_europe"])
-        GER_treaty_with_the_ussr(["GER_treaty_with_the_ussr"])
-        GER_wage_war_on_capitalism[["GER_wage_war_on_capitalism"]]
-        GER_war_with_the_ussr["GER_war_with_the_ussr"]
-        GER_align_south_america --> GER_wage_war_on_capitalism
-        GER_alliance_with_the_ussr --> GER_puppet_turkey
-        GER_anti_comintern_pact --> GER_war_with_the_ussr
-        GER_asia_department --> GER_befriend_china
-        GER_befriend_china --> GER_claim_old_colonies_in_the_east
-        GER_befriend_turkey --> GER_influence_the_middle_east
-        GER_puppet_turkey --> GER_influence_the_middle_east
-        GER_red_europe --> GER_root_out_imperialism
-        GER_remilitarize_the_rhineland --> GER_anti_comintern_pact
-        GER_remilitarize_the_rhineland --> GER_befriend_china
-        GER_restore_the_central_powers --> GER_asia_department
-        GER_root_out_imperialism --> GER_align_south_america
-        GER_the_end_to_fascist_europe --> GER_root_out_imperialism
-        GER_treaty_with_the_ussr --> GER_alliance_with_the_ussr
-        GER_war_with_the_ussr --> GER_befriend_turkey
-        GER_alliance_with_the_ussr x--x GER_war_with_the_ussr
-    end
-```
+The historical arc: Italy consolidates at home and in Ethiopia, then presses
+its rivals around the Mediterranean. The variant roll picks the western pair
+(ENG, FRA) or the Adriatic-Alpine pair (YUG, SWI); the ladder releases claims
+and incidents at the crises rung and ultimatums plus join offers at peak.
 
-#### Arc 23: Communist Germany
-
-```mermaid
-flowchart TD
-    subgraph arc23
-        GER_align_south_america["GER_align_south_america"]
-        GER_hegemony_over_europe[["GER_hegemony_over_europe"]]
-        GER_instigate_middle_eastern_revolutions["GER_instigate_middle_eastern_revolutions"]
-        GER_liberate_austria(["GER_liberate_austria"])
-        GER_liberate_italy["GER_liberate_italy"]
-        GER_protect_the_revolution(["GER_protect_the_revolution"])
-        GER_red_europe["GER_red_europe"]
-        GER_root_out_imperialism[["GER_root_out_imperialism"]]
-        GER_strengthen_the_proletarian_international["GER_strengthen_the_proletarian_international"]
-        GER_strike_at_the_rising_sun[["GER_strike_at_the_rising_sun"]]
-        GER_support_the_proletarian_uprising(["GER_support_the_proletarian_uprising"])
-        GER_the_end_to_fascist_europe["GER_the_end_to_fascist_europe"]
-        GER_the_proletarian_legion["GER_the_proletarian_legion"]
-        GER_wage_war_on_capitalism[["GER_wage_war_on_capitalism"]]
-        GER_align_south_america --> GER_wage_war_on_capitalism
-        GER_instigate_middle_eastern_revolutions --> GER_strike_at_the_rising_sun
-        GER_liberate_austria --> GER_liberate_italy
-        GER_liberate_italy --> GER_the_end_to_fascist_europe
-        GER_protect_the_revolution --> GER_the_proletarian_legion
-        GER_red_europe --> GER_root_out_imperialism
-        GER_root_out_imperialism --> GER_align_south_america
-        GER_root_out_imperialism --> GER_hegemony_over_europe
-        GER_root_out_imperialism --> GER_instigate_middle_eastern_revolutions
-        GER_strengthen_the_proletarian_international --> GER_red_europe
-        GER_support_the_proletarian_uprising --> GER_strengthen_the_proletarian_international
-        GER_support_the_proletarian_uprising --> GER_the_proletarian_legion
-        GER_the_end_to_fascist_europe --> GER_root_out_imperialism
-        GER_the_proletarian_legion --> GER_red_europe
-    end
-```
-
-#### Arc 24: Monarchist Germany
-
-```mermaid
-flowchart TD
-    subgraph arc24
-        GER_a_new_reich(["GER_a_new_reich"])
-        GER_european_claims["GER_european_claims"]
-        GER_interest_in_the_carribean["GER_interest_in_the_carribean"]
-        GER_restore_klein_venedig[["GER_restore_klein_venedig"]]
-        GER_restore_the_central_powers["GER_restore_the_central_powers"]
-        GER_restore_the_empire["GER_restore_the_empire"]
-        GER_soviet_invasion[["GER_soviet_invasion"]]
-        GER_a_new_reich --> GER_restore_the_empire
-        GER_european_claims --> GER_soviet_invasion
-        GER_interest_in_the_carribean --> GER_restore_klein_venedig
-        GER_restore_the_central_powers --> GER_interest_in_the_carribean
-        GER_restore_the_empire --> GER_european_claims
-        GER_restore_the_empire --> GER_restore_the_central_powers
-    end
-```
-
-### Soviet Union
-
-
-#### Arc 2: Soviet expansion
+**Telemetry labels**: `sc_goal`: eng_on_ita, fra_on_ita, ita_on_eng, ita_on_fra, ita_on_swi, ita_on_yug, swi_on_ita, yug_on_ita; `sc_justify`: ita_on_eng, ita_on_fra, ita_on_swi, ita_on_yug.
 
 ```mermaid
 flowchart TD
     subgraph arc2
-        SOV_accept_constituion["SOV_accept_constituion"]
-        SOV_adopt_soviet_policies(["SOV_adopt_soviet_policies"])
-        SOV_all_russian_alligences["SOV_all_russian_alligences"]
-        SOV_beaten_but_not_defeated(["SOV_beaten_but_not_defeated"])
-        SOV_commit_to_the_orthodox_church(["SOV_commit_to_the_orthodox_church"])
-        SOV_consolidate_power(["SOV_consolidate_power"])
-        SOV_dismantle_the_zemsky_sobor["SOV_dismantle_the_zemsky_sobor"]
-        SOV_imperial_legacy[["SOV_imperial_legacy"]]
-        SOV_orthadox_resurgance["SOV_orthadox_resurgance"]
-        SOV_purge_splinter_factions(["SOV_purge_splinter_factions"])
-        SOV_reclaim_polish_overlordship[["SOV_reclaim_polish_overlordship"]]
-        SOV_reconvene_the_zemsky_sobor["SOV_reconvene_the_zemsky_sobor"]
-        SOV_reformalize_the_role_of_the_patriarchate(["SOV_reformalize_the_role_of_the_patriarchate"])
-        SOV_reject_cosmopolitanism(["SOV_reject_cosmopolitanism"])
-        SOV_romanov_reconstruction["SOV_romanov_reconstruction"]
-        SOV_russian_women_fascist_movement["SOV_russian_women_fascist_movement"]
-        SOV_secure_finland[["SOV_secure_finland"]]
-        SOV_union_of_fascist_little_ones["SOV_union_of_fascist_little_ones"]
-        SOV_westward_bound[["SOV_westward_bound"]]
-        SOV_white_exiles["SOV_white_exiles"]
-        SOV_accept_constituion --> SOV_imperial_legacy
-        SOV_adopt_soviet_policies --> SOV_orthadox_resurgance
-        SOV_all_russian_alligences --> SOV_imperial_legacy
-        SOV_commit_to_the_orthodox_church --> SOV_union_of_fascist_little_ones
-        SOV_consolidate_power --> SOV_reconvene_the_zemsky_sobor
-        SOV_dismantle_the_zemsky_sobor --> SOV_westward_bound
-        SOV_imperial_legacy --> SOV_reclaim_polish_overlordship
-        SOV_orthadox_resurgance --> SOV_accept_constituion
-        SOV_purge_splinter_factions --> SOV_white_exiles
-        SOV_reconvene_the_zemsky_sobor --> SOV_dismantle_the_zemsky_sobor
-        SOV_reconvene_the_zemsky_sobor --> SOV_romanov_reconstruction
-        SOV_reformalize_the_role_of_the_patriarchate --> SOV_reconvene_the_zemsky_sobor
-        SOV_reject_cosmopolitanism --> SOV_russian_women_fascist_movement
-        SOV_romanov_reconstruction --> SOV_westward_bound
-        SOV_russian_women_fascist_movement --> SOV_all_russian_alligences
-        SOV_union_of_fascist_little_ones --> SOV_all_russian_alligences
-        SOV_westward_bound --> SOV_secure_finland
-        SOV_white_exiles --> SOV_accept_constituion
-        SOV_dismantle_the_zemsky_sobor x--x SOV_romanov_reconstruction
-        SOV_russian_women_fascist_movement x--x SOV_union_of_fascist_little_ones
+        ITA_agents_of_the_church["ITA_agents_of_the_church"]
+        ITA_all_roads_lead_to_rome[["ITA_all_roads_lead_to_rome"]]
+        ITA_bend_the_bars["ITA_bend_the_bars"]
+        ITA_blackshirt_loyalty["ITA_blackshirt_loyalty"]
+        ITA_christian_democracy["ITA_christian_democracy"]
+        ITA_consolidate_power["ITA_consolidate_power"]
+        ITA_conspiracies_in_the_shadows["ITA_conspiracies_in_the_shadows"]
+        ITA_cooperate_with_moderates["ITA_cooperate_with_moderates"]
+        ITA_crush_opposition["ITA_crush_opposition"]
+        ITA_culto_del_duce[["ITA_culto_del_duce"]]
+        ITA_democratic_king["ITA_democratic_king"]
+        ITA_depose_mussolini(["ITA_depose_mussolini"])
+        ITA_dino_grandi_focus["ITA_dino_grandi_focus"]
+        ITA_disband_the_blackshirts["ITA_disband_the_blackshirts"]
+        ITA_divino_duce["ITA_divino_duce"]
+        ITA_ethiopian_war_logistics_bba(["ITA_ethiopian_war_logistics_bba"])
+        ITA_expand_intelligence_services["ITA_expand_intelligence_services"]
+        ITA_expand_the_royal_guard["ITA_expand_the_royal_guard"]
+        ITA_gloria_al_regno_d_italia["ITA_gloria_al_regno_d_italia"]
+        ITA_italian_highways_bba(["ITA_italian_highways_bba"])
+        ITA_italo_balbo_focus["ITA_italo_balbo_focus"]
+        ITA_la_battaglia_del_grano["ITA_la_battaglia_del_grano"]
+        ITA_la_battaglia_per_la_terra["ITA_la_battaglia_per_la_terra"]
+        ITA_la_battaglia_per_le_nascite["ITA_la_battaglia_per_le_nascite"]
+        ITA_mare_nostrum_bba["ITA_mare_nostrum_bba"]
+        ITA_monarchia_d_italia["ITA_monarchia_d_italia"]
+        ITA_power_to_the_king["ITA_power_to_the_king"]
+        ITA_purge_the_party["ITA_purge_the_party"]
+        ITA_revoke_the_acerbo_law["ITA_revoke_the_acerbo_law"]
+        ITA_seek_papal_support["ITA_seek_papal_support"]
+        ITA_servizio_informazione_militare["ITA_servizio_informazione_militare"]
+        ITA_setting_course["ITA_setting_course"]
+        ITA_solid_progress(["ITA_solid_progress"])
+        ITA_stop_the_squandering["ITA_stop_the_squandering"]
+        ITA_strengthen_the_papacy["ITA_strengthen_the_papacy"]
+        ITA_strengthen_the_regime[["ITA_strengthen_the_regime"]]
+        ITA_struggle_in_ethiopia(["ITA_struggle_in_ethiopia"])
+        ITA_subdue_the_sentinels[["ITA_subdue_the_sentinels"]]
+        ITA_the_abyssinian_fiasco(["ITA_the_abyssinian_fiasco"])
+        ITA_the_fate_of_mussolini["ITA_the_fate_of_mussolini"]
+        ITA_the_italian_legions["ITA_the_italian_legions"]
+        ITA_towards_a_greater_italy["ITA_towards_a_greater_italy"]
+        ITA_triumph_in_africa_bba["ITA_triumph_in_africa_bba"]
+        ITA_undermine_the_duce["ITA_undermine_the_duce"]
+        ITA_utilize_the_blackshirts["ITA_utilize_the_blackshirts"]
+        ITA_agents_of_the_church --> ITA_strengthen_the_papacy
+        ITA_bend_the_bars --> ITA_subdue_the_sentinels
+        ITA_blackshirt_loyalty --> ITA_mare_nostrum_bba
+        ITA_blackshirt_loyalty --> ITA_towards_a_greater_italy
+        ITA_christian_democracy --> ITA_cooperate_with_moderates
+        ITA_christian_democracy --> ITA_expand_intelligence_services
+        ITA_consolidate_power --> ITA_purge_the_party
+        ITA_cooperate_with_moderates --> ITA_crush_opposition
+        ITA_crush_opposition --> ITA_setting_course
+        ITA_culto_del_duce --> ITA_la_battaglia_del_grano
+        ITA_culto_del_duce --> ITA_la_battaglia_per_la_terra
+        ITA_democratic_king --> ITA_cooperate_with_moderates
+        ITA_democratic_king --> ITA_expand_intelligence_services
+        ITA_democratic_king --> ITA_gloria_al_regno_d_italia
+        ITA_depose_mussolini --> ITA_dino_grandi_focus
+        ITA_depose_mussolini --> ITA_italo_balbo_focus
+        ITA_depose_mussolini --> ITA_monarchia_d_italia
+        ITA_dino_grandi_focus --> ITA_consolidate_power
+        ITA_dino_grandi_focus --> ITA_stop_the_squandering
+        ITA_disband_the_blackshirts --> ITA_expand_the_royal_guard
+        ITA_divino_duce --> ITA_blackshirt_loyalty
+        ITA_expand_intelligence_services --> ITA_crush_opposition
+        ITA_expand_the_royal_guard --> ITA_gloria_al_regno_d_italia
+        ITA_gloria_al_regno_d_italia --> ITA_setting_course
+        ITA_italo_balbo_focus --> ITA_consolidate_power
+        ITA_italo_balbo_focus --> ITA_stop_the_squandering
+        ITA_la_battaglia_del_grano --> ITA_la_battaglia_per_le_nascite
+        ITA_la_battaglia_per_la_terra --> ITA_la_battaglia_per_le_nascite
+        ITA_la_battaglia_per_le_nascite --> ITA_strengthen_the_regime
+        ITA_mare_nostrum_bba --> ITA_the_italian_legions
+        ITA_monarchia_d_italia --> ITA_power_to_the_king
+        ITA_monarchia_d_italia --> ITA_revoke_the_acerbo_law
+        ITA_power_to_the_king --> ITA_disband_the_blackshirts
+        ITA_power_to_the_king --> ITA_seek_papal_support
+        ITA_power_to_the_king --> ITA_utilize_the_blackshirts
+        ITA_purge_the_party --> ITA_the_fate_of_mussolini
+        ITA_revoke_the_acerbo_law --> ITA_christian_democracy
+        ITA_revoke_the_acerbo_law --> ITA_democratic_king
+        ITA_revoke_the_acerbo_law --> ITA_disband_the_blackshirts
+        ITA_seek_papal_support --> ITA_agents_of_the_church
+        ITA_servizio_informazione_militare --> ITA_triumph_in_africa_bba
+        ITA_setting_course --> ITA_mare_nostrum_bba
+        ITA_setting_course --> ITA_towards_a_greater_italy
+        ITA_solid_progress --> ITA_servizio_informazione_militare
+        ITA_stop_the_squandering --> ITA_purge_the_party
+        ITA_strengthen_the_papacy --> ITA_setting_course
+        ITA_strengthen_the_regime --> ITA_mare_nostrum_bba
+        ITA_strengthen_the_regime --> ITA_towards_a_greater_italy
+        ITA_struggle_in_ethiopia --> ITA_servizio_informazione_militare
+        ITA_struggle_in_ethiopia --> ITA_undermine_the_duce
+        ITA_the_abyssinian_fiasco --> ITA_servizio_informazione_militare
+        ITA_the_fate_of_mussolini --> ITA_divino_duce
+        ITA_the_italian_legions --> ITA_all_roads_lead_to_rome
+        ITA_towards_a_greater_italy --> ITA_bend_the_bars
+        ITA_triumph_in_africa_bba --> ITA_culto_del_duce
+        ITA_undermine_the_duce --> ITA_conspiracies_in_the_shadows
+        ITA_utilize_the_blackshirts --> ITA_expand_the_royal_guard
+        ITA_christian_democracy x--x ITA_democratic_king
+        ITA_dino_grandi_focus x--x ITA_italo_balbo_focus
+        ITA_dino_grandi_focus x--x ITA_monarchia_d_italia
+        ITA_disband_the_blackshirts x--x ITA_utilize_the_blackshirts
+        ITA_italo_balbo_focus x--x ITA_monarchia_d_italia
+        ITA_la_battaglia_del_grano x--x ITA_la_battaglia_per_la_terra
+        ITA_mare_nostrum_bba x--x ITA_towards_a_greater_italy
+        ITA_power_to_the_king x--x ITA_revoke_the_acerbo_law
+        ITA_solid_progress x--x ITA_struggle_in_ethiopia
+        ITA_solid_progress x--x ITA_the_abyssinian_fiasco
+        ITA_struggle_in_ethiopia x--x ITA_the_abyssinian_fiasco
     end
 ```
 
-#### Arc 11: Soviet South
+## Japan
 
-```mermaid
-flowchart TD
-    subgraph arc11
-        SOV_dismantle_the_zemsky_sobor(["SOV_dismantle_the_zemsky_sobor"])
-        SOV_eastern_expansion["SOV_eastern_expansion"]
-        SOV_into_central_asia["SOV_into_central_asia"]
-        SOV_into_the_plateau[["SOV_into_the_plateau"]]
-        SOV_middle_east_diplomacy["SOV_middle_east_diplomacy"]
-        SOV_pacify_the_rim["SOV_pacify_the_rim"]
-        SOV_preemptive_invasion_of_iran[["SOV_preemptive_invasion_of_iran"]]
-        SOV_support_afghan_ideology["SOV_support_afghan_ideology"]
-        SOV_the_comintern["SOV_the_comintern"]
-        SOV_the_gobi_gambit["SOV_the_gobi_gambit"]
-        SOV_the_last_break_southward[["SOV_the_last_break_southward"]]
-        SOV_the_path_of_marxism_leninism(["SOV_the_path_of_marxism_leninism"])
-        SOV_dismantle_the_zemsky_sobor --> SOV_eastern_expansion
-        SOV_dismantle_the_zemsky_sobor --> SOV_pacify_the_rim
-        SOV_eastern_expansion --> SOV_into_central_asia
-        SOV_into_central_asia --> SOV_the_last_break_southward
-        SOV_middle_east_diplomacy --> SOV_support_afghan_ideology
-        SOV_pacify_the_rim --> SOV_eastern_expansion
-        SOV_support_afghan_ideology --> SOV_preemptive_invasion_of_iran
-        SOV_the_comintern --> SOV_middle_east_diplomacy
-        SOV_the_comintern --> SOV_the_gobi_gambit
-        SOV_the_gobi_gambit --> SOV_into_the_plateau
-        SOV_the_path_of_marxism_leninism --> SOV_the_comintern
-    end
-```
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
+|---|---|---|---|---|---|---|
+| 3 | JAP | Militarist japan scenario | CHI, AST | SOV, MON | `reinforce_the_beijing_garrison`, `new_order_in_east_asia`, `sea_greater_east_asian_co_properity_sphere`, `nanshin_ron`, `ensure_temporary_peace_with_china`, `formalize_japan_china_manchukuo_alliance`, `sea_greater_east_asian_co_properity_sphere`, `hokushin_ron` | ready |
 
-#### Arc 12: Soviet East
+### Arc 3: Militarist japan scenario
 
-```mermaid
-flowchart TD
-    subgraph arc12
-        SOV_accept_constituion(["SOV_accept_constituion"])
-        SOV_all_russian_alligences(["SOV_all_russian_alligences"])
-        SOV_crush_our_eastern_rival[["SOV_crush_our_eastern_rival"]]
-        SOV_dismantle_the_zemsky_sobor(["SOV_dismantle_the_zemsky_sobor"])
-        SOV_eastern_expansion["SOV_eastern_expansion"]
-        SOV_imperial_legacy["SOV_imperial_legacy"]
-        SOV_intervention_in_the_americas["SOV_intervention_in_the_americas"]
-        SOV_our_american_holding[["SOV_our_american_holding"]]
-        SOV_pacify_the_rim["SOV_pacify_the_rim"]
-        SOV_restore_the_old_eastern_empire[["SOV_restore_the_old_eastern_empire"]]
-        SOV_rule_over_the_mongols["SOV_rule_over_the_mongols"]
-        SOV_accept_constituion --> SOV_imperial_legacy
-        SOV_all_russian_alligences --> SOV_imperial_legacy
-        SOV_dismantle_the_zemsky_sobor --> SOV_eastern_expansion
-        SOV_dismantle_the_zemsky_sobor --> SOV_pacify_the_rim
-        SOV_eastern_expansion --> SOV_intervention_in_the_americas
-        SOV_imperial_legacy --> SOV_rule_over_the_mongols
-        SOV_intervention_in_the_americas --> SOV_restore_the_old_eastern_empire
-        SOV_pacify_the_rim --> SOV_eastern_expansion
-        SOV_rule_over_the_mongols --> SOV_crush_our_eastern_rival
-        SOV_rule_over_the_mongols --> SOV_our_american_holding
-    end
-```
+The historical arc: Japan tightens its hold on Manchuria and northern China,
+then turns on its rivals across the continent and the Pacific. The variant roll
+picks the southward pair (CHI, AST) or the strike-north pair (SOV, MON); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
 
-#### Arc 25: White Russia
-
-```mermaid
-flowchart TD
-    subgraph arc25
-        SOV_accept_constituion["SOV_accept_constituion"]
-        SOV_adopt_soviet_policies["SOV_adopt_soviet_policies"]
-        SOV_all_russian_alligences["SOV_all_russian_alligences"]
-        SOV_baltic_freedom["SOV_baltic_freedom"]
-        SOV_beaten_but_not_defeated(["SOV_beaten_but_not_defeated"])
-        SOV_commit_to_the_orthodox_church(["SOV_commit_to_the_orthodox_church"])
-        SOV_deterrence_treaty(["SOV_deterrence_treaty"])
-        SOV_evacuate_russian_military_assets_nsb(["SOV_evacuate_russian_military_assets_nsb"])
-        SOV_imperial_legacy[["SOV_imperial_legacy"]]
-        SOV_imprint_succession_into_law["SOV_imprint_succession_into_law"]
-        SOV_orthadox_resurgance["SOV_orthadox_resurgance"]
-        SOV_power_struggle(["SOV_power_struggle"])
-        SOV_purge_splinter_factions["SOV_purge_splinter_factions"]
-        SOV_reject_cosmopolitanism(["SOV_reject_cosmopolitanism"])
-        SOV_return_russian_industries(["SOV_return_russian_industries"])
-        SOV_russian_women_fascist_movement["SOV_russian_women_fascist_movement"]
-        SOV_strike_the_eagle[["SOV_strike_the_eagle"]]
-        SOV_the_free_russian_people["SOV_the_free_russian_people"]
-        SOV_union_of_fascist_little_ones["SOV_union_of_fascist_little_ones"]
-        SOV_white_exiles[["SOV_white_exiles"]]
-        SOV_accept_constituion --> SOV_imperial_legacy
-        SOV_adopt_soviet_policies --> SOV_orthadox_resurgance
-        SOV_all_russian_alligences --> SOV_imperial_legacy
-        SOV_baltic_freedom --> SOV_strike_the_eagle
-        SOV_commit_to_the_orthodox_church --> SOV_union_of_fascist_little_ones
-        SOV_deterrence_treaty --> SOV_the_free_russian_people
-        SOV_evacuate_russian_military_assets_nsb --> SOV_the_free_russian_people
-        SOV_imprint_succession_into_law --> SOV_adopt_soviet_policies
-        SOV_imprint_succession_into_law --> SOV_purge_splinter_factions
-        SOV_orthadox_resurgance --> SOV_accept_constituion
-        SOV_power_struggle --> SOV_imprint_succession_into_law
-        SOV_purge_splinter_factions --> SOV_white_exiles
-        SOV_reject_cosmopolitanism --> SOV_russian_women_fascist_movement
-        SOV_return_russian_industries --> SOV_the_free_russian_people
-        SOV_russian_women_fascist_movement --> SOV_all_russian_alligences
-        SOV_the_free_russian_people --> SOV_baltic_freedom
-        SOV_union_of_fascist_little_ones --> SOV_all_russian_alligences
-        SOV_white_exiles --> SOV_accept_constituion
-        SOV_russian_women_fascist_movement x--x SOV_union_of_fascist_little_ones
-    end
-```
-
-### Japan
-
-
-#### Arc 3: Japanese expansion
+**Telemetry labels**: `sc_goal`: ast_on_jap, chi_on_jap, jap_on_ast, jap_on_chi, jap_on_mon, jap_on_sov, mon_on_jap, sov_on_jap; `sc_justify`: jap_on_ast, jap_on_chi, jap_on_mon, jap_on_sov.
 
 ```mermaid
 flowchart TD
     subgraph arc3
-        JAP_demand_tonkinese_bases["JAP_demand_tonkinese_bases"]
-        JAP_nanshin_ron["JAP_nanshin_ron"]
-        JAP_occupy_siam["JAP_occupy_siam"]
+        JAP_enact_religious_organizations_law["JAP_enact_religious_organizations_law"]
+        JAP_ensure_temporary_peace_with_china[["JAP_ensure_temporary_peace_with_china"]]
+        JAP_formalize_japan_china_manchukuo_alliance[["JAP_formalize_japan_china_manchukuo_alliance"]]
+        JAP_hokushin_ron[["JAP_hokushin_ron"]]
+        JAP_imperial_rule_assistance_association["JAP_imperial_rule_assistance_association"]
+        JAP_issue_the_ten_commandments_for_marriage["JAP_issue_the_ten_commandments_for_marriage"]
+        JAP_konoes_first_cabinet["JAP_konoes_first_cabinet"]
+        JAP_nanshin_ron[["JAP_nanshin_ron"]]
+        JAP_new_order_in_east_asia[["JAP_new_order_in_east_asia"]]
+        JAP_new_order_movement["JAP_new_order_movement"]
+        JAP_promulgate_the_military_ministers_system["JAP_promulgate_the_military_ministers_system"]
         JAP_reinforce_the_beijing_garrison[["JAP_reinforce_the_beijing_garrison"]]
+        JAP_reiterate_the_three_principles_of_hirota["JAP_reiterate_the_three_principles_of_hirota"]
+        JAP_reprimand_hamada_kunimatsu["JAP_reprimand_hamada_kunimatsu"]
         JAP_revere_the_emperor_destroy_the_traitors(["JAP_revere_the_emperor_destroy_the_traitors"])
         JAP_revisit_the_thirteen_demands["JAP_revisit_the_thirteen_demands"]
-        JAP_sea_pressure_siam["JAP_sea_pressure_siam"]
+        JAP_sea_greater_east_asian_co_properity_sphere[["JAP_sea_greater_east_asian_co_properity_sphere"]]
+        JAP_sea_national_spiritual_mobliization_movement["JAP_sea_national_spiritual_mobliization_movement"]
         JAP_sea_purge_the_kodoha_faction(["JAP_sea_purge_the_kodoha_faction"])
-        JAP_strike_the_southern_road[["JAP_strike_the_southern_road"]]
-        JAP_demand_tonkinese_bases --> JAP_occupy_siam
-        JAP_demand_tonkinese_bases --> JAP_sea_pressure_siam
-        JAP_nanshin_ron --> JAP_demand_tonkinese_bases
-        JAP_occupy_siam --> JAP_strike_the_southern_road
+        JAP_sea_state_general_mobilization_law["JAP_sea_state_general_mobilization_law"]
+        JAP_support_the_kodoha_faction(["JAP_support_the_kodoha_faction"])
+        JAP_the_harakiri_debate["JAP_the_harakiri_debate"]
+        JAP_enact_religious_organizations_law --> JAP_new_order_movement
+        JAP_hokushin_ron --> JAP_ensure_temporary_peace_with_china
+        JAP_imperial_rule_assistance_association --> JAP_sea_greater_east_asian_co_properity_sphere
+        JAP_issue_the_ten_commandments_for_marriage --> JAP_enact_religious_organizations_law
+        JAP_konoes_first_cabinet --> JAP_new_order_in_east_asia
+        JAP_konoes_first_cabinet --> JAP_sea_national_spiritual_mobliization_movement
+        JAP_new_order_movement --> JAP_imperial_rule_assistance_association
+        JAP_promulgate_the_military_ministers_system --> JAP_reprimand_hamada_kunimatsu
+        JAP_promulgate_the_military_ministers_system --> JAP_the_harakiri_debate
+        JAP_reiterate_the_three_principles_of_hirota --> JAP_formalize_japan_china_manchukuo_alliance
+        JAP_reiterate_the_three_principles_of_hirota --> JAP_sea_national_spiritual_mobliization_movement
+        JAP_reprimand_hamada_kunimatsu --> JAP_reiterate_the_three_principles_of_hirota
+        JAP_revere_the_emperor_destroy_the_traitors --> JAP_hokushin_ron
         JAP_revere_the_emperor_destroy_the_traitors --> JAP_nanshin_ron
         JAP_revere_the_emperor_destroy_the_traitors --> JAP_revisit_the_thirteen_demands
         JAP_revisit_the_thirteen_demands --> JAP_reinforce_the_beijing_garrison
-        JAP_sea_pressure_siam --> JAP_strike_the_southern_road
-        JAP_sea_purge_the_kodoha_faction --> JAP_nanshin_ron
-        JAP_sea_purge_the_kodoha_faction --> JAP_revisit_the_thirteen_demands
-        JAP_occupy_siam x--x JAP_sea_pressure_siam
-        JAP_revere_the_emperor_destroy_the_traitors x--x JAP_sea_purge_the_kodoha_faction
-    end
-```
-
-#### Arc 13: Japanese North
-
-```mermaid
-flowchart TD
-    subgraph arc13
-        JAP_a_green_persimmon["JAP_a_green_persimmon"]
-        JAP_crush_the_internal_factions["JAP_crush_the_internal_factions"]
-        JAP_democratic_war_with_china["JAP_democratic_war_with_china"]
-        JAP_ensure_civil_liberties(["JAP_ensure_civil_liberties"])
-        JAP_hokushin_ron[["JAP_hokushin_ron"]]
-        JAP_kantokuen["JAP_kantokuen"]
-        JAP_limit_the_emperors_power(["JAP_limit_the_emperors_power"])
-        JAP_revere_the_emperor_destroy_the_traitors(["JAP_revere_the_emperor_destroy_the_traitors"])
-        JAP_sea_establish_the_northern_resource_area[["JAP_sea_establish_the_northern_resource_area"]]
-        JAP_sea_purge_the_kodoha_faction(["JAP_sea_purge_the_kodoha_faction"])
-        JAP_strike_the_soviets[["JAP_strike_the_soviets"]]
-        JAP_support_the_kodoha_faction(["JAP_support_the_kodoha_faction"])
-        JAP_the_persimmon_has_ripened["JAP_the_persimmon_has_ripened"]
-        JAP_utilize_ainu_expertise["JAP_utilize_ainu_expertise"]
-        JAP_a_green_persimmon --> JAP_sea_establish_the_northern_resource_area
-        JAP_crush_the_internal_factions --> JAP_democratic_war_with_china
-        JAP_democratic_war_with_china --> JAP_strike_the_soviets
-        JAP_ensure_civil_liberties --> JAP_crush_the_internal_factions
-        JAP_hokushin_ron --> JAP_utilize_ainu_expertise
-        JAP_kantokuen --> JAP_a_green_persimmon
-        JAP_kantokuen --> JAP_the_persimmon_has_ripened
-        JAP_limit_the_emperors_power --> JAP_crush_the_internal_factions
-        JAP_revere_the_emperor_destroy_the_traitors --> JAP_hokushin_ron
+        JAP_sea_national_spiritual_mobliization_movement --> JAP_issue_the_ten_commandments_for_marriage
+        JAP_sea_national_spiritual_mobliization_movement --> JAP_sea_state_general_mobilization_law
         JAP_sea_purge_the_kodoha_faction --> JAP_hokushin_ron
+        JAP_sea_purge_the_kodoha_faction --> JAP_nanshin_ron
+        JAP_sea_purge_the_kodoha_faction --> JAP_promulgate_the_military_ministers_system
+        JAP_sea_purge_the_kodoha_faction --> JAP_revisit_the_thirteen_demands
+        JAP_sea_state_general_mobilization_law --> JAP_enact_religious_organizations_law
         JAP_support_the_kodoha_faction --> JAP_hokushin_ron
-        JAP_the_persimmon_has_ripened --> JAP_sea_establish_the_northern_resource_area
-        JAP_utilize_ainu_expertise --> JAP_kantokuen
-        JAP_a_green_persimmon x--x JAP_the_persimmon_has_ripened
+        JAP_the_harakiri_debate --> JAP_konoes_first_cabinet
+        JAP_reprimand_hamada_kunimatsu x--x JAP_the_harakiri_debate
         JAP_revere_the_emperor_destroy_the_traitors x--x JAP_sea_purge_the_kodoha_faction
         JAP_sea_purge_the_kodoha_faction x--x JAP_support_the_kodoha_faction
     end
 ```
 
-#### Arc 14: Japanese Old Oppressors
+## Soviet Union
 
-```mermaid
-flowchart TD
-    subgraph arc14
-        JAP_anti_communist_bulwark["JAP_anti_communist_bulwark"]
-        JAP_asian_communist_solidarity["JAP_asian_communist_solidarity"]
-        JAP_crush_chinese_communists["JAP_crush_chinese_communists"]
-        JAP_finish_the_fight(["JAP_finish_the_fight"])
-        JAP_full_sovereignty_for_the_philippines["JAP_full_sovereignty_for_the_philippines"]
-        JAP_import_soviet_armor["JAP_import_soviet_armor"]
-        JAP_join_comintern["JAP_join_comintern"]
-        JAP_liberate_korea["JAP_liberate_korea"]
-        JAP_liberate_manchuria["JAP_liberate_manchuria"]
-        JAP_pacific_guardian(["JAP_pacific_guardian"])
-        JAP_preemptive_strike_soviet["JAP_preemptive_strike_soviet"]
-        JAP_red_pacific_fleet(["JAP_red_pacific_fleet"])
-        JAP_soviet_technology_sharing["JAP_soviet_technology_sharing"]
-        JAP_strike_the_old_oppressors[["JAP_strike_the_old_oppressors"]]
-        JAP_ultimate_deterrence[["JAP_ultimate_deterrence"]]
-        JAP_anti_communist_bulwark --> JAP_crush_chinese_communists
-        JAP_anti_communist_bulwark --> JAP_preemptive_strike_soviet
-        JAP_asian_communist_solidarity --> JAP_liberate_korea
-        JAP_crush_chinese_communists --> JAP_ultimate_deterrence
-        JAP_finish_the_fight --> JAP_asian_communist_solidarity
-        JAP_finish_the_fight --> JAP_join_comintern
-        JAP_full_sovereignty_for_the_philippines --> JAP_ultimate_deterrence
-        JAP_import_soviet_armor --> JAP_strike_the_old_oppressors
-        JAP_join_comintern --> JAP_soviet_technology_sharing
-        JAP_liberate_korea --> JAP_strike_the_old_oppressors
-        JAP_liberate_manchuria --> JAP_full_sovereignty_for_the_philippines
-        JAP_pacific_guardian --> JAP_anti_communist_bulwark
-        JAP_pacific_guardian --> JAP_liberate_manchuria
-        JAP_preemptive_strike_soviet --> JAP_ultimate_deterrence
-        JAP_red_pacific_fleet --> JAP_asian_communist_solidarity
-        JAP_red_pacific_fleet --> JAP_join_comintern
-        JAP_soviet_technology_sharing --> JAP_import_soviet_armor
-        JAP_asian_communist_solidarity x--x JAP_join_comintern
-    end
-```
+| # | Aggressor | Arc | Variant a | Variant b | Key focuses | Status |
+|---|---|---|---|---|---|---|
+| 4 | SOV | Soviet west scenario | EST, LAT, LIT | POL, ROM | `Mass_Immunizations`, `restoration_and_development`, `the_bloc_of_rights_and_trotskyites`, `the_comintern`, `baltic_security`, `claims_in_baltic`, `secure_leningrad`, `control_scandinavia`, `Mass_Immunizations`, `restoration_and_development`, `the_bloc_of_rights_and_trotskyites`, `the_comintern`, `baltic_security`, `respect_baltic_self_determination`, `claims_on_poland`, `demand_eastern_poland` | ready |
 
-#### Arc 26: Communist Japan
+### Arc 4: Soviet west scenario
 
-```mermaid
-flowchart TD
-    subgraph arc26
-        JAP_conquer_the_army_remnants["JAP_conquer_the_army_remnants"]
-        JAP_demand_submission_from_breawakay_states(["JAP_demand_submission_from_breawakay_states"])
-        JAP_form_pioneer_organizations(["JAP_form_pioneer_organizations"])
-        JAP_free_asians_from_soviet_opression[["JAP_free_asians_from_soviet_opression"]]
-        JAP_go_after_the_capitalists[["JAP_go_after_the_capitalists"]]
-        JAP_guide_the_chinese["JAP_guide_the_chinese"]
-        JAP_ignite_the_korean_peninsula["JAP_ignite_the_korean_peninsula"]
-        JAP_protect_the_manchurians["JAP_protect_the_manchurians"]
-        JAP_put_an_end_to_chinese_feudalism[["JAP_put_an_end_to_chinese_feudalism"]]
-        JAP_raise_the_red_flag_high["JAP_raise_the_red_flag_high"]
-        JAP_reclaim_lost_territories["JAP_reclaim_lost_territories"]
-        JAP_socialism_in_one_state["JAP_socialism_in_one_state"]
-        JAP_spread_the_revolutuon_south[["JAP_spread_the_revolutuon_south"]]
-        JAP_conquer_the_army_remnants --> JAP_put_an_end_to_chinese_feudalism
-        JAP_demand_submission_from_breawakay_states --> JAP_ignite_the_korean_peninsula
-        JAP_form_pioneer_organizations --> JAP_raise_the_red_flag_high
-        JAP_form_pioneer_organizations --> JAP_socialism_in_one_state
-        JAP_guide_the_chinese --> JAP_spread_the_revolutuon_south
-        JAP_ignite_the_korean_peninsula --> JAP_guide_the_chinese
-        JAP_ignite_the_korean_peninsula --> JAP_protect_the_manchurians
-        JAP_protect_the_manchurians --> JAP_spread_the_revolutuon_south
-        JAP_raise_the_red_flag_high --> JAP_socialism_in_one_state
-        JAP_reclaim_lost_territories --> JAP_put_an_end_to_chinese_feudalism
-        JAP_socialism_in_one_state --> JAP_conquer_the_army_remnants
-        JAP_socialism_in_one_state --> JAP_reclaim_lost_territories
-        JAP_spread_the_revolutuon_south --> JAP_free_asians_from_soviet_opression
-        JAP_spread_the_revolutuon_south --> JAP_go_after_the_capitalists
-    end
-```
+The historical arc: the Soviet Union consolidates its western approaches,
+pressing the Baltic states first then Poland and Romania. The variant roll
+picks the Baltic trio (EST, LAT, LIT) or the western pair (POL, ROM); the
+ladder releases claims and incidents at the crises rung and ultimatums plus
+join offers at peak.
 
-### Italy
-
-
-#### Arc 4: Italian expansion
+**Telemetry labels**: `sc_goal`: est_on_sov, lat_on_sov, lit_on_sov, pol_on_sov, rom_on_sov, sov_on_est, sov_on_lat, sov_on_lit, sov_on_pol, sov_on_rom; `sc_justify`: sov_on_est, sov_on_lat, sov_on_lit, sov_on_pol, sov_on_rom.
 
 ```mermaid
 flowchart TD
     subgraph arc4
-        ITA_ally_yugoslavia(["ITA_ally_yugoslavia"])
-        ITA_balkan_ambition(["ITA_balkan_ambition"])
-        ITA_demand_dalmatia["ITA_demand_dalmatia"]
-        ITA_italian_irredentism["ITA_italian_irredentism"]
-        ITA_italys_destiny[["ITA_italys_destiny"]]
-        ITA_militarize_the_rome_protocols["ITA_militarize_the_rome_protocols"]
-        ITA_negotiate_italian_claims(["ITA_negotiate_italian_claims"])
-        ITA_pact_of_steel["ITA_pact_of_steel"]
-        ITA_ratify_the_stresa_front["ITA_ratify_the_stresa_front"]
-        ITA_war_with_greece[["ITA_war_with_greece"]]
-        ITA_ally_yugoslavia --> ITA_militarize_the_rome_protocols
-        ITA_ally_yugoslavia --> ITA_pact_of_steel
-        ITA_balkan_ambition --> ITA_militarize_the_rome_protocols
-        ITA_balkan_ambition --> ITA_pact_of_steel
-        ITA_demand_dalmatia --> ITA_italys_destiny
-        ITA_italian_irredentism --> ITA_war_with_greece
-        ITA_militarize_the_rome_protocols --> ITA_italian_irredentism
-        ITA_negotiate_italian_claims --> ITA_ratify_the_stresa_front
-        ITA_pact_of_steel --> ITA_italian_irredentism
-        ITA_ratify_the_stresa_front --> ITA_demand_dalmatia
-        ITA_ally_yugoslavia x--x ITA_balkan_ambition
-        ITA_militarize_the_rome_protocols x--x ITA_pact_of_steel
+        SOV_Mass_Immunizations[["SOV_Mass_Immunizations"]]
+        SOV_baltic_security[["SOV_baltic_security"]]
+        SOV_claims_in_baltic[["SOV_claims_in_baltic"]]
+        SOV_claims_on_poland[["SOV_claims_on_poland"]]
+        SOV_control_scandinavia[["SOV_control_scandinavia"]]
+        SOV_demand_eastern_poland[["SOV_demand_eastern_poland"]]
+        SOV_finish_the_five_year_plan["SOV_finish_the_five_year_plan"]
+        SOV_heavy_industry(["SOV_heavy_industry"])
+        SOV_industrial_modernization["SOV_industrial_modernization"]
+        SOV_infrastructure_effort_nsb(["SOV_infrastructure_effort_nsb"])
+        SOV_optimize_production_lines["SOV_optimize_production_lines"]
+        SOV_reorganize_the_pc_of_heavy_industry["SOV_reorganize_the_pc_of_heavy_industry"]
+        SOV_respect_baltic_self_determination[["SOV_respect_baltic_self_determination"]]
+        SOV_restoration_and_development[["SOV_restoration_and_development"]]
+        SOV_secure_leningrad[["SOV_secure_leningrad"]]
+        SOV_shift_to_armaments_production["SOV_shift_to_armaments_production"]
+        SOV_the_anti_soviet_trotskyist_center["SOV_the_anti_soviet_trotskyist_center"]
+        SOV_the_bloc_of_rights_and_trotskyites[["SOV_the_bloc_of_rights_and_trotskyites"]]
+        SOV_the_centre["SOV_the_centre"]
+        SOV_the_comintern[["SOV_the_comintern"]]
+        SOV_the_military_conspiracy["SOV_the_military_conspiracy"]
+        SOV_the_path_of_marxism_leninism(["SOV_the_path_of_marxism_leninism"])
+        SOV_the_stalin_constitution["SOV_the_stalin_constitution"]
+        SOV_the_workers_dictatorship["SOV_the_workers_dictatorship"]
+        SOV_the_zinovyevite_terrorist_center["SOV_the_zinovyevite_terrorist_center"]
+        SOV_third_five_year_plan["SOV_third_five_year_plan"]
+        SOV_baltic_security --> SOV_claims_in_baltic
+        SOV_baltic_security --> SOV_respect_baltic_self_determination
+        SOV_claims_in_baltic --> SOV_claims_on_poland
+        SOV_claims_in_baltic --> SOV_secure_leningrad
+        SOV_claims_on_poland --> SOV_demand_eastern_poland
+        SOV_finish_the_five_year_plan --> SOV_third_five_year_plan
+        SOV_heavy_industry --> SOV_Mass_Immunizations
+        SOV_heavy_industry --> SOV_finish_the_five_year_plan
+        SOV_industrial_modernization --> SOV_restoration_and_development
+        SOV_infrastructure_effort_nsb --> SOV_finish_the_five_year_plan
+        SOV_optimize_production_lines --> SOV_restoration_and_development
+        SOV_reorganize_the_pc_of_heavy_industry --> SOV_industrial_modernization
+        SOV_respect_baltic_self_determination --> SOV_claims_on_poland
+        SOV_respect_baltic_self_determination --> SOV_secure_leningrad
+        SOV_secure_leningrad --> SOV_control_scandinavia
+        SOV_shift_to_armaments_production --> SOV_optimize_production_lines
+        SOV_the_anti_soviet_trotskyist_center --> SOV_the_workers_dictatorship
+        SOV_the_centre --> SOV_the_stalin_constitution
+        SOV_the_comintern --> SOV_baltic_security
+        SOV_the_military_conspiracy --> SOV_the_bloc_of_rights_and_trotskyites
+        SOV_the_path_of_marxism_leninism --> SOV_the_centre
+        SOV_the_path_of_marxism_leninism --> SOV_the_comintern
+        SOV_the_stalin_constitution --> SOV_the_zinovyevite_terrorist_center
+        SOV_the_workers_dictatorship --> SOV_the_military_conspiracy
+        SOV_the_zinovyevite_terrorist_center --> SOV_the_anti_soviet_trotskyist_center
+        SOV_third_five_year_plan --> SOV_reorganize_the_pc_of_heavy_industry
+        SOV_third_five_year_plan --> SOV_shift_to_armaments_production
+        SOV_claims_in_baltic x--x SOV_respect_baltic_self_determination
+        SOV_reorganize_the_pc_of_heavy_industry x--x SOV_shift_to_armaments_production
     end
 ```
 
-#### Arc 15: Italian West
+## France
 
-```mermaid
-flowchart TD
-    subgraph arc15
-        ITA_ally_yugoslavia["ITA_ally_yugoslavia"]
-        ITA_balkan_ambition["ITA_balkan_ambition"]
-        ITA_demand_ticino[["ITA_demand_ticino"]]
-        ITA_foreign_affairs(["ITA_foreign_affairs"])
-        ITA_italian_irredentism["ITA_italian_irredentism"]
-        ITA_militarize_the_rome_protocols["ITA_militarize_the_rome_protocols"]
-        ITA_pact_of_steel["ITA_pact_of_steel"]
-        ITA_request_control_of_french_territories["ITA_request_control_of_french_territories"]
-        ITA_war_with_france[["ITA_war_with_france"]]
-        ITA_war_with_the_uk[["ITA_war_with_the_uk"]]
-        ITA_ally_yugoslavia --> ITA_militarize_the_rome_protocols
-        ITA_ally_yugoslavia --> ITA_pact_of_steel
-        ITA_balkan_ambition --> ITA_militarize_the_rome_protocols
-        ITA_balkan_ambition --> ITA_pact_of_steel
-        ITA_foreign_affairs --> ITA_ally_yugoslavia
-        ITA_foreign_affairs --> ITA_balkan_ambition
-        ITA_italian_irredentism --> ITA_request_control_of_french_territories
-        ITA_italian_irredentism --> ITA_war_with_france
-        ITA_italian_irredentism --> ITA_war_with_the_uk
-        ITA_militarize_the_rome_protocols --> ITA_italian_irredentism
-        ITA_militarize_the_rome_protocols --> ITA_war_with_the_uk
-        ITA_pact_of_steel --> ITA_italian_irredentism
-        ITA_pact_of_steel --> ITA_request_control_of_french_territories
-        ITA_request_control_of_french_territories --> ITA_demand_ticino
-        ITA_war_with_france --> ITA_demand_ticino
-        ITA_ally_yugoslavia x--x ITA_balkan_ambition
-        ITA_militarize_the_rome_protocols x--x ITA_pact_of_steel
-        ITA_request_control_of_french_territories x--x ITA_war_with_france
-    end
-```
+| # | Aggressor | Arc | Variant a | Key focuses | Status |
+|---|---|---|---|---|---|
+| 5 | FRA | Napoleonic france scenario | BEL, HOL, LUX | `the_new_continental_system`, `army_reform` | ready |
 
-#### Arc 16: Italian Mediterranean
+### Arc 5: Napoleonic france scenario
 
-```mermaid
-flowchart TD
-    subgraph arc16
-        ITA_a_time_for_war[["ITA_a_time_for_war"]]
-        ITA_all_roads_lead_to_rome[["ITA_all_roads_lead_to_rome"]]
-        ITA_ally_yugoslavia(["ITA_ally_yugoslavia"])
-        ITA_balkan_ambition(["ITA_balkan_ambition"])
-        ITA_befriend_greece["ITA_befriend_greece"]
-        ITA_blackshirt_loyalty(["ITA_blackshirt_loyalty"])
-        ITA_claims_on_turkey_bba[["ITA_claims_on_turkey_bba"]]
-        ITA_deus_vult["ITA_deus_vult"]
-        ITA_italian_irredentism["ITA_italian_irredentism"]
-        ITA_mare_nostrum_bba["ITA_mare_nostrum_bba"]
-        ITA_militarize_the_rome_protocols["ITA_militarize_the_rome_protocols"]
-        ITA_pact_of_steel["ITA_pact_of_steel"]
-        ITA_setting_course["ITA_setting_course"]
-        ITA_strengthen_the_papacy(["ITA_strengthen_the_papacy"])
-        ITA_strengthen_the_regime(["ITA_strengthen_the_regime"])
-        ITA_the_italian_legions["ITA_the_italian_legions"]
-        ITA_the_papacy_reborn["ITA_the_papacy_reborn"]
-        ITA_war_with_greece["ITA_war_with_greece"]
-        ITA_ally_yugoslavia --> ITA_militarize_the_rome_protocols
-        ITA_ally_yugoslavia --> ITA_pact_of_steel
-        ITA_balkan_ambition --> ITA_militarize_the_rome_protocols
-        ITA_balkan_ambition --> ITA_pact_of_steel
-        ITA_befriend_greece --> ITA_claims_on_turkey_bba
-        ITA_blackshirt_loyalty --> ITA_mare_nostrum_bba
-        ITA_deus_vult --> ITA_a_time_for_war
-        ITA_italian_irredentism --> ITA_war_with_greece
-        ITA_mare_nostrum_bba --> ITA_the_italian_legions
-        ITA_militarize_the_rome_protocols --> ITA_befriend_greece
-        ITA_militarize_the_rome_protocols --> ITA_italian_irredentism
-        ITA_pact_of_steel --> ITA_italian_irredentism
-        ITA_setting_course --> ITA_mare_nostrum_bba
-        ITA_strengthen_the_papacy --> ITA_setting_course
-        ITA_strengthen_the_papacy --> ITA_the_papacy_reborn
-        ITA_strengthen_the_regime --> ITA_mare_nostrum_bba
-        ITA_the_italian_legions --> ITA_all_roads_lead_to_rome
-        ITA_the_papacy_reborn --> ITA_deus_vult
-        ITA_war_with_greece --> ITA_claims_on_turkey_bba
-        ITA_ally_yugoslavia x--x ITA_balkan_ambition
-        ITA_befriend_greece x--x ITA_war_with_greece
-        ITA_militarize_the_rome_protocols x--x ITA_pact_of_steel
-    end
-```
+The non-historical arc: France leaves the Third Republic behind, restores an
+empire, and presses its natural borders into the Low Countries. A single target
+set (BEL, HOL, LUX) means no variant roll; the ladder releases claims and
+incidents at the crises rung and ultimatums plus join offers at peak. Join
+offers are filtered to states on France's continent that share its government.
 
-#### Arc 27: Communist Italy
-
-```mermaid
-flowchart TD
-    subgraph arc27
-        ITA_a_new_era_for_the_red_shirts["ITA_a_new_era_for_the_red_shirts"]
-        ITA_abolish_the_colonies(["ITA_abolish_the_colonies"])
-        ITA_cooperatives_for_intensive_exploitation["ITA_cooperatives_for_intensive_exploitation"]
-        ITA_gruppi_di_difesa_della_donna["ITA_gruppi_di_difesa_della_donna"]
-        ITA_liberate_the_workers_of_africa[["ITA_liberate_the_workers_of_africa"]]
-        ITA_military_agreements["ITA_military_agreements"]
-        ITA_new_colonial_policies(["ITA_new_colonial_policies"])
-        ITA_pugno_alzato[["ITA_pugno_alzato"]]
-        ITA_reestablish_old_alliances["ITA_reestablish_old_alliances"]
-        ITA_social_stability(["ITA_social_stability"])
-        ITA_the_enemies_of_capitalism[["ITA_the_enemies_of_capitalism"]]
-        ITA_the_fight_overseas["ITA_the_fight_overseas"]
-        ITA_the_garibaldi_legion["ITA_the_garibaldi_legion"]
-        ITA_the_italian_confederation["ITA_the_italian_confederation"]
-        ITA_the_popular_front(["ITA_the_popular_front"])
-        ITA_a_new_era_for_the_red_shirts --> ITA_pugno_alzato
-        ITA_abolish_the_colonies --> ITA_cooperatives_for_intensive_exploitation
-        ITA_cooperatives_for_intensive_exploitation --> ITA_the_fight_overseas
-        ITA_gruppi_di_difesa_della_donna --> ITA_pugno_alzato
-        ITA_military_agreements --> ITA_the_enemies_of_capitalism
-        ITA_new_colonial_policies --> ITA_the_italian_confederation
-        ITA_reestablish_old_alliances --> ITA_military_agreements
-        ITA_social_stability --> ITA_reestablish_old_alliances
-        ITA_the_fight_overseas --> ITA_liberate_the_workers_of_africa
-        ITA_the_garibaldi_legion --> ITA_a_new_era_for_the_red_shirts
-        ITA_the_garibaldi_legion --> ITA_gruppi_di_difesa_della_donna
-        ITA_the_italian_confederation --> ITA_the_fight_overseas
-        ITA_the_popular_front --> ITA_the_garibaldi_legion
-        ITA_abolish_the_colonies x--x ITA_new_colonial_policies
-    end
-```
-
-### United Kingdom
-
-
-#### Arc 5: Fascist Britain
+**Telemetry labels**: `sc_goal`: bel_on_fra, fra_on_bel, fra_on_hol, fra_on_lux, hol_on_fra, lux_on_fra; `sc_justify`: fra_on_bel, fra_on_hol, fra_on_lux.
 
 ```mermaid
 flowchart TD
     subgraph arc5
-        ENG_a_change_in_course(["ENG_a_change_in_course"])
-        ENG_burn_french["ENG_burn_french"]
-        ENG_demand_ireland["ENG_demand_ireland"]
-        ENG_embargo_ussr["ENG_embargo_ussr"]
-        ENG_ireland_friend["ENG_ireland_friend"]
-        ENG_organize_the_blackshirts[["ENG_organize_the_blackshirts"]]
-        ENG_war_france[["ENG_war_france"]]
-        ENG_war_with_ussr[["ENG_war_with_ussr"]]
-        ENG_western(["ENG_western"])
-        uk_iran_focus["uk_iran_focus"]
-        uk_iraq_focus(["uk_iraq_focus"])
-        ENG_a_change_in_course --> ENG_organize_the_blackshirts
-        ENG_burn_french --> ENG_war_france
-        ENG_demand_ireland --> ENG_burn_french
-        ENG_embargo_ussr --> ENG_war_with_ussr
-        ENG_ireland_friend --> ENG_burn_french
-        ENG_western --> ENG_demand_ireland
-        ENG_western --> ENG_ireland_friend
-        uk_iran_focus --> ENG_embargo_ussr
-        uk_iraq_focus --> uk_iran_focus
-        ENG_demand_ireland x--x ENG_ireland_friend
+        FRA_action_francaise(["FRA_action_francaise"])
+        FRA_army_reform[["FRA_army_reform"]]
+        FRA_artillery_focus["FRA_artillery_focus"]
+        FRA_brumaire_movement["FRA_brumaire_movement"]
+        FRA_de_gaulle_strategy(["FRA_de_gaulle_strategy"])
+        FRA_fortification_focus["FRA_fortification_focus"]
+        FRA_giraud_plan(["FRA_giraud_plan"])
+        FRA_infantry_tanks["FRA_infantry_tanks"]
+        FRA_motorized_focus["FRA_motorized_focus"]
+        FRA_papal_rehabilitation["FRA_papal_rehabilitation"]
+        FRA_repeal_the_law_of_exile["FRA_repeal_the_law_of_exile"]
+        FRA_the_mas38["FRA_the_mas38"]
+        FRA_the_new_continental_system[["FRA_the_new_continental_system"]]
+        FRA_action_francaise --> FRA_papal_rehabilitation
+        FRA_action_francaise --> FRA_repeal_the_law_of_exile
+        FRA_artillery_focus --> FRA_army_reform
+        FRA_brumaire_movement --> FRA_the_new_continental_system
+        FRA_de_gaulle_strategy --> FRA_motorized_focus
+        FRA_fortification_focus --> FRA_artillery_focus
+        FRA_fortification_focus --> FRA_infantry_tanks
+        FRA_fortification_focus --> FRA_the_mas38
+        FRA_giraud_plan --> FRA_fortification_focus
+        FRA_infantry_tanks --> FRA_army_reform
+        FRA_motorized_focus --> FRA_artillery_focus
+        FRA_motorized_focus --> FRA_infantry_tanks
+        FRA_motorized_focus --> FRA_the_mas38
+        FRA_papal_rehabilitation --> FRA_brumaire_movement
+        FRA_repeal_the_law_of_exile --> FRA_brumaire_movement
+        FRA_the_mas38 --> FRA_army_reform
+        FRA_de_gaulle_strategy x--x FRA_giraud_plan
     end
 ```
 
-#### Arc 17: British Imperial Restoration
+## United Kingdom
+
+| # | Aggressor | Arc | Variant a | Variant b | Variant c | Variant d | Key focuses | Status |
+|---|---|---|---|---|---|---|---|---|
+| 6 | ENG | Monarchical great britain scenario | ITA, IRE | JAP, IRE | SOV, IRE | USA, IRE | `consolidate_the_british_isles`, `take_out_the_regia_marina`, `consolidate_the_british_isles`, `bring_the_dominions_back_into_the_fold`, `consolidate_the_british_isles`, `pre_empt_the_ideological_threat`, `consolidate_the_british_isles`, `unite_the_anglosphere` | ready |
+
+### Arc 6: Monarchical great britain scenario
+
+The non-historical arc: Britain turns to the Crown, consolidates the Isles,
+then presses its chosen rival among the great powers. The variant roll picks
+the rival pair - Italy, Japan, the Soviets or the United States - always beside
+Ireland; the ladder releases claims and incidents at the crises rung and
+ultimatums plus join offers at peak.
+
+**Telemetry labels**: `sc_goal`: eng_on_ire, eng_on_ita, eng_on_jap, eng_on_sov, eng_on_usa, ire_on_eng, ita_on_eng, jap_on_eng, sov_on_eng, usa_on_eng; `sc_justify`: eng_on_ire, eng_on_ita, eng_on_jap, eng_on_sov, eng_on_usa.
 
 ```mermaid
 flowchart TD
-    subgraph arc17
+    subgraph arc6
+        ENG_a_change_in_course(["ENG_a_change_in_course"])
+        ENG_alliance_with_germany["ENG_alliance_with_germany"]
         ENG_appeal_to_imperial_loyalists["ENG_appeal_to_imperial_loyalists"]
         ENG_bring_the_dominions_back_into_the_fold[["ENG_bring_the_dominions_back_into_the_fold"]]
         ENG_ceylon_forward_operating_base["ENG_ceylon_forward_operating_base"]
-        ENG_consolidate_the_british_isles["ENG_consolidate_the_british_isles"]
+        ENG_consolidate_the_british_isles[["ENG_consolidate_the_british_isles"]]
         ENG_god_save_the_king["ENG_god_save_the_king"]
-        ENG_organize_the_blackshirts(["ENG_organize_the_blackshirts"])
-        ENG_reclaim_the_jewel_in_the_crown[["ENG_reclaim_the_jewel_in_the_crown"]]
-        ENG_the_kings_party(["ENG_the_kings_party"])
+        ENG_isolate_the_mediterranean_threat["ENG_isolate_the_mediterranean_threat"]
+        ENG_noninterference_treaty_with_germany["ENG_noninterference_treaty_with_germany"]
+        ENG_organize_the_blackshirts["ENG_organize_the_blackshirts"]
+        ENG_pre_empt_the_ideological_threat[["ENG_pre_empt_the_ideological_threat"]]
+        ENG_reassess_continental_commitments["ENG_reassess_continental_commitments"]
+        ENG_reclaim_the_jewel_in_the_crown["ENG_reclaim_the_jewel_in_the_crown"]
+        ENG_take_out_the_regia_marina[["ENG_take_out_the_regia_marina"]]
+        ENG_the_kings_party["ENG_the_kings_party"]
         ENG_unite_the_anglosphere[["ENG_unite_the_anglosphere"]]
+        ENG_a_change_in_course --> ENG_organize_the_blackshirts
+        ENG_a_change_in_course --> ENG_the_kings_party
+        ENG_alliance_with_germany --> ENG_take_out_the_regia_marina
         ENG_appeal_to_imperial_loyalists --> ENG_bring_the_dominions_back_into_the_fold
         ENG_bring_the_dominions_back_into_the_fold --> ENG_unite_the_anglosphere
         ENG_ceylon_forward_operating_base --> ENG_reclaim_the_jewel_in_the_crown
@@ -767,332 +493,17 @@ flowchart TD
         ENG_god_save_the_king --> ENG_appeal_to_imperial_loyalists
         ENG_god_save_the_king --> ENG_ceylon_forward_operating_base
         ENG_god_save_the_king --> ENG_consolidate_the_british_isles
+        ENG_isolate_the_mediterranean_threat --> ENG_alliance_with_germany
+        ENG_isolate_the_mediterranean_threat --> ENG_noninterference_treaty_with_germany
+        ENG_noninterference_treaty_with_germany --> ENG_pre_empt_the_ideological_threat
+        ENG_noninterference_treaty_with_germany --> ENG_take_out_the_regia_marina
         ENG_organize_the_blackshirts --> ENG_god_save_the_king
+        ENG_reassess_continental_commitments --> ENG_isolate_the_mediterranean_threat
+        ENG_reclaim_the_jewel_in_the_crown --> ENG_pre_empt_the_ideological_threat
         ENG_reclaim_the_jewel_in_the_crown --> ENG_unite_the_anglosphere
         ENG_the_kings_party --> ENG_god_save_the_king
+        ENG_the_kings_party --> ENG_reassess_continental_commitments
+        ENG_alliance_with_germany x--x ENG_noninterference_treaty_with_germany
         ENG_organize_the_blackshirts x--x ENG_the_kings_party
     end
 ```
-
-#### Arc 28: Communist Britain
-
-```mermaid
-flowchart TD
-    subgraph arc28
-        ENG_alliance_with_the_canadian_workers["ENG_alliance_with_the_canadian_workers"]
-        ENG_anti_american_rhetoric["ENG_anti_american_rhetoric"]
-        ENG_enforce_decolonization["ENG_enforce_decolonization"]
-        ENG_follow_moscow["ENG_follow_moscow"]
-        ENG_for_the_good_of_the_revolution(["ENG_for_the_good_of_the_revolution"])
-        ENG_liberate_the_american_workers[["ENG_liberate_the_american_workers"]]
-        ENG_liberate_the_home_of_marx[["ENG_liberate_the_home_of_marx"]]
-        ENG_preparing_the_second_front["ENG_preparing_the_second_front"]
-        ENG_reach_out_across_the_channel["ENG_reach_out_across_the_channel"]
-        ENG_soviet_cooperation[["ENG_soviet_cooperation"]]
-        ENG_tackle_fascism["ENG_tackle_fascism"]
-        ENG_take_the_reactionaries_out_of_their_nest["ENG_take_the_reactionaries_out_of_their_nest"]
-        ENG_the_british_communist_alternative["ENG_the_british_communist_alternative"]
-        ENG_the_one_true_revolution[["ENG_the_one_true_revolution"]]
-        ENG_the_peoples_duty(["ENG_the_peoples_duty"])
-        ENG_alliance_with_the_canadian_workers --> ENG_anti_american_rhetoric
-        ENG_anti_american_rhetoric --> ENG_liberate_the_american_workers
-        ENG_enforce_decolonization --> ENG_soviet_cooperation
-        ENG_enforce_decolonization --> ENG_the_one_true_revolution
-        ENG_follow_moscow --> ENG_tackle_fascism
-        ENG_for_the_good_of_the_revolution --> ENG_follow_moscow
-        ENG_for_the_good_of_the_revolution --> ENG_the_british_communist_alternative
-        ENG_preparing_the_second_front --> ENG_liberate_the_home_of_marx
-        ENG_reach_out_across_the_channel --> ENG_soviet_cooperation
-        ENG_reach_out_across_the_channel --> ENG_the_one_true_revolution
-        ENG_tackle_fascism --> ENG_preparing_the_second_front
-        ENG_take_the_reactionaries_out_of_their_nest --> ENG_anti_american_rhetoric
-        ENG_the_british_communist_alternative --> ENG_enforce_decolonization
-        ENG_the_british_communist_alternative --> ENG_reach_out_across_the_channel
-        ENG_the_one_true_revolution --> ENG_liberate_the_home_of_marx
-        ENG_the_peoples_duty --> ENG_alliance_with_the_canadian_workers
-        ENG_the_peoples_duty --> ENG_take_the_reactionaries_out_of_their_nest
-        ENG_alliance_with_the_canadian_workers x--x ENG_take_the_reactionaries_out_of_their_nest
-        ENG_enforce_decolonization x--x ENG_reach_out_across_the_channel
-        ENG_follow_moscow x--x ENG_the_british_communist_alternative
-        ENG_soviet_cooperation x--x ENG_the_one_true_revolution
-    end
-```
-
-### United States
-
-
-#### Arc 6: Red America
-
-```mermaid
-flowchart TD
-    subgraph arc6
-        USA_agricultural_adjustment_act["USA_agricultural_adjustment_act"]
-        USA_continue_the_new_deal(["USA_continue_the_new_deal"])
-        USA_end_monarchism[["USA_end_monarchism"]]
-        USA_reach_out_to_the_ware_group["USA_reach_out_to_the_ware_group"]
-        USA_shatter_the_empires[["USA_shatter_the_empires"]]
-        USA_suspend_the_presecution[["USA_suspend_the_presecution"]]
-        USA_us_ussr_economic_cooperation[["USA_us_ussr_economic_cooperation"]]
-        USA_wpa["USA_wpa"]
-        USA_agricultural_adjustment_act --> USA_reach_out_to_the_ware_group
-        USA_continue_the_new_deal --> USA_suspend_the_presecution
-        USA_continue_the_new_deal --> USA_wpa
-        USA_end_monarchism --> USA_shatter_the_empires
-        USA_reach_out_to_the_ware_group --> USA_end_monarchism
-        USA_reach_out_to_the_ware_group --> USA_us_ussr_economic_cooperation
-        USA_suspend_the_presecution --> USA_reach_out_to_the_ware_group
-        USA_wpa --> USA_agricultural_adjustment_act
-    end
-```
-
-#### Arc 18: American War Plan
-
-```mermaid
-flowchart TD
-    subgraph arc18
-        USA_defense_of_the_pacific[["USA_defense_of_the_pacific"]]
-        USA_intervention_in_asia["USA_intervention_in_asia"]
-        USA_intervention_in_europe[["USA_intervention_in_europe"]]
-        USA_war_plan_black[["USA_war_plan_black"]]
-        USA_war_plan_orange[["USA_war_plan_orange"]]
-        USA_war_plan_yellow["USA_war_plan_yellow"]
-        USA_war_plans_division(["USA_war_plans_division"])
-        USA_intervention_in_asia --> USA_war_plan_orange
-        USA_intervention_in_asia --> USA_war_plan_yellow
-        USA_intervention_in_europe --> USA_war_plan_black
-        USA_war_plan_orange --> USA_defense_of_the_pacific
-        USA_war_plan_yellow --> USA_defense_of_the_pacific
-        USA_war_plans_division --> USA_intervention_in_asia
-        USA_war_plans_division --> USA_intervention_in_europe
-    end
-```
-
-#### Arc 19: American Global Hegemony
-
-```mermaid
-flowchart TD
-    subgraph arc19
-        USA_agricultural_adjustment_act["USA_agricultural_adjustment_act"]
-        USA_continue_the_new_deal(["USA_continue_the_new_deal"])
-        USA_end_monarchism[["USA_end_monarchism"]]
-        USA_global_hegemony[["USA_global_hegemony"]]
-        USA_north_american_dominion(["USA_north_american_dominion"])
-        USA_pacific_pacification["USA_pacific_pacification"]
-        USA_protect_south_america["USA_protect_south_america"]
-        USA_reach_out_to_the_ware_group["USA_reach_out_to_the_ware_group"]
-        USA_secure_asia["USA_secure_asia"]
-        USA_shatter_the_empires[["USA_shatter_the_empires"]]
-        USA_strategic_interests["USA_strategic_interests"]
-        USA_suspend_the_presecution["USA_suspend_the_presecution"]
-        USA_wpa["USA_wpa"]
-        USA_agricultural_adjustment_act --> USA_reach_out_to_the_ware_group
-        USA_continue_the_new_deal --> USA_suspend_the_presecution
-        USA_continue_the_new_deal --> USA_wpa
-        USA_end_monarchism --> USA_shatter_the_empires
-        USA_north_american_dominion --> USA_pacific_pacification
-        USA_north_american_dominion --> USA_strategic_interests
-        USA_pacific_pacification --> USA_secure_asia
-        USA_protect_south_america --> USA_global_hegemony
-        USA_reach_out_to_the_ware_group --> USA_end_monarchism
-        USA_secure_asia --> USA_global_hegemony
-        USA_strategic_interests --> USA_protect_south_america
-        USA_suspend_the_presecution --> USA_reach_out_to_the_ware_group
-        USA_wpa --> USA_agricultural_adjustment_act
-    end
-```
-
-### France
-
-
-#### Arc 7: Napoleonic France
-
-```mermaid
-flowchart TD
-    subgraph arc7
-        FRA_action_francaise(["FRA_action_francaise"])
-        FRA_brumaire_movement[["FRA_brumaire_movement"]]
-        FRA_compromise_with_germany["FRA_compromise_with_germany"]
-        FRA_crush_germany[["FRA_crush_germany"]]
-        FRA_nothern_italy_claim[["FRA_nothern_italy_claim"]]
-        FRA_our_natural_borders["FRA_our_natural_borders"]
-        FRA_papal_rehabilitation[["FRA_papal_rehabilitation"]]
-        FRA_repeal_the_law_of_exile[["FRA_repeal_the_law_of_exile"]]
-        FRA_the_new_continental_system[["FRA_the_new_continental_system"]]
-        FRA_action_francaise --> FRA_papal_rehabilitation
-        FRA_action_francaise --> FRA_repeal_the_law_of_exile
-        FRA_brumaire_movement --> FRA_the_new_continental_system
-        FRA_compromise_with_germany --> FRA_nothern_italy_claim
-        FRA_our_natural_borders --> FRA_crush_germany
-        FRA_our_natural_borders --> FRA_nothern_italy_claim
-        FRA_papal_rehabilitation --> FRA_brumaire_movement
-        FRA_repeal_the_law_of_exile --> FRA_brumaire_movement
-        FRA_the_new_continental_system --> FRA_compromise_with_germany
-        FRA_the_new_continental_system --> FRA_our_natural_borders
-        FRA_compromise_with_germany x--x FRA_our_natural_borders
-    end
-```
-
-#### Arc 20: French Monarchist Revival
-
-```mermaid
-flowchart TD
-    subgraph arc20
-        FRA_assist_the_carlist_cause["FRA_assist_the_carlist_cause"]
-        FRA_claim_the_andorran_throne[["FRA_claim_the_andorran_throne"]]
-        FRA_compromise_with_germany["FRA_compromise_with_germany"]
-        FRA_crush_germany["FRA_crush_germany"]
-        FRA_destroy_albion["FRA_destroy_albion"]
-        FRA_intervene_in_the_spanish_civil_war["FRA_intervene_in_the_spanish_civil_war"]
-        FRA_our_natural_borders["FRA_our_natural_borders"]
-        FRA_restore_the_mexican_monarchy[["FRA_restore_the_mexican_monarchy"]]
-        FRA_second_march_on_moscow[["FRA_second_march_on_moscow"]]
-        FRA_secure_the_crown_of_spain[["FRA_secure_the_crown_of_spain"]]
-        FRA_support_the_legitimatises(["FRA_support_the_legitimatises"])
-        FRA_the_new_continental_system(["FRA_the_new_continental_system"])
-        FRA_assist_the_carlist_cause --> FRA_intervene_in_the_spanish_civil_war
-        FRA_compromise_with_germany --> FRA_destroy_albion
-        FRA_crush_germany --> FRA_second_march_on_moscow
-        FRA_destroy_albion --> FRA_restore_the_mexican_monarchy
-        FRA_intervene_in_the_spanish_civil_war --> FRA_secure_the_crown_of_spain
-        FRA_our_natural_borders --> FRA_crush_germany
-        FRA_our_natural_borders --> FRA_destroy_albion
-        FRA_secure_the_crown_of_spain --> FRA_claim_the_andorran_throne
-        FRA_support_the_legitimatises --> FRA_assist_the_carlist_cause
-        FRA_the_new_continental_system --> FRA_compromise_with_germany
-        FRA_the_new_continental_system --> FRA_our_natural_borders
-        FRA_compromise_with_germany x--x FRA_our_natural_borders
-    end
-```
-
-#### Arc 21: French Revenge
-
-```mermaid
-flowchart TD
-    subgraph arc21
-        FRA_assistance_treaty["FRA_assistance_treaty"]
-        FRA_brumaire_movement(["FRA_brumaire_movement"])
-        FRA_claim_rhineland["FRA_claim_rhineland"]
-        FRA_collectivisation["FRA_collectivisation"]
-        FRA_commune_proclamation["FRA_commune_proclamation"]
-        FRA_compromise_with_germany["FRA_compromise_with_germany"]
-        FRA_crush_germany[["FRA_crush_germany"]]
-        FRA_demand_wallonia["FRA_demand_wallonia"]
-        FRA_destroy_albion[["FRA_destroy_albion"]]
-        FRA_dismantle_germany[["FRA_dismantle_germany"]]
-        FRA_humanite_unie["FRA_humanite_unie"]
-        FRA_ideological_indoctrination["FRA_ideological_indoctrination"]
-        FRA_our_natural_borders["FRA_our_natural_borders"]
-        FRA_pcf_sfio_coalition(["FRA_pcf_sfio_coalition"])
-        FRA_state_reorganisation(["FRA_state_reorganisation"])
-        FRA_strike_empire[["FRA_strike_empire"]]
-        FRA_support_ppf(["FRA_support_ppf"])
-        FRA_syndicalist_revolution["FRA_syndicalist_revolution"]
-        FRA_the_new_continental_system["FRA_the_new_continental_system"]
-        FRA_ultimatum_to_belgium["FRA_ultimatum_to_belgium"]
-        FRA_union_latins(["FRA_union_latins"])
-        FRA_we_want_petain(["FRA_we_want_petain"])
-        FRA_assistance_treaty --> FRA_strike_empire
-        FRA_brumaire_movement --> FRA_the_new_continental_system
-        FRA_claim_rhineland --> FRA_dismantle_germany
-        FRA_collectivisation --> FRA_assistance_treaty
-        FRA_collectivisation --> FRA_humanite_unie
-        FRA_commune_proclamation --> FRA_assistance_treaty
-        FRA_commune_proclamation --> FRA_collectivisation
-        FRA_compromise_with_germany --> FRA_destroy_albion
-        FRA_demand_wallonia --> FRA_claim_rhineland
-        FRA_humanite_unie --> FRA_strike_empire
-        FRA_ideological_indoctrination --> FRA_commune_proclamation
-        FRA_ideological_indoctrination --> FRA_syndicalist_revolution
-        FRA_our_natural_borders --> FRA_crush_germany
-        FRA_our_natural_borders --> FRA_destroy_albion
-        FRA_pcf_sfio_coalition --> FRA_commune_proclamation
-        FRA_pcf_sfio_coalition --> FRA_ideological_indoctrination
-        FRA_state_reorganisation --> FRA_demand_wallonia
-        FRA_state_reorganisation --> FRA_ultimatum_to_belgium
-        FRA_support_ppf --> FRA_demand_wallonia
-        FRA_support_ppf --> FRA_ultimatum_to_belgium
-        FRA_syndicalist_revolution --> FRA_collectivisation
-        FRA_the_new_continental_system --> FRA_compromise_with_germany
-        FRA_the_new_continental_system --> FRA_our_natural_borders
-        FRA_ultimatum_to_belgium --> FRA_claim_rhineland
-        FRA_union_latins --> FRA_demand_wallonia
-        FRA_union_latins --> FRA_ultimatum_to_belgium
-        FRA_we_want_petain --> FRA_demand_wallonia
-        FRA_we_want_petain --> FRA_ultimatum_to_belgium
-        FRA_assistance_treaty x--x FRA_humanite_unie
-        FRA_compromise_with_germany x--x FRA_our_natural_borders
-        FRA_demand_wallonia x--x FRA_ultimatum_to_belgium
-        FRA_support_ppf x--x FRA_we_want_petain
-    end
-```
-
-#### Arc 22: French Plan XIV
-
-```mermaid
-flowchart TD
-    subgraph arc22
-        FRA_brumaire_movement(["FRA_brumaire_movement"])
-        FRA_claim_rhineland["FRA_claim_rhineland"]
-        FRA_compromise_with_germany["FRA_compromise_with_germany"]
-        FRA_demand_wallonia(["FRA_demand_wallonia"])
-        FRA_dismantle_germany["FRA_dismantle_germany"]
-        FRA_nothern_italy_claim[["FRA_nothern_italy_claim"]]
-        FRA_our_natural_borders["FRA_our_natural_borders"]
-        FRA_plan_xiv[["FRA_plan_xiv"]]
-        FRA_return_to_dalmatia[["FRA_return_to_dalmatia"]]
-        FRA_the_new_continental_system["FRA_the_new_continental_system"]
-        FRA_ultimatum_to_belgium(["FRA_ultimatum_to_belgium"])
-        FRA_brumaire_movement --> FRA_the_new_continental_system
-        FRA_claim_rhineland --> FRA_dismantle_germany
-        FRA_compromise_with_germany --> FRA_nothern_italy_claim
-        FRA_demand_wallonia --> FRA_claim_rhineland
-        FRA_dismantle_germany --> FRA_plan_xiv
-        FRA_nothern_italy_claim --> FRA_return_to_dalmatia
-        FRA_our_natural_borders --> FRA_nothern_italy_claim
-        FRA_the_new_continental_system --> FRA_compromise_with_germany
-        FRA_the_new_continental_system --> FRA_our_natural_borders
-        FRA_ultimatum_to_belgium --> FRA_claim_rhineland
-        FRA_compromise_with_germany x--x FRA_our_natural_borders
-        FRA_demand_wallonia x--x FRA_ultimatum_to_belgium
-    end
-```
-
-### Hungary
-
-
-#### Arc 8: Habsburg restoration
-
-```mermaid
-flowchart TD
-    subgraph arc8
-        HUN_claim_galicia[["HUN_claim_galicia"]]
-        HUN_claim_transylvania[["HUN_claim_transylvania"]]
-        HUN_demand_a_referendum["HUN_demand_a_referendum"]
-        HUN_elect_a_king(["HUN_elect_a_king"])
-        HUN_invite_the_habsburg_prince["HUN_invite_the_habsburg_prince"]
-        HUN_march_to_the_shore[["HUN_march_to_the_shore"]]
-        HUN_proclaim_the_restoration_of_austria_hungary[["HUN_proclaim_the_restoration_of_austria_hungary"]]
-        HUN_protect_czechoslovakia["HUN_protect_czechoslovakia"]
-        HUN_take_austria_by_force["HUN_take_austria_by_force"]
-        HUN_claim_transylvania --> HUN_march_to_the_shore
-        HUN_demand_a_referendum --> HUN_proclaim_the_restoration_of_austria_hungary
-        HUN_elect_a_king --> HUN_invite_the_habsburg_prince
-        HUN_invite_the_habsburg_prince --> HUN_demand_a_referendum
-        HUN_invite_the_habsburg_prince --> HUN_take_austria_by_force
-        HUN_proclaim_the_restoration_of_austria_hungary --> HUN_protect_czechoslovakia
-        HUN_protect_czechoslovakia --> HUN_claim_galicia
-        HUN_protect_czechoslovakia --> HUN_claim_transylvania
-        HUN_take_austria_by_force --> HUN_proclaim_the_restoration_of_austria_hungary
-        HUN_demand_a_referendum x--x HUN_take_austria_by_force
-    end
-```
-
-## Pool and selection
-
-- Random sessions pick from the full pool with equal weights. The list grows with implementation; pin options exist only for implemented arcs.
-- Derail repicks the next eligible never-derailed arc. A derailed arc never re-enters the pool in the same session.
-- Target variants are rolled at pick (per-arc 50/50) and remain fixed for the session. Logging carries the variant name alongside `sc_pick`.
-
-## Open design questions
-
-- Whether `HUN` gets more than one arc (currently only Habsburg restoration). No decision yet.
