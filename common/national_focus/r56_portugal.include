@@ -558,6 +558,10 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
+      modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(POR_unite_against_salazar)
 
   focus[id = POR_seek_international_support]:
     +ai_will_do:
@@ -761,6 +765,10 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
+      modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(POR_restore_valiance_to_the_nation)
 
   focus[id = POR_radicalize_salazars_allies]:
     +ai_will_do:

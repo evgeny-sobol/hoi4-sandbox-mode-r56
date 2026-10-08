@@ -259,6 +259,16 @@ focus_tree[id = yugoslavian_focus]:
         factor(f)
         is_sandbox_mode_on()
 
+  focus[id = YUG_irredentism_towards_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUG_attack_italy]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
   focus[id = YUG_claim_bulgaria]:
     +ai_will_do:
       modifier:
@@ -292,6 +302,11 @@ focus_tree[id = yugoslavian_focus]:
   focus[id = YUG_proclaim_greater_yugoslavia]:
     +ai_will_do:
       modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUG_organize_our_alliance]:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = YUG_press_bulgarian_claims_on_thrace]:
@@ -629,6 +644,18 @@ focus_tree[id = yugoslavian_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_mic_modifier()
+
+  focus[id = YUG_yugoslav_nuclear_program]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = YUG_uranium_prospecting_in_buhovo]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
         $ai_mic_modifier()
 
   focus[id = YUG_modernize_the_air_force]:

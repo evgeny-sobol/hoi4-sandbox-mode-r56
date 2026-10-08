@@ -181,6 +181,8 @@ focus_tree[id = german_focus]:
   focus[id = GER_the_four_year_plan]:
     +ai_will_do:
       modifier:
+        $ai_sandbox_modifier()
+      modifier:
         $root_modifier()
       modifier:
         $ai_sandbox_set(40)
@@ -764,7 +766,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_mic_modifier()
 
-
   focus[id = GER_atlantic_naval_dominance]:
     +ai_will_do:
       modifier:
@@ -841,7 +842,6 @@ focus_tree[id = german_focus]:
       $sandbox_log_sc_focus(GER_remilitarize_the_rhineland)
 
 
-
   focus[id = GER_legion_condor]:
     +ai_will_do:
       modifier:
@@ -862,7 +862,6 @@ focus_tree[id = german_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(GER_reorganize_the_wehrmacht)
-
 
 
   focus[id = GER_war_preparations]:
@@ -905,7 +904,6 @@ focus_tree[id = german_focus]:
       $AUS->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(GER_anschluss)
-
 
 
   focus[id = GER_befriend_czechoslovakia]:
@@ -1008,7 +1006,6 @@ focus_tree[id = german_focus]:
       $sandbox_log_sc_focus(GER_demand_sudetenland)
 
 
-
   focus[id = GER_first_vienna_award]:
     ai_will_do:
       +modifier:
@@ -1017,7 +1014,6 @@ focus_tree[id = german_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(GER_first_vienna_award)
-
 
 
   focus[id = GER_fate_of_czechoslovakia]:
@@ -1038,7 +1034,6 @@ focus_tree[id = german_focus]:
       $CZE->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(GER_fate_of_czechoslovakia)
-
 
 
   focus[id = GER_integrate_czech_manufacturers]:
@@ -1095,7 +1090,6 @@ focus_tree[id = german_focus]:
       $LIT->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(GER_reassert_eastern_claims)
-
 
 
   focus[id = GER_expand_claims_in_baltic]:
@@ -1260,7 +1254,6 @@ focus_tree[id = german_focus]:
       $sandbox_log_sc_focus(GER_danzig_or_war)
 
 
-
   focus[id = GER_befriend_poland]:
     ai_will_do:
       +modifier:
@@ -1330,7 +1323,6 @@ focus_tree[id = german_focus]:
       $sandbox_log_sc_focus(GER_around_maginot)
 
 
-
   focus[id = GER_operation_weserubung]:
     ai_will_do:
       +modifier:
@@ -1355,7 +1347,6 @@ focus_tree[id = german_focus]:
       $NOR->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(GER_operation_weserubung)
-
 
 
   focus[id = GER_utilize_the_nordliche_gesellschaft]:
@@ -1383,7 +1374,6 @@ focus_tree[id = german_focus]:
       $FRA->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(GER_war_with_france)
-
 
 
   focus[id = GER_demands_to_sweden]:
@@ -1485,7 +1475,6 @@ focus_tree[id = german_focus]:
         $ai_mic_modifier()
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = GER_operation_bolivar]:
     ai_will_do:
@@ -1707,7 +1696,6 @@ focus_tree[id = german_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-
   focus[id = GER_the_final_blow_to_communism]:
     ai_will_do:
       +modifier:
@@ -1795,7 +1783,6 @@ focus_tree[id = german_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-
 
   focus[id = GER_ally_chiang_kai_shek]:
     +ai_will_do:
@@ -2290,7 +2277,6 @@ focus_tree[id = german_focus]:
       modifier:
         $ai_sandbox_modifier()
 
-
   focus[id = GER_hegemony_over_europe]:
     +ai_will_do:
       modifier:
@@ -2325,7 +2311,6 @@ focus_tree[id = german_focus]:
       $FRA->can_PREV_get_wargoal_on_THIS()
       $ITA->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = GER_align_south_america]:
     +ai_will_do:
       modifier:
@@ -2346,7 +2331,6 @@ focus_tree[id = german_focus]:
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = GER_instigate_middle_eastern_revolutions]:
     +ai_will_do:
       modifier:
@@ -2366,7 +2350,6 @@ focus_tree[id = german_focus]:
         $ai_betrayal_modifier_vs($JAP)
     available:
       $JAP->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = GER_nationalize_industries]:
     +ai_will_do:
@@ -6408,7 +6391,6 @@ focus_tree[id = german_focus]:
     available:
       $VEN->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = GER_soviet_invasion]:
     ai_will_do:
       +modifier:
@@ -6429,7 +6411,6 @@ focus_tree[id = german_focus]:
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
       $PREV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = GER_revive_brest_litovsk]:
     ai_will_do:

@@ -18,7 +18,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_infrastructure_effort_nsb)
 
 
-
   focus[id = SOV_heavy_industry]:
     ai_will_do:
       +modifier:
@@ -37,7 +36,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_heavy_industry)
 
 
-
   focus[id = SOV_Mass_Immunizations]:
     ai_will_do:
       +modifier:
@@ -46,7 +44,6 @@ focus_tree[id = soviet_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_Mass_Immunizations)
-
 
 
   focus[id = SOV_finish_the_five_year_plan]:
@@ -63,7 +60,6 @@ focus_tree[id = soviet_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_finish_the_five_year_plan)
-
 
 
   focus[id = SOV_improve_railway_network]:
@@ -89,7 +85,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_third_five_year_plan)
 
 
-
   focus[id = SOV_reorganize_the_pc_of_heavy_industry]:
     +ai_will_do:
       modifier:
@@ -108,7 +103,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_reorganize_the_pc_of_heavy_industry)
 
 
-
   focus[id = SOV_industrial_modernization]:
     +ai_will_do:
       modifier:
@@ -123,7 +117,6 @@ focus_tree[id = soviet_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_industrial_modernization)
-
 
 
   focus[id = SOV_increase_state_reserves]:
@@ -151,7 +144,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_shift_to_armaments_production)
 
 
-
   focus[id = SOV_optimize_production_lines]:
     +ai_will_do:
       modifier:
@@ -166,7 +158,6 @@ focus_tree[id = soviet_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_optimize_production_lines)
-
 
 
   focus[id = SOV_urbanization]:
@@ -211,7 +202,6 @@ focus_tree[id = soviet_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_restoration_and_development)
-
 
 
   focus[id = SOV_fourth_five_year_plan]:
@@ -1050,7 +1040,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_the_path_of_marxism_leninism)
 
 
-
   focus[id = SOV_the_centre]:
     +ai_will_do:
       modifier:
@@ -1059,7 +1048,6 @@ focus_tree[id = soviet_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_the_centre)
-
 
 
   focus[id = SOV_socialism_in_one_country]:
@@ -1077,7 +1065,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_the_stalin_constitution)
 
 
-
   focus[id = SOV_the_zinovyevite_terrorist_center]:
     +ai_will_do:
       modifier:
@@ -1086,7 +1073,6 @@ focus_tree[id = soviet_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_the_zinovyevite_terrorist_center)
-
 
 
   focus[id = SOV_secure_the_administration]:
@@ -1111,7 +1097,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_the_anti_soviet_trotskyist_center)
 
 
-
   focus[id = SOV_the_workers_dictatorship]:
     +ai_will_do:
       modifier:
@@ -1124,7 +1109,6 @@ focus_tree[id = soviet_focus]:
         is_sandbox_mode_on()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_the_workers_dictatorship)
-
 
 
   focus[id = SOV_organization_centralization_discipline]:
@@ -1153,7 +1137,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_the_military_conspiracy)
 
 
-
   focus[id = SOV_the_bloc_of_rights_and_trotskyites]:
     +ai_will_do:
       modifier:
@@ -1162,7 +1145,6 @@ focus_tree[id = soviet_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_the_bloc_of_rights_and_trotskyites)
-
 
 
   focus[id = SOV_behead_the_snake]:
@@ -1893,7 +1875,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_the_comintern)
 
 
-
   focus[id = SOV_development_aid_for_eastern_allies]:
     ai_will_do:
       +modifier:
@@ -2103,7 +2084,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_baltic_security)
 
 
-
   focus[id = SOV_respect_baltic_self_determination]:
     ai_will_do:
       +modifier:
@@ -2123,7 +2103,6 @@ focus_tree[id = soviet_focus]:
         is_sandbox_mode_on()
     +completion_reward:
       $sandbox_log_sc_focus(SOV_respect_baltic_self_determination)
-
 
 
   focus[id = SOV_claims_in_baltic]:
@@ -2169,7 +2148,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_claims_in_baltic)
 
 
-
   focus[id = SOV_secure_leningrad]:
     ai_will_do:
       +modifier:
@@ -2194,7 +2172,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_secure_leningrad)
 
 
-
   focus[id = SOV_control_scandinavia]:
     ai_will_do:
       +modifier:
@@ -2203,7 +2180,6 @@ focus_tree[id = soviet_focus]:
         $ai_scenario_focus_boost_variant(a)
     +completion_reward:
       $sandbox_log_sc_focus(SOV_control_scandinavia)
-
 
 
   focus[id = SOV_claims_on_poland]:
@@ -2216,7 +2192,6 @@ focus_tree[id = soviet_focus]:
       $sandbox_log_sc_focus(SOV_claims_on_poland)
 
 
-
   focus[id = SOV_demand_eastern_poland]:
     ai_will_do:
       +modifier:
@@ -2227,7 +2202,6 @@ focus_tree[id = soviet_focus]:
         $crossroad_modifier(2)
     +completion_reward:
       $sandbox_log_sc_focus(SOV_demand_eastern_poland)
-
 
 
   focus[id = SOV_offer_poland_protection]:
@@ -2365,7 +2339,6 @@ focus_tree[id = soviet_focus]:
     available:
       $PER->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = SOV_the_threat_from_the_land_of_the_rising_sun]:
     ai_will_do:
       +modifier:
@@ -2414,7 +2387,6 @@ focus_tree[id = soviet_focus]:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = SOV_two_red_flags]:
     ai_will_do:
@@ -3056,7 +3028,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-
   focus[id = SOV_adopt_soviet_policies]:
     ai_will_do:
       +modifier:
@@ -3245,7 +3216,6 @@ focus_tree[id = soviet_focus]:
       $GER->can_PREV_get_wargoal_on_THIS()
       $PRE->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = SOV_form_solider_committees]:
     ai_will_do:
       +modifier:
@@ -3354,7 +3324,6 @@ focus_tree[id = soviet_focus]:
       $MAN->can_PREV_get_wargoal_on_THIS()
       $JAP->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = SOV_our_american_holding]:
     ai_will_do:
       +modifier:
@@ -3369,7 +3338,6 @@ focus_tree[id = soviet_focus]:
         $ai_betrayal_modifier_vs($USA)
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = SOV_reclaim_polish_overlordship]:
     ai_will_do:
@@ -3699,7 +3667,6 @@ focus_tree[id = soviet_focus]:
       $CAN->can_PREV_get_wargoal_on_THIS()
       $USA->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = SOV_into_central_asia]:
     ai_will_do:
       +modifier:
@@ -3762,7 +3729,6 @@ focus_tree[id = soviet_focus]:
         if country_exists($PAK):
           $PAK->is_friend_of_PREV(no)
         $RAJ->is_friend_of_PREV(no)
-
 
   focus[id = SOV_rebuild_the_far_eastern_fleet]:
     ai_will_do:

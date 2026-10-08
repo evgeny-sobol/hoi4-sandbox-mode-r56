@@ -977,7 +977,6 @@ focus_tree[id = usa_focus]:
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = USA_war_plans_division]:
     ai_will_do:
       +modifier:
@@ -1076,7 +1075,6 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_mic_modifier()
 
-
   focus[id = USA_war_plan_gold]:
     ai_will_do:
       +modifier:
@@ -1097,7 +1095,6 @@ focus_tree[id = usa_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_mic_modifier()
-
 
   focus[id = USA_destroyers_for_bases]:
     +ai_will_do:
@@ -1163,7 +1160,6 @@ focus_tree[id = usa_focus]:
       modifier:
         $ai_mic_modifier()
 
-
   focus[id = USA_war_plan_yellow]:
     ai_will_do:
       +modifier:
@@ -1187,7 +1183,6 @@ focus_tree[id = usa_focus]:
         $ai_betrayal_modifier_vs($JAP)
     available:
       $JAP->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = USA_war_department]:
     ai_will_do:

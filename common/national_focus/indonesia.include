@@ -103,6 +103,26 @@ focus_tree[id = indonesia_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
+  focus[id = INS_restore_order]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_nationalize]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_secularism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_integrate_sarekat_islam]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
   focus[id = INS_unity_in_diversity]:
     ai_will_do:
       +modifier:
@@ -288,20 +308,10 @@ focus_tree[id = indonesia_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-  focus[id = INS_dominion_of_atjeh]:
+  focus[id = INS_shining_from_the_periphery]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($ATJ)
-      +modifier:
-        $ai_rivalry_modifier($ATJ)
-      +modifier:
-        $ai_betrayal_modifier_vs($ATJ)
-    available:
-      $ATJ->can_PREV_get_wargoal_on_THIS()
 
   focus[id = INS_dissolve_national_party]:
     ai_will_do:
@@ -311,6 +321,11 @@ focus_tree[id = indonesia_focus]:
   focus[id = INS_continue_hybrid_politics]:
     ai_will_do:
       +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_sukarno_retakeover]:
+    +ai_will_do:
+      modifier:
         $ai_sandbox_modifier()
 
   focus[id = INS_fair_election]:
@@ -390,29 +405,24 @@ focus_tree[id = indonesia_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-  focus[id = INS_enact_militarism]:
-    ai_will_do:
-      +modifier:
-        $ai_sandbox_modifier()
-
-  focus[id = INS_japanese_military_lessons]:
-    +ai_will_do:
-      modifier:
-        $ai_sandbox_modifier()
-
-  focus[id = INS_sukarnos_industrialization]:
-    +ai_will_do:
-      modifier:
-        $ai_sandbox_modifier()
-      modifier:
-        $ai_mic_modifier()
-
-  focus[id = INS_sukarnos_industrialization2]:
+  focus[id = INS_centralization]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_mic_modifier()
+        $crossroad_modifier(2)
+
+  focus[id = INS_abolish_national_committee]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = INS_pancasila_achieved]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
 
   focus[id = INS_destroy_pacific_colonialism]:
     +ai_will_do:
@@ -435,19 +445,102 @@ focus_tree[id = indonesia_focus]:
       $ENG->can_PREV_get_wargoal_on_THIS()
       $MAL->can_PREV_get_wargoal_on_THIS()
 
+  focus[id = INS_the_co_prosperity_sphere]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = INS_enact_militarism]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
   focus[id = INS_rapid_mobilization]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
 
-  focus[id = INS_secularism]:
+  focus[id = INS_sukarnos_industrialization]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = INS_sukarnos_industrialization2]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-
-  focus[id = INS_integrate_sarekat_islam]:
-    ai_will_do:
       +modifier:
+        $ai_mic_modifier()
+
+  focus[id = INS_all_toward_the_war_effort]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_strengthen_ins_jap_trade]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_japanese_military_lessons]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_seek_recognition_of_mal_claims]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_demand_northern_malay]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_siam_agreement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_attack_philippines]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_war_support_modifier()
+      modifier:
+        $ai_antagonism_modifier($PHI)
+      modifier:
+        $ai_rivalry_modifier($PHI)
+      modifier:
+        $ai_betrayal_modifier_vs($PHI)
+    available:
+      $PHI->can_PREV_get_wargoal_on_THIS()
+
+  focus[id = INS_local_autonomy]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = INS_union_of_ins_states]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_indonesian_inter_province_trade_agreement]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_expanding_the_union]:
+    +ai_will_do:
+      modifier:
         $ai_sandbox_modifier()
 
   focus[id = INS_guided_economy]:
@@ -479,26 +572,9 @@ focus_tree[id = indonesia_focus]:
       +modifier:
         $ai_high_tyranny_tilt()
 
-  focus[id = INS_agrarian_reform]:
-    +ai_will_do:
-      modifier:
-        $ai_sandbox_modifier()
-      modifier:
-        $ai_mic_modifier()
-
-  focus[id = INS_minimum_program]:
-    +ai_will_do:
-      modifier:
-        $ai_sandbox_modifier()
-
   focus[id = INS_pacific_revolution]:
     +ai_will_do:
       modifier:
-        $ai_sandbox_modifier()
-
-  focus[id = INS_soviet_aid]:
-    ai_will_do:
-      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = INS_purge_oppurtunists]:
@@ -512,9 +588,29 @@ focus_tree[id = indonesia_focus]:
     completion_reward:
       $add_tyranny(20)
 
+  focus[id = INS_minimum_program]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_the_maphilindo_speech]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_pan_asian_union]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
   focus[id = INS_federation_of_aslia]:
     ai_will_do:
       +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_pan_economic_area]:
+    +ai_will_do:
+      modifier:
         $ai_sandbox_modifier()
 
   focus[id = INS_musso_ascends]:
@@ -526,12 +622,63 @@ focus_tree[id = indonesia_focus]:
         factor(f)
         is_sandbox_mode_on()
 
+  focus[id = INS_utilize_comintern_connections]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = INS_united_against_japan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $crossroad_modifier(2)
+
+  focus[id = INS_revolutionary_economic_cooperation]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
   focus[id = INS_soviet_economic_integration]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
         $ai_mic_modifier()
+
+  focus[id = INS_soviet_aid]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_agrarian_reform]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      modifier:
+        $ai_mic_modifier()
+
+  focus[id = INS_the_three_year_plan]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_realign_export_markets]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_divert_javanese_education_funding_the_east]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = INS_eastern_universities]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
 
   focus[id = INS_recovering_from_the_great_depression]:
     +ai_will_do:

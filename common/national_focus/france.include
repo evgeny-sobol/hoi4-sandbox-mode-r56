@@ -70,7 +70,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_action_francaise)
 
 
-
   focus[id = FRA_sncf]:
     ai_will_do:
       +modifier:
@@ -637,7 +636,6 @@ focus_tree[id = french_focus]:
       $GER->can_PREV_get_wargoal_on_THIS()
       $PRE->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = FRA_service_ordre_legionnaire]:
     ai_will_do:
       +modifier:
@@ -660,7 +658,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_papal_rehabilitation)
 
 
-
   focus[id = FRA_repeal_the_law_of_exile]:
     ai_will_do:
       +modifier:
@@ -669,7 +666,6 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(FRA_repeal_the_law_of_exile)
-
 
 
   focus[id = FRA_support_the_legitimatises]:
@@ -694,7 +690,6 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(FRA_brumaire_movement)
-
 
 
   focus[id = FRA_national_integralism]:
@@ -807,7 +802,6 @@ focus_tree[id = french_focus]:
     available:
       $SPR->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = FRA_claim_the_andorran_throne]:
     ai_will_do:
       +modifier:
@@ -822,7 +816,6 @@ focus_tree[id = french_focus]:
         $ai_betrayal_modifier_vs($ADR)
     available:
       $ADR->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = FRA_proclaim_the_dual_monarchy]:
     ai_will_do:
@@ -844,6 +837,11 @@ focus_tree[id = french_focus]:
   focus[id = FRA_anti_german_front]:
     ai_will_do:
       +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = FRA_monarchist_invite_yugoslavia]:
+    +ai_will_do:
+      modifier:
         $ai_sandbox_modifier()
 
   focus[id = FRA_ally_italy]:
@@ -896,7 +894,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_the_new_continental_system)
 
 
-
   focus[id = FRA_our_natural_borders]:
     ai_will_do:
       +modifier:
@@ -938,7 +935,6 @@ focus_tree[id = french_focus]:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = FRA_approach_the_empire_of_brazil]:
     ai_will_do:
@@ -1068,7 +1064,6 @@ focus_tree[id = french_focus]:
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = FRA_empire_invite_yugoslavia]:
     ai_will_do:
       +modifier:
@@ -1092,7 +1087,6 @@ focus_tree[id = french_focus]:
         $ai_betrayal_modifier_vs($SOV)
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = FRA_a_more_durable_tilsit_treaty]:
     ai_will_do:
@@ -1130,7 +1124,6 @@ focus_tree[id = french_focus]:
         $ai_betrayal_modifier_vs($MEX)
     available:
       $MEX->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = FRA_take_back_north_america]:
     ai_will_do:
@@ -1194,7 +1187,6 @@ focus_tree[id = french_focus]:
         $ai_betrayal_modifier_vs($SWI)
     available:
       $SWI->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = FRA_woo_italy]:
     ai_will_do:
@@ -1309,7 +1301,6 @@ focus_tree[id = french_focus]:
         $ai_betrayal_modifier_vs($ENG)
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = FRA_help_the_spanish_republicans]:
     ai_will_do:
@@ -1433,7 +1424,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_fortification_focus)
 
 
-
   focus[id = FRA_commission_fortified_regions]:
     ai_will_do:
       +modifier:
@@ -1467,7 +1457,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_de_gaulle_strategy)
 
 
-
   focus[id = FRA_motorized_focus]:
     ai_will_do:
       +modifier:
@@ -1480,7 +1469,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_motorized_focus)
 
 
-
   focus[id = FRA_the_mas38]:
     ai_will_do:
       +modifier:
@@ -1489,7 +1477,6 @@ focus_tree[id = french_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(FRA_the_mas38)
-
 
 
   focus[id = FRA_infantry_focus]:
@@ -1518,7 +1505,6 @@ focus_tree[id = french_focus]:
       $sandbox_log_sc_focus(FRA_artillery_focus)
 
 
-
   focus[id = FRA_infantry_tanks]:
     ai_will_do:
       +modifier:
@@ -1529,7 +1515,6 @@ focus_tree[id = french_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(FRA_infantry_tanks)
-
 
 
   focus[id = FRA_the_somua_s35]:
@@ -1547,7 +1532,6 @@ focus_tree[id = french_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(FRA_army_reform)
-
 
 
   focus[id = FRA_commandos_marine]:

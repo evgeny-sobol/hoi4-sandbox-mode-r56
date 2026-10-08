@@ -1141,7 +1141,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_a_change_in_course)
 
 
-
   focus[id = ENG_visit_germany]:
     ai_will_do:
       +modifier:
@@ -1737,7 +1736,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_the_kings_party)
 
 
-
   focus[id = ENG_reassess_continental_commitments]:
     ai_will_do:
       +modifier:
@@ -1750,7 +1748,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_reassess_continental_commitments)
 
 
-
   focus[id = ENG_isolate_the_mediterranean_threat]:
     ai_will_do:
       +modifier:
@@ -1761,7 +1758,6 @@ focus_tree[id = british_focus]:
         $ai_scenario_focus_boost_variant(a)
     +completion_reward:
       $sandbox_log_sc_focus(ENG_isolate_the_mediterranean_threat)
-
 
 
   focus[id = ENG_alliance_with_germany]:
@@ -1782,7 +1778,6 @@ focus_tree[id = british_focus]:
       $not_rival_of_PREV($GER)
     +completion_reward:
       $sandbox_log_sc_focus(ENG_alliance_with_germany)
-
 
 
   focus[id = ENG_noninterference_treaty_with_germany]:
@@ -1807,7 +1802,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_noninterference_treaty_with_germany)
 
 
-
   focus[id = ENG_take_out_the_regia_marina]:
     ai_will_do:
       +modifier:
@@ -1826,7 +1820,6 @@ focus_tree[id = british_focus]:
       $ITA->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(ENG_take_out_the_regia_marina)
-
 
 
   focus[id = ENG_organize_the_blackshirts]:
@@ -1982,7 +1975,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_god_save_the_king)
 
 
-
   focus[id = ENG_ceylon_forward_operating_base]:
     ai_will_do:
       +modifier:
@@ -1995,7 +1987,6 @@ focus_tree[id = british_focus]:
         $ai_mic_modifier()
     +completion_reward:
       $sandbox_log_sc_focus(ENG_ceylon_forward_operating_base)
-
 
 
   focus[id = ENG_reclaim_the_jewel_in_the_crown]:
@@ -2020,7 +2011,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_reclaim_the_jewel_in_the_crown)
 
 
-
   focus[id = ENG_pre_empt_the_ideological_threat]:
     ai_will_do:
       +modifier:
@@ -2039,7 +2029,6 @@ focus_tree[id = british_focus]:
       $SOV->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(ENG_pre_empt_the_ideological_threat)
-
 
 
   focus[id = ENG_expose_the_belly_of_the_bear]:
@@ -2107,7 +2096,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_consolidate_the_british_isles)
 
 
-
   focus[id = ENG_unite_the_anglosphere]:
     ai_will_do:
       +modifier:
@@ -2128,7 +2116,6 @@ focus_tree[id = british_focus]:
       $sandbox_log_sc_focus(ENG_unite_the_anglosphere)
 
 
-
   focus[id = ENG_appeal_to_imperial_loyalists]:
     ai_will_do:
       +modifier:
@@ -2139,7 +2126,6 @@ focus_tree[id = british_focus]:
         $ai_scenario_focus_boost_variant(b)
     +completion_reward:
       $sandbox_log_sc_focus(ENG_appeal_to_imperial_loyalists)
-
 
 
   focus[id = ENG_bring_the_dominions_back_into_the_fold]:
@@ -2181,7 +2167,6 @@ focus_tree[id = british_focus]:
       $NZL->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_sc_focus(ENG_bring_the_dominions_back_into_the_fold)
-
 
 
   focus[id = ENG_the_sun_never_sets]:
@@ -2347,7 +2332,6 @@ focus_tree[id = british_focus]:
       $not_rival_of_PREV($SOV)
       $GER->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = ENG_the_one_true_revolution]:
     ai_will_do:
       +modifier:
@@ -2364,7 +2348,6 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($SOV)
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = ENG_follow_moscow]:
     ai_will_do:
@@ -2445,7 +2428,6 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($GER)
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = ENG_spirit_of_the_industrial_revolution]:
     ai_will_do:
@@ -2537,7 +2519,6 @@ focus_tree[id = british_focus]:
         $ai_betrayal_modifier_vs($USA)
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = ENG_join_the_global_fight_against_fascism]:
     +ai_will_do:

@@ -1069,6 +1069,10 @@ focus_tree[id = lithuania_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(LIT_lcp_resurgence)
 
   focus[id = LIT_preparing_for_the_uprising]:
     ai_will_do:
