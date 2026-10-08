@@ -1,21 +1,21 @@
 opinion_modifiers:
   treacherous_leader:
-    value(-20)
+    value(-40)
 
   dishonorable_leader:
-    value(-10)
-
-  honorable_leader:
-    value(10)
-
-  righteous_leader:
-    value(20)
-
-  national_rival:
     value(-20)
 
+  honorable_leader:
+    value(20)
+
+  righteous_leader:
+    value(40)
+
+  national_rival:
+    value(-40)
+
   leaders_rival:
-    value(-10)
+    value(-20)
 
   scenario_ally:
-    value(40)
+    value(80)

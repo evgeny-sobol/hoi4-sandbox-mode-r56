@@ -168,19 +168,19 @@ scenario_join_scorer:
         scenario_join_industry > 80
       modifier:
         add(10)
-        raw has_opinion: { target = FROM value > 25 }
-      modifier:
-        add(20)
         raw has_opinion: { target = FROM value > 50 }
       modifier:
+        add(20)
+        raw has_opinion: { target = FROM value > 100 }
+      modifier:
         add(30)
-        raw has_opinion: { target = FROM value > 75 }
+        raw has_opinion: { target = FROM value > 150 }
       modifier:
         add(-10)
         raw has_opinion: { target = FROM value < 0 }
       modifier:
         add(-20)
-        raw has_opinion: { target = FROM value < -50 }
+        raw has_opinion: { target = FROM value < -100 }
       modifier:
         factor(0)
         FROM == THIS
