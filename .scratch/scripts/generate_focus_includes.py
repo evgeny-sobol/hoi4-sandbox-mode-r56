@@ -66,6 +66,16 @@ SKIP_MOD_MARKERS = (
     "$ai_civil_war_ignition_modifier()",
     "sandbox_civil_war_cap_reached()",
 )
+# Scenario-owned splices. build_scenario_catalog.py owns these and re-applies
+# them from this mod's arc specs. Copying them from the vanilla includes would
+# inject vanilla scenario tags into this fork and drop the canonical `+`
+# prefix, which build then rejects as non-canonical drift.
+SCENARIO_SPLICE_MARKERS = (
+    "$ai_scenario_focus_boost",  # also matches $ai_scenario_focus_boost_variant
+    "$ai_scenario_focus_suppress",
+    "$ai_scenario_focus_gate_after",
+    "$sandbox_log_sc_focus",
+)
 INTERVENTION_MARK = ("lesson", "interven", "volunteer")
 UNCONST_MARK = (
     "seize_power", "coup", "ban_the_party", "suspend_election",
@@ -449,6 +459,8 @@ def _parse_vanilla_body(body_lines: list[str]) -> VanillaExtras:
     kept = []
     for mod in extras.extra_mods:
         joined = "\n".join(mod)
+        if any(m in joined for m in SCENARIO_SPLICE_MARKERS):
+            continue
         if any(m in joined for m in SKIP_MOD_MARKERS) and not any(
             x in joined for x in ("$ai_mic_modifier", "$crossroad_modifier", "$ai_civil_war_root",
                                   "$ai_cooperation", "$ai_antagonism", "$ai_betrayal",
@@ -475,6 +487,11 @@ def _parse_vanilla_body(body_lines: list[str]) -> VanillaExtras:
             extras.has_honor = True
         kept.append(mod)
     extras.extra_mods = kept
+    if extras.completion:
+        extras.completion = [
+            line for line in extras.completion
+            if "$sandbox_log_sc_focus" not in line
+        ]
     if extras.completion and any("add_tyranny" in l or "tyranny" in l for l in extras.completion):
         extras.has_tyranny = True
     return extras
@@ -872,8 +889,7 @@ def build_include(text, vanilla: dict[str, VanillaExtras], stats: dict) -> str |
             _emit_mod_fixed(lines, wd, has_awd, entries)
             stats["mods"] += 1
 
-        if not (vx and vx.has_sandbox_set):
-            add(["$ai_sandbox_modifier()"])
+        add(["$ai_sandbox_modifier()"])
         if info.is_root:
             add(["$root_modifier()"])
         if info.is_ignition:
