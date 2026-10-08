@@ -23,3 +23,12 @@ characters:
         +modifier:
           add(1)
           is_sandbox_mode_on()
+
+characters:
+  AUS_lothar_rendulic:
+    advisor:
+      visible:
+        if:
+          limit:
+            -ANZ:
+            country_exists(ANZ)

@@ -1,0 +1,8 @@
+characters:
+  AUS_lothar_rendulic:
+    advisor:
+      visible:
+        if:
+          limit:
+            -ANZ:
+            country_exists(ANZ)

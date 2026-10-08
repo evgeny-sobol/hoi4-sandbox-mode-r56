@@ -1,0 +1,8 @@
+# Rt56 2026-10-09: `ANZ` is a country tag alias that resolves only after the
+# `r56_nazi_austria_aliases_set` flag is set. Before that, `ANZ = { exists = yes }`
+# is an invalid scope the game logs every tick. `country_exists` checks the same
+# thing without opening a scope.
+AUS_GER_dont_join_austrian_civilwar:
+  enable:
+    -ANZ:
+    country_exists(ANZ)
