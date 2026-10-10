@@ -504,9 +504,6 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_civil_war_ignition_modifier()
       modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      modifier:
         $ai_high_tyranny_tilt()
     completion_reward:
       $sandbox_log_cw_ignition(BUL_overthrow_the_tsar)
@@ -768,9 +765,6 @@ focus_tree[id = bulgarian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(BUL_abolish_the_monarchy)
 
@@ -1188,9 +1182,6 @@ focus_tree[id = bulgarian_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(BUL_depose_the_tsar)
 

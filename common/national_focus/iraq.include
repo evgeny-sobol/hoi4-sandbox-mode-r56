@@ -1000,9 +1000,6 @@ focus_tree[id = iraq_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         $ai_cooperation_modifier($ROOT)
       +modifier:
         factor(0)

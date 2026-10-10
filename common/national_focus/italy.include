@@ -860,9 +860,6 @@ focus_tree[id = italian_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($ITA) + $opinion_factor($SLV)) / 2

@@ -1665,9 +1665,6 @@ focus_tree[id = new_warlord_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         $ai_war_support_modifier()
       +modifier:
         antagonism = 1 - ($opinion_factor($NXM) + $opinion_factor($GSM)) / 2

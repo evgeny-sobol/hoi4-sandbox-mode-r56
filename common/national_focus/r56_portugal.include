@@ -574,9 +574,6 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     +completion_reward:
       $sandbox_log_cw_ignition(POR_ally_anti_colonial_resistance)
 
@@ -801,9 +798,6 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     +completion_reward:
       $sandbox_log_cw_ignition(POR_center_stage_against_communism)
 
@@ -883,9 +877,6 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_war_support_modifier()
       +modifier:

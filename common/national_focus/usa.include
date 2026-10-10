@@ -100,6 +100,8 @@ focus_tree[id = usa_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
+        $ai_civil_war_ignition_modifier()
+      +modifier:
         f = 4 * mtth:communism_factor /
           (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)
         factor(f)
@@ -767,6 +769,8 @@ focus_tree[id = usa_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+      +modifier:
+        $ai_civil_war_ignition_modifier()
       +modifier:
         f = 4 * mtth:fascism_factor /
           (mtth:democracy_factor + mtth:communism_factor + mtth:fascism_factor)

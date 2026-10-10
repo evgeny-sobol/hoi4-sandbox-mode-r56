@@ -3844,9 +3844,6 @@ focus_tree[id = soviet_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         $crossroad_modifier(3)
       +modifier:
         $ai_high_tyranny_tilt()

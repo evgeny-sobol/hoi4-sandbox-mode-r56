@@ -261,9 +261,6 @@ shared_focus[id = BALTIC_overthrow_the_government]:
     +modifier:
       $ai_civil_war_ignition_modifier()
     +modifier:
-      factor(0)
-      sandbox_civil_war_cap_reached()
-    +modifier:
       $ai_high_tyranny_tilt()
   completion_reward:
     $sandbox_log_cw_ignition(BALTIC_overthrow_the_government)
@@ -329,9 +326,6 @@ shared_focus[id = BALTIC_arm_baltic_reds]:
       $ai_sandbox_modifier()
     +modifier:
       $ai_civil_war_ignition_modifier()
-    +modifier:
-      factor(0)
-      sandbox_civil_war_cap_reached()
   completion_reward:
     $sandbox_log_cw_ignition(BALTIC_arm_baltic_reds)
 

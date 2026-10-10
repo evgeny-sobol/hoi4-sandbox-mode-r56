@@ -512,9 +512,6 @@ focus_tree[id = french_focus]:
       +modifier:
         $ai_civil_war_ignition_modifier()
       +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      +modifier:
         $crossroad_modifier(2)
       +modifier:
         $ai_high_tyranny_tilt()

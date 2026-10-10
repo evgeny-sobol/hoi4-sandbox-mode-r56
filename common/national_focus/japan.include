@@ -36,9 +36,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(JAP_cast_the_die)
 
@@ -239,9 +236,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_high_tyranny_tilt()
     completion_reward:

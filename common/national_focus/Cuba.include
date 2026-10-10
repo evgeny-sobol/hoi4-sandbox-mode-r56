@@ -147,9 +147,6 @@ focus_tree[id = cuban_focus]:
       modifier:
         $ai_civil_war_ignition_modifier()
       modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      modifier:
         $ai_high_tyranny_tilt()
     +completion_reward:
       $sandbox_log_cw_ignition(CUB_overthrow_the_menocal_government)

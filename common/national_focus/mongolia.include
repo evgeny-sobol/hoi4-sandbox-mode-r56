@@ -1199,9 +1199,6 @@ focus_tree[id = Mongolia_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     +completion_reward:
       $sandbox_log_cw_ignition(MON_sabotage_great_khural)
 
