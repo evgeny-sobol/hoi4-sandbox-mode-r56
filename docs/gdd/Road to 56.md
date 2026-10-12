@@ -18,7 +18,7 @@ Do not copy `_sandbox` `.include` files until each one is remapped to an Rt56 fi
 
 `.scratch/scripts/generate_focus_includes.py` rebuilds every Rt56 focus include. It keeps the first-pass splices and then, for IDs that still exist in Rt56, copies the matching `_sandbox` extras (party shares, Honor/rival `available`, Tyranny completion, MIC, `$crossroad_modifier`, CW-root weights). Heuristics fill the rest:
 
-- `$ai_sandbox_modifier()` on every id'd focus (create `ai_will_do` when the Rt56 focus has none); skip it when a copied extra already uses `$ai_sandbox_set`
+- `$ai_sandbox_modifier()` on every id'd focus (create `ai_will_do` when the Rt56 focus has none); it is never skipped, because `build_scenario_catalog.py` inserts the scenario boost/suppress splices right after this anchor
 - `$root_modifier()` when the focus has no `prerequisite` block
 - `$ai_civil_war_ignition_modifier()` and `sandbox_civil_war_cap_reached` when the focus body contains `start_civil_war`
 - `$sandbox_log_cw_ignition` / `$sandbox_log_cw_root` on those completion rewards (and on the extra event-queued POR/LIT ignition IDs)
@@ -48,3 +48,14 @@ Rt56-only fuses (Patterns A–D, same helpers as vanilla):
 - Focus ignition added on `POR_ally_anti_colonial_resistance`, `POR_center_stage_against_communism`, `POR_avenge_the_1821_disaster`, `LIT_launch_the_revolution` (those rewards queue CW events rather than calling `start_civil_war` in the focus)
 
 Do not overlay `political.21/22/23`. Spy operations stay out of scope. Residual holes: `peru.49` / `.50` / `.51` (`fire_only_once` from untagged callers), `portugal.60` (POR lights a war in BRA; ignition is on `POR_avenge_the_1821_disaster`), and vanilla DLC fuses that `_sandbox` also left untagged (`stability.3`, `britain.23`, and similar).
+
+## Release tracking
+
+The subscribed release is `C:\Games\Steam\steamapps\workshop\content\394360\820260968`.
+
+- 2026-10-09: focus id `INS_dominion_of_atjeh` was removed by the Indonesia
+  rework; its splice was dropped. Ids in `common/ai_strategy/doctrines.txt`
+  gained a `DOCTRINE_` prefix, but this mod does not reference them. No events,
+  characters, ideas, decisions, script constants or defines were removed, and
+  the opinion defines are unchanged.
+- 2026-09-08: previous release.

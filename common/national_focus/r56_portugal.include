@@ -558,6 +558,10 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
+      modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(POR_unite_against_salazar)
 
   focus[id = POR_seek_international_support]:
     +ai_will_do:
@@ -570,9 +574,6 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     +completion_reward:
       $sandbox_log_cw_ignition(POR_ally_anti_colonial_resistance)
 
@@ -761,6 +762,10 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $root_modifier()
+      modifier:
+        $ai_civil_war_root_modifier()
+    +completion_reward:
+      $sandbox_log_cw_root(POR_restore_valiance_to_the_nation)
 
   focus[id = POR_radicalize_salazars_allies]:
     +ai_will_do:
@@ -793,9 +798,6 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     +completion_reward:
       $sandbox_log_cw_ignition(POR_center_stage_against_communism)
 
@@ -875,9 +877,6 @@ focus_tree[id = r56_portuguese_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_war_support_modifier()
       +modifier:

@@ -27,9 +27,6 @@ focus_tree[id = finnish_focus]:
       modifier:
         $ai_civil_war_ignition_modifier()
       modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
-      modifier:
         $ai_mic_modifier()
     completion_reward:
       $sandbox_log_cw_ignition(FIN_the_second_finnish_civil_war)
@@ -634,9 +631,6 @@ focus_tree[id = finnish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(FIN_a_fascist_regime)
 
@@ -1273,9 +1267,6 @@ focus_tree[id = finnish_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     +completion_reward:
       $sandbox_log_cw_ignition(fin_revolutionfoc)
 

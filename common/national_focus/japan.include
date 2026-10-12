@@ -36,9 +36,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(JAP_cast_the_die)
 
@@ -155,7 +152,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_support_the_kodoha_faction)
 
 
-
   focus[id = JAP_challenge_the_zaibatsus]:
     ai_will_do:
       +modifier:
@@ -240,9 +236,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_high_tyranny_tilt()
     completion_reward:
@@ -333,7 +326,6 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-
   focus[id = JAP_full_sovereignty_for_the_philippines]:
     ai_will_do:
       +modifier:
@@ -372,7 +364,6 @@ focus_tree[id = japan_wtt_focus]:
         is_sandbox_mode_on()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_revere_the_emperor_destroy_the_traitors)
-
 
 
   focus[id = JAP_establish_the_gunbatsu]:
@@ -691,11 +682,8 @@ focus_tree[id = japan_wtt_focus]:
         is_sandbox_mode_on()
     available:
       is_liberal_leader(no)
-    completion_reward:
-      $add_tyranny(20)
     +completion_reward:
       $sandbox_log_sc_focus(JAP_sea_purge_the_kodoha_faction)
-
 
 
   focus[id = JAP_promulgate_the_military_ministers_system]:
@@ -706,7 +694,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_promulgate_the_military_ministers_system)
-
 
 
   focus[id = JAP_east_asian_cooperative_society]:
@@ -729,7 +716,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_reprimand_hamada_kunimatsu)
 
 
-
   focus[id = JAP_the_harakiri_debate]:
     ai_will_do:
       +modifier:
@@ -738,7 +724,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_the_harakiri_debate)
-
 
 
   focus[id = JAP_konoes_first_cabinet]:
@@ -751,7 +736,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_konoes_first_cabinet)
 
 
-
   focus[id = JAP_new_order_in_east_asia]:
     ai_will_do:
       +modifier:
@@ -762,7 +746,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_new_order_in_east_asia)
 
 
-
   focus[id = JAP_reiterate_the_three_principles_of_hirota]:
     ai_will_do:
       +modifier:
@@ -771,7 +754,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_reiterate_the_three_principles_of_hirota)
-
 
 
   focus[id = JAP_formalize_japan_china_manchukuo_alliance]:
@@ -794,7 +776,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_formalize_japan_china_manchukuo_alliance)
 
 
-
   focus[id = JAP_sea_national_spiritual_mobliization_movement]:
     ai_will_do:
       +modifier:
@@ -803,7 +784,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_sea_national_spiritual_mobliization_movement)
-
 
 
   focus[id = JAP_form_cabinet_intelligence_bureau]:
@@ -862,7 +842,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_sea_state_general_mobilization_law)
 
 
-
   focus[id = JAP_issue_the_ten_commandments_for_marriage]:
     ai_will_do:
       +modifier:
@@ -871,7 +850,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_issue_the_ten_commandments_for_marriage)
-
 
 
   focus[id = JAP_enact_religious_organizations_law]:
@@ -884,7 +862,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_enact_religious_organizations_law)
 
 
-
   focus[id = JAP_new_order_movement]:
     ai_will_do:
       +modifier:
@@ -893,7 +870,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_new_order_movement)
-
 
 
   focus[id = JAP_sea_tripartite_pact]:
@@ -927,7 +903,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_imperial_rule_assistance_association)
-
 
 
   focus[id = JAP_form_the_yokusan_sonendan]:
@@ -975,7 +950,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost()
     +completion_reward:
       $sandbox_log_sc_focus(JAP_sea_greater_east_asian_co_properity_sphere)
-
 
 
   focus[id = JAP_expand_japan_manchukuo_economic_bloc]:
@@ -1127,7 +1101,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost_variant(a)
     +completion_reward:
       $sandbox_log_sc_focus(JAP_revisit_the_thirteen_demands)
-
 
 
   focus[id = JAP_invest_in_senbu]:
@@ -1384,7 +1357,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_nanshin_ron)
 
 
-
   focus[id = JAP_soviet_japanese_neutrality_pact]:
     ai_will_do:
       +modifier:
@@ -1608,7 +1580,6 @@ focus_tree[id = japan_wtt_focus]:
       $sandbox_log_sc_focus(JAP_hokushin_ron)
 
 
-
   focus[id = JAP_ensure_temporary_peace_with_china]:
     ai_will_do:
       +modifier:
@@ -1617,7 +1588,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_scenario_focus_boost_variant(b)
     +completion_reward:
       $sandbox_log_sc_focus(JAP_ensure_temporary_peace_with_china)
-
 
 
   focus[id = JAP_a_mongol_volunteer_army]:
@@ -1713,7 +1683,6 @@ focus_tree[id = japan_wtt_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-
 
   focus[id = JAP_seek_yakuza_support]:
     ai_will_do:
@@ -2069,7 +2038,6 @@ focus_tree[id = japan_wtt_focus]:
       +modifier:
         $ai_sandbox_modifier()
 
-
   focus[id = JAP_guide_the_lesser_states]:
     ai_will_do:
       +modifier:
@@ -2334,7 +2302,6 @@ focus_tree[id = japan_wtt_focus]:
       $SAB->can_PREV_get_wargoal_on_THIS()
       $BRN->can_PREV_get_wargoal_on_THIS()
 
-
   focus[id = JAP_free_asians_from_soviet_opression]:
     ai_will_do:
       +modifier:
@@ -2349,7 +2316,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_betrayal_modifier_vs($SOV)
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = JAP_go_after_the_capitalists]:
     ai_will_do:
@@ -2371,7 +2337,6 @@ focus_tree[id = japan_wtt_focus]:
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
       $ENG->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = JAP_a_free_asia_pacific]:
     ai_will_do:
@@ -2536,7 +2501,6 @@ focus_tree[id = japan_wtt_focus]:
       $NXM->can_PREV_get_wargoal_on_THIS()
       $KHM->can_PREV_get_wargoal_on_THIS()
       $HBC->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = JAP_mobilize_the_proletariat]:
     ai_will_do:
@@ -2915,7 +2879,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_betrayal_modifier_vs($SOV)
     available:
       $SOV->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = JAP_free_colonized_asian_countries]:
     ai_will_do:
@@ -3824,7 +3787,6 @@ focus_tree[id = japan_wtt_focus]:
         $ai_betrayal_modifier_vs($USA)
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
-
 
   focus[id = JAP_reddoborantias]:
     ai_will_do:

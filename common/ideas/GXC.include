@@ -1,0 +1,22 @@
+# Rt56 2026-10-09 (common/ideas/GXC.txt): `GXC_bai_chongxi` is a character,
+# written as a bare scope inside a country-scope idea `available`. The game
+# evaluates that trigger for every country, so each country without the
+# character logs an invalid-scope error every tick (hundreds of thousands of
+# error.log lines per session). Rescope the check to the owning country, which
+# mirrors the sibling `GXC = { has_idea = ... }` branch.
+ideas:
+  country:
+    GXC_jihad_upgraded:
+      available:
+        OR:
+          -GXC_bai_chongxi:
+          +GXC:
+            GXC_bai_chongxi:
+              is_hired_as_advisor(yes)
+    GXC_jihad:
+      available:
+        OR:
+          -GXC_bai_chongxi:
+          +GXC:
+            GXC_bai_chongxi:
+              is_hired_as_advisor(yes)

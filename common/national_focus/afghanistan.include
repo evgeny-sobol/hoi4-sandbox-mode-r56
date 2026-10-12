@@ -438,9 +438,6 @@ focus_tree[id = afghanistan_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(AFG_the_faqirs_revolt)
 
@@ -886,9 +883,6 @@ focus_tree[id = afghanistan_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(AFG_return_of_the_emir)
 
@@ -1379,9 +1373,6 @@ focus_tree[id = afghanistan_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
     completion_reward:
       $sandbox_log_cw_ignition(AFG_parliamentary_democracy)
 
@@ -1478,9 +1469,6 @@ focus_tree[id = afghanistan_tree]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        factor(0)
-        sandbox_civil_war_cap_reached()
       +modifier:
         $ai_high_tyranny_tilt()
     completion_reward:

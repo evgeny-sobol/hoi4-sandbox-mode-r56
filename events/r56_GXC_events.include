@@ -1,0 +1,10 @@
+# Rt56 2026-10-09 (events/r56_GXC_events.txt): `CHI_li_zongren` is a character,
+# written as a bare scope in GXC_event.14's country trigger. The game evaluates
+# the trigger for every country, so each country without the character logs an
+# invalid-scope error every tick. Rescope the check to the owning country.
+country_event[id = GXC_event.14]:
+  trigger:
+    -CHI_li_zongren:
+    +CHI:
+      CHI_li_zongren:
+        is_hired_as_advisor(yes)
