@@ -42,6 +42,8 @@ Road to 56 doubles the engine opinion clamp (`r56_defines.lua`: `MAX_OPINION_VAL
 
 Both files are excluded from `sync_core.py` so the Rt56 scale persists across syncs.
 
+Economic posture reads the same scale: its opinion threshold is half of it (100 here, 50 in `_sandbox`), and `check_economic_posture.py` fails on any literal beside `has_opinion`. See `docs/gdd/Economic Posture.md`, "Road to 56".
+
 ## Civil Wars
 
 The global counter `sandbox_civil_war_count`, the cap of 1 distinct `original_tag`, the 0-12 month `sandbox_civil_war_cooldown`, the focus-ignition exemption, and major-power civil-war backing (`docs/gdd/Civil Wars.md`, ADR-0006) run in this fork. Event/mission/decision/BoP overlays delay fuses; they do not delete `start_civil_war` payloads. Player-started wars stay unrestricted.
