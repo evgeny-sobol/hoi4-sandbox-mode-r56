@@ -144,15 +144,22 @@ Alone, the equipment market and market access are Arms Against Tyranny, and
 licensing turned out to be Death or Dishonor: vanilla wraps every
 `create_production_license` in that `has_dlc` (`common/scripted_effects/BLT_scripted_effects.txt`),
 and the `allow_licensing` game rule itself declares `required_dlc = "Death or
-Dishonor"`. On the base game posture is invisible: no embargoes, no market bias,
-no licence. The branches are guarded, so `error.log` stays clean instead of the
+Dishonor"`. The branches are guarded, so `error.log` stays clean instead of the
 mechanics half-working, and no screen advertises an action the AI cannot take.
+
+The 2026-10-19 vanilla no-DLC run measured what the guards do: embargoes went to
+zero and `error.log` stayed clean, but licences were still granted, because Death
+or Dishonor became free and part of the base game in patch 1.14.3 (this game is
+1.19.3.0; there is no `dlc004_*` package and the `allow_licensing` rule exists at
+runtime while rules of genuinely absent DLC are dropped). The fork inherits that:
+licensing is base content on a current build, so do not read a licence grant as
+evidence that the DLC check failed. ADR-0008 carries the second amendment.
 
 Declarative market entries are the one exception: an `ai_strategy` entry carries
 no conditions of its own, so the entries inside the three band plans are written
-unguarded and verified clean on the base game (issue 02). The tokens are
-engine-side and the expectation is that they parse and do nothing when the
-market does not exist.
+unguarded and verified clean on the base game (issue 02). The 2026-10-19 no-DLC
+run raised no posture line and no market token in `error.log`, so the tokens
+parse and do nothing when the market does not exist.
 
 ## Road to 56
 
@@ -236,7 +243,8 @@ thing that can settle the rest:
       flat opinion of 100 counts as good, not as half-way.
 - [ ] Rt56: no literal opinion threshold in the sources (the checker's source
       pass covers this and passes).
-- [ ] Historical session: nothing happens, no `ec_` lines.
+- [ ] Historical session: nothing happens, no `ec_` lines. Run on the vanilla
+      mod only (configuration 4); the fork's own historical session is owed.
 - [x] `check_economic_posture.py` passes on this fork's generated file
       (`problems: 0`, 825 plans, 275 tags).
 - [ ] Rt56 observer session (configuration 3 of
