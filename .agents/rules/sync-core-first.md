@@ -1,9 +1,4 @@
----
-description: Sync shared core files into the mod before editing; core/ is authoritative
-alwaysApply: true
----
-
-# Sync core first
+## Rule: Sync core first
 
 `core/` is a git submodule checkout of `sandbox-mod-core`. The authoritative copy of shared files lives in the core repo; this mod holds synced copies plus per-mod catalogs.
 

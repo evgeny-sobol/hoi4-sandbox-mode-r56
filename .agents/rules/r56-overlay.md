@@ -1,9 +1,4 @@
----
-description: Overlay Rt56 with unique 99_sandbox_* files or compiled includes; never write the workshop copy
-alwaysApply: true
----
-
-# Road to 56 overlay constraints
+## Rule: Overlay Rt56 with unique files or compiled includes
 
 This repository is a companion to The Road to 56, not a vanilla overlay.
 

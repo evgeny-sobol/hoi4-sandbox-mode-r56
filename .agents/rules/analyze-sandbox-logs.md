@@ -1,22 +1,17 @@
----
-description: Extract #sandbox lines before analyzing game.log
-alwaysApply: true
----
-
-# Analyze game.log through sandbox_extract
+## Rule: Analyze game.log through sandbox_extract
 
 When the user asks to analyze `game.log` (e.g. "check the logs", "look at the logs"), first run the extraction script, then analyze its output:
-
-- `_sandbox-r56` (Road to 56 overlay):
-
-```powershell
-python "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56\.scratch\scripts\extract_sandbox.py"
-```
 
 - `_sandbox` (vanilla Sandbox Mode Overhaul):
 
 ```powershell
 python "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox\.scratch\scripts\extract_sandbox.py"
+```
+
+- `_sandbox-r56` (Road to 56 overlay):
+
+```powershell
+python "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\mod\_sandbox-r56\.scratch\scripts\extract_sandbox.py"
 ```
 
 The script reads `%USERPROFILE%/Documents/Paradox Interactive/Hearts of Iron IV/logs/game.log` and writes every `#sandbox` line to `%USERPROFILE%/Documents/Paradox Interactive/Hearts of Iron IV/logs/sandbox_extract.txt` (pass a custom log or output path as positional arguments to override).
