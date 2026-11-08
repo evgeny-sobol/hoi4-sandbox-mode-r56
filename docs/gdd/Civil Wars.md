@@ -276,7 +276,7 @@ Rivals: `on_civil_war_end` already re-rolls the winner's personal rival. No extr
 
 ## How to read `game.log`
 
-First line is the version. In vanilla it is `#sandbox Mode Overhaul v0.4.1`; this fork prints its own banner, `#sandbox Mode Overhaul for The Road to 56 v0.4.1` (both match their `descriptor.mod`), so a grep written for the vanilla string misses the fork. Next is `sandbox_start historical=0` or `historical=1`.
+First line is the version. In vanilla it is `#sandbox Mode Overhaul v0.4.2`; this fork prints its own banner, `#sandbox Mode Overhaul for The Road to 56 v0.4.2` (both match their `descriptor.mod`), so a grep written for the vanilla string misses the fork. Next is `sandbox_start historical=0` or `historical=1`.
 
 | Token | When | What to read |
 | --- | --- | --- |
