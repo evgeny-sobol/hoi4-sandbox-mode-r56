@@ -1,0 +1,10 @@
+# Road to 56 ships this plan file; sandbox mode switches it off, the same way
+# every other covered country's plans are switched off. The base .txt beside
+# this file is Rt56's own copy, which the compiler requires.
+
+GXC_hist_plan:
+  enable:
+    is_sandbox_mode_on(no)
+  abort:
+    OR:
+      is_sandbox_mode_on(yes)
