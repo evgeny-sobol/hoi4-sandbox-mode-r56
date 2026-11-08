@@ -4,7 +4,8 @@
 docs/gdd/National Focuses.md + docs/gdd/Road to 56.md:
   * $ai_sandbox_modifier() on every id'd focus
   * $root_modifier() when there is no prerequisite
-  * civil-war ignition + cap when the body contains start_civil_war
+  * civil-war ignition weight (0.25) when the body contains
+    start_civil_war; the focus exemption means no cap modifier lands here
   * vanilla-include extras (party shares, Honor/rival gates, MIC, tyranny, CW roots)
     for IDs that still exist in Rt56
   * $sandbox_log_cw_ignition / $sandbox_log_cw_root on ignition and CW-root completion
@@ -893,8 +894,12 @@ def build_include(text, vanilla: dict[str, VanillaExtras], stats: dict) -> str |
         if info.is_root:
             add(["$root_modifier()"])
         if info.is_ignition:
+            # docs/gdd/Civil Wars.md "Focus exemption": a focus ignition is
+            # exempt from the cap, so it carries the ignition weight (0.25)
+            # alone. Adding `factor(0) sandbox_civil_war_cap_reached()` here
+            # zeroes every AI focus ignition while any civil war runs, which is
+            # the opposite of the exemption. Emitting only the weight modifier.
             add(["$ai_civil_war_ignition_modifier()"])
-            add(["factor(0)", "sandbox_civil_war_cap_reached()"])
             stats["ignition"] += 1
         if info.fid in cw_roots and not (vx and vx.has_cw_root):
             add(["$ai_civil_war_root_modifier()"])
