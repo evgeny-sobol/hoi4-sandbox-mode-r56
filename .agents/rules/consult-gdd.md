@@ -1,9 +1,4 @@
----
-description: Consult docs/gdd/*.md before edits; ask if a change would contradict the GDD
-alwaysApply: true
----
-
-# Consult the GDD first
+## Rule: Consult the GDD first
 
 Before making changes in this repository, read the relevant documents under `docs/gdd/` (`docs/gdd/*.md`). Use them as the source of intended design.
 
