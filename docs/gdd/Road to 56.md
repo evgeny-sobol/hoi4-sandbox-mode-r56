@@ -50,7 +50,7 @@ The global counter `sandbox_civil_war_count`, the cap of 1 distinct `original_ta
 
 Vanilla fuse includes from `_sandbox` are copied when the matching workshop `.txt` exists (`.scratch/scripts/copy_cw_fuse_includes.py`). `Spain.include` drops `spain.10` (deleted in Rt56 `Spain.txt`). Workshop-missing files cannot be spliced (vanilla fall-through at runtime): `events/NSB_Estonia`, `events/NSB_Lithuania`, `common/decisions/EST`, `common/scripted_effects/BLT_scripted_effects`, `common/bop/ITA`. ITA still uses event `BBA_italy_civil_war.1` `+trigger` plus weekly retry. `EST_events.7` weekly retry is a no-op unless `EST_vapsid_takeover` is set (Rt56 `estonia.txt` does not set that flag).
 
-`docs/gdd/Civil Wars.md` acceptance greps still apply. The first `#sandbox` line is `#sandbox Mode Overhaul for The Road to 56 v0.4.2` - note the fork's own banner, so a log-grepping script that expects the vanilla `#sandbox Mode Overhaul v...` string will miss it. Spain 1936 is `cw_event spain.1` / `lar_spain.2` (no `spain.10`). First delivery of a gated event logs `cw_event` even when weekly retry is not the caller (ITA BoP `on_activate`, NSB hours=1, Cedillo `mexico.1`, `bftb_greece.105` / `.218`). Pattern B skips stay silent; the war option logs when taken. Mission timeouts that start a war inline (`POL_peasants_strike`, `AST_veterans_revolt`, `on_daily_AST`) log `cw_event` on fire so a free-slot war is not mistaken for an ungated fuse.
+`docs/gdd/Civil Wars.md` acceptance greps still apply. The first `#sandbox` line is `#sandbox Mode Overhaul for The Road to 56 v0.4.3` - note the fork's own banner, so a log-grepping script that expects the vanilla `#sandbox Mode Overhaul v...` string will miss it. Spain 1936 is `cw_event spain.1` / `lar_spain.2` (no `spain.10`). First delivery of a gated event logs `cw_event` even when weekly retry is not the caller (ITA BoP `on_activate`, NSB hours=1, Cedillo `mexico.1`, `bftb_greece.105` / `.218`). Pattern B skips stay silent; the war option logs when taken. Mission timeouts that start a war inline (`POL_peasants_strike`, `AST_veterans_revolt`, `on_daily_AST`) log `cw_event` on fire so a free-slot war is not mistaken for an ungated fuse.
 
 Rt56-only fuses (Patterns A-D, same helpers as vanilla):
 
@@ -65,6 +65,16 @@ Do not overlay `political.21/22/23`. Spy operations stay out of scope. Residual 
 
 The subscribed release is `C:\Games\Steam\steamapps\workshop\content\394360\820260968`.
 
+- 2026-11-08: `GXC_bai_chongxi` was fixed upstream, so the hand-patch in
+  `common/ideas/GXC.include` is now an empty documented file. 47 focuses moved
+  out of `china_nationalist_sea.txt` into `shared_focus` declarations in
+  `r56_ncns_branches_shared_focus.txt`; their splices moved with them into
+  `r56_ncns_branches_shared_focus.include`. El Salvador and the central American
+  military branch arrived new and are covered. Eleven focus files remain
+  uncovered on purpose: none declares a `focus` or `shared_focus` block of its
+  own, every one either references ids declared in a file that is already
+  covered, or is commented out upstream (`japan_old`, `silesia`) - an include for
+  any of them would be empty or fail the compile.
 - 2026-10-09: focus id `INS_dominion_of_atjeh` was removed by the Indonesia
   rework; its splice was dropped. Ids in `common/ai_strategy/doctrines.txt`
   gained a `DOCTRINE_` prefix, but this mod does not reference them. No events,

@@ -1,0 +1,132 @@
+
+shared_focus[id = CENAM_armies_of_the_isthmus]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+    +modifier:
+      $root_modifier()
+
+shared_focus[id = CENAM_us_military_mission]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_canal_zone_training]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_german_military_mission]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_mausers_from_germany]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_soviet_military_mission]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_red_army_doctrine]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_escuela_militar]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_professional_army]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_loyal_army]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_the_general_staff]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_field_maneuvers]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_escuela_superior_de_guerra]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_rural_reserves]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_tropical_medicine]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_jungle_columns]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_fighters_of_the_sierra]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_mule_trains]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_machete_and_rifle]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_arms_from_abroad]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_standardize_the_rifle]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_pack_artillery]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_army_road_battalions]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_trucks_for_the_army]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_light_tanks_for_the_isthmus]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
+
+shared_focus[id = CENAM_mountain_guns]:
+  ai_will_do:
+    +modifier:
+      $ai_sandbox_modifier()
