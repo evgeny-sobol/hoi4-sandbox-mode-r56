@@ -1,22 +1,21 @@
-# Rt56 2026-10-09 (common/ideas/GXC.txt): `GXC_bai_chongxi` is a character,
-# written as a bare scope inside a country-scope idea `available`. The game
-# evaluates that trigger for every country, so each country without the
-# character logs an invalid-scope error every tick (hundreds of thousands of
-# error.log lines per session). Rescope the check to the owning country, which
-# mirrors the sibling `GXC = { has_idea = ... }` branch.
-ideas:
-  country:
-    GXC_jihad_upgraded:
-      available:
-        OR:
-          -GXC_bai_chongxi:
-          +GXC:
-            GXC_bai_chongxi:
-              is_hired_as_advisor(yes)
-    GXC_jihad:
-      available:
-        OR:
-          -GXC_bai_chongxi:
-          +GXC:
-            GXC_bai_chongxi:
-              is_hired_as_advisor(yes)
+# Rt56 2026-11-08 superseded the 2026-10-09 hand-patch this file used to carry.
+#
+# Back then `GXC_bai_chongxi` appeared as a bare scope directly under the idea's
+# `available` OR, so the game evaluated `GXC_bai_chongxi = { is_hired_as_advisor
+# = yes }` for every country in the world and each country without that character
+# logged an invalid-scope error every tick.
+#
+# Upstream now guards both blocks itself:
+#
+#   AND = {
+#     original_tag = GXC
+#     GXC_bai_chongxi = { is_hired_as_advisor = yes }
+#   }
+#
+# so only GXC ever evaluates the character scope, and the defect is gone at the
+# source. The patch below would now fail the build ("block to remove not found")
+# and, if it were retargeted at the new shape, would delete the upstream guard.
+#
+# Kept as an empty, documented include rather than deleted: the .include file is
+# listed in the compile tree and its absence is silent, while this file explains
+# why nothing is patched here. Revisit if upstream drops the guard again.
