@@ -85,17 +85,7 @@ focus_tree[id = sweden_focus]:
       +modifier:
         $crossroad_modifier(2)
       +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($SWE)
-      +modifier:
-        $ai_rivalry_modifier($SWE)
-      +modifier:
-        $ai_betrayal_modifier_vs($SWE)
-      +modifier:
         $ai_mic_modifier()
-    available:
-      $SWE->can_PREV_get_wargoal_on_THIS()
 
   focus[id = SWE_allow_landsverk_to_operate]:
     ai_will_do:
@@ -104,17 +94,7 @@ focus_tree[id = sweden_focus]:
       +modifier:
         $crossroad_modifier(2)
       +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($SWE)
-      +modifier:
-        $ai_rivalry_modifier($SWE)
-      +modifier:
-        $ai_betrayal_modifier_vs($SWE)
-      +modifier:
         $ai_mic_modifier()
-    available:
-      $SWE->can_PREV_get_wargoal_on_THIS()
 
   focus[id = SWE_as_the_barometer_falls]:
     ai_will_do:
@@ -559,7 +539,6 @@ focus_tree[id = sweden_focus]:
           $ICE->is_friend_of_PREV()
     available:
       $NOR->can_PREV_get_wargoal_on_THIS()
-      $SWE->can_PREV_get_wargoal_on_THIS()
       $DEN->can_PREV_get_wargoal_on_THIS()
       $FIN->can_PREV_get_wargoal_on_THIS()
       $ICE->can_PREV_get_wargoal_on_THIS()

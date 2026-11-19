@@ -475,16 +475,6 @@ focus_tree[id = wuw_hungarian_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($HUN)
-      +modifier:
-        $ai_rivalry_modifier($HUN)
-      +modifier:
-        $ai_betrayal_modifier_vs($HUN)
-    available:
-      $HUN->can_PREV_get_wargoal_on_THIS()
 
   focus[id = wuw_HUN_elect_a_fascist_king]:
     ai_will_do:
@@ -744,7 +734,6 @@ focus_tree[id = wuw_hungarian_focus]:
       $CZE->can_PREV_get_wargoal_on_THIS()
       $ROM->can_PREV_get_wargoal_on_THIS()
       $YUG->can_PREV_get_wargoal_on_THIS()
-      $HUN->can_PREV_get_wargoal_on_THIS()
 
   focus[id = wuw_HUN_guarantee_religious_liberties]:
     ai_will_do:

@@ -390,16 +390,6 @@ focus_tree[id = swiss_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($SWI)
-      +modifier:
-        $ai_rivalry_modifier($SWI)
-      +modifier:
-        $ai_betrayal_modifier_vs($SWI)
-    available:
-      $SWI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = SWI_alpine_aspirations]:
     ai_will_do:

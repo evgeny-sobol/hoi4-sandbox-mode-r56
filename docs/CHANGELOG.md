@@ -1,3 +1,8 @@
+v0.4.4:
+* feat: the mod now runs on Hearts of Iron IV 1.20, so the game no longer flags it as outdated
+* fix: the Siamese and Australian focus trees carried a gate that never actually blocked anything - it asked whether a country may attack itself, which is always allowed, so the AI was steered by an empty condition and a nonsense line in the tooltip. The gates now name the real rival or are gone, and every remaining focus in both trees is weighed again
+* fix: 26 Siamese and 9 Australian focuses were never gated at all, so their AI took them at vanilla priority; they now weigh like the rest of their trees
+
 v0.4.3:
 * feat: El Salvador now plays by sandbox rules - its focus tree and its AI plans are wired in like every other country's, so the AI stops following vanilla priorities and its old plans no longer run alongside them
 * feat: the new central American military branch gets the same treatment, and Guangxi's plan is switched off in sandbox mode too

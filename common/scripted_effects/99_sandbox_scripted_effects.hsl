@@ -36,7 +36,6 @@ initialize_new_country_leader():
     if PREV->original_tag(THIS):
       PREV:
         sandbox_parent = PREV
-      break
   sandbox_log_slot = -1
   sandbox_log_other = sandbox_parent
   sandbox_log_old = 0
@@ -1030,7 +1029,6 @@ update_tyranny_gain_monthly_factor():
     for s in every_owned_state():
       if is_core_of(ROOT) and not is_controlled_by(ROOT):
         war_rate = 0.50
-        break
   stability_rate = 0
   if $compare(has_stability, "<", 0.25):
     stability_rate = 0.25

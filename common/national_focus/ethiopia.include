@@ -1025,16 +1025,6 @@ focus_tree[id = ethiopia_tree]:
         f = 1 + mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($ETH)
-      modifier:
-        $ai_rivalry_modifier($ETH)
-      modifier:
-        $ai_betrayal_modifier_vs($ETH)
-    available:
-      $ETH->can_PREV_get_wargoal_on_THIS()
 
   focus[id = ETH_seek_new_trading_partners]:
     +ai_will_do:
@@ -1042,31 +1032,11 @@ focus_tree[id = ethiopia_tree]:
         $ai_sandbox_modifier()
       modifier:
         $crossroad_modifier(2)
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($ETH)
-      modifier:
-        $ai_rivalry_modifier($ETH)
-      modifier:
-        $ai_betrayal_modifier_vs($ETH)
-    available:
-      $ETH->can_PREV_get_wargoal_on_THIS()
 
   focus[id = ETH_our_own_path]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($ETH)
-      modifier:
-        $ai_rivalry_modifier($ETH)
-      modifier:
-        $ai_betrayal_modifier_vs($ETH)
-    available:
-      $ETH->can_PREV_get_wargoal_on_THIS()
 
   focus[id = ETH_freedom_at_gunpoint]:
     +ai_will_do:

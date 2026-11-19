@@ -40,16 +40,6 @@ focus_tree[id = philippines_focus]:
         $ai_sandbox_modifier()
       modifier:
         $crossroad_modifier(2)
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($PHI)
-      modifier:
-        $ai_rivalry_modifier($PHI)
-      modifier:
-        $ai_betrayal_modifier_vs($PHI)
-    available:
-      $PHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PHI_quezon_city]:
     +ai_will_do:
@@ -98,7 +88,6 @@ focus_tree[id = philippines_focus]:
         $ai_mic_modifier()
     available:
       $JAP->can_PREV_get_wargoal_on_THIS()
-      $PHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PHI_encourage_japanese_investment]:
     +ai_will_do:
@@ -286,17 +275,7 @@ focus_tree[id = philippines_focus]:
       modifier:
         $crossroad_modifier(2)
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($PHI)
-      modifier:
-        $ai_rivalry_modifier($PHI)
-      modifier:
-        $ai_betrayal_modifier_vs($PHI)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $PHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PHI_encourage_chinese_immigration]:
     +ai_will_do:
@@ -305,17 +284,7 @@ focus_tree[id = philippines_focus]:
       modifier:
         $crossroad_modifier(2)
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($PHI)
-      modifier:
-        $ai_rivalry_modifier($PHI)
-      modifier:
-        $ai_betrayal_modifier_vs($PHI)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $PHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PHI_japanese_observers]:
     +ai_will_do:
@@ -328,16 +297,6 @@ focus_tree[id = philippines_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($PHI)
-      +modifier:
-        $ai_rivalry_modifier($PHI)
-      +modifier:
-        $ai_betrayal_modifier_vs($PHI)
-    available:
-      $PHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PHI_universal_sufferage]:
     +ai_will_do:
@@ -897,16 +856,6 @@ focus_tree[id = philippines_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($PHI)
-      modifier:
-        $ai_rivalry_modifier($PHI)
-      modifier:
-        $ai_betrayal_modifier_vs($PHI)
-    available:
-      $PHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PHI_return_of_the_exiles]:
     +ai_will_do:

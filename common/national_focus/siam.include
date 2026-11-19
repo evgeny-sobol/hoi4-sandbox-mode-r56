@@ -1040,6 +1040,11 @@ focus_tree[id = siam_focus]:
       +modifier:
         $ai_mic_modifier()
 
+  focus[id = SIA_camouflage]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
   focus[id = SIA_directorate_of_aeronautical_engineering]:
     ai_will_do:
       +modifier:
@@ -1048,6 +1053,154 @@ focus_tree[id = siam_focus]:
         $crossroad_modifier(2)
       +modifier:
         $ai_mic_modifier()
+
+  focus[id = SIA_thai_french_liaison]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SIA_expand_don_mueang]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_air_defense_of_the_kra]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SIA_the_interceptor_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_hardened_air_defenses]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_forward_strike_wings]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SIA_conserve_air_crews]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SIA_increase_air_crews]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(2)
+
+  focus[id = SIA_tropical_operations]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIA_veteran_jungle_aviators]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_long_range_strike_wings]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIA_lightweight_airframes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIA_tactical_bombing_school]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_reinforced_platings]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_destroy_the_indochinese_ports]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SIA_reverse_engineer_french_airplanes]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIA_specialized_airframe_construction]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIA_license_equipment]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $crossroad_modifier(3)
+
+  focus[id = SIA_accept_a_japanese_technical_mission]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_fighter_type_12_conversion]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_preserve_american_procurement_channels]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_hawk_iii_production_line]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = SIA_mixed_inventory_standardization]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
+
+  focus[id = SIA_womens_auxiliary_air_force]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
 
   focus[id = SIA_the_thunder_at_the_gates]:
     ai_will_do:
@@ -1123,6 +1276,13 @@ focus_tree[id = siam_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
+
+  focus[id = SIA_free_thai_air_liaison]:
+    ai_will_do:
+      +modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_mic_modifier()
 
   focus[id = SIA_american_investment_aid]:
     ai_will_do:

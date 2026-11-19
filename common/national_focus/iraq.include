@@ -438,17 +438,7 @@ focus_tree[id = iraq_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($IRQ)
-      +modifier:
-        $ai_rivalry_modifier($IRQ)
-      +modifier:
-        $ai_betrayal_modifier_vs($IRQ)
-      +modifier:
         $ai_mic_modifier()
-    available:
-      $IRQ->can_PREV_get_wargoal_on_THIS()
 
   focus[id = IRQ_protector_of_the_gulf]:
     ai_will_do:

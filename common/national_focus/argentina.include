@@ -530,7 +530,6 @@ focus_tree[id = argentine_focus_tree]:
           $ARG->is_friend_of_PREV()
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
-      $ARG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = ARG_seek_american_support]:
     ai_will_do:
@@ -555,7 +554,6 @@ focus_tree[id = argentine_focus_tree]:
           $ARG->is_friend_of_PREV()
     available:
       $USA->can_PREV_get_wargoal_on_THIS()
-      $ARG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = ARG_royal_airforce_influence]:
     ai_will_do:

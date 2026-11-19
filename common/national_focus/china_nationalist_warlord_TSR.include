@@ -358,7 +358,6 @@ focus_tree[id = china_nationalist_warlord_focus]:
           $RNG->is_friend_of_PREV()
           $HBC->is_friend_of_PREV()
     available:
-      $CHI->can_PREV_get_wargoal_on_THIS()
       $PRC->can_PREV_get_wargoal_on_THIS()
       $GXC->can_PREV_get_wargoal_on_THIS()
       $YUN->can_PREV_get_wargoal_on_THIS()

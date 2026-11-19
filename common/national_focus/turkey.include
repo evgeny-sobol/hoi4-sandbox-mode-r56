@@ -65,16 +65,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_rebuilding_our_nation]:
     ai_will_do:
@@ -117,16 +107,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    +available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_return_of_the_sultan]:
     ai_will_do:
@@ -360,16 +340,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_utilize_foreign_capital]:
     ai_will_do:
@@ -507,16 +477,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    +available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_integrate_the_fascist_council]:
     ai_will_do:
@@ -579,31 +539,11 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_the_anglo_turkish_agreement]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_bomber_schematics]:
     ai_will_do:
@@ -759,31 +699,11 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_the_clodius_agreement]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_approve_the_funkplan]:
     ai_will_do:
@@ -982,16 +902,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    +available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_scrapping_our_debts]:
     ai_will_do:
@@ -1061,16 +971,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_reaffirm_the_balkan_pact]:
     ai_will_do:
@@ -1143,16 +1043,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_preempt_bulgarian_alignment]:
     ai_will_do:
@@ -1238,16 +1128,6 @@ focus_tree[id = turkish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($TUR)
-      +modifier:
-        $ai_rivalry_modifier($TUR)
-      +modifier:
-        $ai_betrayal_modifier_vs($TUR)
-    +available:
-      $TUR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = TUR_reuniting_thrace_through_force]:
     ai_will_do:

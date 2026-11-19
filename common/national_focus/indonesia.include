@@ -885,16 +885,6 @@ focus_tree[id = indonesia_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($INS)
-      +modifier:
-        $ai_rivalry_modifier($INS)
-      +modifier:
-        $ai_betrayal_modifier_vs($INS)
-    available:
-      $INS->can_PREV_get_wargoal_on_THIS()
 
   focus[id = INS_prioritize_sugar_economy]:
     +ai_will_do:

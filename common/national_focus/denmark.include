@@ -305,16 +305,6 @@ focus_tree[id = danish_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($DEN)
-      +modifier:
-        $ai_rivalry_modifier($DEN)
-      +modifier:
-        $ai_betrayal_modifier_vs($DEN)
-    available:
-      $DEN->can_PREV_get_wargoal_on_THIS()
 
   focus[id = DEN_seek_industrial_investments]:
     +ai_will_do:
@@ -370,16 +360,6 @@ focus_tree[id = danish_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($DEN)
-      modifier:
-        $ai_rivalry_modifier($DEN)
-      modifier:
-        $ai_betrayal_modifier_vs($DEN)
-    available:
-      $DEN->can_PREV_get_wargoal_on_THIS()
 
   focus[id = DEN_secure_the_norwegian_coast]:
     +ai_will_do:

@@ -45,16 +45,6 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($RAJ)
-      +modifier:
-        $ai_rivalry_modifier($RAJ)
-      +modifier:
-        $ai_betrayal_modifier_vs($RAJ)
-    +available:
-      $RAJ->can_PREV_get_wargoal_on_THIS()
 
   focus[id = RAJ_reform_the_agricultural_system]:
     ai_will_do:
@@ -360,16 +350,6 @@ focus_tree[id = indian_focus_goe]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($RAJ)
-      +modifier:
-        $ai_rivalry_modifier($RAJ)
-      +modifier:
-        $ai_betrayal_modifier_vs($RAJ)
-    +available:
-      $RAJ->can_PREV_get_wargoal_on_THIS()
 
   focus[id = RAJ_appoint_a_c_suite]:
     ai_will_do:
@@ -1036,7 +1016,6 @@ focus_tree[id = indian_focus_goe]:
           $RAJ->is_friend_of_PREV()
           $PAK->is_friend_of_PREV()
     available:
-      $RAJ->can_PREV_get_wargoal_on_THIS()
       $PAK->can_PREV_get_wargoal_on_THIS()
 
   focus[id = RAJ_accept_russian_muhajir_money]:
@@ -1328,16 +1307,6 @@ focus_tree[id = indian_focus_goe]:
         $ai_sandbox_modifier()
       +modifier:
         $ai_civil_war_ignition_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($RAJ)
-      +modifier:
-        $ai_rivalry_modifier($RAJ)
-      +modifier:
-        $ai_betrayal_modifier_vs($RAJ)
-    available:
-      $RAJ->can_PREV_get_wargoal_on_THIS()
     completion_reward:
       $sandbox_log_cw_ignition(RAJ_give_me_blood_and_i_will_grant_you_freedom)
 

@@ -970,16 +970,6 @@ focus_tree[id = new_warlord_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($CHI)
-      +modifier:
-        $ai_rivalry_modifier($CHI)
-      +modifier:
-        $ai_betrayal_modifier_vs($CHI)
-    available:
-      $CHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = CHI_donations_for_the_welfare_of_the_people]:
     ai_will_do:
@@ -2300,16 +2290,6 @@ focus_tree[id = new_warlord_focus]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($KHM)
-      +modifier:
-        $ai_rivalry_modifier($KHM)
-      +modifier:
-        $ai_betrayal_modifier_vs($KHM)
-    available:
-      $KHM->can_PREV_get_wargoal_on_THIS()
 
   focus[id = KHM_expand_the_madrasas]:
     ai_will_do:
@@ -2479,16 +2459,6 @@ focus_tree[id = new_warlord_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $crossroad_modifier(3)
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($SIK)
-      +modifier:
-        $ai_rivalry_modifier($SIK)
-      +modifier:
-        $ai_betrayal_modifier_vs($SIK)
-    available:
-      $SIK->can_PREV_get_wargoal_on_THIS()
 
   focus[id = SIC_the_sichuan_clique]:
     ai_will_do:
@@ -2672,53 +2642,53 @@ focus_tree[id = new_warlord_focus]:
         $ai_sandbox_modifier()
 
   focus[id = XIC_force_an_end_to_the_fighting_r56]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = XIC_synthesis_with_the_communists_r56]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = XIC_return_to_nanjing_r56]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = XIC_a_new_path_for_china_r56]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
-      modifier:
+      +modifier:
         $ai_war_support_modifier()
-      modifier:
+      +modifier:
         $ai_antagonism_modifier($ROOT)
-      modifier:
+      +modifier:
         $ai_rivalry_modifier($ROOT)
-      modifier:
+      +modifier:
         $ai_betrayal_modifier_vs($ROOT)
     available:
       $ROOT->can_PREV_get_wargoal_on_THIS()
 
   focus[id = XIC_finish_the_encirclement_campaign_r56]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
-      modifier:
+      +modifier:
         $ai_war_support_modifier()
-      modifier:
+      +modifier:
         $ai_antagonism_modifier($PRC)
-      modifier:
+      +modifier:
         $ai_rivalry_modifier($PRC)
-      modifier:
+      +modifier:
         $ai_betrayal_modifier_vs($PRC)
     available:
       $PRC->can_PREV_get_wargoal_on_THIS()
 
   focus[id = XIC_consolidate_authority_in_shaanxi_r56]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = XIC_discussions_in_luochuan]:

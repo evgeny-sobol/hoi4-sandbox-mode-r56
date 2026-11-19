@@ -452,17 +452,7 @@ focus_tree[id = netherlands_focus]:
       modifier:
         $crossroad_modifier(2)
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($HOL)
-      modifier:
-        $ai_rivalry_modifier($HOL)
-      modifier:
-        $ai_betrayal_modifier_vs($HOL)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_further_reinforce_the_ports]:
     +ai_will_do:
@@ -485,17 +475,7 @@ focus_tree[id = netherlands_focus]:
       modifier:
         $crossroad_modifier(2)
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($HOL)
-      modifier:
-        $ai_rivalry_modifier($HOL)
-      modifier:
-        $ai_betrayal_modifier_vs($HOL)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_fortress_holland]:
     +ai_will_do:
@@ -695,22 +675,6 @@ focus_tree[id = netherlands_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($INS)) / 2
-        factor(antagonism)
-        is_sandbox_mode_on()
-      modifier:
-        $ai_rivalry_modifier_max($HOL, $INS)
-      modifier:
-        $ai_betrayal_modifier()
-        or:
-          $HOL->is_friend_of_PREV()
-          $INS->is_friend_of_PREV()
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
-      $INS->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_maintain_trade_neutrality]:
     +ai_will_do:
@@ -719,13 +683,12 @@ focus_tree[id = netherlands_focus]:
       modifier:
         $ai_war_support_modifier()
       modifier:
-        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($HOL) + $opinion_factor($ENG)) / 3
+        antagonism = 1 - ($opinion_factor($GER) + $opinion_factor($ENG)) / 2
         factor(antagonism)
         is_sandbox_mode_on()
       modifier:
         rivalry_vs = 0
         $rivalry_vs_into($GER)
-        $rivalry_vs_into($HOL)
         $rivalry_vs_into($ENG)
         f = 1 + rivalry_vs / 50
         factor(f)
@@ -734,33 +697,15 @@ focus_tree[id = netherlands_focus]:
         $ai_betrayal_modifier()
         or:
           $GER->is_friend_of_PREV()
-          $HOL->is_friend_of_PREV()
           $ENG->is_friend_of_PREV()
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
-      $HOL->can_PREV_get_wargoal_on_THIS()
       $ENG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_cave_to_the_british]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        antagonism = 1 - ($opinion_factor($HOL) + $opinion_factor($INS)) / 2
-        factor(antagonism)
-        is_sandbox_mode_on()
-      +modifier:
-        $ai_rivalry_modifier_max($HOL, $INS)
-      +modifier:
-        $ai_betrayal_modifier()
-        or:
-          $HOL->is_friend_of_PREV()
-          $INS->is_friend_of_PREV()
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
-      $INS->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_volk_en_vaderland]:
     +ai_will_do:
@@ -803,17 +748,7 @@ focus_tree[id = netherlands_focus]:
       modifier:
         $crossroad_modifier(2)
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($HOL)
-      modifier:
-        $ai_rivalry_modifier($HOL)
-      modifier:
-        $ai_betrayal_modifier_vs($HOL)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_assume_the_naval_burden]:
     +ai_will_do:
@@ -1151,16 +1086,6 @@ focus_tree[id = netherlands_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($HOL)
-      modifier:
-        $ai_rivalry_modifier($HOL)
-      modifier:
-        $ai_betrayal_modifier_vs($HOL)
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_unity_through_democracy]:
     +ai_will_do:
@@ -1206,15 +1131,15 @@ focus_tree[id = netherlands_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $ai_cooperation_modifier($HOL)
+        $ai_cooperation_modifier($USA)
       modifier:
         factor(0)
-        $HOL in rivals[]
+        $USA in rivals[]
         is_sandbox_mode_on()
       modifier:
         $ai_mic_modifier()
     available:
-      $not_rival_of_PREV($HOL)
+      $not_rival_of_PREV($USA)
 
   focus[id = HOL_the_new_ideal]:
     ai_will_do:
@@ -1244,16 +1169,6 @@ focus_tree[id = netherlands_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($HOL)
-      modifier:
-        $ai_rivalry_modifier($HOL)
-      modifier:
-        $ai_betrayal_modifier_vs($HOL)
-    available:
-      $HOL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HOL_join_belgo_luxembourgian_customs_union]:
     ai_will_do:
