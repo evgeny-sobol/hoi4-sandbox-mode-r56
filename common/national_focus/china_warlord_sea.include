@@ -13,16 +13,6 @@ focus_tree[id = china_warlord_sea_focus]:
         $ai_sandbox_modifier()
       +modifier:
         $crossroad_modifier(3)
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($CHI)
-      +modifier:
-        $ai_rivalry_modifier($CHI)
-      +modifier:
-        $ai_betrayal_modifier_vs($CHI)
-    available:
-      $CHI->can_PREV_get_wargoal_on_THIS()
 
   focus[id = CHI_sea_anti_opposition_campaigns]:
     ai_will_do:

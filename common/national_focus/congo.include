@@ -425,16 +425,6 @@ focus_tree[id = congo_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($COG)
-      modifier:
-        $ai_rivalry_modifier($COG)
-      modifier:
-        $ai_betrayal_modifier_vs($COG)
-    available:
-      $COG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = COG_prepare_for_offensive_action]:
     +ai_will_do:

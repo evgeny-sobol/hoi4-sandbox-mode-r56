@@ -873,7 +873,6 @@ focus_tree[id = italian_focus]:
           $ITA->is_friend_of_PREV()
           $SLV->is_friend_of_PREV()
     available:
-      $ITA->can_PREV_get_wargoal_on_THIS()
       $SLV->can_PREV_get_wargoal_on_THIS()
     +completion_reward:
       $sandbox_log_cw_ignition(ITA_royal_intervention)

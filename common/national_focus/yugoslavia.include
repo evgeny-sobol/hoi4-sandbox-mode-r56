@@ -230,16 +230,6 @@ focus_tree[id = yugoslavian_focus]:
         f = 1 + mtth:fascism_factor
         factor(f)
         is_sandbox_mode_on()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($YUG)
-      +modifier:
-        $ai_rivalry_modifier($YUG)
-      +modifier:
-        $ai_betrayal_modifier_vs($YUG)
-    available:
-      $YUG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = YUG_zara_for_axis]:
     ai_will_do:
@@ -270,38 +260,38 @@ focus_tree[id = yugoslavian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = YUG_claim_bulgaria]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
-      modifier:
+      +modifier:
         $ai_war_support_modifier()
-      modifier:
+      +modifier:
         $ai_antagonism_modifier($PREV)
-      modifier:
+      +modifier:
         $ai_rivalry_modifier($PREV)
-      modifier:
+      +modifier:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
   focus[id = YUG_subjugate_albania]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
-      modifier:
+      +modifier:
         $ai_war_support_modifier()
-      modifier:
+      +modifier:
         $ai_antagonism_modifier($PREV)
-      modifier:
+      +modifier:
         $ai_rivalry_modifier($PREV)
-      modifier:
+      +modifier:
         $ai_betrayal_modifier_vs($PREV)
     available:
       $PREV->can_PREV_get_wargoal_on_THIS()
 
   focus[id = YUG_proclaim_greater_yugoslavia]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = YUG_organize_our_alliance]:
@@ -310,8 +300,8 @@ focus_tree[id = yugoslavian_focus]:
         $ai_sandbox_modifier()
 
   focus[id = YUG_press_bulgarian_claims_on_thrace]:
-    +ai_will_do:
-      modifier:
+    ai_will_do:
+      +modifier:
         $ai_sandbox_modifier()
 
   focus[id = YUG_invite_italian_naval_experts]:
@@ -403,16 +393,6 @@ focus_tree[id = yugoslavian_focus]:
         f = 1 + mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($YUG)
-      +modifier:
-        $ai_rivalry_modifier($YUG)
-      +modifier:
-        $ai_betrayal_modifier_vs($YUG)
-    available:
-      $YUG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = YUG_form_peasant_councils]:
     ai_will_do:

@@ -621,7 +621,6 @@ focus_tree[id = persian_focus_tree]:
           $PER->is_friend_of_PREV()
           $GER->is_friend_of_PREV()
     available:
-      $PER->can_PREV_get_wargoal_on_THIS()
       $GER->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PER_increase_military_funding]:
@@ -972,16 +971,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($PER)
-      +modifier:
-        $ai_rivalry_modifier($PER)
-      +modifier:
-        $ai_betrayal_modifier_vs($PER)
-    available:
-      $PER->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PER_limit_foreign_influence]:
     ai_will_do:
@@ -1027,16 +1016,6 @@ focus_tree[id = persian_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($PER)
-      +modifier:
-        $ai_rivalry_modifier($PER)
-      +modifier:
-        $ai_betrayal_modifier_vs($PER)
-    available:
-      $PER->can_PREV_get_wargoal_on_THIS()
 
   focus[id = PER_rebuild_persepolis]:
     ai_will_do:

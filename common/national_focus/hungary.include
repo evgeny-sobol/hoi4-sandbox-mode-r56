@@ -206,7 +206,6 @@ focus_tree[id = hungarian_focus]:
       $CZE->can_PREV_get_wargoal_on_THIS()
       $ROM->can_PREV_get_wargoal_on_THIS()
       $YUG->can_PREV_get_wargoal_on_THIS()
-      $HUN->can_PREV_get_wargoal_on_THIS()
 
   focus[id = HUN_rapproachement_with_little_entente]:
     ai_will_do:

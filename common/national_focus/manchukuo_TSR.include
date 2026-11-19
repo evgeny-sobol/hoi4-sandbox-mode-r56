@@ -237,16 +237,6 @@ focus_tree[id = manchukuo_focus_tsr]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($MAN)
-      +modifier:
-        $ai_rivalry_modifier($MAN)
-      +modifier:
-        $ai_betrayal_modifier_vs($MAN)
-    +available:
-      $MAN->can_PREV_get_wargoal_on_THIS()
 
   focus[id = MAN_tsr_request_control_of_the_railways]:
     ai_will_do:

@@ -658,7 +658,6 @@ focus_tree[id = china_communist_focus_sea]:
           $RNG->is_friend_of_PREV()
           $HBC->is_friend_of_PREV()
     available:
-      $PRC->can_PREV_get_wargoal_on_THIS()
       $GXC->can_PREV_get_wargoal_on_THIS()
       $YUN->can_PREV_get_wargoal_on_THIS()
       $SHX->can_PREV_get_wargoal_on_THIS()
@@ -829,7 +828,6 @@ focus_tree[id = china_communist_focus_sea]:
           $HBC->is_friend_of_PREV()
     available:
       $CHI->can_PREV_get_wargoal_on_THIS()
-      $PRC->can_PREV_get_wargoal_on_THIS()
       $GXC->can_PREV_get_wargoal_on_THIS()
       $YUN->can_PREV_get_wargoal_on_THIS()
       $SHX->can_PREV_get_wargoal_on_THIS()

@@ -73,17 +73,7 @@ focus_tree[id = bulgarian_focus]:
         factor(f)
         is_sandbox_mode_on()
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_increase_industry_investments]:
     +ai_will_do:
@@ -486,16 +476,6 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-    available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_overthrow_the_tsar]:
     +ai_will_do:
@@ -579,32 +559,12 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_carry_the_revolution_abroad]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-    available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_liberation_of_the_proletariat]:
     +ai_will_do:
@@ -853,7 +813,6 @@ focus_tree[id = bulgarian_focus]:
         $ai_mic_modifier()
     available:
       $ENG->can_PREV_get_wargoal_on_THIS()
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_join_the_allies]:
     +ai_will_do:
@@ -960,31 +919,11 @@ focus_tree[id = bulgarian_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-    +available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_support_macedonian_organizations]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-    +available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_dissolve_the_military_union]:
     +ai_will_do:
@@ -1195,17 +1134,7 @@ focus_tree[id = bulgarian_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($BUL)
-      modifier:
-        $ai_rivalry_modifier($BUL)
-      modifier:
-        $ai_betrayal_modifier_vs($BUL)
-      modifier:
         $ai_high_tyranny_tilt()
-    available:
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_allow_far_right_organizations]:
     +ai_will_do:
@@ -1259,7 +1188,6 @@ focus_tree[id = bulgarian_focus]:
         $ai_mic_modifier()
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_cooperation_with_italy]:
     +ai_will_do:
@@ -1282,7 +1210,6 @@ focus_tree[id = bulgarian_focus]:
         $ai_mic_modifier()
     available:
       $ITA->can_PREV_get_wargoal_on_THIS()
-      $BUL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = BUL_join_the_tripartite_pact]:
     +ai_will_do:

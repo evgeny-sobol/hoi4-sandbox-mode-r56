@@ -1507,16 +1507,6 @@ focus_tree[id = chilean_focus_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($CHL)
-      +modifier:
-        $ai_rivalry_modifier($CHL)
-      +modifier:
-        $ai_betrayal_modifier_vs($CHL)
-    available:
-      $CHL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = CHL_international_loans]:
     ai_will_do:

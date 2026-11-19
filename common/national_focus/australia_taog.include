@@ -121,16 +121,6 @@ focus_tree[id = australia_taog_focus]:
         f = 1 + mtth:democracy_factor
         factor(f)
         is_sandbox_mode_on()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($AST)
-      modifier:
-        $ai_rivalry_modifier($AST)
-      modifier:
-        $ai_betrayal_modifier_vs($AST)
-    available:
-      $AST->can_PREV_get_wargoal_on_THIS()
 
   focus[id = AST_pleading_britain]:
     +ai_will_do:
@@ -482,6 +472,61 @@ focus_tree[id = australia_taog_focus]:
       +modifier:
         $ai_mic_modifier()
 
+  focus[id = AST_for_crown_and_empire]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_royal_prestige]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_reform_the_state]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_glory_of_the_fleet]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_no_king_without_kingdom]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_the_councils_advice]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_heavy_is_the_head]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
+  focus[id = AST_enemy_of_the_realm]:
+    available:
+      $JAP->can_PREV_get_wargoal_on_THIS()
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+      +modifier:
+        $ai_war_support_modifier()
+      +modifier:
+        $ai_antagonism_modifier($JAP)
+      +modifier:
+        $ai_rivalry_modifier($JAP)
+      +modifier:
+        $ai_betrayal_modifier_vs($JAP)
+
+  focus[id = AST_a_throne_upon_the_seas]:
+    +ai_will_do:
+      modifier:
+        $ai_sandbox_modifier()
+
   focus[id = AST_in_from_the_cold]:
     +ai_will_do:
       modifier:
@@ -547,16 +592,6 @@ focus_tree[id = australia_taog_focus]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($AST)
-      modifier:
-        $ai_rivalry_modifier($AST)
-      modifier:
-        $ai_betrayal_modifier_vs($AST)
-    available:
-      $AST->can_PREV_get_wargoal_on_THIS()
 
   focus[id = AST_hand_in_glove]:
     +ai_will_do:

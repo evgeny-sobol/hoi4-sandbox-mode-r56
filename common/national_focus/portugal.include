@@ -50,7 +50,6 @@ focus_tree[id = portuguese_focus]:
     available:
       $ANG->can_PREV_get_wargoal_on_THIS()
       $MZB->can_PREV_get_wargoal_on_THIS()
-      $POR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POR_haven_of_neutrality_macau]:
     +ai_will_do:
@@ -416,16 +415,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($POR)
-      modifier:
-        $ai_rivalry_modifier($POR)
-      modifier:
-        $ai_betrayal_modifier_vs($POR)
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
     completion_reward:
       $sandbox_log_cw_ignition(POR_reorganization_of_the_communist_party)
 
@@ -507,7 +496,6 @@ focus_tree[id = portuguese_focus]:
             country_exists($SPD)
             $SPD->is_friend_of_PREV()
     available:
-      $POR->can_PREV_get_wargoal_on_THIS()
       $can_get_wargoal_on($SPD)
     +completion_reward:
       $sandbox_log_cw_root(POR_support_the_spanish_republic)
@@ -552,31 +540,11 @@ focus_tree[id = portuguese_focus]:
         f = (mtth:communism_factor) / (2 * mtth:communism_factor) * 2
         factor(f)
         is_sandbox_mode_on()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($POR)
-      modifier:
-        $ai_rivalry_modifier($POR)
-      modifier:
-        $ai_betrayal_modifier_vs($POR)
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POR_latin_american_communism]:
     +ai_will_do:
       modifier:
         $ai_sandbox_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($POR)
-      modifier:
-        $ai_rivalry_modifier($POR)
-      modifier:
-        $ai_betrayal_modifier_vs($POR)
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POR_our_comrades_overseas]:
     +ai_will_do:
@@ -603,17 +571,7 @@ focus_tree[id = portuguese_focus]:
       +modifier:
         $ai_sandbox_modifier()
       +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($POR)
-      +modifier:
-        $ai_rivalry_modifier($POR)
-      +modifier:
-        $ai_betrayal_modifier_vs($POR)
-      +modifier:
         $ai_mic_modifier()
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POR_british_investment_in_mines]:
     +ai_will_do:
@@ -640,16 +598,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($POR)
-      modifier:
-        $ai_rivalry_modifier($POR)
-      modifier:
-        $ai_betrayal_modifier_vs($POR)
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
     completion_reward:
       $sandbox_log_cw_ignition(POR_allow_free_elections)
 
@@ -736,7 +684,6 @@ focus_tree[id = portuguese_focus]:
             country_exists($SPA)
             $SPA->is_friend_of_PREV()
     available:
-      $POR->can_PREV_get_wargoal_on_THIS()
       $can_get_wargoal_on($SPA)
 
   focus[id = POR_portuguese_legion]:
@@ -801,17 +748,7 @@ focus_tree[id = portuguese_focus]:
       modifier:
         $ai_sandbox_modifier()
       modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($POR)
-      modifier:
-        $ai_rivalry_modifier($POR)
-      modifier:
-        $ai_betrayal_modifier_vs($POR)
-      modifier:
         $ai_mic_modifier()
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POR_proudly_alone]:
     +ai_will_do:
@@ -848,16 +785,6 @@ focus_tree[id = portuguese_focus]:
         $ai_sandbox_modifier()
       modifier:
         $ai_civil_war_ignition_modifier()
-      modifier:
-        $ai_war_support_modifier()
-      modifier:
-        $ai_antagonism_modifier($POR)
-      modifier:
-        $ai_rivalry_modifier($POR)
-      modifier:
-        $ai_betrayal_modifier_vs($POR)
-    available:
-      $POR->can_PREV_get_wargoal_on_THIS()
     completion_reward:
       $sandbox_log_cw_ignition(POR_ditadura_militar)
 
@@ -937,7 +864,6 @@ focus_tree[id = portuguese_focus]:
           $POR->is_friend_of_PREV()
           $ENG->is_friend_of_PREV()
     available:
-      $POR->can_PREV_get_wargoal_on_THIS()
       $ENG->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POR_mapa_cor_de_rosa]:
@@ -997,7 +923,6 @@ focus_tree[id = portuguese_focus]:
             country_exists($SPB)
             $SPB->is_friend_of_PREV()
     available:
-      $POR->can_PREV_get_wargoal_on_THIS()
       $can_get_wargoal_on($SPB)
 
   focus[id = POR_assist_the_requetes]:

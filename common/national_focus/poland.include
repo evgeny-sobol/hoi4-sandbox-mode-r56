@@ -1016,16 +1016,6 @@ focus_tree[id = polish_focus]:
         f = 1 + mtth:communism_factor
         factor(f)
         is_sandbox_mode_on()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($POL)
-      +modifier:
-        $ai_rivalry_modifier($POL)
-      +modifier:
-        $ai_betrayal_modifier_vs($POL)
-    available:
-      $POL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POL_polish_peoples_republic]:
     ai_will_do:
@@ -1072,7 +1062,6 @@ focus_tree[id = polish_focus]:
           $POL->is_friend_of_PREV()
     +available:
       $can_get_wargoal_on($SOU)
-      $POL->can_PREV_get_wargoal_on_THIS()
 
   focus[id = POL_greater_polish_SSR]:
     ai_will_do:

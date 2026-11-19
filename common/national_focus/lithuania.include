@@ -82,31 +82,11 @@ focus_tree[id = lithuania_tree]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($LIT)
-      +modifier:
-        $ai_rivalry_modifier($LIT)
-      +modifier:
-        $ai_betrayal_modifier_vs($LIT)
-    +available:
-      $LIT->can_PREV_get_wargoal_on_THIS()
 
   focus[id = LIT_arrest_nazis_in_memel]:
     ai_will_do:
       +modifier:
         $ai_sandbox_modifier()
-      +modifier:
-        $ai_war_support_modifier()
-      +modifier:
-        $ai_antagonism_modifier($LIT)
-      +modifier:
-        $ai_rivalry_modifier($LIT)
-      +modifier:
-        $ai_betrayal_modifier_vs($LIT)
-    available:
-      $LIT->can_PREV_get_wargoal_on_THIS()
 
   focus[id = LIT_reminder_of_true_enemy]:
     ai_will_do:
@@ -155,7 +135,6 @@ focus_tree[id = lithuania_tree]:
           $LIT->is_friend_of_PREV()
     available:
       $can_get_wargoal_on($SOU)
-      $LIT->can_PREV_get_wargoal_on_THIS()
 
   focus[id = LIT_appease_nazis]:
     ai_will_do:
@@ -176,7 +155,6 @@ focus_tree[id = lithuania_tree]:
           $LIT->is_friend_of_PREV()
     available:
       $GER->can_PREV_get_wargoal_on_THIS()
-      $LIT->can_PREV_get_wargoal_on_THIS()
 
   focus[id = LIT_offer_military_basing]:
     ai_will_do:
